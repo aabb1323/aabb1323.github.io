@@ -4,728 +4,587 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>远航跨境 · 精准流量解决方案专家</title>
-  <meta name="description" content="专业海外广告代投服务，谷歌/FB/Tiktok精准打粉，CRM客服分流系统，专注重点领域：兼职招聘、股票投教、游戏棋牌、跨境电商独立站">
+  <meta name="description" content="专业海外广告代投服务，谷歌/FB/Tiktok精准打粉，CRM客服分流系统">
   <link rel="canonical" href="https://www.usanb.top/">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="远航跨境 · 精准流量解决方案专家">
-  <meta property="og:description" content="专业海外广告代投，精准打粉服务，TG/WhatsApp/Line多平台客服分流，白量/灰量领域专家">
-  <meta property="og:image" content="https://www.usanb.top/og-cover.jpg">
-  <meta name="twitter:card" content="summary_large_image">
-
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17416078669"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'AW-17805590782');
-  </script>
-
-  <script>
-  function gtag_report_conversion(url) {
-    var callback = function () {
-      if (typeof(url) != 'undefined') {
-        window.open(url, '_blank');
-      }
-    };
-    gtag('event', 'conversion', {
-        'send_to': 'AW-17805590782/MYF6CJ6c3rocEP6Br6pC',
-        'value': 2.0,
-        'currency': 'USD',
-        'event_callback': callback
-    });
-    return false;
-  }
   
-  function handleContactClick(event, url) {
-    event.preventDefault();
-    gtag_report_conversion(url);
-    return false;
-  }
-  </script>
-
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Noto+Sans+SC:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
+    /* ========== 极简商务白+品牌蓝 风格 ========== */
     :root {
-      --bg-deep: #0b0e1a;
-      --bg-card: #131827;
-      --surface: #1a2132;
-      --border-glow: #2a3a5c;
-      --primary: #00d4ff;
-      --primary-dark: #0099cc;
-      --accent: #ff3c6f;
-      --accent-glow: #ff3c6f40;
-      --gold: #f7c948;
-      --text-main: #eef2ff;
-      --text-muted: #94a3b8;
-      --shadow-glow: 0 8px 32px rgba(0, 212, 255, 0.12);
-      --radius-lg: 16px;
-      --radius-md: 10px;
-      --font-base: 'Inter', 'Noto Sans SC', system-ui, -apple-system, sans-serif;
+      --white: #ffffff;
+      --off-white: #f8faff;
+      --gray-50: #f9fafb;
+      --gray-100: #f3f4f6;
+      --gray-200: #e5e7eb;
+      --gray-300: #d1d5db;
+      --gray-400: #9ca3af;
+      --gray-500: #6b7280;
+      --gray-600: #4b5563;
+      --gray-700: #374151;
+      --gray-800: #1f2937;
+      --gray-900: #111827;
+      --blue-50: #eff6ff;
+      --blue-100: #dbeafe;
+      --blue-500: #3b82f6;
+      --blue-600: #2563eb;
+      --blue-700: #1d4ed8;
+      --blue-800: #1e40af;
+      --orange-500: #f97316;
+      --orange-600: #ea580c;
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -1px rgba(0,0,0,0.04);
+      --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -2px rgba(0,0,0,0.03);
+      --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.08), 0 10px 10px -5px rgba(0,0,0,0.02);
+      --radius-sm: 6px;
+      --radius-md: 12px;
+      --radius-lg: 20px;
+      --radius-xl: 28px;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html, body { height: 100%; scroll-behavior: smooth; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
-      font-family: var(--font-base);
-      background: var(--bg-deep);
-      color: var(--text-main);
+      font-family: 'Inter', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--white);
+      color: var(--gray-800);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
     }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    a { color: var(--blue-600); text-decoration: none; transition: 0.2s; }
+    a:hover { color: var(--blue-800); }
     img { max-width: 100%; display: block; height: auto; }
-    a { color: var(--primary); text-decoration: none; transition: 0.2s; }
-    a:hover { color: var(--gold); }
-    .container { width: 92%; max-width: 1280px; margin: 0 auto; }
 
-    .skip {
-      position: absolute; left: -9999px; top: auto; background: var(--primary); color: #000;
-      padding: 8px 18px; border-radius: 40px; z-index: 1000; font-weight: 700;
-    }
-    .skip:focus { left: 16px; top: 16px; }
-
-    /* header — glassmorphism */
+    /* ===== Header ===== */
     .header {
       position: sticky; top: 0; z-index: 100;
-      backdrop-filter: blur(14px) saturate(1.2);
-      background: rgba(11, 14, 26, 0.75);
-      border-bottom: 1px solid var(--border-glow);
-      box-shadow: 0 4px 30px rgba(0,0,0,0.5);
+      background: rgba(255,255,255,0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--gray-200);
+      box-shadow: var(--shadow-sm);
     }
-    .header__in {
-      display: flex; justify-content: space-between; align-items: center;
+    .header-inner {
+      display: flex; align-items: center; justify-content: space-between;
       padding: 12px 0;
     }
-    .brand { display: flex; gap: 14px; align-items: center; }
-    .brand__logo {
-      width: 48px; height: 48px; border-radius: 12px;
-      background: linear-gradient(145deg, var(--primary), var(--primary-dark));
+    .logo {
+      display: flex; align-items: center; gap: 12px;
+      font-weight: 800; font-size: 22px; color: var(--gray-900);
+    }
+    .logo-icon {
+      width: 40px; height: 40px;
+      background: var(--blue-600);
+      color: white;
+      border-radius: var(--radius-sm);
       display: flex; align-items: center; justify-content: center;
-      color: #0b0e1a; font-weight: 900; font-size: 20px;
-      box-shadow: 0 0 20px var(--primary-dark);
+      font-size: 18px;
     }
-    .brand__text strong {
-      display: block; line-height: 1.2; color: white;
-      font-size: 22px; font-weight: 800; letter-spacing: -0.3px;
-      text-shadow: 0 0 12px rgba(0, 212, 255, 0.3);
-    }
-    .brand__text span {
-      display: block; color: var(--text-muted);
-      font-size: 13px; font-weight: 500; letter-spacing: 0.3px;
+    .logo span { color: var(--blue-600); }
+    .logo small {
+      font-size: 13px; font-weight: 500; color: var(--gray-500);
+      margin-left: 4px;
     }
 
-    .nav__list { display: flex; gap: 28px; list-style: none; align-items: center; }
-    .nav__list a {
-      font-weight: 600; color: var(--text-main); padding: 6px 0;
-      position: relative; font-size: 15px; letter-spacing: 0.3px;
+    .nav { display: flex; gap: 28px; list-style: none; align-items: center; }
+    .nav a {
+      font-weight: 600; font-size: 15px; color: var(--gray-600);
+      padding: 4px 0;
+      border-bottom: 2px solid transparent;
+      transition: 0.2s;
     }
-    .nav__list a:after {
-      content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 2px;
-      background: var(--primary); transition: 0.3s; box-shadow: 0 0 8px var(--primary);
+    .nav a:hover { color: var(--blue-600); border-bottom-color: var(--blue-500); }
+    .nav a.cta-btn {
+      background: var(--blue-600); color: white; padding: 8px 20px;
+      border-radius: 40px; border: none; font-weight: 600;
     }
-    .nav__list a:hover:after, .nav__list a:focus:after { width: 100%; }
+    .nav a.cta-btn:hover { background: var(--blue-700); color: white; }
 
-    .header__actions { display: flex; gap: 14px; align-items: center; }
-    .btn {
-      display: inline-flex; align-items: center; gap: 8px; padding: 10px 22px;
-      border-radius: 40px; font-weight: 700; border: none; cursor: pointer;
-      transition: 0.25s; font-size: 14px; background: transparent;
-      border: 1px solid var(--border-glow); color: var(--text-main);
-      backdrop-filter: blur(4px);
+    .mobile-toggle {
+      display: none; background: none; border: none;
+      font-size: 24px; color: var(--gray-700); cursor: pointer;
+      padding: 4px;
     }
-    .btn--primary {
-      background: var(--primary); color: #0b0e1a; border-color: var(--primary);
-      box-shadow: 0 0 20px rgba(0, 212, 255, 0.25);
-    }
-    .btn--primary:hover { background: white; color: #0b0e1a; box-shadow: 0 0 30px var(--primary); transform: scale(1.02); }
-    .btn--outline { border-color: var(--text-muted); }
-    .btn--outline:hover { border-color: var(--primary); color: var(--primary); }
 
-    .nav-toggle { display: none; background: transparent; border: 0; width: 38px; height: 32px; position: relative; cursor: pointer; }
-    .nav-toggle span { position: absolute; left: 8px; right: 8px; height: 2px; background: var(--text-main); border-radius: 4px; transition: 0.3s; }
-    .nav-toggle span:nth-child(1){ top: 8px; } .nav-toggle span:nth-child(2){ top: 15px; } .nav-toggle span:nth-child(3){ top: 22px; }
-    .nav-toggle.open span:nth-child(1){ transform: rotate(45deg); top: 15px; } .nav-toggle.open span:nth-child(2){ opacity: 0; } .nav-toggle.open span:nth-child(3){ transform: rotate(-45deg); top: 15px; }
-
-    /* hero — futuristic grid */
+    /* ===== Hero ===== */
     .hero {
-      position: relative; min-height: 92vh; display: flex; align-items: center;
-      overflow: hidden;
-      background: radial-gradient(circle at 20% 30%, #141c30, #070a14 80%);
-      padding: 50px 0;
+      padding: 60px 0 40px;
+      background: linear-gradient(135deg, var(--blue-50) 0%, var(--white) 100%);
     }
-    .hero::before {
-      content: ''; position: absolute; inset: 0;
-      background-image: 
-        linear-gradient(rgba(0, 212, 255, 0.02) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 212, 255, 0.02) 1px, transparent 1px);
-      background-size: 40px 40px;
-      pointer-events: none;
+    .hero-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
+      align-items: center;
     }
-    .hero__in { position: relative; z-index: 2; display: flex; flex-direction: column; gap: 50px; }
-    .hero__row-top { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
-    .hero__row-bottom { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: start; }
-
-    .hero__guarantee {
-      background: rgba(255, 60, 111, 0.12);
-      border: 1px solid var(--accent);
-      padding: 10px 20px;
-      border-radius: 60px;
+    .hero-badge {
       display: inline-block;
-      font-weight: 600; font-size: 0.9rem;
-      color: var(--gold);
-      backdrop-filter: blur(4px);
-      box-shadow: 0 0 20px rgba(255, 60, 111, 0.1);
-      margin-bottom: 12px;
+      background: var(--blue-100); color: var(--blue-700);
+      font-weight: 700; font-size: 13px;
+      padding: 4px 16px; border-radius: 40px;
+      margin-bottom: 16px;
     }
-    .hero__title {
-      font-size: 3.8rem; line-height: 1.05; font-weight: 900;
-      background: linear-gradient(135deg, #ffffff 0%, var(--primary) 80%);
-      -webkit-background-clip: text; background-clip: text;
-      color: transparent;
-      letter-spacing: -1px;
-      text-shadow: 0 0 40px rgba(0, 212, 255, 0.15);
+    .hero h1 {
+      font-size: 44px; font-weight: 800; line-height: 1.1;
+      color: var(--gray-900);
+      margin-bottom: 16px;
     }
-    .hero__sub {
-      font-size: 1.5rem; font-weight: 700; color: var(--text-main);
-      background: rgba(0,212,255,0.08); padding: 8px 18px; border-radius: 40px;
-      display: inline-block; border: 1px solid var(--border-glow);
-      backdrop-filter: blur(4px);
+    .hero h1 span { color: var(--blue-600); }
+    .hero p.lead {
+      font-size: 18px; color: var(--gray-600);
+      max-width: 480px; margin-bottom: 28px;
     }
-    .hero__lead {
-      color: var(--text-muted); font-size: 1.05rem; max-width: 600px;
-      background: rgba(0,0,0,0.3); padding: 18px 22px; border-radius: var(--radius-md);
-      border-left: 3px solid var(--primary);
-      backdrop-filter: blur(4px);
+    .hero-actions {
+      display: flex; gap: 14px; flex-wrap: wrap;
+      margin-bottom: 30px;
     }
-    .hero__cta {
-      background: rgba(19, 24, 39, 0.7);
-      backdrop-filter: blur(12px);
-      padding: 24px; border-radius: var(--radius-lg);
-      border: 1px solid var(--border-glow);
-      box-shadow: var(--shadow-glow);
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--blue-600); color: white;
+      padding: 12px 30px; border-radius: 40px;
+      font-weight: 700; border: none; cursor: pointer;
+      transition: 0.2s;
     }
-    .hero__points {
-      list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
-      background: rgba(0,0,0,0.4); padding: 24px; border-radius: var(--radius-md);
-      border: 1px solid var(--border-glow);
-      backdrop-filter: blur(4px);
+    .btn-primary:hover { background: var(--blue-700); color: white; transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: transparent; color: var(--gray-700);
+      padding: 12px 28px; border-radius: 40px;
+      font-weight: 600; border: 1.5px solid var(--gray-300);
+      cursor: pointer; transition: 0.2s;
     }
-    .hero__points li {
-      display: flex; align-items: center; gap: 10px; font-weight: 600;
-      background: rgba(255,255,255,0.03); padding: 10px 14px; border-radius: 40px;
-      border: 1px solid transparent; transition: 0.2s;
+    .btn-outline:hover { border-color: var(--blue-500); color: var(--blue-600); background: var(--blue-50); }
+
+    .hero-stats {
+      display: flex; gap: 36px;
+      padding-top: 20px; border-top: 1px solid var(--gray-200);
     }
-    .hero__points li i { color: var(--primary); font-size: 1.2rem; }
-    .hero__points li:hover { border-color: var(--primary); background: rgba(0,212,255,0.04); }
+    .hero-stats div { text-align: left; }
+    .hero-stats strong { display: block; font-size: 28px; color: var(--gray-900); }
+    .hero-stats span { font-size: 14px; color: var(--gray-500); }
 
     .hero-image {
-      border-radius: var(--radius-lg); overflow: hidden;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.6);
-      border: 1px solid var(--border-glow);
-      transition: 0.4s;
-      backdrop-filter: blur(4px);
+      background: var(--blue-50);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      box-shadow: var(--shadow-xl);
     }
-    .hero-image:hover { transform: translateY(-6px); box-shadow: 0 30px 80px rgba(0, 212, 255, 0.15); }
-
-    .contact-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
-    .contact-btn {
-      display: inline-flex; align-items: center; gap: 10px; padding: 12px 28px;
-      border-radius: 60px; font-weight: 700; border: none;
-      background: rgba(255,255,255,0.05); color: white; border: 1px solid var(--border-glow);
-      backdrop-filter: blur(4px); transition: 0.25s;
-    }
-    .contact-btn.telegram { background: #0088cc; border-color: #0088cc; }
-    .contact-btn.whatsapp { background: #25D366; border-color: #25D366; }
-    .contact-btn:hover { transform: scale(1.05); box-shadow: 0 0 30px rgba(0,212,255,0.2); }
-
-    /* sections */
-    .section { padding: 80px 0; }
-    .section--alt { background: var(--bg-card); border-top: 1px solid var(--border-glow); border-bottom: 1px solid var(--border-glow); }
-    .section--dark { background: #0b0e1a; }
-
-    .title {
-      font-size: 2.8rem; font-weight: 800; letter-spacing: -0.5px;
-      background: linear-gradient(135deg, #fff 0%, var(--primary) 70%);
-      -webkit-background-clip: text; background-clip: text;
-      color: transparent;
-      margin-bottom: 12px;
-    }
-    .title--center { text-align: center; }
-    .title--light { background: linear-gradient(135deg, #fff, var(--gold)); -webkit-background-clip: text; background-clip: text; }
-    .desc {
-      color: var(--text-muted); font-size: 1.1rem; max-width: 700px; font-weight: 400;
-    }
-    .desc--center { text-align: center; margin-left: auto; margin-right: auto; }
-    .desc--light { color: #cbd5e1; }
-
-    .grid { display: grid; gap: 30px; }
-    .grid--2 { grid-template-columns: 1fr 1fr; }
-    .grid--3 { grid-template-columns: repeat(3, 1fr); }
-    .grid--4 { grid-template-columns: repeat(4, 1fr); }
-
-    .about__card {
-      background: var(--surface); padding: 30px; border-radius: var(--radius-lg);
-      border: 1px solid var(--border-glow); box-shadow: var(--shadow-glow);
-      backdrop-filter: blur(4px);
-    }
-    .badges { display: flex; flex-wrap: wrap; gap: 10px; margin: 16px 0; }
-    .badge {
-      background: rgba(0,212,255,0.08); border: 1px solid var(--border-glow);
-      padding: 6px 16px; border-radius: 40px; font-weight: 600; font-size: 13px;
-      color: var(--text-main); display: flex; align-items: center; gap: 6px;
+    .hero-image img {
+      border-radius: var(--radius-md);
+      width: 100%;
     }
 
+    /* ===== Sections ===== */
+    .section { padding: 70px 0; }
+    .section-alt { background: var(--gray-50); }
+    .section-title {
+      font-size: 32px; font-weight: 800; color: var(--gray-900);
+      margin-bottom: 12px; letter-spacing: -0.5px;
+    }
+    .section-title span { color: var(--blue-600); }
+    .section-desc {
+      font-size: 17px; color: var(--gray-500);
+      max-width: 640px; margin-bottom: 40px;
+    }
+    .text-center { text-align: center; }
+    .mx-auto { margin-left: auto; margin-right: auto; }
+
+    /* ===== Grid ===== */
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+
+    /* ===== Card ===== */
     .card {
-      background: var(--surface); padding: 28px; border-radius: var(--radius-lg);
-      border: 1px solid var(--border-glow); box-shadow: var(--shadow-glow);
-      transition: 0.25s; text-align: center; height: 100%;
-      display: flex; flex-direction: column; align-items: center;
+      background: var(--white);
+      border-radius: var(--radius-md);
+      padding: 28px 24px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--gray-100);
+      transition: 0.25s;
     }
-    .card:hover { transform: translateY(-6px); border-color: var(--primary); box-shadow: 0 12px 40px rgba(0,212,255,0.08); }
-    .card__icon {
-      font-size: 40px; width: 76px; height: 76px; border-radius: 50%;
-      background: rgba(0,212,255,0.06); display: flex; align-items: center; justify-content: center;
-      margin-bottom: 20px; color: var(--primary); border: 1px solid var(--border-glow);
+    .card:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-4px);
+      border-color: var(--blue-200);
     }
-    .card__badge {
-      background: var(--accent); color: white; padding: 4px 16px; border-radius: 60px;
-      font-size: 12px; font-weight: 700; margin-top: 12px;
+    .card-icon {
+      width: 48px; height: 48px;
+      background: var(--blue-50); color: var(--blue-600);
+      border-radius: var(--radius-sm);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; margin-bottom: 16px;
+    }
+    .card h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; color: var(--gray-800); }
+    .card p { font-size: 15px; color: var(--gray-500); line-height: 1.6; }
+    .card .tag {
+      display: inline-block;
+      background: var(--blue-100); color: var(--blue-700);
+      font-size: 12px; font-weight: 700;
+      padding: 2px 12px; border-radius: 40px;
+      margin-top: 12px;
     }
 
-    .stat {
-      background: var(--surface); border-radius: var(--radius-lg);
-      border: 1px solid var(--border-glow); padding: 28px 20px; text-align: center;
-      transition: 0.25s; box-shadow: var(--shadow-glow);
+    /* ===== Stats ===== */
+    .stat-card {
+      text-align: center;
+      background: var(--white);
+      border-radius: var(--radius-md);
+      padding: 32px 20px;
+      border: 1px solid var(--gray-200);
+      box-shadow: var(--shadow-sm);
+      transition: 0.2s;
     }
-    .stat:hover { border-color: var(--primary); transform: scale(1.02); }
-    .stat__num { font-size: 3rem; font-weight: 800; color: var(--primary); margin-bottom: 6px; }
-    .stat__lab { color: var(--text-muted); font-weight: 500; }
+    .stat-card:hover { box-shadow: var(--shadow-md); }
+    .stat-number {
+      font-size: 40px; font-weight: 800; color: var(--blue-600);
+      line-height: 1.1;
+    }
+    .stat-label { font-size: 15px; color: var(--gray-500); margin-top: 6px; }
 
-    .mock-dashboard {
-      background: var(--surface); border-radius: var(--radius-lg);
-      border: 1px solid var(--border-glow); overflow: hidden;
-      box-shadow: var(--shadow-glow);
-    }
-    .mock-header {
-      background: rgba(0,0,0,0.3); padding: 16px 20px; border-bottom: 1px solid var(--border-glow);
-      font-weight: 700; color: var(--primary);
-    }
-    .mock-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 20px; background: rgba(0,0,0,0.2); }
-    .mock-stat { background: rgba(0,0,0,0.3); padding: 14px; border-radius: var(--radius-md); text-align: center; }
-    .mock-stat .number { font-size: 2rem; font-weight: 800; color: var(--gold); }
-    .mock-stat .label { color: var(--text-muted); font-size: 13px; }
-    .realtime-row {
-      display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.04);
-      font-weight: 500; color: var(--text-main);
-    }
-    .realtime-row span:last-child { color: var(--gold); }
-
-    .svc {
-      background: var(--surface); border-radius: var(--radius-lg);
-      border: 1px solid var(--border-glow); overflow: hidden;
-      transition: 0.25s; box-shadow: var(--shadow-glow);
-      height: 100%;
-    }
-    .svc:hover { transform: translateY(-6px); border-color: var(--primary); }
-    .svc__media {
-      aspect-ratio: 16/9; background: radial-gradient(circle at 30% 30%, #1a2a40, #0b0e1a);
-      display: flex; align-items: center; justify-content: center; font-size: 3rem; color: var(--primary);
-    }
-    .svc__content { padding: 24px; }
-
-    .promise {
-      background: var(--surface); border-top: 1px solid var(--border-glow);
-      border-bottom: 1px solid var(--border-glow);
-    }
-    .promise__in {
-      display: flex; gap: 30px; align-items: center; justify-content: space-between;
-      padding: 40px 0; flex-wrap: wrap;
-    }
-    .promise h3 { font-size: 1.8rem; font-weight: 800; color: white; }
-    .promise p { color: var(--text-muted); }
-
-    .faq details {
-      background: var(--surface); padding: 20px 24px; border-radius: var(--radius-md);
-      border: 1px solid var(--border-glow); margin-bottom: 16px;
-      box-shadow: var(--shadow-glow);
-    }
-    .faq summary {
-      cursor: pointer; font-weight: 700; font-size: 1.1rem;
-      display: flex; justify-content: space-between; align-items: center;
-      list-style: none; color: var(--text-main);
-    }
-    .faq summary:after { content: '+'; font-size: 1.6rem; color: var(--primary); }
-    .faq details[open] summary:after { content: '-'; }
-    .faq__body { color: var(--text-muted); margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border-glow); }
-
-    .contact { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-    .contact__card {
-      background: var(--surface); padding: 30px; border-radius: var(--radius-lg);
-      border: 1px solid var(--border-glow); box-shadow: var(--shadow-glow);
-    }
-    .contact__card h3 { color: white; font-size: 1.8rem; font-weight: 800; margin-bottom: 20px; }
-    .contact__info { display: flex; flex-direction: column; gap: 18px; }
-    .contact__item { display: flex; align-items: center; gap: 14px; }
-    .contact__icon {
-      width: 46px; height: 46px; border-radius: 50%;
-      background: rgba(0,212,255,0.08); display: flex; align-items: center; justify-content: center;
-      color: var(--primary); font-size: 20px; border: 1px solid var(--border-glow);
-    }
-    .contact__item p { margin: 0; }
-    .contact__item a { color: var(--primary); font-weight: 600; }
-
-    .form {
-      background: var(--surface); padding: 30px; border-radius: var(--radius-lg);
-      border: 1px solid var(--border-glow); box-shadow: var(--shadow-glow);
-    }
-    .form h3 { color: white; font-size: 1.8rem; font-weight: 800; margin-bottom: 20px; }
-    .form__group { margin-bottom: 20px; }
-    .form label { display: block; margin-bottom: 6px; font-weight: 600; color: var(--text-muted); font-size: 14px; }
-    .form input, .form textarea {
-      width: 100%; padding: 12px 16px; border-radius: 40px;
-      border: 1px solid var(--border-glow); background: rgba(0,0,0,0.3); color: white;
-      outline: none; transition: 0.2s; font-family: inherit; font-size: 15px;
-    }
-    .form input:focus, .form textarea:focus { border-color: var(--primary); box-shadow: 0 0 20px rgba(0,212,255,0.08); }
-    .form__actions { margin-top: 8px; }
-    .form__status { margin-top: 16px; padding: 12px; border-radius: 40px; font-weight: 600; display: none; }
-    .form__status.success { display: block; background: rgba(0,212,255,0.08); color: var(--primary); border: 1px solid var(--primary); }
-    .form__status.error { display: block; background: rgba(255,60,111,0.08); color: var(--accent); border: 1px solid var(--accent); }
-
-    .footer {
-      background: #06080f; border-top: 1px solid var(--border-glow); padding: 40px 0 30px;
-    }
-    .footer__in {
+    /* ===== Promise Banner ===== */
+    .promise-banner {
+      background: var(--blue-600);
+      border-radius: var(--radius-lg);
+      padding: 40px 48px;
       display: flex; align-items: center; justify-content: space-between;
       flex-wrap: wrap; gap: 20px;
+      color: white;
     }
-    .footer__links { display: flex; gap: 24px; }
-    .footer__links a { color: var(--text-muted); font-weight: 500; }
-    .footer__links a:hover { color: var(--primary); }
+    .promise-banner h3 { font-size: 24px; font-weight: 700; }
+    .promise-banner p { color: rgba(255,255,255,0.85); margin-top: 4px; }
+    .promise-banner .btn-white {
+      background: white; color: var(--blue-600);
+      padding: 12px 28px; border-radius: 40px;
+      font-weight: 700; border: none; cursor: pointer;
+      transition: 0.2s;
+    }
+    .promise-banner .btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
 
-    .floating-buttons {
-      position: fixed; right: 24px; bottom: 100px; z-index: 99;
-      display: flex; flex-direction: column; gap: 16px;
+    /* ===== FAQ ===== */
+    .faq-item {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-sm);
+      margin-bottom: 12px;
+      overflow: hidden;
     }
-    .floating-btn {
+    .faq-item summary {
+      padding: 18px 24px;
+      font-weight: 700; font-size: 16px;
+      cursor: pointer; list-style: none;
+      display: flex; justify-content: space-between; align-items: center;
+      color: var(--gray-800);
+    }
+    .faq-item summary::after {
+      content: '+'; font-size: 22px; color: var(--gray-400);
+      transition: 0.2s;
+    }
+    .faq-item[open] summary::after { content: '−'; color: var(--blue-600); }
+    .faq-item .faq-body {
+      padding: 0 24px 20px;
+      color: var(--gray-600);
+      border-top: 1px solid var(--gray-100);
+      padding-top: 16px;
+    }
+
+    /* ===== Contact ===== */
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+    .contact-card {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-md);
+      padding: 32px;
+      box-shadow: var(--shadow-sm);
+    }
+    .contact-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 20px; }
+    .contact-item {
+      display: flex; align-items: center; gap: 14px;
+      margin-bottom: 16px;
+    }
+    .contact-item .icon {
+      width: 40px; height: 40px;
+      background: var(--blue-50); color: var(--blue-600);
+      border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
-      width: 58px; height: 58px; border-radius: 50%;
-      color: white; font-size: 24px; box-shadow: 0 8px 30px rgba(0,0,0,0.6);
-      transition: 0.25s; position: relative; border: 1px solid rgba(255,255,255,0.05);
+      font-size: 16px;
     }
-    .floating-btn.telegram { background: #0088cc; }
-    .floating-btn.whatsapp { background: #25D366; }
-    .floating-btn:hover { transform: scale(1.1); }
-    .floating-btn span {
-      position: absolute; right: 72px; white-space: nowrap;
-      background: rgba(0,0,0,0.8); padding: 6px 14px; border-radius: 40px;
-      color: white; font-size: 13px; opacity: 0; transition: 0.3s; pointer-events: none;
-      backdrop-filter: blur(4px);
-    }
-    .floating-btn:hover span { opacity: 1; }
+    .contact-item p { margin: 0; }
+    .contact-item .label { font-size: 13px; color: var(--gray-500); }
+    .contact-item .value { font-weight: 600; color: var(--gray-800); }
 
-    .back-to-top {
-      position: fixed; bottom: 30px; right: 30px; width: 48px; height: 48px;
-      border-radius: 50%; background: var(--surface); color: var(--primary);
+    .form-group { margin-bottom: 18px; }
+    .form-group label { display: block; font-weight: 600; font-size: 14px; margin-bottom: 4px; color: var(--gray-700); }
+    .form-group input, .form-group textarea {
+      width: 100%; padding: 10px 14px;
+      border: 1.5px solid var(--gray-200);
+      border-radius: var(--radius-sm);
+      font-size: 15px; font-family: inherit;
+      transition: 0.2s;
+    }
+    .form-group input:focus, .form-group textarea:focus {
+      outline: none; border-color: var(--blue-500);
+      box-shadow: 0 0 0 3px rgba(59,130,246,0.1);
+    }
+
+    /* ===== Footer ===== */
+    .footer {
+      background: var(--gray-900);
+      color: var(--gray-400);
+      padding: 40px 0 24px;
+      border-top: 1px solid var(--gray-800);
+    }
+    .footer-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 16px;
+    }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { color: var(--gray-400); font-weight: 500; font-size: 14px; }
+    .footer-links a:hover { color: white; }
+
+    /* ===== Floating Buttons ===== */
+    .floating {
+      position: fixed; right: 24px; bottom: 100px; z-index: 50;
+      display: flex; flex-direction: column; gap: 12px;
+    }
+    .floating a {
+      width: 52px; height: 52px; border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.5); cursor: pointer;
-      opacity: 0; visibility: hidden; transition: 0.25s; z-index: 99;
-      border: 1px solid var(--border-glow);
+      color: white; font-size: 22px;
+      box-shadow: var(--shadow-lg);
+      transition: 0.2s;
     }
-    .back-to-top.visible { opacity: 1; visibility: visible; }
+    .floating a:hover { transform: scale(1.08); }
+    .floating .tg { background: #0088cc; }
+    .floating .wa { background: #25d366; }
 
-    @media (max-width: 980px) {
-      .nav__list { display: none; position: fixed; top: 80px; left: 0; right: 0; background: var(--bg-deep); padding: 24px; flex-direction: column; border-bottom: 1px solid var(--border-glow); gap: 12px; }
-      .nav.open .nav__list { display: flex; }
-      .nav-toggle { display: block; }
-      .hero__row-top, .hero__row-bottom { grid-template-columns: 1fr; gap: 30px; }
-      .hero__right-top, .hero__right-bottom { justify-content: center; }
-      .hero__points { grid-template-columns: 1fr; }
-      .contact { grid-template-columns: 1fr; }
-      .grid--4 { grid-template-columns: repeat(2, 1fr); }
-      .floating-buttons { flex-direction: row; bottom: 20px; right: 20px; }
-      .floating-btn span { display: none; }
-      .hero__title { font-size: 2.4rem; }
+    /* ===== Responsive ===== */
+    @media (max-width: 992px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+      .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 768px) {
-      .grid--2, .grid--3, .grid--4 { grid-template-columns: 1fr; }
-      .title { font-size: 2rem; }
-      .hero__sub { font-size: 1.1rem; }
+      .nav { display: none; flex-direction: column; gap: 12px; padding: 16px 0; }
+      .nav.open { display: flex; }
+      .mobile-toggle { display: block; }
+      .hero h1 { font-size: 30px; }
+      .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+      .promise-banner { flex-direction: column; text-align: center; }
+      .hero-stats { flex-wrap: wrap; gap: 20px; }
     }
-
-    .fade-in { opacity: 0; transform: translateY(20px); animation: fadeUp 0.8s ease forwards; }
-    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
-    .delay-1 { animation-delay: 0.15s; } .delay-2 { animation-delay: 0.3s; } .delay-3 { animation-delay: 0.45s; }
-    .visually-hidden { position: absolute !important; left: -9999px !important; top: auto !important; width: 1px !important; height: 1px !important; overflow: hidden; }
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 26px; }
+      .section-title { font-size: 24px; }
+      .floating { right: 16px; bottom: 80px; }
+      .floating a { width: 44px; height: 44px; font-size: 18px; }
+    }
   </style>
 </head>
 <body>
-  <a class="skip" href="#main">跳到主要内容</a>
 
-  <div class="floating-buttons">
-    <a href="https://t.me/JY265" class="floating-btn telegram" onclick="handleContactClick(event, this.href)" aria-label="Telegram咨询">
-      <i class="fab fa-telegram"></i><span>Telegram</span>
-    </a>
-    <a href="https://wa.me/447754979958" class="floating-btn whatsapp" onclick="handleContactClick(event, this.href)" aria-label="WhatsApp咨询">
-      <i class="fab fa-whatsapp"></i><span>WhatsApp</span>
-    </a>
+  <!-- ===== Floating ===== -->
+  <div class="floating">
+    <a href="https://t.me/JY265" class="tg" target="_blank" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+    <a href="https://wa.me/447754979958" class="wa" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
   </div>
 
-  <header class="header" role="banner">
-    <div class="container header__in">
-      <div class="brand">
-        <div class="brand__logo">远航</div>
-        <div class="brand__text"><strong>远航跨境</strong><span>精准流量 · 科技驱动</span></div>
+  <!-- ===== Header ===== -->
+  <header class="header">
+    <div class="container header-inner">
+      <div class="logo">
+        <div class="logo-icon"><i class="fas fa-sailboat"></i></div>
+        <div>远航<span>跨境</span> <small>· 精准流量</small></div>
       </div>
-      <nav id="nav" class="nav" aria-label="主导航">
-        <ul id="primary-menu" class="nav__list">
-          <li><a href="#about">关于</a></li>
-          <li><a href="#services">服务</a></li>
-          <li><a href="#advantages">优势</a></li>
-          <li><a href="#stats">数据</a></li>
-          <li><a href="#realtime-data">实时</a></li>
-          <li><a href="#contact">联系</a></li>
-        </ul>
+      <nav class="nav" id="mainNav">
+        <a href="#about">关于</a>
+        <a href="#services">服务</a>
+        <a href="#advantages">优势</a>
+        <a href="#stats">数据</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact" class="cta-btn">立即咨询</a>
       </nav>
-      <div class="header__actions">
-        <a class="btn btn--primary" href="https://t.me/JY265" target="_blank" onclick="handleContactClick(event, this.href)">
-          <i class="fab fa-telegram"></i> 咨询
-        </a>
-        <button id="navToggle" class="nav-toggle" aria-label="切换主导航">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="菜单"><i class="fas fa-bars"></i></button>
     </div>
   </header>
 
-  <section class="hero" aria-label="横幅">
-    <div class="container hero__in">
-      <div class="hero__row-top">
-        <div class="hero__left-top fade-in">
-          <div class="hero__guarantee"><i class="fas fa-bolt" style="margin-right:8px;"></i> 全球精准营销 · 新客免费体验 · 24h响应</div>
-          <h1 class="hero__title">精准引流<br>精准获客</h1>
-          <h2 class="hero__sub"><i class="fas fa-rocket" style="margin-right:10px;"></i>广告引流获客专家 · 专业可靠</h2>
-          <p class="hero__lead">专为跨境电商、兼职招聘、休闲游戏、小说短剧、币圈股粉等行业提供谷歌、FB、Tiktok精准引流和代投，CRM客服分流，真实有效粉，高转化。</p>
+  <!-- ===== Hero ===== -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="hero-badge"><i class="fas fa-bolt" style="margin-right:6px;"></i> 全球精准营销 · 新客免费体验</div>
+        <h1>精准引流 <br><span>精准获客</span></h1>
+        <p class="lead">专为跨境电商、兼职招聘、游戏棋牌、小说短剧、币圈股粉等行业提供谷歌、FB、Tiktok精准引流和代投，CRM客服分流，真实有效粉，高转化。</p>
+        <div class="hero-actions">
+          <a href="https://t.me/JY265" class="btn-primary" target="_blank"><i class="fab fa-telegram"></i> Telegram 询价</a>
+          <a href="https://wa.me/447754979958" class="btn-outline" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp 咨询</a>
         </div>
-        <div class="hero__right-top fade-in delay-1">
-          <div class="hero-image">
-            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="全球数字营销" width="600" height="400" loading="eager">
-          </div>
+        <div class="hero-stats">
+          <div><strong>3500w+</strong><span>广告消耗</span></div>
+          <div><strong>200+</strong><span>合作客户</span></div>
+          <div><strong>93%</strong><span>复购率</span></div>
         </div>
       </div>
-      <div class="hero__row-bottom">
-        <div class="hero__left-bottom fade-in delay-2">
-          <div class="hero__cta">
-            <p style="color:var(--gold);font-weight:700;">🔥 老板们，点下方按钮联系（优先TG）<br>一对一 · 按效果付费 · 新客免费试用</p>
-            <div class="contact-buttons">
-              <a href="https://t.me/JY265" class="contact-btn telegram" onclick="handleContactClick(event, this.href)"><i class="fab fa-telegram"></i> Telegram询价</a>
-              <a href="https://wa.me/447754979958" class="contact-btn whatsapp" onclick="handleContactClick(event, this.href)"><i class="fab fa-whatsapp"></i> WhatsApp询价</a>
-            </div>
-            <div style="margin-top:12px;display:flex;align-items:center;gap:10px;color:var(--text-muted);">
-              <i class="fas fa-circle" style="color:var(--primary);font-size:10px;"></i>
-              <span>真人客服在线 · 平均30秒响应</span>
-            </div>
-          </div>
-        </div>
-        <div class="hero__right-bottom fade-in delay-3">
-          <ul class="hero__points">
-            <li><i class="fas fa-bullseye"></i> 精准投放 · 实时调改</li>
-            <li><i class="fas fa-handshake"></i> 互惠互利 · 高回复率</li>
-            <li><i class="fas fa-users"></i> 多平台客服分流</li>
-            <li><i class="fas fa-chart-line"></i> 实时数据 · 精准投放</li>
+      <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="全球数字营销" loading="eager">
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== About ===== -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="grid-2">
+        <div>
+          <h2 class="section-title">关于 <span>远航跨境</span></h2>
+          <p class="section-desc">专注各领域广告投放，拥有多年海外广告投放经验，深谙各平台规则与用户行为特征，为客户提供高效精准的广告投放解决方案。</p>
+          <ul style="list-style:none; display:flex; flex-direction:column; gap:12px; margin-top:12px;">
+            <li style="display:flex; align-items:center; gap:10px;"><i class="fas fa-check-circle" style="color:var(--blue-600);"></i> 5年+ 谷歌/FB广告投放经验</li>
+            <li style="display:flex; align-items:center; gap:10px;"><i class="fas fa-check-circle" style="color:var(--blue-600);"></i> 服务跨境电商、招聘、投资教育等</li>
+            <li style="display:flex; align-items:center; gap:10px;"><i class="fas fa-check-circle" style="color:var(--blue-600);"></i> 数据驱动，持续优化，高转化率</li>
           </ul>
+          <a href="https://t.me/JY265" class="btn-primary" style="margin-top:24px;" target="_blank"><i class="fab fa-telegram"></i> 联系专家</a>
+        </div>
+        <div class="card" style="background:var(--blue-50); border-color:var(--blue-200);">
+          <h3 style="font-size:20px; color:var(--gray-800);">专注获客领域</h3>
+          <div style="display:flex; flex-wrap:wrap; gap:8px; margin:16px 0;">
+            <span style="background:white; padding:4px 16px; border-radius:40px; font-weight:600; font-size:13px; border:1px solid var(--gray-200);"><i class="fas fa-ad" style="margin-right:4px;"></i>兼职招聘</span>
+            <span style="background:white; padding:4px 16px; border-radius:40px; font-weight:600; font-size:13px; border:1px solid var(--gray-200);"><i class="fas fa-chart-line" style="margin-right:4px;"></i>财富教育</span>
+            <span style="background:white; padding:4px 16px; border-radius:40px; font-weight:600; font-size:13px; border:1px solid var(--gray-200);"><i class="fas fa-coins" style="margin-right:4px;"></i>小说短剧</span>
+            <span style="background:white; padding:4px 16px; border-radius:40px; font-weight:600; font-size:13px; border:1px solid var(--gray-200);"><i class="fas fa-gamepad" style="margin-right:4px;"></i>游戏棋牌</span>
+            <span style="background:white; padding:4px 16px; border-radius:40px; font-weight:600; font-size:13px; border:1px solid var(--gray-200);"><i class="fas fa-store" style="margin-right:4px;"></i>跨境电商</span>
+          </div>
+          <p style="color:var(--gray-600); font-size:14px;">专业广告代投，严格遵守各平台广告政策，合规可持续。</p>
         </div>
       </div>
     </div>
   </section>
 
-  <main id="main">
-    <section id="about" class="section section--alt">
-      <div class="container grid grid--2">
-        <div class="fade-in">
-          <h2 class="title">关于我们</h2>
-          <p class="desc">远航跨境专注各领域广告投放，拥有多年海外广告投放经验，深谙各平台规则与用户行为特征，为客户提供高效精准的广告投放解决方案。</p>
-          <ul style="list-style:none;margin-top:20px;display:flex;flex-direction:column;gap:12px;">
-            <li style="display:flex;align-items:center;gap:10px;"><i class="fas fa-check-circle" style="color:var(--primary);"></i> 5年+ 谷歌/FB广告投放经验</li>
-            <li style="display:flex;align-items:center;gap:10px;"><i class="fas fa-check-circle" style="color:var(--primary);"></i> 服务跨境电商、招聘、投资教育、小说游戏等</li>
-            <li style="display:flex;align-items:center;gap:10px;"><i class="fas fa-check-circle" style="color:var(--primary);"></i> 与各大媒体平台深度合作，账户稳定</li>
-            <li style="display:flex;align-items:center;gap:10px;"><i class="fas fa-check-circle" style="color:var(--primary);"></i> 数据驱动，持续优化，高转化率</li>
-          </ul>
-          <div style="margin-top:30px;">
-            <a class="btn btn--primary" href="https://t.me/JY265" target="_blank" onclick="handleContactClick(event, this.href)"><i class="fab fa-telegram"></i> 联系专家</a>
-          </div>
-        </div>
-        <aside class="about__card fade-in delay-1">
-          <h3 style="color:white;">专注获客领域</h3>
-          <div class="badges">
-            <span class="badge"><i class="fas fa-ad"></i> 兼职招聘</span>
-            <span class="badge"><i class="fas fa-chart-line"></i> 财富教育</span>
-            <span class="badge"><i class="fas fa-coins"></i> 小说短剧</span>
-            <span class="badge"><i class="fas fa-gamepad"></i> 游戏棋牌</span>
-            <span class="badge"><i class="fas fa-store"></i> 跨境电商</span>
-            <span class="badge"><i class="fas fa-heart"></i> 交友APP</span>
-          </div>
-          <p style="margin-top:20px;color:var(--text-muted);">专业广告代投，严格遵守各平台广告政策，合规可持续。</p>
-        </aside>
+  <!-- ===== Services ===== -->
+  <section id="services" class="section section-alt">
+    <div class="container">
+      <h2 class="section-title text-center">服务 <span>内容</span></h2>
+      <p class="section-desc text-center mx-auto">全方位量产广告解决方案，高效获客与转化</p>
+      <div class="grid-4">
+        <div class="card"><div class="card-icon"><i class="fab fa-google"></i></div><h3>谷歌广告代投</h3><p>搜索、展示、YouTube全覆盖，精准触达</p></div>
+        <div class="card"><div class="card-icon"><i class="fab fa-facebook"></i></div><h3>FB/IG广告代投</h3><p>全渠道覆盖，精准人群定向</p></div>
+        <div class="card"><div class="card-icon"><i class="fab fa-tiktok"></i></div><h3>TikTok广告代投</h3><p>短视频创意，年轻用户精准触达</p></div>
+        <div class="card"><div class="card-icon"><i class="fas fa-headset"></i></div><h3>CRM客服分流</h3><p>TG/WhatsApp/Line多平台结粉，工单计数</p></div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="realtime-data" class="section" style="background:var(--bg-deep);">
-      <div class="container">
-        <h2 class="title t-center">📊 行业大盘每日趋势</h2>
-        <p class="desc t-center desc--center">聚焦核心垂直赛道，真实效果与转化数据指导，每一份消耗都有迹可循</p>
-        <div class="grid grid--2" style="margin-top:40px;">
-          <div class="mock-dashboard fade-in">
-            <div class="mock-header"><i class="fas fa-chart-line"></i> 远航流量管理系统 · 综合看板</div>
-            <div class="mock-stats">
-              <div class="mock-stat"><div class="number">6,847</div><div class="label">今日留存意向数</div></div>
-              <div class="mock-stat"><div class="number">89<span style="font-size:1rem;">%</span></div><div class="label">有效率（回复率）</div></div>
-            </div>
-            <div style="padding:0 20px 20px;">
-              <div class="realtime-row"><span>🔥 海外兼职招聘项目A</span><span style="color:var(--gold);">+2,341</span><span>回复率 95%</span></div>
-              <div class="realtime-row"><span>📈 财富投资教育项目B</span><span style="color:var(--gold);">+1,523</span><span>回复率 87%</span></div>
-              <div class="realtime-row"><span>🎮 休闲竞技游戏项目C</span><span style="color:var(--gold);">+1,892</span><span>回复率 91%</span></div>
-              <div class="realtime-row"><span>🛒 社群交友拓展项目D</span><span style="color:var(--gold);">+3,190</span><span>回复率 85%</span></div>
-            </div>
-          </div>
-          <div class="mock-dashboard fade-in delay-1" style="border-color:var(--accent);">
-            <div class="mock-header" style="border-bottom-color:var(--accent);color:var(--accent);"><i class="fas fa-trophy"></i> 本周TOP高增长项目</div>
-            <div style="padding:20px;">
-              <div class="realtime-row"><span>🏆 某跨境招聘需求方</span><span>15.2w粉</span><span>成本-35%</span></div>
-              <div class="realtime-row"><span>🥈 某股票基金机构</span><span>8.7w线索</span><span>ROI +210%</span></div>
-              <div class="realtime-row"><span>🥉 某休闲棋牌游戏</span><span>6.3w下载</span><span>稳健运行</span></div>
-            </div>
-            <div style="background:rgba(0,0,0,0.4);padding:14px;text-align:center;border-top:1px solid var(--border-glow);">
-              <span style="color:var(--gold);">⚡ 数据导向 · 拒绝虚假 · 深度策略 ⚡</span>
-            </div>
-          </div>
-        </div>
-        <div style="text-align:center;margin-top:30px;">
-          <div style="background:rgba(255,60,111,0.08);display:inline-block;padding:12px 28px;border-radius:60px;border:1px solid var(--accent);font-weight:700;color:var(--gold);">
-            📍 日均稳定产出 8000+ · 最大承接 10w+/日 · 大客户优先
-          </div>
-        </div>
+  <!-- ===== Advantages ===== -->
+  <section id="advantages" class="section">
+    <div class="container">
+      <h2 class="section-title text-center">为什么选 <span>远航跨境</span></h2>
+      <p class="section-desc text-center mx-auto">长效稳健 · 卓越成效</p>
+      <div class="grid-4">
+        <div class="card"><div class="card-icon"><i class="fas fa-database"></i></div><h3>真实海量粉源</h3><p>直连海外源头，垂直行业精准粉</p><span class="tag">量大价优</span></div>
+        <div class="card"><div class="card-icon"><i class="fas fa-hand-holding-usd"></i></div><h3>零风险合作</h3><p>按效果付费，新客免费试用</p><span class="tag">免费体验</span></div>
+        <div class="card"><div class="card-icon"><i class="fas fa-bolt"></i></div><h3>24h极速响应</h3><p>专属1对1，平均30秒响应</p><span class="tag">服务快人一步</span></div>
+        <div class="card"><div class="card-icon"><i class="fas fa-chart-pie"></i></div><h3>数据全透明</h3><p>实时后台查看，消耗/进粉/成本一目了然</p><span class="tag">拒绝暗箱</span></div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="services" class="section section--alt">
-      <div class="container">
-        <h2 class="title t-center">服务内容</h2>
-        <p class="desc t-center desc--center">全方位量产广告解决方案，高效获客与转化</p>
-        <div class="grid grid--4 service-cards">
-          <article class="svc fade-in"><div class="svc__media"><i class="fab fa-google"></i></div><div class="svc__content"><h3 style="color:white;">谷歌广告代投</h3><p style="color:var(--text-muted);">搜索、展示、YouTube全覆盖，精准触达。</p></div></article>
-          <article class="svc fade-in delay-1"><div class="svc__media"><i class="fab fa-facebook"></i></div><div class="svc__content"><h3 style="color:white;">FB/IG广告代投</h3><p style="color:var(--text-muted);">全渠道覆盖，精准人群定向，效果最大化。</p></div></article>
-          <article class="svc fade-in delay-2"><div class="svc__media"><i class="fab fa-tiktok"></i></div><div class="svc__content"><h3 style="color:white;">TikTok广告代投</h3><p style="color:var(--text-muted);">短视频创意，年轻用户精准触达，病毒传播。</p></div></article>
-          <article class="svc fade-in delay-3"><div class="svc__media"><i class="fas fa-headset"></i></div><div class="svc__content"><h3 style="color:white;">CRM客服分流</h3><p style="color:var(--text-muted);">TG/WhatsApp/Line多平台结粉，工单计数。</p></div></article>
-        </div>
+  <!-- ===== Stats ===== -->
+  <section id="stats" class="section section-alt">
+    <div class="container">
+      <h2 class="section-title text-center">用 <span>数据</span> 说话</h2>
+      <p class="section-desc text-center mx-auto">基于真实统计的服务数据</p>
+      <div class="grid-4">
+        <div class="stat-card"><div class="stat-number">3500w+</div><div class="stat-label">美元广告消耗</div></div>
+        <div class="stat-card"><div class="stat-number">200+</div><div class="stat-label">长期合作客户</div></div>
+        <div class="stat-card"><div class="stat-number">93%</div><div class="stat-label">客户复购率</div></div>
+        <div class="stat-card"><div class="stat-number">5000+</div><div class="stat-label">日均稳定出粉量</div></div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="advantages" class="section">
-      <div class="container">
-        <h2 class="title t-center">为什么选远航跨境？<span style="font-size:1.4rem;color:var(--text-muted);">—— 长效稳健 · 卓越成效</span></h2>
-        <div class="grid grid--4 cards">
-          <article class="card fade-in"><div class="card__icon"><i class="fas fa-database"></i></div><h3 style="color:white;">真实海量粉源</h3><p style="color:var(--text-muted);">直连海外源头，垂直行业精准粉，杜绝假量。</p><div class="card__badge">量大价优</div></article>
-          <article class="card fade-in delay-1"><div class="card__icon"><i class="fas fa-hand-holding-usd"></i></div><h3 style="color:white;">零风险合作</h3><p style="color:var(--text-muted);">支持平台担保、按效果付费，新客免费试用。</p><div class="card__badge">免费体验</div></article>
-          <article class="card fade-in delay-2"><div class="card__icon"><i class="fas fa-bolt"></i></div><h3 style="color:white;">24h极速响应</h3><p style="color:var(--text-muted);">专属1对1，平均30秒响应，问题2h解决。</p><div class="card__badge">服务快人一步</div></article>
-          <article class="card fade-in delay-3"><div class="card__icon"><i class="fas fa-chart-pie"></i></div><h3 style="color:white;">数据全透明</h3><p style="color:var(--text-muted);">实时后台查看，消耗/进粉/成本一目了然。</p><div class="card__badge">拒绝暗箱</div></article>
-        </div>
+  <!-- ===== Promise Banner ===== -->
+  <section style="padding: 24px 0 70px;">
+    <div class="container">
+      <div class="promise-banner">
+        <div><h3>服务承诺 · 精准获客 · 互惠互利</h3><p>专业态度，精准引流，高回复率，实现多方共赢</p></div>
+        <a href="#contact" class="btn-white"><i class="fas fa-clipboard-list" style="margin-right:8px;"></i> 获取报价</a>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="stats" class="section section--dark">
-      <div class="container">
-        <h2 class="title t-center title--light">用数据说话</h2>
-        <p class="desc t-center desc--center desc--light">基于真实统计的服务数据</p>
-        <div class="grid grid--4 stats">
-          <div class="stat fade-in"><div class="stat__num" data-count="3500">0</div><div class="stat__lab">万+美元广告消耗</div></div>
-          <div class="stat fade-in delay-1"><div class="stat__num" data-count="200">0</div><div class="stat__lab">家+长期合作客户</div></div>
-          <div class="stat fade-in delay-2"><div class="stat__num" data-count="93">0</div><div class="stat__lab">%客户复购率</div></div>
-          <div class="stat fade-in delay-3"><div class="stat__num" data-count="5000">0</div><div class="stat__lab">日均稳定出粉量</div></div>
-        </div>
+  <!-- ===== FAQ ===== -->
+  <section id="faq" class="section section-alt">
+    <div class="container">
+      <h2 class="section-title text-center">常见 <span>问题</span></h2>
+      <div style="max-width: 720px; margin: 0 auto;">
+        <details class="faq-item"><summary>广告投放需要哪些材料？多久上线？</summary><div class="faq-body">广告内容、用户画像、预算等。一般1-3个工作日内完成账户设置并投放。</div></details>
+        <details class="faq-item"><summary>支持哪些支付方式？如何结算？</summary><div class="faq-body">万里汇、Alipay、微信等。灵活按项目、月度服务费或消耗比例合作。</div></details>
+        <details class="faq-item"><summary>投放后多久能看到效果？</summary><div class="faq-body">通常1-3天可初步看到趋势，持续优化后逐步提升。</div></details>
+        <details class="faq-item"><summary>遇到账户问题怎么办？</summary><div class="faq-body">提供账户风控指导与问题解决，多年经验保障账户稳定。</div></details>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="promise">
-      <div class="container promise__in">
-        <div><h3>服务承诺 · 精准获客 · 互惠互利</h3><p>专业态度，精准引流，高回复率，实现多方共赢。</p></div>
-        <div><a class="btn btn--primary" href="#contact" onclick="handleContactClick(event, 'https://t.me/JY265')"><i class="fas fa-clipboard-list"></i> 获取报价</a></div>
+  <!-- ===== Contact ===== -->
+  <section id="contact" class="section">
+    <div class="container contact-grid">
+      <div class="contact-card">
+        <h3><i class="fas fa-phone" style="color:var(--blue-600); margin-right:10px;"></i> 联系我们</h3>
+        <div class="contact-item"><div class="icon"><i class="fab fa-telegram"></i></div><div><p class="label">Telegram (优先)</p><p class="value"><a href="https://t.me/JY265" target="_blank">t.me/JY265</a></p></div></div>
+        <div class="contact-item"><div class="icon"><i class="fab fa-whatsapp"></i></div><div><p class="label">WhatsApp</p><p class="value"><a href="https://wa.me/447754979958" target="_blank">+44 7754 979958</a></p></div></div>
+        <div class="contact-item"><div class="icon"><i class="fas fa-envelope"></i></div><div><p class="label">邮箱 (备用)</p><p class="value"><a href="mailto:service@sanmy.top">service@sanmy.top</a></p></div></div>
+        <div class="contact-item"><div class="icon"><i class="fas fa-clock"></i></div><div><p class="label">服务时间</p><p class="value">每天 14:00 - 24:00 (北京时间)</p></div></div>
+        <div style="margin-top:16px; padding:12px; background:var(--blue-50); border-radius:40px; text-align:center; font-weight:700; color:var(--blue-700); border:1px solid var(--blue-200);">⚡ 24h内必回复 · 紧急需求可TG语音 ⚡</div>
       </div>
-    </section>
 
-    <section id="faq" class="section section--alt">
-      <div class="container">
-        <h2 class="title t-center">常见问题</h2>
-        <div class="faq">
-          <details><summary>广告投放需要哪些材料？多久上线？</summary><div class="faq__body">广告内容、用户画像、预算等。一般1-3个工作日内完成账户设置并投放。</div></details>
-          <details><summary>支持哪些支付方式？如何结算？</summary><div class="faq__body">万里汇、Alipay、微信等。灵活按项目、月度服务费或消耗比例合作。</div></details>
-          <details><summary>投放后多久能看到效果？</summary><div class="faq__body">通常1-3天可初步看到趋势，持续优化后逐步提升。</div></details>
-          <details><summary>遇到账户问题怎么办？</summary><div class="faq__body">提供账户风控指导与问题解决，多年经验保障账户稳定。</div></details>
-        </div>
-      </div>
-    </section>
+      <form id="contactForm" class="contact-card" style="box-shadow:var(--shadow-sm);" novalidate>
+        <h3><i class="fas fa-paper-plane" style="color:var(--blue-600); margin-right:10px;"></i> 发送咨询</h3>
+        <div class="form-group"><label for="f-name">称呼 <span style="color:var(--blue-600);">*</span></label><input id="f-name" name="name" type="text" required placeholder="例：张总 / 王老板"></div>
+        <div class="form-group"><label for="f-telegram">Telegram账号</label><input id="f-telegram" name="telegram" type="text" placeholder="@username 或 手机号"></div>
+        <div class="form-group"><label for="f-whatsapp">WhatsApp号码</label><input id="f-whatsapp" name="whatsapp" type="text" placeholder="区号+号码"></div>
+        <div class="form-group"><label for="f-needs">需求描述 <span style="color:var(--blue-600);">*</span></label><textarea id="f-needs" name="needs" rows="3" required placeholder="请简要描述您的打粉/代投需求"></textarea></div>
+        <button type="submit" class="btn-primary" style="width:100%; justify-content:center;"><i class="fas fa-paper-plane"></i> 提交咨询</button>
+        <p id="formStatus" style="margin-top:12px; font-weight:600; font-size:14px; display:none;"></p>
+      </form>
+    </div>
+  </section>
 
-    <section id="contact" class="section">
-      <div class="container contact">
-        <div class="contact__card fade-in">
-          <h3>📞 联系我们</h3>
-          <div class="contact__info">
-            <div class="contact__item"><div class="contact__icon"><i class="fab fa-telegram"></i></div><div><p><strong>Telegram (优先)</strong></p><p><a href="https://t.me/JY265" target="_blank" onclick="handleContactClick(event, this.href)">t.me/JY265</a></p></div></div>
-            <div class="contact__item"><div class="contact__icon"><i class="fab fa-whatsapp"></i></div><div><p><strong>WhatsApp</strong></p><p><a href="https://wa.me/447754979958" target="_blank" onclick="handleContactClick(event, this.href)">+44 7754 979958</a></p></div></div>
-            <div class="contact__item"><div class="contact__icon"><i class="fas fa-envelope"></i></div><div><p><strong>邮箱 (备用)</strong></p><p><a href="mailto:service@sanmy.top">service@sanmy.top</a></p></div></div>
-            <div class="contact__item"><div class="contact__icon"><i class="fas fa-clock"></i></div><div><p><strong>服务时间</strong></p><p>每天 14:00 - 24:00 (北京时间)</p></div></div>
-          </div>
-          <div style="margin-top:20px;padding:14px;background:rgba(255,60,111,0.08);border-radius:40px;border:1px solid var(--accent);text-align:center;font-weight:700;color:var(--gold);">
-            ⚡ 24h内必回复 · 紧急需求可TG语音 ⚡
-          </div>
-        </div>
-
-        <form id="contactForm" class="form fade-in delay-1" novalidate>
-          <h3>✉️ 发送咨询</h3>
-          <div class="form__group"><label for="f-name">称呼 <span style="color:var(--accent);">*</span></label><input id="f-name" name="name" type="text" required minlength="2" placeholder="例：张总 / 王老板"></div>
-          <div class="form__group"><label for="f-telegram">Telegram账号</label><input id="f-telegram" name="telegram" type="text" placeholder="@username 或 手机号"></div>
-          <div class="form__group"><label for="f-whatsapp">WhatsApp号码</label><input id="f-whatsapp" name="whatsapp" type="text" placeholder="区号+号码"></div>
-          <div class="form__group"><label for="f-needs">需求描述 <span style="color:var(--accent);">*</span></label><textarea id="f-needs" name="needs" rows="4" required minlength="10" placeholder="请简要描述您的打粉/代投需求（行业、目标用户、预算、日需求量等）"></textarea></div>
-          <input type="text" name="website" class="visually-hidden" tabindex="-1" autocomplete="off">
-          <div class="form__actions"><button class="btn btn--primary" type="submit"><i class="fas fa-paper-plane"></i> 提交咨询</button></div>
-          <p id="formStatus" class="form__status" aria-live="polite"></p>
-        </form>
-      </div>
-    </section>
-  </main>
-
+  <!-- ===== Footer ===== -->
   <footer class="footer">
-    <div class="container footer__in">
-      <div>© <span id="year"></span> 远航跨境 · 科技驱动精准流量</div>
-      <div class="footer__links">
+    <div class="container footer-inner">
+      <div>© 2026 远航跨境 · 科技驱动精准流量</div>
+      <div class="footer-links">
         <a href="privacy.html">隐私政策</a>
         <a href="userterms.html">服务条款</a>
         <a href="about.html">关于我们</a>
       </div>
     </div>
   </footer>
-  <div class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></div>
 
   <script>
-    function handleContactClick(e, url) { e.preventDefault(); gtag_report_conversion(url); return false; }
-    (function(){
-      var $ = (s,r)=>(r||document).querySelector(s), $$=(s,r)=>Array.from((r||document).querySelectorAll(s));
-      var nav=$("#nav"), toggle=$("#navToggle");
-      toggle?.addEventListener("click",()=>{ nav.classList.toggle("open"); toggle.classList.toggle("open"); document.body.style.overflow = nav.classList.contains("open") ? "hidden" : ""; });
-      document.addEventListener("keydown",(e)=>{ if(e.key==="Escape" && nav?.classList.contains("open")){ nav.classList.remove("open"); toggle?.classList.remove("open"); document.body.style.overflow=""; toggle?.focus(); } });
-      var back=$("#backToTop");
-      window.addEventListener("scroll",()=>{ back.classList.toggle("visible", window.pageYOffset>300); });
-      back?.addEventListener("click",()=>window.scrollTo({top:0,behavior:"smooth"}));
-      $("#year") && ($("#year").textContent=new Date().getFullYear());
-      function inViewport(el){ var r=el.getBoundingClientRect(); return r.top<window.innerHeight-60 && r.bottom>0; }
-      var counters=$$(".stat__num"), fired=false;
-      function runCounters(){ if(fired||!counters.length||!inViewport(counters[0])) return; fired=true; counters.forEach(el=>{ let end=parseInt(el.dataset.count)||0; let start=0,dur=1500,t0; function step(ts){ if(!t0) t0=ts; let p=Math.min(1,(ts-t0)/dur); let val=Math.floor(start+(end-start)*p); el.textContent=val.toLocaleString(); if(p<1) requestAnimationFrame(step); } requestAnimationFrame(step); }); }
-      window.addEventListener("scroll",runCounters,{passive:true}); window.addEventListener("load",runCounters);
-      var form=$("#contactForm"), status=$("#formStatus");
-      form?.addEventListener("submit",(e)=>{ e.preventDefault(); let name=$("#f-name")?.value.trim(), needs=$("#f-needs")?.value.trim(); if(!name||!needs){ status.textContent="请填写称呼和需求描述"; status.className="form__status error"; return; } let btn=form.querySelector('button[type="submit"]'), orig=btn.innerHTML; btn.disabled=true; btn.innerHTML='<i class="fas fa-spinner fa-spin"></i> 提交中...'; setTimeout(()=>{ btn.disabled=false; btn.innerHTML=orig; form.reset(); status.textContent="✓ 已收到需求，客服将在30分钟内通过TG/WhatsApp联系您！"; status.className="form__status success"; },1200); });
-    })();
+    // Mobile toggle
+    document.getElementById('mobileToggle').addEventListener('click', function() {
+      document.getElementById('mainNav').classList.toggle('open');
+    });
+
+    // Form
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('f-name').value.trim();
+      const needs = document.getElementById('f-needs').value.trim();
+      const status = document.getElementById('formStatus');
+      if (!name || !needs) {
+        status.style.display = 'block';
+        status.style.color = '#dc2626';
+        status.textContent = '请填写称呼和需求描述';
+        return;
+      }
+      status.style.display = 'block';
+      status.style.color = '#16a34a';
+      status.textContent = '✅ 已收到需求，客服将在30分钟内联系您！';
+      this.reset();
+    });
   </script>
 </body>
 </html>
