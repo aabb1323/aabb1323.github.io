@@ -3,383 +3,414 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>远航跨境 · 精准流量解决方案专家</title>
+  <title>远航跨境 · 精准流量解决方案</title>
   <meta name="description" content="专业海外广告代投服务，谷歌/FB/Tiktok精准打粉，CRM客服分流系统">
   <link rel="canonical" href="https://www.usanb.top/">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Noto+Sans+SC:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
-    /* ===== 大气商务蓝金风格 ===== */
+    /* ===== 黑金奢华风格 ===== */
     :root {
+      --black: #0a0a0f;
+      --black-light: #14141e;
+      --black-card: #1a1a2a;
+      --gold: #d4a853;
+      --gold-light: #e8c97a;
+      --gold-glow: rgba(212, 168, 83, 0.15);
       --white: #ffffff;
-      --gray-50: #f8fafc;
-      --gray-100: #f1f5f9;
-      --gray-200: #e2e8f0;
-      --gray-300: #cbd5e1;
-      --gray-400: #94a3b8;
-      --gray-500: #64748b;
-      --gray-600: #475569;
-      --gray-700: #334155;
-      --gray-800: #1e293b;
-      --gray-900: #0f172a;
-      --blue-50: #eff6ff;
-      --blue-100: #dbeafe;
-      --blue-500: #3b82f6;
-      --blue-600: #2563eb;
-      --blue-700: #1d4ed8;
-      --blue-800: #1e40af;
-      --blue-900: #1e3a5f;
-      --gold-400: #fbbf24;
-      --gold-500: #f59e0b;
-      --gold-600: #d97706;
-      --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
-      --shadow-md: 0 4px 12px rgba(0,0,0,0.06);
-      --shadow-lg: 0 12px 40px rgba(0,0,0,0.08);
-      --shadow-xl: 0 24px 60px rgba(0,0,0,0.10);
-      --radius-md: 12px;
-      --radius-lg: 20px;
-      --radius-xl: 28px;
+      --gray-300: #d1d5db;
+      --gray-400: #9ca3af;
+      --gray-500: #6b7280;
+      --gray-600: #4b5563;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
-      font-family: 'Inter', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: var(--white);
-      color: var(--gray-800);
+      font-family: 'Inter', 'Noto Sans SC', -apple-system, sans-serif;
+      background: var(--black);
+      color: var(--gray-300);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
     }
+    ::selection { background: var(--gold); color: var(--black); }
     .container { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
-    a { color: var(--blue-600); text-decoration: none; transition: 0.2s; }
-    a:hover { color: var(--blue-800); }
-    img { max-width: 100%; display: block; height: auto; }
+    a { color: var(--gold); text-decoration: none; transition: 0.3s; }
+    a:hover { color: var(--gold-light); }
+
+    /* ===== Scrollbar ===== */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--black); }
+    ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 4px; }
 
     /* ===== Header ===== */
     .header {
-      position: sticky; top: 0; z-index: 100;
-      background: rgba(255,255,255,0.92);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--gray-200);
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(10, 10, 15, 0.75);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(212, 168, 83, 0.12);
+      transition: 0.3s;
     }
     .header-inner {
       display: flex; align-items: center; justify-content: space-between;
-      padding: 14px 0;
+      padding: 16px 0;
     }
     .logo {
       display: flex; align-items: center; gap: 14px;
-      font-weight: 800; font-size: 24px; color: var(--gray-900);
-      letter-spacing: -0.3px;
+      font-weight: 700; font-size: 22px; color: var(--white);
+      letter-spacing: 0.5px;
     }
     .logo-icon {
-      width: 44px; height: 44px;
-      background: var(--blue-800);
-      color: white;
-      border-radius: var(--radius-sm);
+      width: 42px; height: 42px;
+      border: 1.5px solid var(--gold);
+      border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
-      font-size: 20px;
+      color: var(--gold); font-size: 18px;
     }
-    .logo span { color: var(--blue-600); }
-    .logo small {
-      font-size: 13px; font-weight: 500; color: var(--gray-500);
-      margin-left: 6px;
-      letter-spacing: 0;
-    }
+    .logo span { color: var(--gold); }
 
-    .nav { display: flex; gap: 32px; list-style: none; align-items: center; }
+    .nav { display: flex; gap: 36px; list-style: none; align-items: center; }
     .nav a {
-      font-weight: 600; font-size: 15px; color: var(--gray-600);
+      font-weight: 500; font-size: 14px; color: var(--gray-400);
+      letter-spacing: 0.5px;
+      position: relative;
       padding: 4px 0;
-      border-bottom: 2.5px solid transparent;
-      transition: 0.2s;
     }
-    .nav a:hover { color: var(--blue-700); border-bottom-color: var(--blue-500); }
+    .nav a::after {
+      content: ''; position: absolute; bottom: -2px; left: 0;
+      width: 0; height: 1.5px; background: var(--gold);
+      transition: 0.3s;
+    }
+    .nav a:hover { color: var(--white); }
+    .nav a:hover::after { width: 100%; }
     .nav a.cta {
-      background: var(--blue-600); color: white !important;
+      color: var(--black); background: var(--gold);
       padding: 10px 28px; border-radius: 40px;
-      border: none; font-weight: 600;
+      font-weight: 600; font-size: 13px;
+      letter-spacing: 0.5px;
     }
-    .nav a.cta:hover { background: var(--blue-700); transform: translateY(-1px); box-shadow: var(--shadow-md); }
+    .nav a.cta::after { display: none; }
+    .nav a.cta:hover { background: var(--gold-light); color: var(--black); transform: translateY(-1px); }
 
     .mobile-toggle {
       display: none; background: none; border: none;
-      font-size: 26px; color: var(--gray-700); cursor: pointer;
-      padding: 4px;
+      color: var(--white); font-size: 24px; cursor: pointer;
     }
 
     /* ===== Hero ===== */
     .hero {
-      padding: 80px 0 60px;
-      background: linear-gradient(150deg, var(--blue-50) 0%, var(--white) 70%);
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding: 120px 0 80px;
       position: relative;
       overflow: hidden;
+      background: radial-gradient(ellipse at 80% 20%, rgba(212,168,83,0.06) 0%, transparent 60%),
+                  radial-gradient(ellipse at 20% 80%, rgba(212,168,83,0.04) 0%, transparent 50%),
+                  var(--black);
     }
-    .hero::after {
-      content: ''; position: absolute; bottom: -40%; right: -10%;
-      width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(59,130,246,0.06) 0%, transparent 70%);
+    .hero::before {
+      content: ''; position: absolute; top: -50%; right: -20%;
+      width: 800px; height: 800px;
+      background: radial-gradient(circle, rgba(212,168,83,0.04) 0%, transparent 70%);
       border-radius: 50%;
       pointer-events: none;
     }
     .hero-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
-      align-items: center;
-      position: relative; z-index: 1;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+      align-items: center; position: relative; z-index: 1;
     }
     .hero-badge {
       display: inline-block;
-      background: var(--blue-100); color: var(--blue-700);
-      font-weight: 700; font-size: 13px;
+      border: 1px solid rgba(212,168,83,0.25);
+      color: var(--gold);
+      font-weight: 500; font-size: 12px;
       padding: 6px 20px; border-radius: 40px;
-      margin-bottom: 20px;
-      letter-spacing: 0.3px;
+      letter-spacing: 1px;
+      margin-bottom: 24px;
+      text-transform: uppercase;
     }
     .hero h1 {
-      font-size: 52px; font-weight: 800; line-height: 1.08;
-      color: var(--gray-900);
-      margin-bottom: 20px;
+      font-size: 56px; font-weight: 300; line-height: 1.05;
+      color: var(--white);
       letter-spacing: -1px;
+      margin-bottom: 20px;
     }
-    .hero h1 span { color: var(--blue-600); }
+    .hero h1 strong { font-weight: 700; color: var(--gold); }
+    .hero h1 em {
+      font-style: normal;
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      font-weight: 700;
+    }
     .hero p.lead {
-      font-size: 19px; color: var(--gray-600);
-      max-width: 500px; margin-bottom: 32px;
-      line-height: 1.7;
+      font-size: 18px; color: var(--gray-400);
+      max-width: 480px; margin-bottom: 32px;
+      font-weight: 300; line-height: 1.8;
     }
     .hero-actions {
       display: flex; gap: 16px; flex-wrap: wrap;
-      margin-bottom: 36px;
+      margin-bottom: 44px;
     }
     .btn-primary {
       display: inline-flex; align-items: center; gap: 10px;
-      background: var(--blue-600); color: white;
-      padding: 14px 34px; border-radius: 40px;
-      font-weight: 700; font-size: 16px;
-      border: none; cursor: pointer;
-      transition: 0.25s;
+      background: var(--gold); color: var(--black);
+      padding: 14px 36px; border-radius: 40px;
+      font-weight: 600; font-size: 14px;
+      border: none; cursor: pointer; transition: 0.3s;
+      letter-spacing: 0.3px;
     }
-    .btn-primary:hover { background: var(--blue-700); color: white; transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(212,168,83,0.2); }
     .btn-outline {
       display: inline-flex; align-items: center; gap: 10px;
-      background: transparent; color: var(--gray-700);
+      background: transparent; color: var(--white);
       padding: 14px 32px; border-radius: 40px;
-      font-weight: 600; font-size: 16px;
-      border: 1.5px solid var(--gray-300);
-      cursor: pointer; transition: 0.2s;
+      font-weight: 500; font-size: 14px;
+      border: 1px solid rgba(255,255,255,0.15);
+      cursor: pointer; transition: 0.3s;
     }
-    .btn-outline:hover { border-color: var(--blue-500); color: var(--blue-600); background: var(--blue-50); }
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold); background: rgba(212,168,83,0.05); }
 
     .hero-stats {
-      display: flex; gap: 48px;
-      padding-top: 24px; border-top: 1px solid var(--gray-200);
+      display: flex; gap: 56px;
+      padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.06);
     }
     .hero-stats div { text-align: left; }
-    .hero-stats strong { display: block; font-size: 30px; color: var(--gray-900); font-weight: 800; }
-    .hero-stats span { font-size: 14px; color: var(--gray-500); font-weight: 500; }
+    .hero-stats strong { display: block; font-size: 32px; color: var(--white); font-weight: 300; letter-spacing: -0.5px; }
+    .hero-stats strong span { color: var(--gold); font-weight: 600; }
+    .hero-stats small { font-size: 13px; color: var(--gray-500); font-weight: 400; }
 
     .hero-image {
-      background: var(--blue-50);
-      border-radius: var(--radius-lg);
-      padding: 16px;
-      box-shadow: var(--shadow-xl);
-      border: 1px solid rgba(255,255,255,0.5);
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 40px 80px rgba(0,0,0,0.6);
+      border: 1px solid rgba(212,168,83,0.1);
     }
     .hero-image img {
-      border-radius: var(--radius-md);
-      width: 100%;
+      width: 100%; display: block;
+    }
+    .hero-image::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(212,168,83,0.05) 0%, transparent 60%);
+      pointer-events: none;
     }
 
-    /* ===== Sections ===== */
-    .section { padding: 80px 0; }
-    .section-alt { background: var(--gray-50); }
-    .section-title {
-      font-size: 38px; font-weight: 800; color: var(--gray-900);
-      margin-bottom: 12px; letter-spacing: -0.5px;
+    /* ===== Gold accent line ===== */
+    .gold-line {
+      width: 60px; height: 2px; background: var(--gold);
+      margin: 0 0 16px 0;
     }
-    .section-title span { color: var(--blue-600); }
+    .gold-line-center { margin: 0 auto 16px; }
+
+    /* ===== Sections ===== */
+    .section { padding: 90px 0; }
+    .section-dark { background: var(--black-light); }
+    .section-title {
+      font-size: 38px; font-weight: 300; color: var(--white);
+      letter-spacing: -0.5px;
+      margin-bottom: 12px;
+    }
+    .section-title strong { color: var(--gold); font-weight: 600; }
     .section-desc {
-      font-size: 18px; color: var(--gray-500);
-      max-width: 640px; margin-bottom: 44px;
-      line-height: 1.7;
+      font-size: 16px; color: var(--gray-500);
+      max-width: 560px; margin-bottom: 44px;
+      font-weight: 300; line-height: 1.8;
     }
     .text-center { text-align: center; }
     .mx-auto { margin-left: auto; margin-right: auto; }
 
     /* ===== Grid ===== */
     .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
-    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
 
-    /* ===== Card ===== */
-    .card {
-      background: var(--white);
-      border-radius: var(--radius-md);
+    /* ===== Cards (Glass) ===== */
+    .card-glass {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 16px;
       padding: 32px 28px;
-      box-shadow: var(--shadow-sm);
-      border: 1px solid var(--gray-100);
+      transition: 0.4s;
+      backdrop-filter: blur(4px);
+    }
+    .card-glass:hover {
+      border-color: rgba(212,168,83,0.25);
+      transform: translateY(-6px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    }
+    .card-glass .icon {
+      width: 52px; height: 52px;
+      border: 1px solid rgba(212,168,83,0.2);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gold); font-size: 20px;
+      margin-bottom: 18px;
       transition: 0.3s;
     }
-    .card:hover {
-      box-shadow: var(--shadow-lg);
-      transform: translateY(-6px);
-      border-color: var(--blue-200);
-    }
-    .card-icon {
-      width: 52px; height: 52px;
-      background: var(--blue-50); color: var(--blue-600);
-      border-radius: var(--radius-sm);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 22px; margin-bottom: 18px;
-    }
-    .card h3 { font-size: 19px; font-weight: 700; margin-bottom: 8px; color: var(--gray-800); }
-    .card p { font-size: 15px; color: var(--gray-500); line-height: 1.7; }
-    .card .tag {
+    .card-glass:hover .icon { border-color: var(--gold); background: rgba(212,168,83,0.06); }
+    .card-glass h3 { font-size: 18px; font-weight: 600; color: var(--white); margin-bottom: 8px; }
+    .card-glass p { font-size: 14px; color: var(--gray-500); font-weight: 300; line-height: 1.7; }
+    .card-glass .tag {
       display: inline-block;
-      background: var(--gold-400); color: var(--gray-900);
-      font-size: 12px; font-weight: 700;
+      border: 1px solid rgba(212,168,83,0.15);
+      color: var(--gold);
+      font-size: 11px; font-weight: 500;
       padding: 3px 14px; border-radius: 40px;
       margin-top: 14px;
+      letter-spacing: 0.5px;
     }
 
     /* ===== Stats ===== */
     .stat-card {
       text-align: center;
-      background: var(--white);
-      border-radius: var(--radius-md);
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.04);
+      border-radius: 16px;
       padding: 36px 20px;
-      border: 1px solid var(--gray-200);
-      box-shadow: var(--shadow-sm);
-      transition: 0.25s;
+      transition: 0.3s;
     }
-    .stat-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
+    .stat-card:hover { border-color: rgba(212,168,83,0.15); transform: translateY(-3px); }
     .stat-number {
-      font-size: 44px; font-weight: 800; color: var(--blue-600);
+      font-size: 44px; font-weight: 300; color: var(--gold);
       line-height: 1.1;
+      letter-spacing: -1px;
     }
-    .stat-label { font-size: 15px; color: var(--gray-500); margin-top: 6px; font-weight: 500; }
+    .stat-label { font-size: 14px; color: var(--gray-500); margin-top: 6px; font-weight: 300; }
 
     /* ===== Promise Banner ===== */
     .promise-banner {
-      background: var(--blue-800);
-      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, rgba(212,168,83,0.06), rgba(212,168,83,0.01));
+      border: 1px solid rgba(212,168,83,0.1);
+      border-radius: 20px;
       padding: 48px 56px;
       display: flex; align-items: center; justify-content: space-between;
       flex-wrap: wrap; gap: 24px;
-      color: white;
-      box-shadow: var(--shadow-lg);
     }
-    .promise-banner h3 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; }
-    .promise-banner p { color: rgba(255,255,255,0.8); margin-top: 4px; font-size: 16px; }
-    .promise-banner .btn-white {
-      background: white; color: var(--blue-700);
-      padding: 14px 32px; border-radius: 40px;
-      font-weight: 700; font-size: 16px;
-      border: none; cursor: pointer;
-      transition: 0.25s;
+    .promise-banner h3 { font-size: 24px; font-weight: 500; color: var(--white); letter-spacing: -0.3px; }
+    .promise-banner h3 strong { color: var(--gold); font-weight: 600; }
+    .promise-banner p { color: var(--gray-500); margin-top: 4px; font-weight: 300; }
+    .promise-banner .btn-gold {
+      background: var(--gold); color: var(--black);
+      padding: 14px 36px; border-radius: 40px;
+      font-weight: 600; font-size: 14px;
+      border: none; cursor: pointer; transition: 0.3s;
     }
-    .promise-banner .btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,0.25); }
+    .promise-banner .btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(212,168,83,0.2); }
 
     /* ===== FAQ ===== */
     .faq-item {
-      background: var(--white);
-      border: 1px solid var(--gray-200);
-      border-radius: var(--radius-sm);
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 12px;
       margin-bottom: 12px;
       overflow: hidden;
-      transition: 0.2s;
+      transition: 0.3s;
     }
-    .faq-item:hover { border-color: var(--blue-200); }
+    .faq-item:hover { border-color: rgba(212,168,83,0.12); }
     .faq-item summary {
       padding: 20px 24px;
-      font-weight: 700; font-size: 17px;
+      font-weight: 500; font-size: 16px;
       cursor: pointer; list-style: none;
       display: flex; justify-content: space-between; align-items: center;
-      color: var(--gray-800);
+      color: var(--white);
     }
     .faq-item summary::after {
-      content: '+'; font-size: 24px; color: var(--gray-400);
-      transition: 0.2s;
+      content: '+'; font-size: 22px; color: var(--gold);
+      transition: 0.3s;
     }
-    .faq-item[open] summary::after { content: '−'; color: var(--blue-600); }
+    .faq-item[open] summary::after { content: '−'; }
     .faq-item .faq-body {
       padding: 0 24px 24px;
-      color: var(--gray-600);
-      border-top: 1px solid var(--gray-100);
+      color: var(--gray-400);
+      border-top: 1px solid rgba(255,255,255,0.04);
       padding-top: 18px;
-      font-size: 15px;
-      line-height: 1.7;
+      font-weight: 300;
+      line-height: 1.8;
     }
 
     /* ===== Contact ===== */
     .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
     .contact-card {
-      background: var(--white);
-      border: 1px solid var(--gray-200);
-      border-radius: var(--radius-md);
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 16px;
       padding: 36px;
-      box-shadow: var(--shadow-sm);
     }
-    .contact-card h3 { font-size: 22px; font-weight: 700; margin-bottom: 24px; color: var(--gray-900); }
+    .contact-card h3 { font-size: 22px; font-weight: 500; color: var(--white); margin-bottom: 24px; }
     .contact-item {
       display: flex; align-items: center; gap: 16px;
       margin-bottom: 18px;
     }
     .contact-item .icon {
       width: 44px; height: 44px;
-      background: var(--blue-50); color: var(--blue-600);
+      border: 1px solid rgba(212,168,83,0.15);
       border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
-      font-size: 18px;
+      color: var(--gold); font-size: 16px;
     }
-    .contact-item .label { font-size: 13px; color: var(--gray-500); }
-    .contact-item .value { font-weight: 600; color: var(--gray-800); font-size: 16px; }
+    .contact-item .label { font-size: 12px; color: var(--gray-500); text-transform: uppercase; letter-spacing: 0.5px; }
+    .contact-item .value { font-weight: 500; color: var(--white); font-size: 15px; }
+    .contact-item .value a { color: var(--white); }
+    .contact-item .value a:hover { color: var(--gold); }
 
     .form-group { margin-bottom: 20px; }
-    .form-group label { display: block; font-weight: 600; font-size: 14px; margin-bottom: 4px; color: var(--gray-700); }
+    .form-group label { display: block; font-weight: 500; font-size: 13px; margin-bottom: 4px; color: var(--gray-400); }
     .form-group input, .form-group textarea {
       width: 100%; padding: 12px 16px;
-      border: 1.5px solid var(--gray-200);
-      border-radius: var(--radius-sm);
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 10px;
       font-size: 15px; font-family: inherit;
-      transition: 0.2s;
-      background: var(--gray-50);
+      color: var(--white);
+      transition: 0.3s;
     }
     .form-group input:focus, .form-group textarea:focus {
-      outline: none; border-color: var(--blue-500);
-      background: white;
-      box-shadow: 0 0 0 4px rgba(59,130,246,0.08);
+      outline: none; border-color: var(--gold);
+      background: rgba(255,255,255,0.05);
+    }
+    .form-group input::placeholder, .form-group textarea::placeholder { color: var(--gray-600); }
+
+    .contact-notice {
+      margin-top: 18px; padding: 14px;
+      border: 1px solid rgba(212,168,83,0.1);
+      border-radius: 40px;
+      text-align: center;
+      font-weight: 500; color: var(--gold);
+      font-size: 13px;
+      letter-spacing: 0.5px;
     }
 
     /* ===== Footer ===== */
     .footer {
-      background: var(--gray-900);
-      color: var(--gray-400);
-      padding: 48px 0 32px;
-      border-top: 1px solid var(--gray-800);
+      background: var(--black);
+      border-top: 1px solid rgba(255,255,255,0.04);
+      padding: 44px 0 32px;
     }
     .footer-inner {
       display: flex; align-items: center; justify-content: space-between;
       flex-wrap: wrap; gap: 20px;
     }
+    .footer-inner > div { font-size: 14px; color: var(--gray-500); font-weight: 300; }
     .footer-links { display: flex; gap: 32px; }
-    .footer-links a { color: var(--gray-400); font-weight: 500; font-size: 14px; }
-    .footer-links a:hover { color: white; }
+    .footer-links a { color: var(--gray-500); font-weight: 400; font-size: 13px; }
+    .footer-links a:hover { color: var(--gold); }
 
-    /* ===== Floating Buttons ===== */
+    /* ===== Floating ===== */
     .floating {
       position: fixed; right: 28px; bottom: 120px; z-index: 50;
       display: flex; flex-direction: column; gap: 14px;
     }
     .floating a {
-      width: 56px; height: 56px; border-radius: 50%;
+      width: 54px; height: 54px; border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
-      color: white; font-size: 24px;
-      box-shadow: var(--shadow-lg);
-      transition: 0.25s;
+      color: white; font-size: 22px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+      transition: 0.3s;
+      border: 1px solid rgba(255,255,255,0.06);
     }
     .floating a:hover { transform: scale(1.08); }
     .floating .tg { background: #0088cc; }
@@ -387,21 +418,20 @@
 
     /* ===== Responsive ===== */
     @media (max-width: 1024px) {
-      .hero h1 { font-size: 42px; }
+      .hero h1 { font-size: 44px; }
     }
     @media (max-width: 992px) {
-      .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 48px; }
       .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr 1fr; }
       .contact-grid { grid-template-columns: 1fr; }
+      .hero { padding: 100px 0 60px; }
     }
     @media (max-width: 768px) {
       .container { padding: 0 20px; }
-      .nav { display: none; flex-direction: column; gap: 8px; padding: 20px 0; }
+      .nav { display: none; flex-direction: column; gap: 12px; padding: 20px 0; width: 100%; }
       .nav.open { display: flex; }
       .mobile-toggle { display: block; }
-      .hero { padding: 50px 0 40px; }
       .hero h1 { font-size: 32px; }
-      .hero h1 br { display: none; }
       .hero p.lead { font-size: 16px; }
       .hero-stats { flex-wrap: wrap; gap: 24px; }
       .hero-stats strong { font-size: 24px; }
@@ -410,12 +440,14 @@
       .promise-banner { padding: 32px 24px; flex-direction: column; text-align: center; }
       .footer-inner { flex-direction: column; text-align: center; }
       .floating { right: 16px; bottom: 80px; }
-      .floating a { width: 48px; height: 48px; font-size: 20px; }
+      .floating a { width: 46px; height: 46px; font-size: 18px; }
+      .hero-actions { flex-direction: column; }
+      .btn-primary, .btn-outline { width: 100%; justify-content: center; }
     }
     @media (max-width: 480px) {
       .hero h1 { font-size: 26px; }
-      .hero-actions { flex-direction: column; }
-      .btn-primary, .btn-outline { width: 100%; justify-content: center; }
+      .hero h1 br { display: none; }
+      .section-title { font-size: 24px; }
     }
   </style>
 </head>
@@ -423,29 +455,29 @@
 
   <!-- ===== Floating ===== -->
   <div class="floating">
-    <a href="https://t.me/JY265" class="tg" target="_blank" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
-    <a href="https://wa.me/447754979958" class="wa" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://t.me/JY265" class="tg" target="_blank"><i class="fab fa-telegram"></i></a>
+    <a href="https://wa.me/447754979958" class="wa" target="_blank"><i class="fab fa-whatsapp"></i></a>
   </div>
 
   <!-- ===== Header ===== -->
   <header class="header">
     <div class="container header-inner">
       <div class="logo">
-        <div class="logo-icon"><i class="fas fa-sailboat"></i></div>
-        <div>远航<span>跨境</span> <small>· 精准流量</small></div>
+        <div class="logo-icon"><i class="fas fa-compass"></i></div>
+        <div>远航<span>跨境</span></div>
       </div>
       <nav class="nav" id="mainNav">
-        <a href="#about">关于我们</a>
-        <a href="#services">服务内容</a>
-        <a href="#advantages">核心优势</a>
+        <a href="#about">关于</a>
+        <a href="#services">服务</a>
+        <a href="#advantages">优势</a>
         <a href="#stats">数据</a>
         <a href="#faq">FAQ</a>
         <a href="about.html">关于我们</a>
-        <a href="privacy.html">隐私政策</a>
-        <a href="userterms.html">服务条款</a>
+        <a href="privacy.html">隐私</a>
+        <a href="userterms.html">条款</a>
         <a href="#contact" class="cta">立即咨询</a>
       </nav>
-      <button class="mobile-toggle" id="mobileToggle" aria-label="菜单"><i class="fas fa-bars"></i></button>
+      <button class="mobile-toggle" id="mobileToggle"><i class="fas fa-bars"></i></button>
     </div>
   </header>
 
@@ -453,17 +485,20 @@
   <section class="hero">
     <div class="container hero-grid">
       <div>
-        <div class="hero-badge"><i class="fas fa-bolt" style="margin-right:8px;"></i> 全球精准营销 · 新客免费体验</div>
-        <h1>精准引流 <br><span>精准获客</span></h1>
+        <div class="hero-badge">✦ 全球精准营销</div>
+        <h1>
+          精准引流<br>
+          <strong>精准获客</strong> <em>· 指哪打哪</em>
+        </h1>
         <p class="lead">专为跨境电商、兼职招聘、游戏棋牌、小说短剧、币圈股粉等行业提供谷歌、FB、Tiktok精准引流和代投，CRM客服分流，真实有效粉，高转化。</p>
         <div class="hero-actions">
           <a href="https://t.me/JY265" class="btn-primary" target="_blank"><i class="fab fa-telegram"></i> Telegram 询价</a>
-          <a href="https://wa.me/447754979958" class="btn-outline" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp 咨询</a>
+          <a href="https://wa.me/447754979958" class="btn-outline" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
         </div>
         <div class="hero-stats">
-          <div><strong>100w+</strong><span>广告消耗</span></div>
-          <div><strong>200+</strong><span>合作客户</span></div>
-          <div><strong>93%</strong><span>复购率</span></div>
+          <div><strong><span>3500</span>w+</strong><small>广告消耗</small></div>
+          <div><strong><span>200</span>+</strong><small>合作客户</small></div>
+          <div><strong><span>93</span>%</strong><small>复购率</small></div>
         </div>
       </div>
       <div class="hero-image">
@@ -477,40 +512,42 @@
     <div class="container">
       <div class="grid-2">
         <div>
-          <h2 class="section-title">关于 <span>远航跨境</span></h2>
+          <div class="gold-line"></div>
+          <h2 class="section-title">关于 <strong>远航跨境</strong></h2>
           <p class="section-desc">专注各领域广告投放，拥有多年海外广告投放经验，深谙各平台规则与用户行为特征，为客户提供高效精准的广告投放解决方案。</p>
           <ul style="list-style:none; display:flex; flex-direction:column; gap:14px; margin-top:16px;">
-            <li style="display:flex; align-items:center; gap:12px;"><i class="fas fa-check-circle" style="color:var(--blue-600); font-size:18px;"></i> 5年+ 谷歌/FB广告投放经验</li>
-            <li style="display:flex; align-items:center; gap:12px;"><i class="fas fa-check-circle" style="color:var(--blue-600); font-size:18px;"></i> 服务跨境电商、招聘、投资教育等</li>
-            <li style="display:flex; align-items:center; gap:12px;"><i class="fas fa-check-circle" style="color:var(--blue-600); font-size:18px;"></i> 数据驱动，持续优化，高转化率</li>
+            <li style="display:flex; align-items:center; gap:12px; color:var(--gray-300);"><span style="color:var(--gold);">◆</span> 5年+ 谷歌/FB广告投放经验</li>
+            <li style="display:flex; align-items:center; gap:12px; color:var(--gray-300);"><span style="color:var(--gold);">◆</span> 服务跨境电商、招聘、投资教育等</li>
+            <li style="display:flex; align-items:center; gap:12px; color:var(--gray-300);"><span style="color:var(--gold);">◆</span> 数据驱动，持续优化，高转化率</li>
           </ul>
           <a href="https://t.me/JY265" class="btn-primary" style="margin-top:28px;" target="_blank"><i class="fab fa-telegram"></i> 联系专家</a>
         </div>
-        <div class="card" style="background:var(--blue-50); border-color:var(--blue-200);">
-          <h3 style="font-size:22px; color:var(--gray-800);">专注获客领域</h3>
+        <div class="card-glass" style="background:rgba(212,168,83,0.03); border-color:rgba(212,168,83,0.08);">
+          <h3 style="font-size:20px; color:var(--white); font-weight:500;">专注获客领域</h3>
           <div style="display:flex; flex-wrap:wrap; gap:10px; margin:18px 0;">
-            <span style="background:white; padding:6px 18px; border-radius:40px; font-weight:600; font-size:13px; border:1px solid var(--gray-200);"><i class="fas fa-ad" style="margin-right:6px;"></i>兼职招聘</span>
-            <span style="background:white; padding:6px 18px; border-radius:40px; font-weight:600; font-size:13px; border:1px solid var(--gray-200);"><i class="fas fa-chart-line" style="margin-right:6px;"></i>财富教育</span>
-            <span style="background:white; padding:6px 18px; border-radius:40px; font-weight:600; font-size:13px; border:1px solid var(--gray-200);"><i class="fas fa-coins" style="margin-right:6px;"></i>小说短剧</span>
-            <span style="background:white; padding:6px 18px; border-radius:40px; font-weight:600; font-size:13px; border:1px solid var(--gray-200);"><i class="fas fa-gamepad" style="margin-right:6px;"></i>游戏棋牌</span>
-            <span style="background:white; padding:6px 18px; border-radius:40px; font-weight:600; font-size:13px; border:1px solid var(--gray-200);"><i class="fas fa-store" style="margin-right:6px;"></i>跨境电商</span>
+            <span style="border:1px solid rgba(212,168,83,0.12); padding:6px 18px; border-radius:40px; font-weight:400; font-size:13px; color:var(--gray-300);"><i class="fas fa-ad" style="color:var(--gold);margin-right:6px;"></i>兼职招聘</span>
+            <span style="border:1px solid rgba(212,168,83,0.12); padding:6px 18px; border-radius:40px; font-weight:400; font-size:13px; color:var(--gray-300);"><i class="fas fa-chart-line" style="color:var(--gold);margin-right:6px;"></i>财富教育</span>
+            <span style="border:1px solid rgba(212,168,83,0.12); padding:6px 18px; border-radius:40px; font-weight:400; font-size:13px; color:var(--gray-300);"><i class="fas fa-coins" style="color:var(--gold);margin-right:6px;"></i>小说短剧</span>
+            <span style="border:1px solid rgba(212,168,83,0.12); padding:6px 18px; border-radius:40px; font-weight:400; font-size:13px; color:var(--gray-300);"><i class="fas fa-gamepad" style="color:var(--gold);margin-right:6px;"></i>游戏棋牌</span>
+            <span style="border:1px solid rgba(212,168,83,0.12); padding:6px 18px; border-radius:40px; font-weight:400; font-size:13px; color:var(--gray-300);"><i class="fas fa-store" style="color:var(--gold);margin-right:6px;"></i>跨境电商</span>
           </div>
-          <p style="color:var(--gray-600); font-size:15px; line-height:1.7;">专业广告代投，严格遵守各平台广告政策，合规可持续。</p>
+          <p style="color:var(--gray-500); font-size:14px; font-weight:300; line-height:1.8;">专业广告代投，严格遵守各平台广告政策，合规可持续。</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ===== Services ===== -->
-  <section id="services" class="section section-alt">
+  <section id="services" class="section section-dark">
     <div class="container">
-      <h2 class="section-title text-center">服务 <span>内容</span></h2>
+      <div class="gold-line gold-line-center"></div>
+      <h2 class="section-title text-center">服务 <strong>内容</strong></h2>
       <p class="section-desc text-center mx-auto">全方位量产广告解决方案，高效获客与转化</p>
       <div class="grid-4">
-        <div class="card"><div class="card-icon"><i class="fab fa-google"></i></div><h3>谷歌广告代投</h3><p>搜索、展示、YouTube全覆盖，精准触达</p></div>
-        <div class="card"><div class="card-icon"><i class="fab fa-facebook"></i></div><h3>FB/IG广告代投</h3><p>全渠道覆盖，精准人群定向</p></div>
-        <div class="card"><div class="card-icon"><i class="fab fa-tiktok"></i></div><h3>TikTok广告代投</h3><p>短视频创意，年轻用户精准触达</p></div>
-        <div class="card"><div class="card-icon"><i class="fas fa-headset"></i></div><h3>CRM客服分流</h3><p>TG/WhatsApp/Line多平台结粉，工单计数</p></div>
+        <div class="card-glass"><div class="icon"><i class="fab fa-google"></i></div><h3>谷歌广告代投</h3><p>搜索、展示、YouTube全覆盖</p></div>
+        <div class="card-glass"><div class="icon"><i class="fab fa-facebook"></i></div><h3>FB/IG广告代投</h3><p>全渠道覆盖，精准人群定向</p></div>
+        <div class="card-glass"><div class="icon"><i class="fab fa-tiktok"></i></div><h3>TikTok广告代投</h3><p>短视频创意，年轻用户精准触达</p></div>
+        <div class="card-glass"><div class="icon"><i class="fas fa-headset"></i></div><h3>CRM客服分流</h3><p>TG/WhatsApp/Line多平台结粉</p></div>
       </div>
     </div>
   </section>
@@ -518,24 +555,26 @@
   <!-- ===== Advantages ===== -->
   <section id="advantages" class="section">
     <div class="container">
-      <h2 class="section-title text-center">为什么选 <span>远航跨境</span></h2>
+      <div class="gold-line gold-line-center"></div>
+      <h2 class="section-title text-center">为什么选 <strong>远航跨境</strong></h2>
       <p class="section-desc text-center mx-auto">长效稳健 · 卓越成效</p>
       <div class="grid-4">
-        <div class="card"><div class="card-icon"><i class="fas fa-database"></i></div><h3>真实海量粉源</h3><p>直连海外源头，垂直行业精准粉</p><span class="tag">量大价优</span></div>
-        <div class="card"><div class="card-icon"><i class="fas fa-hand-holding-usd"></i></div><h3>零风险合作</h3><p>按效果付费，新客免费试用</p><span class="tag">免费体验</span></div>
-        <div class="card"><div class="card-icon"><i class="fas fa-bolt"></i></div><h3>24h极速响应</h3><p>专属1对1，平均30秒响应</p><span class="tag">服务快人一步</span></div>
-        <div class="card"><div class="card-icon"><i class="fas fa-chart-pie"></i></div><h3>数据全透明</h3><p>实时后台查看，消耗/进粉/成本一目了然</p><span class="tag">拒绝暗箱</span></div>
+        <div class="card-glass"><div class="icon"><i class="fas fa-database"></i></div><h3>真实海量粉源</h3><p>直连海外源头，垂直行业精准粉</p><span class="tag">量大价优</span></div>
+        <div class="card-glass"><div class="icon"><i class="fas fa-hand-holding-usd"></i></div><h3>零风险合作</h3><p>按效果付费，新客免费试用</p><span class="tag">免费体验</span></div>
+        <div class="card-glass"><div class="icon"><i class="fas fa-bolt"></i></div><h3>24h极速响应</h3><p>专属1对1，平均30秒响应</p><span class="tag">服务快人一步</span></div>
+        <div class="card-glass"><div class="icon"><i class="fas fa-chart-pie"></i></div><h3>数据全透明</h3><p>实时后台查看，消耗/进粉/成本一目了然</p><span class="tag">拒绝暗箱</span></div>
       </div>
     </div>
   </section>
 
   <!-- ===== Stats ===== -->
-  <section id="stats" class="section section-alt">
+  <section id="stats" class="section section-dark">
     <div class="container">
-      <h2 class="section-title text-center">用 <span>数据</span> 说话</h2>
+      <div class="gold-line gold-line-center"></div>
+      <h2 class="section-title text-center">用 <strong>数据</strong> 说话</h2>
       <p class="section-desc text-center mx-auto">基于真实统计的服务数据</p>
       <div class="grid-4">
-        <div class="stat-card"><div class="stat-number">100w+</div><div class="stat-label">美元广告消耗</div></div>
+        <div class="stat-card"><div class="stat-number">3500w+</div><div class="stat-label">美元广告消耗</div></div>
         <div class="stat-card"><div class="stat-number">200+</div><div class="stat-label">长期合作客户</div></div>
         <div class="stat-card"><div class="stat-number">93%</div><div class="stat-label">客户复购率</div></div>
         <div class="stat-card"><div class="stat-number">5000+</div><div class="stat-label">日均稳定出粉量</div></div>
@@ -543,20 +582,21 @@
     </div>
   </section>
 
-  <!-- ===== Promise Banner ===== -->
-  <section style="padding: 24px 0 80px;">
+  <!-- ===== Promise ===== -->
+  <section style="padding: 24px 0 90px;">
     <div class="container">
       <div class="promise-banner">
-        <div><h3>服务承诺 · 精准获客 · 互惠互利</h3><p>专业态度，精准引流，高回复率，实现多方共赢</p></div>
-        <a href="#contact" class="btn-white"><i class="fas fa-clipboard-list" style="margin-right:10px;"></i> 获取报价</a>
+        <div><h3>服务承诺 · <strong>精准获客</strong> · 互惠互利</h3><p>专业态度，精准引流，高回复率，实现多方共赢</p></div>
+        <a href="#contact" class="btn-gold"><i class="fas fa-clipboard-list" style="margin-right:10px;"></i> 获取报价</a>
       </div>
     </div>
   </section>
 
   <!-- ===== FAQ ===== -->
-  <section id="faq" class="section section-alt">
+  <section id="faq" class="section section-dark">
     <div class="container">
-      <h2 class="section-title text-center">常见 <span>问题</span></h2>
+      <div class="gold-line gold-line-center"></div>
+      <h2 class="section-title text-center">常见 <strong>问题</strong></h2>
       <div style="max-width: 760px; margin: 0 auto;">
         <details class="faq-item"><summary>广告投放需要哪些材料？多久上线？</summary><div class="faq-body">广告内容、用户画像、预算等。一般1-3个工作日内完成账户设置并投放。</div></details>
         <details class="faq-item"><summary>支持哪些支付方式？如何结算？</summary><div class="faq-body">万里汇、Alipay、微信等。灵活按项目、月度服务费或消耗比例合作。</div></details>
@@ -570,22 +610,22 @@
   <section id="contact" class="section">
     <div class="container contact-grid">
       <div class="contact-card">
-        <h3><i class="fas fa-phone" style="color:var(--blue-600); margin-right:12px;"></i> 联系我们</h3>
+        <h3><i class="fas fa-phone" style="color:var(--gold); margin-right:12px;"></i> 联系我们</h3>
         <div class="contact-item"><div class="icon"><i class="fab fa-telegram"></i></div><div><p class="label">Telegram (优先)</p><p class="value"><a href="https://t.me/JY265" target="_blank">t.me/JY265</a></p></div></div>
         <div class="contact-item"><div class="icon"><i class="fab fa-whatsapp"></i></div><div><p class="label">WhatsApp</p><p class="value"><a href="https://wa.me/447754979958" target="_blank">+44 7754 979958</a></p></div></div>
         <div class="contact-item"><div class="icon"><i class="fas fa-envelope"></i></div><div><p class="label">邮箱 (备用)</p><p class="value"><a href="mailto:service@sanmy.top">service@sanmy.top</a></p></div></div>
         <div class="contact-item"><div class="icon"><i class="fas fa-clock"></i></div><div><p class="label">服务时间</p><p class="value">每天 14:00 - 24:00 (北京时间)</p></div></div>
-        <div style="margin-top:18px; padding:14px; background:var(--blue-50); border-radius:40px; text-align:center; font-weight:700; color:var(--blue-700); border:1px solid var(--blue-200);">⚡ 24h内必回复 · 紧急需求可TG语音 ⚡</div>
+        <div class="contact-notice">⚡ 24h内必回复 · 紧急需求可TG语音</div>
       </div>
 
-      <form id="contactForm" class="contact-card" style="box-shadow:var(--shadow-sm);" novalidate>
-        <h3><i class="fas fa-paper-plane" style="color:var(--blue-600); margin-right:12px;"></i> 发送咨询</h3>
-        <div class="form-group"><label for="f-name">称呼 <span style="color:var(--blue-600);">*</span></label><input id="f-name" name="name" type="text" required placeholder="例：张总 / 王老板"></div>
+      <form id="contactForm" class="contact-card" novalidate>
+        <h3><i class="fas fa-paper-plane" style="color:var(--gold); margin-right:12px;"></i> 发送咨询</h3>
+        <div class="form-group"><label for="f-name">称呼 <span style="color:var(--gold);">*</span></label><input id="f-name" name="name" type="text" required placeholder="例：张总 / 王老板"></div>
         <div class="form-group"><label for="f-telegram">Telegram账号</label><input id="f-telegram" name="telegram" type="text" placeholder="@username 或 手机号"></div>
         <div class="form-group"><label for="f-whatsapp">WhatsApp号码</label><input id="f-whatsapp" name="whatsapp" type="text" placeholder="区号+号码"></div>
-        <div class="form-group"><label for="f-needs">需求描述 <span style="color:var(--blue-600);">*</span></label><textarea id="f-needs" name="needs" rows="3" required placeholder="请简要描述您的打粉/代投需求"></textarea></div>
+        <div class="form-group"><label for="f-needs">需求描述 <span style="color:var(--gold);">*</span></label><textarea id="f-needs" name="needs" rows="3" required placeholder="请简要描述您的打粉/代投需求"></textarea></div>
         <button type="submit" class="btn-primary" style="width:100%; justify-content:center;"><i class="fas fa-paper-plane"></i> 提交咨询</button>
-        <p id="formStatus" style="margin-top:14px; font-weight:600; font-size:14px; display:none;"></p>
+        <p id="formStatus" style="margin-top:14px; font-weight:400; font-size:14px; display:none;"></p>
       </form>
     </div>
   </section>
@@ -603,12 +643,10 @@
   </footer>
 
   <script>
-    // Mobile toggle
     document.getElementById('mobileToggle').addEventListener('click', function() {
       document.getElementById('mainNav').classList.toggle('open');
     });
 
-    // Form
     document.getElementById('contactForm').addEventListener('submit', function(e) {
       e.preventDefault();
       const name = document.getElementById('f-name').value.trim();
@@ -616,13 +654,13 @@
       const status = document.getElementById('formStatus');
       if (!name || !needs) {
         status.style.display = 'block';
-        status.style.color = '#dc2626';
+        status.style.color = '#d4a853';
         status.textContent = '请填写称呼和需求描述';
         return;
       }
       status.style.display = 'block';
-      status.style.color = '#16a34a';
-      status.textContent = '✅ 已收到需求，客服将在30分钟内联系您！';
+      status.style.color = '#d4a853';
+      status.textContent = '✓ 已收到需求，客服将在30分钟内联系您';
       this.reset();
     });
   </script>
