@@ -1,0 +1,1299 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>叁仟出海 · 精准流量解决方案专家</title>
+  <meta name="description" content="专业海外广告代投服务，谷歌/FB/Tiktok精准打粉，CRM客服分流系统，专注重点领域：兼职招聘、股票投教、游戏棋牌、跨境电商独立站">
+  <link rel="canonical" href="https://www.usanb.top/">
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="叁仟出海 · 精准流量解决方案专家">
+  <meta property="og:description" content="专业海外广告代投，精准打粉服务，TG/WhatsApp/Line多平台客服分流，白量/灰量领域专家">
+  <meta property="og:image" content="https://www.usanb.top/og-cover.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17416078669"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-17416078669');
+  </script>
+
+  <!-- Event snippet for 联系人 conversion page -->
+  <script>
+  function gtag_report_conversion(url) {
+    var callback = function () {
+      if (typeof(url) != 'undefined') {
+        window.open(url, '_blank');
+      }
+    };
+    gtag('event', 'conversion', {
+        'send_to': 'AW-17416078669/xTOgCPilz5QbEM2K0fBA',
+        'value': 2.0,
+        'currency': 'USD',
+        'event_callback': callback
+    });
+    return false;
+  }
+  
+  // 处理所有咨询链接点击事件
+  function handleContactClick(event, url) {
+    event.preventDefault();
+    // 上报GA事件
+    gtag_report_conversion(url);
+    return false;
+  }
+  </script>
+
+  <!-- Fonts & icons -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="" crossorigin="anonymous">
+
+  <style>
+    /* 椰树椰汁风格配色 + 红色主题 */
+    :root {
+      --coconut-yellow: #FFD700;
+      --coconut-blue: #006CB4;
+      --coconut-red: #FF0000;
+      --coconut-black: #000000;
+      --coconut-white: #FFFFFF;
+      --primary: #006CB4;
+      --primary-dark: #005592;
+      --accent: #FF0000;
+      --accent-dark: #CC0000;
+      --dark: #000000;
+      --light: #FFFFFF;
+      --radius: 4px;
+      --shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; scroll-behavior: smooth; }
+    body {
+      font-family: 'Noto Sans SC', "PingFang SC", "Microsoft Yahei", Arial, sans-serif;
+      color: var(--coconut-black);
+      background: var(--coconut-white);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      -webkit-text-size-adjust: 100%;
+    }
+    img { max-width: 100%; display: block; height: auto; }
+    a { color: var(--primary); text-decoration: none; transition: all 0.2s ease; }
+    a:hover, a:focus { color: var(--accent); outline: none; }
+    .container { width: 92%; max-width: 1200px; margin: 0 auto; }
+
+    .skip {
+      position: absolute; left: -9999px; top: auto; background: var(--dark); color: white;
+      padding: 8px 16px; border-radius: var(--radius); z-index: 1000; font-weight: 600;
+    }
+    .skip:focus { left: 10px; top: 10px; }
+
+    /* Header - 椰树风格 + 红色元素 */
+    .header {
+      position: sticky; top: 0; z-index: 100; 
+      background: var(--coconut-yellow);
+      border-bottom: 3px solid var(--coconut-red);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    .header__in { 
+      display: flex; justify-content: space-between; align-items: center; 
+      padding: 10px 0; 
+    }
+    .brand { display: flex; gap: 12px; align-items: center; }
+    .brand__logo { 
+      width: 50px; height: 50px; border-radius: 6px; 
+      background: var(--coconut-red);
+      display: flex; align-items: center; justify-content: center; 
+      color: var(--coconut-yellow); font-weight: 900; font-size: 22px;
+      border: 2px solid var(--coconut-black);
+    }
+    .brand__text strong { 
+      display: block; line-height: 1; color: var(--coconut-blue); 
+      font-size: 22px; font-weight: 900;
+      text-shadow: 1px 1px 0 #FFF, -1px -1px 0 #FFF, 1px -1px 0 #FFF, -1px 1px 0 #FFF;
+    }
+    .brand__text span { 
+      display: block; color: var(--coconut-black); 
+      font-size: 14px; font-weight: 700;
+    }
+
+    .nav__list { display: flex; gap: 20px; list-style: none; margin: 0; padding: 0; }
+    .nav__list a { 
+      font-weight: 700; padding: 8px 0; position: relative; 
+      color: var(--coconut-black); font-size: 16px;
+    }
+    .nav__list a:after { 
+      content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; 
+      background: var(--coconut-blue); transition: all 0.2s ease; 
+    }
+    .nav__list a:hover:after, .nav__list a:focus:after { width: 100%; }
+
+    .header__actions { display: flex; gap: 12px; align-items: center; }
+    .btn { 
+      display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; 
+      border-radius: 4px; font-weight: 700; border: none; cursor: pointer; 
+      transition: all 0.2s ease; font-size: 16px; 
+      border: 2px solid var(--coconut-black);
+      box-shadow: 2px 2px 0 var(--coconut-black);
+    }
+    .btn--primary { 
+      background: var(--coconut-blue); 
+      color: var(--coconut-yellow); 
+    }
+    .btn--primary:hover { 
+      transform: translate(-2px, -2px); 
+      box-shadow: 4px 4px 0 var(--coconut-black);
+    }
+    .btn--yellow {
+      background: var(--coconut-yellow);
+      color: var(--coconut-blue);
+    }
+    .btn--yellow:hover {
+      transform: translate(-2px, -2px); 
+      box-shadow: 4px 4px 0 var(--coconut-black);
+    }
+    .btn--outline { 
+      background: transparent; border: 2px solid var(--coconut-blue); 
+      color: var(--coconut-blue); 
+    }
+    .btn--outline:hover { background: var(--coconut-blue); color: var(--coconut-yellow); }
+
+    .nav-toggle { display: none; background: transparent; border: 0; width: 38px; height: 32px; position: relative; cursor: pointer; }
+    .nav-toggle span { position: absolute; left: 8px; right: 8px; height: 3px; background: var(--coconut-black); border-radius: 3px; transition: 0.3s; }
+    .nav-toggle span:nth-child(1){ top: 8px; } .nav-toggle span:nth-child(2){ top: 15px; } .nav-toggle span:nth-child(3){ top: 22px; }
+    .nav-toggle.open span:nth-child(1){ transform: rotate(45deg); top: 15px; } .nav-toggle.open span:nth-child(2){ opacity: 0; } .nav-toggle.open span:nth-child(3){ transform: rotate(-45deg); top: 15px; }
+
+    /* Hero - 椰树风格 + 红色元素 */
+    .hero { 
+      position: relative; min-height: 85vh; display: flex; align-items: center; 
+      overflow: hidden; 
+      background: linear-gradient(to bottom, var(--coconut-yellow) 0%, var(--coconut-yellow) 50%, var(--coconut-blue) 50%, var(--coconut-blue) 100%);
+      color: var(--coconut-black);
+      padding: 40px 0;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: 
+        linear-gradient(45deg, var(--coconut-blue) 25%, transparent 25%, transparent 75%, var(--coconut-blue) 75%, var(--coconut-blue)),
+        linear-gradient(45deg, var(--coconut-blue) 25%, transparent 25%, transparent 75%, var(--coconut-blue) 75%, var(--coconut-blue));
+      background-size: 10px 10px;
+      background-position: 0 0, 5px 5px;
+      opacity: 0.1;
+      z-index: 0;
+    }
+    .hero__in { 
+      position: relative; display: grid; grid-template-columns: 1.1fr 0.9fr; 
+      gap: 50px; align-items: center; z-index: 2; padding: 40px 0; 
+    }
+    .hero__title { 
+      font-size: 3.5rem; line-height: 1.1; margin: 0 0 20px; font-weight: 900;
+      color: var(--coconut-blue);
+      text-shadow: 3px 3px 0 var(--coconut-black), 
+                   -1px -1px 0 #FFF, 1px -1px 0 #FFF, -1px 1px 0 #FFF, 1px 1px 0 #FFF;
+      text-transform: uppercase;
+    }
+    .hero__sub { 
+      font-size: 1.8rem; margin: 0 0 24px; 
+      color: var(--coconut-white); font-weight: 800;
+      background: var(--coconut-red);
+      padding: 10px;
+      border: 2px solid var(--coconut-black);
+      box-shadow: 4px 4px 0 var(--coconut-black);
+    }
+    .hero__lead { 
+      color: var(--coconut-black); margin: 0 0 32px; font-size: 1.2rem; 
+      font-weight: 600;
+      background: rgba(255,255,255,0.8);
+      padding: 15px;
+      border: 2px solid var(--coconut-blue);
+    }
+    .hero__cta { 
+      display: flex; gap: 16px; margin-bottom: 24px; flex-wrap: wrap; 
+      background: var(--coconut-blue);
+      padding: 20px;
+      border: 3px solid var(--coconut-black);
+    }
+    .hero__points { 
+      list-style: none; padding: 0; margin: 24px 0 0; 
+      color: var(--coconut-black); display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+    }
+    .hero__points li { 
+      display: flex; align-items: center; gap: 8px; 
+      background: var(--coconut-yellow);
+      padding: 10px;
+      border: 2px solid var(--coconut-black);
+      font-weight: 700;
+    }
+    .hero__points li i { color: var(--coconut-red); font-size: 1.2rem; }
+
+    .hero-image { 
+      position: relative; border-radius: 8px; overflow: hidden; 
+      box-shadow: 10px 10px 0 var(--coconut-black);
+      border: 3px solid var(--coconut-black);
+      transform: perspective(1000px) rotateY(-5deg);
+      transition: all 0.3s ease;
+    }
+    .hero-image:hover { 
+      transform: perspective(1000px) rotateY(0deg); 
+      box-shadow: 15px 15px 0 var(--coconut-black);
+    }
+    .hero-image::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(45deg, rgba(255,0,0,0.1), rgba(255,215,0,0.1));
+      z-index: 1;
+    }
+
+    /* 首屏联系方式 */
+    .contact-buttons {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+    .contact-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 20px;
+      background: var(--coconut-yellow);
+      color: var(--coconut-blue);
+      font-weight: 800;
+      border: 2px solid var(--coconut-black);
+      box-shadow: 3px 3px 0 var(--coconut-black);
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .contact-btn:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 5px 5px 0 var(--coconut-black);
+      color: var(--coconut-blue);
+    }
+    .contact-btn.telegram {
+      background: #0088CC;
+      color: white;
+    }
+    .contact-btn.whatsapp {
+      background: #25D366;
+      color: white;
+    }
+
+    /* Sections */
+    .section { padding: 70px 0; }
+    .section--alt { background: var(--coconut-yellow); }
+    .section--dark { 
+      background: var(--coconut-blue); 
+      color: var(--coconut-yellow); 
+    }
+    .title { 
+      font-size: 2.8rem; color: var(--coconut-blue); margin: 0 0 16px; 
+      font-weight: 900; line-height: 1.2; 
+      text-transform: uppercase;
+      text-shadow: 2px 2px 0 var(--coconut-black), 
+                   -1px -1px 0 #FFF, 1px -1px 0 #FFF, -1px 1px 0 #FFF, 1px 1px 0 #FFF;
+    }
+    .title--center { text-align: center; }
+    .title--light { color: var(--coconut-yellow); text-shadow: 2px 2px 0 var(--coconut-black); }
+    .desc { 
+      color: var(--coconut-black); margin: 0 0 32px; font-size: 1.2rem; 
+      max-width: 700px; font-weight: 600;
+    }
+    .desc--center { text-align: center; margin-left: auto; margin-right: auto; }
+    .desc--light { color: var(--coconut-yellow); }
+    .t-center { text-align: center; }
+    .list { margin: 0; padding-left: 1.2em; line-height: 1.8; }
+    .list li { margin: 12px 0; position: relative; font-weight: 600; }
+    .list li:before { content: "✓"; color: var(--coconut-blue); font-weight: bold; position: absolute; left: -1.2em; }
+
+    /* About card */
+    .about__card { 
+      background: var(--coconut-yellow); padding: 30px; 
+      border: 3px solid var(--coconut-blue);
+      box-shadow: 8px 8px 0 var(--coconut-black);
+      position: relative;
+    }
+    .about__card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--coconut-blue);
+    }
+    .badges { display: flex; flex-wrap: wrap; gap: 12px; margin: 20px 0; }
+    .badge { 
+      background: var(--coconut-blue); 
+      border: 2px solid var(--coconut-black); padding: 8px 16px; 
+      border-radius: 4px; font-weight: 700; color: var(--coconut-yellow); 
+      display: flex; align-items: center; gap: 6px; font-size: 14px; 
+    }
+
+    /* Grid & Cards */
+    .grid { display: grid; gap: 30px; }
+    .grid--2 { grid-template-columns: 1fr 1fr; }
+    .grid--3 { grid-template-columns: repeat(3, 1fr); }
+    .grid--4 { grid-template-columns: repeat(4, 1fr); }
+
+    .cards .card { 
+      background: var(--coconut-yellow); padding: 25px; 
+      border: 3px solid var(--coconut-blue);
+      box-shadow: 5px 5px 0 var(--coconut-black);
+      transition: all 0.2s ease; 
+      text-align: center; height: 100%; 
+      display: flex; flex-direction: column; align-items: center; 
+      position: relative;
+    }
+    .cards .card:hover { 
+      transform: translate(-5px, -5px); 
+      box-shadow: 10px 10px 0 var(--coconut-black);
+    }
+    .card__icon { 
+      font-size: 48px; margin-bottom: 20px; color: var(--coconut-blue); 
+      background: var(--coconut-white); 
+      width: 80px; height: 80px; border-radius: 50%; 
+      display: flex; align-items: center; justify-content: center; 
+      margin-bottom: 24px; 
+      border: 2px solid var(--coconut-black);
+    }
+
+    /* Service cards */
+    .service-cards .svc { 
+      background: var(--coconut-yellow); 
+      border: 3px solid var(--coconut-blue);
+      box-shadow: 5px 5px 0 var(--coconut-black);
+      overflow: hidden; 
+      transition: all 0.2s ease; 
+      height: 100%; 
+    }
+    .svc__media { 
+      aspect-ratio: 16/9; background: var(--coconut-blue); 
+      position: relative; overflow: hidden; 
+    }
+    .svc__content { padding: 25px; }
+
+    /* Stats */
+    .stats { align-items: stretch; }
+    .stat { 
+      background: var(--coconut-yellow); 
+      border: 3px solid var(--coconut-blue);
+      box-shadow: 5px 5px 0 var(--coconut-black);
+      padding: 30px 25px; 
+      text-align: center; 
+      transition: all 0.2s ease; 
+    }
+    .stat:hover { 
+      transform: translate(-5px, -5px); 
+      box-shadow: 10px 10px 0 var(--coconut-black);
+    }
+    .stat__num { font-size: 3rem; font-weight: 900; color: var(--coconut-blue); margin-bottom: 8px; line-height: 1; }
+    .stat__lab { color: var(--coconut-black); font-weight: 700; }
+
+    /* Promise */
+    .promise { 
+      background: var(--coconut-blue); 
+      color: var(--coconut-yellow); 
+      border-top: 5px solid var(--coconut-black);
+      border-bottom: 5px solid var(--coconut-black);
+    }
+    .promise__in { 
+      display: flex; gap: 24px; align-items: center; 
+      justify-content: space-between; padding: 40px 0; 
+    }
+    .promise h3 { margin: 0; font-size: 2rem; font-weight: 900; text-transform: uppercase; }
+    .promise p { margin: 8px 0 0; color: var(--coconut-yellow); max-width: 600px; font-weight: 600; }
+
+    /* FAQ */
+    .faq details { 
+      background: var(--coconut-yellow); padding: 20px; 
+      border: 3px solid var(--coconut-blue);
+      box-shadow: 5px 5px 0 var(--coconut-black);
+      margin-bottom: 20px; 
+      transition: all 0.2s ease; 
+    }
+    .faq details[open] { background: var(--coconut-white); }
+    .faq summary { 
+      cursor: pointer; font-weight: 800; font-size: 1.2rem; 
+      display: flex; justify-content: space-between; align-items: center; 
+      list-style: none; 
+      color: var(--coconut-blue);
+    }
+    .faq summary:after { content: '+'; font-size: 1.5rem; color: var(--coconut-blue); transition: all 0.2s ease; }
+    .faq details[open] summary:after { content: '-'; color: var(--coconut-blue); }
+    .faq__body { color: var(--coconut-black); margin-top: 16px; padding-top: 16px; border-top: 2px solid var(--coconut-blue); font-weight: 600; }
+
+    /* Contact */
+    .contact { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+    .contact__card { 
+      background: var(--coconut-yellow); padding: 30px; 
+      border: 3px solid var(--coconut-blue);
+      box-shadow: 8px 8px 0 var(--coconut-black);
+    }
+    .contact__info { display: flex; flex-direction: column; gap: 20px; }
+    .contact__item { display: flex; align-items: center; gap: 12px; }
+    .contact__icon { 
+      width: 40px; height: 40px; border-radius: 50%; 
+      background: var(--coconut-blue); 
+      display: flex; align-items: center; justify-content: center; 
+      color: var(--coconut-yellow); font-size: 18px; 
+      border: 2px solid var(--coconut-black);
+    }
+    .form { 
+      background: var(--coconut-yellow); padding: 30px; 
+      border: 3px solid var(--coconut-blue);
+      box-shadow: 8px 8px 0 var(--coconut-black);
+    }
+    .form__group { margin-bottom: 20px; }
+    .form label { display: block; margin-bottom: 8px; font-weight: 700; color: var(--coconut-blue); }
+    .form input, .form textarea { 
+      width: 100%; padding: 12px 14px; border-radius: 4px; 
+      border: 2px solid var(--coconut-blue); outline: none; 
+      transition: all 0.2s ease; font-family: inherit; font-size: 16px; 
+      background: white;
+    }
+    .form input:focus, .form textarea:focus { 
+      border-color: var(--coconut-black); 
+      box-shadow: 0 0 0 3px rgba(255,0,0,0.3); 
+    }
+    .form__actions { display: flex; gap: 16px; align-items: center; margin-top: 8px; }
+    .form input[type="checkbox"] {
+      width: auto;
+      display: inline-block;
+    }
+
+    .form__status { margin-top: 16px; padding: 12px 16px; border-radius: 4px; font-weight: 700; }
+    .form__status.success { background: rgba(15,157,88,0.1); color: #0f9d58; border: 2px solid #0f9d58; }
+    .form__status.error { background: rgba(234,67,53,0.08); color: #ea4335; border: 2px solid #ea4335; }
+
+    /* Footer */
+    .footer { 
+      background: var(--coconut-blue); 
+      color: var(--coconut-yellow); padding: 50px 0 30px; 
+      border-top: 5px solid var(--coconut-black);
+    }
+    .footer__in { 
+      display: flex; align-items: center; 
+      justify-content: space-between; padding: 20px 0; 
+      flex-wrap: wrap; gap: 20px; 
+    }
+    .footer__links { display: flex; gap: 24px; }
+    .footer__links a { color: var(--coconut-yellow); font-weight: 700; }
+    .footer__links a:hover { color: white; }
+
+    /* 右侧悬浮咨询按钮 */
+    .floating-buttons {
+      position: fixed;
+      right: 20px;
+      bottom: 100px;
+      z-index: 99;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    .floating-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      color: white;
+      font-size: 24px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .floating-btn:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 15px rgba(0,0,0,0.4);
+    }
+    .floating-btn.telegram {
+      background: #0088CC;
+    }
+    .floating-btn.whatsapp {
+      background: #25D366;
+    }
+    .floating-btn span {
+      position: absolute;
+      right: 70px;
+      white-space: nowrap;
+      background: rgba(0,0,0,0.8);
+      padding: 8px 12px;
+      border-radius: 4px;
+      color: white;
+      font-size: 14px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+    .floating-btn:hover span {
+      opacity: 1;
+    }
+
+    .back-to-top { 
+      position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px; 
+      border-radius: 50%; background: var(--coconut-blue); color: var(--coconut-yellow); 
+      display: flex; align-items: center; justify-content: center; 
+      box-shadow: 3px 3px 0 var(--coconut-black); cursor: pointer; 
+      opacity: 0; visibility: hidden; transition: all 0.2s ease; z-index: 99; 
+      border: 2px solid var(--coconut-black);
+    }
+    .back-to-top.visible { opacity: 1; visibility: visible; }
+    .back-to-top:hover { background: var(--coconut-blue); transform: translate(-2px, -2px); box-shadow: 5px 5px 0 var(--coconut-black); }
+
+    /* Responsive */
+    @media (max-width: 1200px) {
+      .hero__title { font-size: 3rem; }
+      .grid--4 { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 980px) {
+      .nav__list { 
+        display: none; position: fixed; top: 80px; left: 0; right: 0; 
+        background: var(--coconut-yellow); padding: 20px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); 
+        flex-direction: column; gap: 0; 
+        border-top: 3px solid var(--coconut-blue);
+        border-bottom: 3px solid var(--coconut-blue);
+      }
+      .nav__list li { width: 100%; }
+      .nav__list a { display: block; padding: 12px 0; border-bottom: 2px solid var(--coconut-blue); }
+      .nav__list a:after { display: none; }
+      .nav.open .nav__list { display: flex; }
+      .nav-toggle { display: block; }
+      .hero__in { grid-template-columns: 1fr; text-align: center; gap: 50px; }
+      .hero__cta { justify-content: center; }
+      .hero__points { justify-content: center; }
+      .contact { grid-template-columns: 1fr; }
+      .promise__in { flex-direction: column; text-align: center; gap: 20px; }
+      .promise p { text-align: center; }
+      .floating-buttons {
+        bottom: 20px;
+        right: 15px;
+      }
+      .floating-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+      }
+    }
+    @media (max-width: 768px) {
+      .hero__title { font-size: 2.5rem; }
+      .hero__sub { font-size: 1.5rem; }
+      .grid--2, .grid--3 { grid-template-columns: 1fr; }
+      .grid--4 { grid-template-columns: 1fr; }
+      .hero__cta { flex-direction: column; align-items: center; }
+      .btn { width: 100%; justify-content: center; }
+      .contact-buttons { flex-direction: column; }
+      .promise .btns { flex-direction: column; width: 100%; }
+      .footer__in { flex-direction: column; text-align: center; }
+      .footer__links { flex-wrap: wrap; justify-content: center; }
+      .hero__points { grid-template-columns: 1fr; }
+      .floating-buttons {
+        flex-direction: row;
+        bottom: 15px;
+        right: 15px;
+      }
+      .floating-btn span {
+        display: none;
+      }
+    }
+    @media (max-width: 480px) {
+      .hero__title { font-size: 2rem; }
+      .hero__sub { font-size: 1.2rem; }
+      .title { font-size: 2rem; }
+      .section { padding: 50px 0; }
+      .hero { min-height: auto; padding: 60px 0; }
+      .form__actions { flex-direction: column; }
+      .btn { width: 100%; }
+    }
+
+    /* Animation */
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .fade-in { animation: fadeIn 1s ease forwards; opacity: 0; transform: translateY(20px); }
+    .delay-1 { animation-delay: 0.2s; } .delay-2 { animation-delay: 0.4s; } .delay-3 { animation-delay: 0.6s; }
+
+    /* Accessibility & Reduced motion */
+    a:focus, button:focus, input:focus, textarea:focus { outline: 3px solid rgba(255,0,0,0.3); outline-offset: 2px; }
+    :focus:not(.focus-visible) { outline: none; }
+    @media (prefers-reduced-motion: reduce) {
+      .fade-in { animation: none !important; transition: none !important; transform: none !important; opacity: 1 !important; }
+      .hero-image { transition: none !important; }
+      .floating-btn { transition: none !important; }
+    }
+
+    /* small helper */
+    .muted { color: var(--coconut-black); font-size: 0.95rem; }
+    .visually-hidden { position: absolute !important; left: -9999px !important; top: auto !important; width: 1px !important; height: 1px !important; overflow: hidden; }
+  </style>
+</head>
+<body>
+  <a class="skip" href="robots.txt.html#main">跳到主要内容</a>
+
+  <!-- 右侧悬浮按钮 -->
+  <div class="floating-buttons">
+    <a href="https://t.me/TY22222222" class="floating-btn telegram" onclick="handleContactClick(event, this.href)" aria-label="Telegram咨询">
+      <i class="fab fa-telegram"></i>
+      <span>Telegram咨询</span>
+    </a>
+    <a href="https://wa.me/447754979958" class="floating-btn whatsapp" onclick="handleContactClick(event, this.href)" aria-label="WhatsApp咨询">
+      <i class="fab fa-whatsapp"></i>
+      <span>WhatsApp咨询</span>
+    </a>
+  </div>
+
+  <!-- Header -->
+  <header class="header" role="banner">
+    <div class="container header__in">
+      <div class="brand">
+        <div class="brand__logo">叁仟</div>
+        <div class="brand__text">
+          <strong>叁仟出海</strong>
+          <span>精准流量解决方案专家</span>
+        </div>
+      </div>
+
+      <nav id="nav" class="nav" aria-label="主导航">
+        <ul id="primary-menu" class="nav__list">
+          <li><a href="robots.txt.html#about">关于我们</a></li>
+          <li><a href="robots.txt.html#services">服务内容</a></li>
+          <li><a href="robots.txt.html#advantages">核心优势</a></li>
+          <li><a href="robots.txt.html#stats">成功案例</a></li>
+          <li><a href="robots.txt.html#faq">常见问题</a></li>
+          <li><a href="robots.txt.html#contact">立即联系</a></li>
+        </ul>
+      </nav>
+
+      <div class="header__actions">
+        <a class="btn btn--yellow" href="https://t.me/TY22222222" target="_blank" rel="noopener noreferrer" onclick="handleContactClick(event, this.href)">
+          <i class="fab fa-telegram" aria-hidden="true"></i> Telegram
+        </a>
+        <button id="navToggle" class="nav-toggle" aria-label="切换主导航" aria-controls="primary-menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" aria-label="横幅">
+    <div class="container hero__in">
+      <div class="hero__left fade-in">
+        <h1 class="hero__title">精准流量 · 指哪打哪</h1>
+        <h2 class="hero__sub">广告代投打粉专家 - 白量/灰量</h2>
+        <p class="hero__lead">专为跨境电商、兼职招聘、股票投教、游戏棋牌、小说短剧等行业提供谷歌、FB、Tiktok精准打粉和代投服务，CRM客服分流系统，多平台多账号结粉，打粉工单计数器，实现高转化率！</p>
+        
+        <div class="hero__cta">
+          <p style="color: var(--coconut-yellow); font-weight: 800; margin-bottom: 15px;">老板们，请点下面的按钮联系我们！（优先使用TG接单）</p>
+          <div class="contact-buttons">
+            <a href="https://t.me/TY22222222" class="contact-btn telegram" onclick="handleContactClick(event, this.href)">
+              <i class="fab fa-telegram"></i> Telegram询价
+            </a>
+            <a href="https://wa.me/447754979958" class="contact-btn whatsapp" onclick="handleContactClick(event, this.href)">
+              <i class="fab fa-whatsapp"></i> WhatsApp询价
+            </a>
+          </div>
+        </div>
+        
+        <ul class="hero__points" aria-hidden="false">
+          <li><i class="fas fa-bullseye" aria-hidden="true"></i> 精准打粉 · 指哪打哪</li>
+          <li><i class="fas fa-handshake" aria-hidden="true"></i> 互惠互利 · 高转化率</li>
+          <li><i class="fas fa-users" aria-hidden="true"></i> 多平台客服分流系统</li>
+          <li><i class="fas fa-chart-line" aria-hidden="true"></i> 实时数据统计/量大价优</li>
+        </ul>
+      </div>
+      <div class="hero__right fade-in delay-1" aria-hidden="false">
+        <div class="hero-image">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="全球数字营销示意图" width="600" height="400" loading="eager" decoding="async" fetchpriority="high">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main id="main">
+    <!-- About -->
+    <section id="about" class="section section--alt" aria-labelledby="about-title">
+      <div class="container grid grid--2">
+        <div class="fade-in">
+          <h2 id="about-title" class="title">关于我们</h2>
+          <p class="desc">叁仟出海专注各领域广告投放，拥有多年海外广告投放经验，深谙各平台规则与用户行为特征，为客户提供高效精准的广告投放解决方案。</p>
+          <ul class="list">
+            <li>专业团队拥有5年以上谷歌和FB广告投放经验</li>
+            <li>服务众多客户，涵盖跨境电商、招聘招商、投资教育、小说游戏等领域</li>
+            <li>与各大媒体平台建立深度合作关系，账户稳定可靠</li>
+            <li>数据驱动决策，持续优化广告效果，实现高转化</li>
+          </ul>
+          <div class="inline-cta" style="margin-top: 30px;">
+            <a class="btn btn--primary" href="https://t.me/TY22222222" target="_blank" rel="noopener noreferrer" onclick="handleContactClick(event, this.href)">
+              <i class="fab fa-telegram" aria-hidden="true"></i> 联系我们的专家
+            </a>
+          </div>
+        </div>
+        <aside class="about__card fade-in delay-1" aria-labelledby="capabilities-title" role="complementary">
+          <h3 id="capabilities-title">专注打粉领域</h3>
+          <div class="badges" aria-hidden="false">
+            <span class="badge"><i class="fas fa-ad" aria-hidden="true"></i> 兼职招聘类</span>
+            <span class="badge"><i class="fas fa-chart-line" aria-hidden="true"></i> 股票币圈类</span>
+            <span class="badge"><i class="fas fa-coins" aria-hidden="true"></i> 小说短剧类</span>
+            <span class="badge"><i class="fas fa-gamepad" aria-hidden="true"></i> 游戏棋牌类</span>
+            <span class="badge"><i class="fas fa-store" aria-hidden="true"></i> 跨境电商类</span>
+            <span class="badge"><i class="fas fa-heart" aria-hidden="true"></i> 交友APP类</span>
+          </div>
+          <p style="margin-top:20px; color:var(--coconut-black); font-size:14px; font-weight: 600;">我们提供专业广告代投服务，严格遵守各平台广告政策，确保广告投放合规可持续。量大管饱、物美价廉！</p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="section" aria-labelledby="services-title">
+      <div class="container">
+        <h2 id="services-title" class="title t-center">服务内容</h2>
+        <p class="desc t-center desc--center">全方位量产广告解决方案，助力业务高效获客与转化</p>
+
+        <div class="grid grid--4 service-cards" role="list" aria-label="服务列表">
+          <article class="svc fade-in" role="listitem" aria-labelledby="svc-google">
+            <div class="svc__media"><img src="https://placehold.co/600x400/006CB4/ffffff?text=Google+Ads" alt="Google Ads 服务示例" width="600" height="400" loading="lazy" decoding="async"></div>
+            <div class="svc__content">
+              <h3 id="svc-google">谷歌广告代投</h3>
+              <p>搜索广告、展示广告、YouTube视频广告全覆盖，精准触达目标用户，提升转化率。</p>
+            </div>
+          </article>
+
+          <article class="svc fade-in delay-1" role="listitem" aria-labelledby="svc-fb">
+            <div class="svc__media"><img src="https://placehold.co/600x400/1877F2/ffffff?text=Meta+Ads" alt="Meta广告服务示例" width="600" height="400" loading="lazy" decoding="async"></div>
+            <div class="svc__content">
+              <h3 id="svc-fb">FB/IG广告代投</h3>
+              <p>Facebook、Instagram全渠道覆盖，精准人群定向，多样化广告形式，最大化社交广告效果。</p>
+            </div>
+          </article>
+
+          <article class="svc fade-in delay-2" role="listitem" aria-labelledby="svc-tiktok">
+            <div class="svc__media"><img src="https://placehold.co/600x400/000000/ffffff?text=TikTok+Ads" alt="TikTok广告服务示例" width="600" height="400" loading="lazy" decoding="async"></div>
+            <div class="svc__content">
+              <h3 id="svc-tiktok">TikTok广告代投</h3>
+              <p>短视频创意广告，年轻用户精准触达，病毒式传播潜力，助力用户快速增长。</p>
+            </div>
+          </article>
+
+          <article class="svc fade-in delay-3" role="listitem" aria-labelledby="svc-other">
+            <div class="svc__media"><img src="https://placehold.co/600x400/25D366/ffffff?text=CRM+System" alt="CRM系统服务示例" width="600" height="400" loading="lazy" decoding="async"></div>
+            <div class="svc__content">
+              <h3 id="svc-other">CRM客服分流</h3>
+              <p>TG、WhatsApp、Line多平台多账号结粉系统，打粉工单计数器，进粉数量统计和客服优化。</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Advantages -->
+    <section id="advantages" class="section section--alt" aria-labelledby="advantages-title">
+      <div class="container">
+        <h2 id="advantages-title" class="title t-center">核心优势</h2>
+        <p class="desc t-center desc--center">我们以专业服务和卓越效果赢得了客户的信任，以下是我们的核心优势</p>
+
+        <div class="grid grid--4 cards" role="list" aria-label="服务优势">
+          <article class="card fade-in" role="listitem">
+            <div class="card__icon" aria-hidden="true"><i class="fas fa-bullseye"></i></div>
+            <h3>精准打粉</h3>
+            <p>专精白量/灰量领域流量获取，深入了解目标用户特征，实现精准定向，提高转化率。</p>
+          </article>
+          <article class="card fade-in delay-1" role="listitem">
+            <div class="card__icon" aria-hidden="true"><i class="fas fa-shield-alt"></i></div>
+            <h3>账户稳定</h3>
+            <p>多年平台操作经验，规避常见风险点，保障账户安全稳定运行，减少封号风险。</p>
+          </article>
+          <article class="card fade-in delay-2" role="listitem">
+            <div class="card__icon" aria-hidden="true"><i class="fas fa-tachometer-alt"></i></div>
+            <h3>高效流程</h3>
+            <p>标准化操作流程，快速开户与上线，专业优化团队实时调整，最大化广告效果。</p>
+          </article>
+          <article class="card fade-in delay-3" role="listitem">
+            <div class="card__icon" aria-hidden="true"><i class="fas fa-chart-pie"></i></div>
+            <h3>数据驱动</h3>
+            <p>深度数据追踪与分析，基于效果持续优化投放策略，提升ROI与转化率。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats -->
+    <section id="stats" class="section section--dark" aria-labelledby="stats-title">
+      <div class="container">
+        <h2 id="stats-title" class="title t-center title--light">成功案例</h2>
+        <p class="desc t-center desc--center desc--light">以下为叁仟出海服务客户的部分数据展示（基于历史数据统计，实际效果因项目而异）</p>
+
+        <div class="grid grid--4 stats" role="list" aria-label="示例数据">
+          <div class="stat fade-in" role="listitem" aria-label="广告消耗金额">
+            <div class="stat__num" data-count="3500" aria-live="polite">0</div>
+            <div class="stat__lab" style="color: var(--coconut-red);">万+美元广告消耗</div>
+          </div>
+          <div class="stat fade-in delay-1" role="listitem" aria-label="服务客户数量">
+            <div class="stat__num" data-count="200" aria-live="polite">0</div>
+            <div class="stat__lab" style="color: var(--coconut-red);">家+服务客户</div>
+          </div>
+          <div class="stat fade-in delay-2" role="listitem" aria-label="ROI提升百分比">
+            <div class="stat__num" data-count="65" aria-live="polite">0</div>
+            <div class="stat__lab" style="color: var(--coconut-red);">%平均ROI提升</div>
+          </div>
+          <div class="stat fade-in delay-3" role="listitem" aria-label="团队经验年数">
+            <div class="stat__num" data-count="5" aria-live="polite">0</div>
+            <div class="stat__lab" style="color: var(--coconut-red);">年+团队经验</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Promise -->
+    <section class="promise" aria-labelledby="promise-title">
+      <div class="container promise__in">
+        <div>
+          <h3 id="promise-title">服务承诺 · 指哪打哪 · 互惠互利</h3>
+          <p>我们承诺以专业态度服务每一位客户，精准打粉，高转化率，实现双方共赢。遇到账户问题提供专业支持，确保广告投放稳定高效，保障客户权益。</p>
+        </div>
+        <div class="btns">
+          <a class="btn btn--yellow" href="robots.txt.html#contact" onclick="handleContactClick(event, getRandomTelegramLink())">
+            <i class="fas fa-clipboard-list" aria-hidden="true"></i> 获取报价
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section section--alt" aria-labelledby="faq-title">
+      <div class="container">
+        <h2 id="faq-title" class="title t-center">常见问题</h2>
+        <div class="faq" role="region" aria-label="常见问题">
+          <details class="fade-in">
+            <summary>广告投放需要准备哪些材料？多长时间可以上线？</summary>
+            <div class="faq__body">通常需要广告内容、目标用户画像、预算等信息。上线时间因平台而异，一般1-3个工作日内可以完成账户设置并开始投放。</div>
+          </details>
+          <details class="fade-in delay-1">
+            <summary>你们支持哪些支付方式？如何结算？</summary>
+            <div class="faq__body">我们支持USDT、支付宝、微信支付等多种方式。结算方式灵活，可按项目制、月度服务费或按广告消耗比例等多种方式合作。</div>
+          </details>
+          <details class="fade-in delay-2">
+            <summary>广告投放后多久能看到效果？</summary>
+            <div class="faq__body">效果显现时间因行业、平台和目标受众而异。通常1-3天内可初步看到数据趋势，持续优化后效果会逐步提升。</div>
+          </details>
+          <details class="fade-in delay-3">
+            <summary>如果遇到账户问题怎么办？</summary>
+            <div class="faq__body">我们提供账户风控指导与问题解决支持，多年平台操作经验帮助规避常见风险，保障账户稳定运行。</div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section" aria-labelledby="contact-title">
+      <div class="container contact">
+        <div class="contact__card fade-in" role="region" aria-labelledby="contact-card-title">
+          <h3 id="contact-card-title">联系我们</h3>
+          <div class="contact__info">
+            <div class="contact__item">
+              <div class="contact__icon" aria-hidden="true"><i class="fab fa-telegram"></i></div>
+              <div>
+                <p><strong>Telegram(商务合作)</strong></p>
+                <p><a href="https://t.me/TY22222222" target="_blank" rel="noopener noreferrer" onclick="handleContactClick(event, this.href)">t.me/TY22222222</a></p>
+              </div>
+            </div>
+            <div class="contact__item">
+              <div class="contact__icon" aria-hidden="true"><i class="fab fa-whatsapp"></i></div>
+              <div>
+                <p><strong>WhatsAPP</strong></p>
+                <p><a href="https://wa.me/447754979958" target="_blank" rel="noopener noreferrer" onclick="handleContactClick(event, this.href)">+447754979958</a></p>
+              </div>
+            </div>
+            <div class="contact__item">
+              <div class="contact__icon" aria-hidden="true"><i class="fas fa-envelope"></i></div>
+              <div>
+                <p><strong>邮箱</strong></p>
+                <p><a href="mailto:service@zhads.online">service@zhads.online</a></p>
+              </div>
+            </div>
+            <div class="contact__item">
+              <div class="contact__icon" aria-hidden="true"><i class="fas fa-clock"></i></div>
+              <div>
+                <p><strong>服务时间</strong></p>
+                <p>每天 14:00-24:00</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <form id="contactForm" class="form fade-in delay-1" novalidate aria-labelledby="form-title">
+          <h3 id="form-title" style="margin-bottom:24px;">发送咨询</h3>
+
+          <div class="form__group">
+            <label for="f-name">称呼 <span style="color:var(--accent)">*</span></label>
+            <input id="f-name" name="name" type="text" required minlength="2" placeholder="怎么称呼您？">
+          </div>
+
+          <div class="form__group">
+            <label for="f-telegram">Telegram账号</label>
+            <input id="f-telegram" name="telegram" type="text" placeholder="请输入您的Telegram账号">
+          </div>
+
+          <div class="form__group">
+            <label for="f-whatsapp">WhatsApp号码</label>
+            <input id="f-whatsapp" name="whatsapp" type="text" placeholder="请输入您的WhatsApp号码">
+          </div>
+
+          <div class="form__group">
+            <label for="f-needs">需求描述 <span style="color:var(--accent)">*</span></label>
+            <textarea id="f-needs" name="needs" rows="4" required minlength="10" placeholder="请简要描述您的打粉/代投需求（行业、目标用户、预算等）"></textarea>
+          </div>
+
+          <!-- 蜜罐字段（防机器） -->
+          <input type="text" name="website" class="visually-hidden" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+          <div class="form__actions">
+            <button class="btn btn--primary" type="submit" aria-busy="false">
+              <i class="fas fa-paper-plane" aria-hidden="true"></i> 提交咨询
+            </button>
+          </div>
+
+          <p id="formStatus" class="form__status" aria-live="polite" role="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="container footer__in">
+      <div>© <span id="year"></span> 叁仟出海 版权所有</div>
+      <div class="footer__links">
+        <a href="privacy.html">隐私政策</a>
+        <a href="userterms.html">服务条款</a>
+        <a href="about.html">关于我们</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="back-to-top" id="backToTop" role="button" tabindex="0" aria-label="返回顶部">
+    <i class="fas fa-arrow-up" aria-hidden="true"></i>
+  </div>
+
+  <!-- 结构化数据（FAQ + Organization） -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "叁仟出海",
+    "url": "https://usanb.top",
+    "logo": "https://www.usanb.top/images/logo.png",
+    "contactPoint": [{
+      "@type": "ContactPoint",
+      "telephone": "+44-775-497-9958",
+      "contactType": "customer service",
+      "areaServed": "CN",
+      "availableLanguage": ["Chinese","English"]
+    }]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "广告投放需要准备哪些材料？多长时间可以上线？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "通常需要广告内容、目标用户画像、预算等信息。上线时间因平台而异，最快当天、一般2个工作日内可以完成开始投放。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "你们支持哪些支付方式？如何结算？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "我们支持人民币/USD转账、支付宝、微信支付等多种方式。结算方式灵活，可按工单计数、服务费或按广告消耗比例等多种方式合作。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "广告投放后多久能看到效果？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "效果显现时间因行业、平台和目标受众而异。通常1-3天内可初步看到数据趋势，持续优化后效果会逐步提升。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "如果遇到账户问题怎么办？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "我们提供账户风控指导与问题解决支持，多年平台操作经验帮助规避常见风险，保障账户稳定运行。"
+        }
+      }
+    ]
+  }
+  </script>
+
+  <script>
+    // Telegram会话链接数组
+    const telegramLinks = [
+      "https://t.me/TY22222222","https://t.me/TY22222222","https://t.me/Giggo521"
+    ];
+
+    // 获取随机Telegram链接
+    function getRandomTelegramLink() {
+      const randomIndex = Math.floor(Math.random() * telegramLinks.length);
+      return telegramLinks[randomIndex];
+    }
+
+    // 处理所有咨询链接点击事件
+    function handleContactClick(event, url) {
+      event.preventDefault();
+      // 上报GA事件
+      gtag_report_conversion(url);
+      return false;
+    }
+
+    // 轻量交互（增强版）：移动导航、锚点平滑、表单校验与提交（fetch -> fallback），统计数值动画（支持 prefers-reduced-motion）、年份、无障碍增强
+    (function(){
+      "use strict";
+      var $ = (s, r)=> (r||document).querySelector(s);
+      var $$ = (s, r)=> Array.from((r||document).querySelectorAll(s));
+
+      // mobile nav (ARIA + focus management + scroll lock)
+      var nav = $("#nav");
+      var navToggle = $("#navToggle");
+      var primaryMenu = $("#primary-menu");
+      navToggle && navToggle.addEventListener("click", function(){
+        var open = nav.classList.toggle("open");
+        navToggle.classList.toggle("open");
+        navToggle.setAttribute("aria-expanded", open ? "true" : "false");
+        if(open){
+          // lock body scroll
+          document.body.style.overflow = "hidden";
+          // move focus to first link
+          var firstLink = primaryMenu.querySelector('a');
+          if(firstLink) firstLink.focus();
+        } else {
+          document.body.style.overflow = "";
+          navToggle.focus();
+        }
+      });
+
+      // close nav on ESC (and restore focus)
+      document.addEventListener("keydown", function(e){
+        if(e.key === "Escape" && nav && nav.classList.contains("open")) {
+          nav.classList.remove("open");
+          navToggle.classList.remove("open");
+          navToggle.setAttribute("aria-expanded", "false");
+          document.body.style.overflow = "";
+          navToggle.focus();
+        }
+      });
+
+      // smooth anchor (preserve existing behavior)
+      document.addEventListener("click", function(e){
+        var a = e.target.closest('a[href^="#"]');
+        if(!a) return;
+        var href = a.getAttribute("href");
+        if(href === "#" || href === "#!") return;
+        var target = document.querySelector(href);
+        if(target){
+          e.preventDefault();
+          var offset = 0;
+          // if header is sticky, offset a bit (optional)
+          var header = document.querySelector('.header');
+          if(header) offset = header.offsetHeight + 8;
+          var rect = target.getBoundingClientRect();
+          var top = window.pageYOffset + rect.top - offset;
+          window.scrollTo({ top: top, behavior: "smooth" });
+          nav && nav.classList.remove("open");
+          navToggle.classList.remove("open");
+          navToggle.setAttribute("aria-expanded", "false");
+        }
+      });
+
+      // contact form enhancement
+      var form = $("#contactForm");
+      var status = $("#formStatus");
+      var formStartTs = Date.now();
+
+      function setStatus(text, type){
+        if(!status) return;
+        status.className = "form__status " + (type === "success" ? "success" : (type === "error" ? "error" : ""));
+        status.textContent = text;
+        if(type === "success") {
+          status.setAttribute('role','status');
+        }
+      }
+
+      if(form){
+        form.addEventListener("submit", function(e){
+          e.preventDefault();
+          // basic fields
+          var nameEl = $("#f-name");
+          var needsEl = $("#f-needs");
+          var honeypot = form.querySelector('input[name="website"]');
+
+          var name = nameEl && nameEl.value.trim();
+          var needs = needsEl && needsEl.value.trim();
+
+          // honeypot check
+          if(honeypot && honeypot.value){
+            setStatus("检测到异常提交，请稍后重试。", "error");
+            return;
+          }
+
+          // simple time-based bot check (>= 2s)
+          if(Date.now() - formStartTs < 1500){
+            setStatus("请稍作停留后再提交表单。", "error");
+            return;
+          }
+
+          if(!name || !needs){
+            setStatus("请填写称呼和需求描述。", "error");
+            if(nameEl) nameEl.setAttribute('aria-invalid', !name ? 'true' : 'false');
+            if(needsEl) needsEl.setAttribute('aria-invalid', !needs ? 'true' : 'false');
+            return;
+          }
+
+          var btn = form.querySelector('button[type="submit"]');
+          btn.disabled = true;
+          btn.setAttribute('aria-busy','true');
+          var origHTML = btn.innerHTML;
+          btn.innerHTML = '<i class="fas fa-spinner fa-spin" aria-hidden="true"></i> 提交中...';
+
+          // payload
+          var payload = {
+            name: name,
+            telegram: $("#f-telegram").value,
+            whatsapp: $("#f-whatsapp").value,
+            needs: needs,
+            timestamp: new Date().toISOString(),
+            source: window.location.href
+          };
+
+          // try to send to /api/contact; if fail, fallback to simulated success (so UX smooth)
+          fetch('/api/contact', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload),
+            keepalive: true
+          }).then(function(res){
+            if(res.ok){
+              return res.json().catch(function(){ return {success:true}; });
+            } else {
+              // treat non-2xx as error to fallback
+              throw new Error('network');
+            }
+          }).then(function(data){
+            // success path
+            btn.disabled = false;
+            btn.setAttribute('aria-busy','false');
+            btn.innerHTML = origHTML;
+            form.reset();
+            setStatus("已收到需求，我们将尽快联系你。", "success");
+            // reset form start timestamp to prevent immediate re-submission
+            formStartTs = Date.now();
+          }).catch(function(){
+            // fallback: simulate a submission so user isn't blocked (but still inform)
+            setTimeout(function(){
+              btn.disabled = false;
+              btn.setAttribute('aria-busy','false');
+              btn.innerHTML = origHTML;
+              form.reset();
+              setStatus("已收到需求（离线模式），我们会尽快联系你。若未收到回复，请直接通过Telegram或WhatsApp联系我们。", "success");
+              formStartTs = Date.now();
+            }, 1200);
+          });
+        });
+      }
+
+      // stats counter (supports reduced-motion)
+      function inViewport(el){
+        var r = el.getBoundingClientRect();
+        return r.top < window.innerHeight - 60 && r.bottom > 0;
+      }
+      var counters = $$(".stat__num");
+      var fired = false;
+
+      function runCounters(){
+        if(fired) return;
+        if(!counters.length) return;
+        if(!inViewport(counters[0])) return;
+
+        fired = true;
+        var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        counters.forEach(function(el){
+          var end = parseInt(el.getAttribute("data-count"), 10) || 0;
+          if(reduce){
+            el.textContent = end.toLocaleString();
+            return;
+          }
+          var start = 0, dur = 1500, t0 = null;
+          function step(ts){
+            if(!t0) t0 = ts;
+            var p = Math.min(1, (ts - t0) / dur);
+            var val = Math.floor(start + (end - start) * (0.5 - Math.cos(Math.PI*p)/2));
+            el.textContent = val.toLocaleString();
+            if(p < 1) requestAnimationFrame(step);
+          }
+          requestAnimationFrame(step);
+        });
+      }
+
+      window.addEventListener("scroll", runCounters, {passive:true});
+      window.addEventListener("load", runCounters);
+
+      // back to top button
+      var backToTop = $("#backToTop");
+      window.addEventListener("scroll", function() {
+        if (window.pageYOffset > 300) {
+          backToTop.classList.add("visible");
+        } else {
+          backToTop.classList.remove("visible");
+        }
+      }, { passive: true });
+
+      function scrollTopSmooth(){
+        window.scrollTo({top:0, behavior:"smooth"});
+      }
+      backToTop.addEventListener("click", function() {
+        scrollTopSmooth();
+      });
+      backToTop.addEventListener("keydown", function(e){
+        if(e.key === "Enter" || e.key === " "){
+          e.preventDefault();
+          scrollTopSmooth();
+        }
+      });
+
+      // year
+      var y = $("#year"); if(y) y.textContent = new Date().getFullYear();
+
+      // Animation on scroll (simple reveal)
+      function checkScroll() {
+        var elements = $$('.fade-in');
+        elements.forEach(function(element) {
+          if (inViewport(element)) {
+            element.style.opacity = 1;
+            element.style.transform = 'translateY(0)';
+          }
+        });
+      }
+      window.addEventListener('scroll', checkScroll, {passive:true});
+      window.addEventListener('load', checkScroll);
+
+    })();
+  </script>
+</body>
+</html>
