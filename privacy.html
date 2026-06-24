@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>隐私政策 - 九哥跨境 · 精准流量解决方案专家</title>
+  <meta name="description" content="九哥跨境隐私政策，阐述我们如何收集、使用和保护您的个人信息">
+  <link rel="canonical" href="https://www.usanb.top/privacy.html">
+  
+  <!-- Fonts & icons -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="" crossorigin="anonymous">
+
+  <style>
+    /* 椰树椰汁风格配色 + 红色主题 */
+    :root {
+      --coconut-yellow: #FFD700;
+      --coconut-blue: #006CB4;
+      --coconut-red: #FF0000;
+      --coconut-black: #000000;
+      --coconut-white: #FFFFFF;
+      --primary: #006CB4;
+      --primary-dark: #005592;
+      --accent: #FF0000;
+      --accent-dark: #CC0000;
+      --dark: #000000;
+      --light: #FFFFFF;
+      --radius: 4px;
+      --shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; scroll-behavior: smooth; }
+    body {
+      font-family: 'Noto Sans SC', "PingFang SC", "Microsoft Yahei", Arial, sans-serif;
+      color: var(--coconut-black);
+      background: var(--coconut-white);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      -webkit-text-size-adjust: 100%;
+    }
+    img { max-width: 100%; display: block; height: auto; }
+    a { color: var(--primary); text-decoration: none; transition: all 0.2s ease; }
+    a:hover, a:focus { color: var(--accent); outline: none; }
+    .container { width: 92%; max-width: 1200px; margin: 0 auto; }
+
+    .skip {
+      position: absolute; left: -9999px; top: auto; background: var(--dark); color: white;
+      padding: 8px 16px; border-radius: var(--radius); z-index: 1000; font-weight: 600;
+    }
+    .skip:focus { left: 10px; top: 10px; }
+
+    /* Header - 椰树风格 + 红色元素 */
+    .header {
+      position: sticky; top: 0; z-index: 100; 
+      background: var(--coconut-yellow);
+      border-bottom: 3px solid var(--coconut-red);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    .header__in { 
+      display: flex; justify-content: space-between; align-items: center; 
+      padding: 10px 0; 
+    }
+    .brand { display: flex; gap: 12px; align-items: center; }
+    .brand__logo { 
+      width: 50px; height: 50px; border-radius: 6px; 
+      background: var(--coconut-red);
+      display: flex; align-items: center; justify-content: center; 
+      color: var(--coconut-yellow); font-weight: 900; font-size: 22px;
+      border: 2px solid var(--coconut-black);
+    }
+    .brand__text strong { 
+      display: block; line-height: 1; color: var(--coconut-red); 
+      font-size: 22px; font-weight: 900;
+      text-shadow: 1px 1px 0 #FFF, -1px -1px 0 #FFF, 1px -1px 0 #FFF, -1px 1px 0 #FFF;
+    }
+    .brand__text span { 
+      display: block; color: var(--coconut-black); 
+      font-size: 14px; font-weight: 700;
+    }
+
+    .nav__list { display: flex; gap: 20px; list-style: none; margin: 0; padding: 0; }
+    .nav__list a { 
+      font-weight: 700; padding: 8px 0; position: relative; 
+      color: var(--coconut-black); font-size: 16px;
+    }
+    .nav__list a:after { 
+      content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; 
+      background: var(--coconut-red); transition: all 0.2s ease; 
+    }
+    .nav__list a:hover:after, .nav__list a:focus:after { width: 100%; }
+
+    .header__actions { display: flex; gap: 12px; align-items: center; }
+    .btn { 
+      display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; 
+      border-radius: 4px; font-weight: 700; border: none; cursor: pointer; 
+      transition: all 0.2s ease; font-size: 16px; 
+      border: 2px solid var(--coconut-black);
+      box-shadow: 2px 2px 0 var(--coconut-black);
+    }
+    .btn--primary { 
+      background: var(--coconut-red); 
+      color: var(--coconut-yellow); 
+    }
+    .btn--primary:hover { 
+      transform: translate(-2px, -2px); 
+      box-shadow: 4px 4px 0 var(--coconut-black);
+    }
+    .btn--yellow {
+      background: var(--coconut-yellow);
+      color: var(--coconut-red);
+    }
+    .btn--yellow:hover {
+      transform: translate(-2px, -2px); 
+      box-shadow: 4px 4px 0 var(--coconut-black);
+    }
+    .btn--outline { 
+      background: transparent; border: 2px solid var(--coconut-red); 
+      color: var(--coconut-red); 
+    }
+    .btn--outline:hover { background: var(--coconut-red); color: var(--coconut-yellow); }
+
+    .nav-toggle { display: none; background: transparent; border: 0; width: 38px; height: 32px; position: relative; cursor: pointer; }
+    .nav-toggle span { position: absolute; left: 8px; right: 8px; height: 3px; background: var(--coconut-black); border-radius: 3px; transition: 0.3s; }
+    .nav-toggle span:nth-child(1){ top: 8px; } .nav-toggle span:nth-child(2){ top: 15px; } .nav-toggle span:nth-child(3){ top: 22px; }
+    .nav-toggle.open span:nth-child(1){ transform: rotate(45deg); top: 15px; } .nav-toggle.open span:nth-child(2){ opacity: 0; } .nav-toggle.open span:nth-child(3){ transform: rotate(-45deg); top: 15px; }
+
+    /* Page Header */
+    .page-header {
+      background: linear-gradient(to right, var(--coconut-yellow), var(--coconut-red));
+      padding: 60px 0;
+      text-align: center;
+      border-bottom: 3px solid var(--coconut-black);
+    }
+    .page-title {
+      font-size: 2.8rem;
+      color: var(--coconut-black);
+      font-weight: 900;
+      text-transform: uppercase;
+      text-shadow: 2px 2px 0 var(--coconut-white), 
+                   -1px -1px 0 var(--coconut-white), 
+                   1px -1px 0 var(--coconut-white), 
+                   -1px 1px 0 var(--coconut-white), 
+                   1px 1px 0 var(--coconut-white);
+      margin-bottom: 20px;
+    }
+    .breadcrumb {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      font-weight: 700;
+    }
+    .breadcrumb li:not(:last-child):after {
+      content: ">";
+      margin: 0 10px;
+      color: var(--coconut-black);
+    }
+
+    /* Privacy Content */
+    .privacy-section {
+      padding: 70px 0;
+    }
+    .privacy-section--alt {
+      background: var(--coconut-yellow);
+    }
+    .section-title {
+      font-size: 2.2rem;
+      color: var(--coconut-red);
+      margin-bottom: 30px;
+      font-weight: 900;
+      text-transform: uppercase;
+      text-shadow: 2px 2px 0 var(--coconut-black), 
+                   -1px -1px 0 #FFF, 1px -1px 0 #FFF, -1px 1px 0 #FFF, 1px 1px 0 #FFF;
+    }
+    .section-content {
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+    .section-content p {
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+    .privacy-card {
+      background: var(--coconut-yellow);
+      border: 3px solid var(--coconut-red);
+      padding: 30px;
+      margin: 30px 0;
+      box-shadow: 5px 5px 0 var(--coconut-black);
+    }
+    .privacy-card h3 {
+      color: var(--coconut-red);
+      margin-bottom: 20px;
+      font-size: 1.5rem;
+      font-weight: 800;
+    }
+    .privacy-list {
+      list-style-type: none;
+      padding-left: 0;
+    }
+    .privacy-list li {
+      margin-bottom: 15px;
+      padding-left: 25px;
+      position: relative;
+      font-weight: 600;
+    }
+    .privacy-list li:before {
+      content: "•";
+      color: var(--coconut-red);
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+      font-size: 1.5rem;
+    }
+    .privacy-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 25px 0;
+    }
+    .privacy-table th, .privacy-table td {
+      border: 2px solid var(--coconut-red);
+      padding: 12px 15px;
+      text-align: left;
+    }
+    .privacy-table th {
+      background-color: var(--coconut-red);
+      color: var(--coconut-yellow);
+      font-weight: 700;
+    }
+    .privacy-table tr:nth-child(even) {
+      background-color: rgba(255, 215, 0, 0.2);
+    }
+
+    /* Footer */
+    .footer { 
+      background: var(--coconut-red); 
+      color: var(--coconut-yellow); padding: 50px 0 30px; 
+      border-top: 5px solid var(--coconut-black);
+    }
+    .footer__in { 
+      display: flex; align-items: center; 
+      justify-content: space-between; padding: 20px 0; 
+      flex-wrap: wrap; gap: 20px; 
+    }
+    .footer__links { display: flex; gap: 24px; }
+    .footer__links a { color: var(--coconut-yellow); font-weight: 700; }
+    .footer__links a:hover { color: white; }
+
+    .back-to-top { 
+      position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px; 
+      border-radius: 50%; background: var(--coconut-red); color: var(--coconut-yellow); 
+      display: flex; align-items: center; justify-content: center; 
+      box-shadow: 3px 3px 0 var(--coconut-black); cursor: pointer; 
+      opacity: 0; visibility: hidden; transition: all 0.2s ease; z-index: 99; 
+      border: 2px solid var(--coconut-black);
+    }
+    .back-to-top.visible { opacity: 1; visibility: visible; }
+    .back-to-top:hover { background: var(--coconut-red); transform: translate(-2px, -2px); box-shadow: 5px 5px 0 var(--coconut-black); }
+
+    /* Responsive */
+    @media (max-width: 980px) {
+      .nav__list { 
+        display: none; position: fixed; top: 80px; left: 0; right: 0; 
+        background: var(--coconut-yellow); padding: 20px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); 
+        flex-direction: column; gap: 0; 
+        border-top: 3px solid var(--coconut-red);
+        border-bottom: 3px solid var(--coconut-red);
+      }
+      .nav__list li { width: 100%; }
+      .nav__list a { display: block; padding: 12px 0; border-bottom: 2px solid var(--coconut-red); }
+      .nav__list a:after { display: none; }
+      .nav.open .nav__list { display: flex; }
+      .nav-toggle { display: block; }
+      .privacy-table {
+        display: block;
+        overflow-x: auto;
+      }
+    }
+    @media (max-width: 768px) {
+      .page-title {
+        font-size: 2.2rem;
+      }
+      .section-title {
+        font-size: 1.8rem;
+      }
+      .footer__in {
+        flex-direction: column;
+        text-align: center;
+      }
+      .footer__links {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
+    @media (max-width: 480px) {
+      .page-title {
+        font-size: 1.8rem;
+      }
+      .section-title {
+        font-size: 1.5rem;
+      }
+      .page-header {
+        padding: 40px 0;
+      }
+      .privacy-section {
+        padding: 50px 0;
+      }
+      .privacy-card {
+        padding: 20px;
+      }
+    }
+
+    /* Animation */
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .fade-in { animation: fadeIn 1s ease forwards; opacity: 0; transform: translateY(20px); }
+    .delay-1 { animation-delay: 0.2s; } .delay-2 { animation-delay: 0.4s; } .delay-3 { animation-delay: 0.6s; }
+
+    /* Accessibility & Reduced motion */
+    a:focus, button:focus, input:focus, textarea:focus { outline: 3px solid rgba(255,0,0,0.3); outline-offset: 2px; }
+    :focus:not(.focus-visible) { outline: none; }
+    @media (prefers-reduced-motion: reduce) {
+      .fade-in { animation: none !important; transition: none !important; transform: none !important; opacity: 1 !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="privacy.html#main">跳到主要内容</a>
+
+  <!-- Header -->
+  <header class="header" role="banner">
+    <div class="container header__in">
+      <div class="brand">
+        <div class="brand__logo">盛迈</div>
+        <div class="brand__text">
+          <strong>九哥跨境</strong>
+          <span>精准流量解决方案专家</span>
+        </div>
+      </div>
+
+      <nav id="nav" class="nav" aria-label="主导航">
+        <ul id="primary-menu" class="nav__list">
+          <li><a href="index.html">首页</a></li>
+          <li><a href="index.html#services">服务内容</a></li>
+          <li><a href="index.html#advantages">核心优势</a></li>
+          <li><a href="index.html#stats">成功案例</a></li>
+          <li><a href="index.html#faq">常见问题</a></li>
+          <li><a href="index.html#contact">立即联系</a></li>
+          <li><a href="about.html">关于我们</a></li>
+        </ul>
+      </nav>
+
+      <div class="header__actions">
+        <a class="btn btn--yellow" href="https://t.me/JY265" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-telegram" aria-hidden="true"></i> Telegram
+        </a>
+        <button id="navToggle" class="nav-toggle" aria-label="切换主导航" aria-controls="primary-menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1 class="page-title">隐私政策</h1>
+      <ul class="breadcrumb">
+        <li><a href="index.html">首页</a></li>
+        <li><a href="privacy.html" aria-current="page">隐私政策</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <main id="main">
+    <!-- Privacy Intro -->
+    <section class="privacy-section" aria-labelledby="privacy-intro-title">
+      <div class="container">
+        <h2 id="privacy-intro-title" class="section-title">隐私政策概述</h2>
+        <div class="section-content">
+          <p>九哥跨境（以下简称"我们"）高度重视用户的隐私保护。本隐私政策阐述了我们在您使用我们的服务时如何收集、使用、存储、共享和保护您的个人信息。</p>
+          
+          <div class="privacy-card fade-in">
+            <p>请仔细阅读本隐私政策。一旦您开始使用我们的服务，即表示您已同意本政策中所述的内容。如果您不同意本政策的任何条款，请立即停止使用我们的服务。</p>
+          </div>
+          
+          <p>我们可能会不时更新本政策。如有重大变更，我们将在网站上发布通知，并更新政策顶部的"最后更新"日期。我们建议您定期查阅本政策以了解我们如何保护您的信息。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Data Collection -->
+    <section class="privacy-section privacy-section--alt" aria-labelledby="data-collection-title">
+      <div class="container">
+        <h2 id="data-collection-title" class="section-title">信息收集与使用</h2>
+        
+        <div class="privacy-card fade-in">
+          <h3>我们收集的信息类型</h3>
+          <ul class="privacy-list">
+            <li><strong>个人身份信息</strong>：当您联系我们或使用我们的服务时，我们可能会收集您的姓名、电子邮件地址、电话号码、Telegram账号等。</li>
+            <li><strong>业务信息</strong>：为提供精准的广告投放服务，我们可能会收集您的业务类型、目标受众、广告预算等信息。</li>
+            <li><strong>技术信息</strong>：当您访问我们的网站时，我们自动收集某些信息，如IP地址、浏览器类型、设备信息、访问时间和页面浏览记录。</li>
+            <li><strong>Cookies和数据收集技术</strong>：我们使用cookies和类似技术来增强用户体验、分析网站流量和提供服务。</li>
+          </ul>
+        </div>
+
+        <div class="privacy-card fade-in delay-1">
+          <h3>信息使用目的</h3>
+          <ul class="privacy-list">
+            <li>提供、维护和改进我们的服务</li>
+            <li>处理您的咨询和请求</li>
+            <li>与您沟通关于服务更新、安全警报和支持消息</li>
+            <li>检测和预防欺诈、滥用和安全问题</li>
+            <li>遵守法律义务和执行我们的条款条件</li>
+            <li>分析和衡量我们的服务效果</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Data Sharing -->
+    <section class="privacy-section" aria-labelledby="data-sharing-title">
+      <div class="container">
+        <h2 id="data-sharing-title" class="section-title">信息共享与披露</h2>
+        
+        <div class="privacy-card fade-in">
+          <h3>我们如何共享信息</h3>
+          <p>我们仅在以下情况下共享您的个人信息：</p>
+          
+          <table class="privacy-table">
+            <thead>
+              <tr>
+                <th>共享对象</th>
+                <th>共享目的</th>
+                <th>共享信息类型</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>广告平台合作伙伴</td>
+                <td>为执行广告投放服务</td>
+                <td>必要的业务和广告信息</td>
+              </tr>
+              <tr>
+                <td>服务提供商</td>
+                <td>网站托管、数据分析、客户服务等</td>
+                <td>实现服务所必需的信息</td>
+              </tr>
+              <tr>
+                <td>法律机构</td>
+                <td>响应法律要求、保护权利和安全</td>
+                <td>法律要求的信息</td>
+              </tr>
+              <tr>
+                <td>业务转让相关方</td>
+                <td>公司合并、收购或资产出售时</td>
+                <td>业务相关的信息</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="privacy-card fade-in delay-1">
+          <h3>国际数据传输</h3>
+          <p>由于我们的服务涉及海外广告投放，您的信息可能会被传输到您所在国家/地区之外的服务器进行处理。我们会采取适当措施确保您的信息得到安全保护，并符合适用的数据保护法律。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Data Protection -->
+    <section class="privacy-section privacy-section--alt" aria-labelledby="data-protection-title">
+      <div class="container">
+        <h2 id="data-protection-title" class="section-title">数据安全与保留</h2>
+        
+        <div class="privacy-card fade-in">
+          <h3>数据安全措施</h3>
+          <ul class="privacy-list">
+            <li>使用加密技术保护数据传输</li>
+            <li>实施访问控制和身份验证措施</li>
+            <li>定期进行安全审计和漏洞扫描</li>
+            <li>对员工进行隐私和安全培训</li>
+            <li>与第三方服务提供商签订数据保护协议</li>
+          </ul>
+        </div>
+
+        <div class="privacy-card fade-in delay-1">
+          <h3>数据保留期限</h3>
+          <p>我们仅在实现本政策所述目的所必需的时间内保留您的个人信息，除非法律要求或允许更长的保留期。具体的保留期限取决于信息的类型、收集目的以及相关法律要求。</p>
+          <p>当不再需要您的个人信息时，我们会采取安全措施将其删除或匿名化处理。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- User Rights -->
+    <section class="privacy-section" aria-labelledby="user-rights-title">
+      <div class="container">
+        <h2 id="user-rights-title" class="section-title">您的权利与选择</h2>
+        
+        <div class="privacy-card fade-in">
+          <h3>您享有的权利</h3>
+          <ul class="privacy-list">
+            <li><strong>访问权</strong>：您有权访问我们持有的关于您的个人信息。</li>
+            <li><strong>更正权</strong>：您有权要求更正不准确或不完整的个人信息。</li>
+            <li><strong>删除权</strong>：在某些情况下，您有权要求删除您的个人信息。</li>
+            <li><strong>限制处理权</strong>：您有权要求限制对您个人信息的使用。</li>
+            <li><strong>数据可携权</strong>：您有权以结构化、常用格式接收您的个人信息。</li>
+            <li><strong>反对权</strong>：您有权反对基于合法利益的处理活动。</li>
+          </ul>
+        </div>
+
+        <div class="privacy-card fade-in delay-1">
+          <h3>如何行使您的权利</h3>
+          <p>如要行使上述任何权利，或有关隐私问题的疑问，请通过以下方式联系我们：</p>
+          <ul class="privacy-list">
+            <li>发送电子邮件至：<a href="mailto:users@sanmy.top">users@sanmy.top</a></li>
+            <li>通过Telegram联系：<a href="https://t.me/JY265" target="_blank">@JY265</a></li>
+          </ul>
+          <p>我们可能会要求您提供身份证明，以确保信息安全。我们将在收到请求后的合理时间内做出回应。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cookies -->
+    <section class="privacy-section privacy-section--alt" aria-labelledby="cookies-title">
+      <div class="container">
+        <h2 id="cookies-title" class="section-title">Cookies与追踪技术</h2>
+        
+        <div class="privacy-card fade-in">
+          <h3>我们使用的Cookies类型</h3>
+          <ul class="privacy-list">
+            <li><strong>必要Cookies</strong>：这些cookies是网站运行所必需的，无法关闭。</li>
+            <li><strong>性能Cookies</strong>：这些cookies帮助我们了解访问者如何与网站互动，从而改进网站功能。</li>
+            <li><strong>功能Cookies</strong>：这些cookies允许网站提供增强的功能和个性化内容。</li>
+            <li><strong>广告Cookies</strong>：这些cookies用于跟踪访问者 across 网站，以便提供相关广告。</li>
+          </ul>
+        </div>
+
+        <div class="privacy-card fade-in delay-1">
+          <h3>Cookies管理</h3>
+          <p>您可以通过浏览器设置控制或删除cookies。大多数网络浏览器会自动接受cookies，但您通常可以修改浏览器设置以拒绝cookies。请注意，如果禁用cookies，您可能无法完全体验我们网站的所有功能。</p>
+          <p>关于如何管理cookies的更多信息，请访问您使用的浏览器的帮助页面。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Policy Updates -->
+    <section class="privacy-section" aria-labelledby="updates-title">
+      <div class="container">
+        <h2 id="updates-title" class="section-title">政策更新与联系我们</h2>
+        
+        <div class="privacy-card fade-in">
+          <h3>政策更新</h3>
+          <p>我们可能会不时更新本隐私政策以反映业务实践、技术或法律要求的变化。更新后的政策将在网站上发布，并更新"最后修订"日期。</p>
+          <p>对于重大变更，我们将通过显著通知或直接通知的方式告知您。我们建议您定期查阅本页面以了解最新信息。</p>
+          <p><strong>最后更新日期：2026年05月18日</strong></p>
+        </div>
+
+        <div class="privacy-card fade-in delay-1">
+          <h3>联系我们</h3>
+          <p>如果您对本隐私政策或我们的数据实践有任何疑问、意见或关切，请通过以下方式与我们联系：</p>
+          <ul class="privacy-list">
+            <li>电子邮件：<a href="mailto:service@sanmy.top">service@sanmy.top</a></li>
+            <li>Telegram：<a href="https://t.me/JY265" target="_blank">@JY265</a></li>
+            <li>WhatsApp：<a href="https://wa.me/447754979958" target="_blank">+447754979958</a></li>
+            <li>邮寄地址：香港九龙观塘道98号-九哥跨境</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="container footer__in">
+      <div>© <span id="year"></span> 九哥跨境 版权所有</div>
+      <div class="footer__links">
+        <a href="privacy.html">隐私政策</a>
+        <a href="userterms.html">服务条款</a>
+        <a href="about.html">关于我们</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="back-to-top" id="backToTop" role="button" tabindex="0" aria-label="返回顶部">
+    <i class="fas fa-arrow-up" aria-hidden="true"></i>
+  </div>
+
+  <script>
+    // 轻量交互：移动导航、返回顶部按钮
+    (function(){
+      "use strict";
+      var $ = (s, r)=> (r||document).querySelector(s);
+      var $$ = (s, r)=> Array.from((r||document).querySelectorAll(s));
+
+      // mobile nav (ARIA + focus management + scroll lock)
+      var nav = $("#nav");
+      var navToggle = $("#navToggle");
+      var primaryMenu = $("#primary-menu");
+      navToggle && navToggle.addEventListener("click", function(){
+        var open = nav.classList.toggle("open");
+        navToggle.classList.toggle("open");
+        navToggle.setAttribute("aria-expanded", open ? "true" : "false");
+        if(open){
+          // lock body scroll
+          document.body.style.overflow = "hidden";
+          // move focus to first link
+          var firstLink = primaryMenu.querySelector('a');
+          if(firstLink) firstLink.focus();
+        } else {
+          document.body.style.overflow = "";
+          navToggle.focus();
+        }
+      });
+
+      // close nav on ESC (and restore focus)
+      document.addEventListener("keydown", function(e){
+        if(e.key === "Escape" && nav && nav.classList.contains("open")) {
+          nav.classList.remove("open");
+          navToggle.classList.remove("open");
+          navToggle.setAttribute("aria-expanded", "false");
+          document.body.style.overflow = "";
+          navToggle.focus();
+        }
+      });
+
+      // back to top button
+      var backToTop = $("#backToTop");
+      window.addEventListener("scroll", function() {
+        if (window.pageYOffset > 300) {
+          backToTop.classList.add("visible");
+        } else {
+          backToTop.classList.remove("visible");
+        }
+      }, { passive: true });
+
+      function scrollTopSmooth(){
+        window.scrollTo({top:0, behavior:"smooth"});
+      }
+      backToTop.addEventListener("click", function() {
+        scrollTopSmooth();
+      });
+      backToTop.addEventListener("keydown", function(e){
+        if(e.key === "Enter" || e.key === " "){
+          e.preventDefault();
+          scrollTopSmooth();
+        }
+      });
+
+      // year
+      var y = $("#year"); if(y) y.textContent = new Date().getFullYear();
+
+      // Animation on scroll (simple reveal)
+      function checkScroll() {
+        var elements = $$('.fade-in');
+        elements.forEach(function(element) {
+          var rect = element.getBoundingClientRect();
+          if (rect.top < window.innerHeight - 100 && rect.bottom > 0) {
+            element.style.opacity = 1;
+            element.style.transform = 'translateY(0)';
+          }
+        });
+      }
+      window.addEventListener('scroll', checkScroll, {passive:true});
+      window.addEventListener('load', checkScroll);
+
+    })();
+  </script>
+</body>
+</html>
