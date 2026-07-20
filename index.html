@@ -38,7 +38,6 @@
     .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
     a { color: #1a7a3a; text-decoration: none; }
 
-    /* ===== 导航 ===== */
     .nav {
       background: #ffffff; border-bottom: 1px solid #e2e8f0;
       padding: 14px 0; position: sticky; top: 0; z-index: 100;
@@ -53,21 +52,18 @@
     }
     .nav-cta:hover { background: #145c2e; }
 
-    /* ===== Hero ===== */
     .hero {
       padding: 60px 0 40px; text-align: center;
       background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 100%);
     }
     .hero h1 { font-size: 36px; font-weight: 700; color: #0f172a; margin-bottom: 12px; }
     .hero h1 span { color: #1a7a3a; }
-    .hero p { font-size: 18px; color: #475569; max-width: 600px; margin: 0 auto 24px; }
     .hero-badge {
       display: inline-block; background: #dcfce7; color: #1a7a3a;
       padding: 4px 18px; border-radius: 40px; font-size: 13px; font-weight: 600;
       margin-bottom: 16px;
     }
 
-    /* ===== 信任标识 ===== */
     .trust {
       display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;
       padding: 20px 0; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0;
@@ -76,7 +72,6 @@
     .trust-item { display: flex; align-items: center; gap: 8px; font-size: 14px; color: #475569; }
     .trust-item i { color: #1a7a3a; font-size: 18px; }
 
-    /* ===== 产品区 ===== */
     .section { padding: 50px 0; }
     .section-title { font-size: 28px; font-weight: 700; text-align: center; margin-bottom: 8px; }
     .section-desc { text-align: center; color: #64748b; margin-bottom: 32px; font-size: 16px; }
@@ -99,7 +94,6 @@
     }
     .btn-buy:hover { background: #145c2e; transform: translateY(-1px); }
 
-    /* ===== 价格表 ===== */
     .price-table {
       background: #ffffff; border-radius: 16px; border: 1px solid #e2e8f0;
       overflow: hidden; margin-top: 20px;
@@ -113,7 +107,6 @@
     .price-table tr:hover { background: #f8fafc; }
     .price-table .highlight { color: #1a7a3a; font-weight: 700; }
 
-    /* ===== 客服引导 ===== */
     .cta-box {
       background: #0f172a; border-radius: 20px; padding: 40px 48px;
       text-align: center; color: #fff;
@@ -131,7 +124,6 @@
     .cta-btn.telegram { background: #0088cc; color: #fff; }
     .cta-btn.telegram:hover { background: #006fa3; transform: translateY(-2px); }
 
-    /* ===== Footer ===== */
     .footer {
       background: #0f172a; color: #94a3b8; padding: 30px 0;
       margin-top: 40px; text-align: center; font-size: 14px;
@@ -139,7 +131,6 @@
     .footer a { color: #94a3b8; margin: 0 12px; }
     .footer a:hover { color: #fff; }
 
-    /* ===== 响应式 ===== */
     @media (max-width: 768px) {
       .hero h1 { font-size: 26px; }
       .product-grid { grid-template-columns: 1fr 1fr; }
@@ -147,10 +138,10 @@
       .cta-buttons { flex-direction: column; align-items: center; }
       .price-table { font-size: 12px; overflow-x: auto; }
       .price-table th, .price-table td { padding: 8px 10px; }
+      .trust { gap: 16px; font-size: 13px; }
     }
     @media (max-width: 480px) {
       .product-grid { grid-template-columns: 1fr; }
-      .trust { gap: 16px; font-size: 13px; }
     }
   </style>
 </head>
@@ -169,13 +160,12 @@
     <div class="container">
       <div class="hero-badge"><i class="fas fa-flask"></i> Prodotti peptidici di alta purezza</div>
       <h1>Acquista <span>peptidi</span> facilmente</h1>
-      <p>Peptidi cosmetici · Peptidi di ricerca · Sintesi personalizzata · Spedizione globale<br>Nessuna licenza aziendale richiesta, ordina come privato.</p>
     </div>
   </section>
 
   <!-- ===== 信任标识 ===== -->
   <div class="trust">
-    <span class="trust-item"><i class="fas fa-check-circle"></i> Purezza 98%+</span>
+    <span class="trust-item"><i class="fas fa-check-circle"></i> Purezza 99%+</span>
     <span class="trust-item"><i class="fas fa-shipping-fast"></i> Spedizione globale</span>
     <span class="trust-item"><i class="fas fa-lock"></i> Pagamento sicuro</span>
     <span class="trust-item"><i class="fas fa-headset"></i> Supporto 1:1</span>
@@ -184,8 +174,8 @@
   <!-- ===== 产品展示 ===== -->
   <section class="section" id="products">
     <div class="container">
-      <h2 class="section-title">🔥 Prodotti più venduti</h2>
-      <p class="section-desc">Peptidi selezionati di alta purezza, disponibili per ordini privati</p>
+      <h2 class="section-title">🔥 I più venduti</h2>
+      <p class="section-desc">Peptidi selezionati di alta purezza per ordini privati</p>
 
       <div class="product-grid">
         <div class="product-card">
