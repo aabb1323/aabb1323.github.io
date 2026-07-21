@@ -144,6 +144,29 @@
       .product-grid { grid-template-columns: 1fr; }
     }
   </style>
+  <script>
+    // 点击事件上报函数
+    function trackLeadClick(event, productName, sku) {
+      // 阻止默认跳转，先上报事件
+      event.preventDefault();
+
+      // 获取点击的链接地址
+      const targetUrl = event.currentTarget.href;
+
+      // 上报 Lead 事件（带产品参数）
+      fbq('track', 'Lead', {
+        content_name: productName || 'Prodotto',
+        content_id: sku || '',
+        currency: 'EUR',
+        value: 0
+      });
+
+      // 延迟 150ms 跳转，确保事件发送成功
+      setTimeout(function() {
+        window.open(targetUrl, '_blank');
+      }, 150);
+    }
+  </script>
 </head>
 <body>
 
@@ -151,7 +174,7 @@
   <nav class="nav">
     <div class="container">
       <div class="logo">Yuanhang<span>Peptide</span> <small>· Alta Purezza</small></div>
-      <a href="https://en.gannamaldossari.workers.dev?text=Ciao%2C%20vorrei%20ricevere%20il%20vostro%20catalogo%20prodotti" class="nav-cta" target="_blank"><i class="fas fa-headset"></i> Contattaci</a>
+      <a href="https://en.gannamaldossari.workers.dev?text=Ciao%2C%20vorrei%20ricevere%20il%20vostro%20catalogo%20prodotti" class="nav-cta" target="_blank" onclick="fbq('track', 'Lead');"><i class="fas fa-headset"></i> Contattaci</a>
     </div>
   </nav>
 
@@ -183,7 +206,7 @@
           <div class="name">Tirzepatide</div>
           <div class="spec">10mg × 10vials</div>
           <div class="price">€49</div>
-          <a href="https://en.gannamaldossari.workers.dev?text=Ciao%2C%20vorrei%20acquistare%20TR10%20(Tirzepatide%2010mg*10vials)" class="btn-buy" target="_blank">Acquista</a>
+          <a href="https://en.gannamaldossari.workers.dev?text=Ciao%2C%20vorrei%20acquistare%20TR10%20(Tirzepatide%2010mg*10vials)" class="btn-buy" target="_blank" onclick="trackLeadClick(event, 'Tirzepatide', 'TR10')">Acquista</a>
         </div>
 
         <div class="product-card">
@@ -191,7 +214,7 @@
           <div class="name">Semaglutide</div>
           <div class="spec">10mg × 10vials</div>
           <div class="price">€44</div>
-          <a href="https://en.gannamaldossari.workers.dev?text=Ciao%2C%20vorrei%20acquistare%20SM10%20(Semaglutide%2010mg*10vials)" class="btn-buy" target="_blank">Acquista</a>
+          <a href="https://en.gannamaldossari.workers.dev?text=Ciao%2C%20vorrei%20acquistare%20SM10%20(Semaglutide%2010mg*10vials)" class="btn-buy" target="_blank" onclick="trackLeadClick(event, 'Semaglutide', 'SM10')">Acquista</a>
         </div>
 
         <div class="product-card">
@@ -199,7 +222,7 @@
           <div class="name">Melanotan I</div>
           <div class="spec">10mg × 10vials</div>
           <div class="price">€45</div>
-          <a href="https://en.gannamaldossari.workers.dev?text=Ciao%2C%20vorrei%20acquistare%20MT1%20(Melanotan%20I%2010mg*10vials)" class="btn-buy" target="_blank">Acquista</a>
+          <a href="https://en.gannamaldossari.workers.dev?text=Ciao%2C%20vorrei%20acquistare%20MT1%20(Melanotan%20I%2010mg*10vials)" class="btn-buy" target="_blank" onclick="trackLeadClick(event, 'Melanotan I', 'MT1')">Acquista</a>
         </div>
 
         <div class="product-card">
@@ -207,7 +230,7 @@
           <div class="name">BPC-157</div>
           <div class="spec">10mg × 10vials</div>
           <div class="price">€51</div>
-          <a href="https://en.gannamaldossari.workers.dev?text=Ciao%2C%20vorrei%20acquistare%20BC10%20(BPC-157%2010mg*10vials)" class="btn-buy" target="_blank">Acquista</a>
+          <a href="https://en.gannamaldossari.workers.dev?text=Ciao%2C%20vorrei%20acquistare%20BC10%20(BPC-157%2010mg*10vials)" class="btn-buy" target="_blank" onclick="trackLeadClick(event, 'BPC-157', 'BC10')">Acquista</a>
         </div>
 
         <div class="product-card">
@@ -215,7 +238,7 @@
           <div class="name">GHK-CU</div>
           <div class="spec">50mg × 10vials</div>
           <div class="price">€24</div>
-          <a href="https://en.gannamaldossari.workers.dev?text=Ciao%2C%20vorrei%20acquistare%20CU%20(GHK-CU%2050mg*10vials)" class="btn-buy" target="_blank">Acquista</a>
+          <a href="https://en.gannamaldossari.workers.dev?text=Ciao%2C%20vorrei%20acquistare%20CU%20(GHK-CU%2050mg*10vials)" class="btn-buy" target="_blank" onclick="trackLeadClick(event, 'GHK-CU', 'CU')">Acquista</a>
         </div>
 
         <div class="product-card">
@@ -223,7 +246,7 @@
           <div class="name">PT-141</div>
           <div class="spec">10mg × 10vials</div>
           <div class="price">€48</div>
-          <a href="https://en.gannamaldossari.workers.dev?text=Ciao%2C%20vorrei%20acquistare%20P41%20(PT-141%2010mg*10vials)" class="btn-buy" target="_blank">Acquista</a>
+          <a href="https://en.gannamaldossari.workers.dev?text=Ciao%2C%20vorrei%20acquistare%20P41%20(PT-141%2010mg*10vials)" class="btn-buy" target="_blank" onclick="trackLeadClick(event, 'PT-141', 'P41')">Acquista</a>
         </div>
       </div>
     </div>
@@ -266,10 +289,10 @@
         <h3>📦 Hai bisogno di peptidi?</h3>
         <p>Contattaci su WhatsApp o Telegram per ricevere il catalogo completo e i prezzi.</p>
         <div class="cta-buttons">
-          <a href="https://en.gannamaldossari.workers.dev?text=Ciao%2C%20vorrei%20ricevere%20il%20vostro%20catalogo%20prodotti" class="cta-btn whatsapp" target="_blank">
+          <a href="https://en.gannamaldossari.workers.dev?text=Ciao%2C%20vorrei%20ricevere%20il%20vostro%20catalogo%20prodotti" class="cta-btn whatsapp" target="_blank" onclick="fbq('track', 'Lead');">
             <i class="fab fa-whatsapp"></i> WhatsApp
           </a>
-          <a href="https://t.me/adasda156" class="cta-btn telegram" target="_blank">
+          <a href="https://t.me/adasda156" class="cta-btn telegram" target="_blank" onclick="fbq('track', 'Lead');">
             <i class="fab fa-telegram"></i> Telegram
           </a>
         </div>
