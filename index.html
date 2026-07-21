@@ -2,27 +2,16 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Yuanhang Peptide · Prodotti peptidici di alta purezza</title>
-  <meta name="description" content="Prodotti peptidici di alta purezza per uso personale. Peptidi cosmetici, peptidi di ricerca, sintesi personalizzata, spedizione globale." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+  <title>Yuanhang Peptide · Advanced Peptide Solutions</title>
 
   <!-- ===== 语言检测 ===== -->
   <script>
   (function() {
-    const browserLang = navigator.language || navigator.userLanguage;
-    const langMap = {
-      'pt': 'pt', 'pt-BR': 'pt', 'pt-PT': 'pt',
-      'it': 'it', 'it-IT': 'it'
-    };
-    let lang = 'it';
-    const baseLang = browserLang.split('-')[0];
-    if (langMap[baseLang]) {
-      lang = langMap[baseLang];
-    } else if (langMap[browserLang]) {
-      lang = langMap[browserLang];
-    }
-    window.CURRENT_LANG = lang;
-    document.documentElement.setAttribute('data-lang', lang);
+    const lang = navigator.language || navigator.userLanguage;
+    const isPt = lang.startsWith('pt');
+    window.CURRENT_LANG = isPt ? 'pt' : 'it';
+    document.documentElement.setAttribute('data-lang', window.CURRENT_LANG);
   })();
   </script>
 
@@ -43,7 +32,7 @@
   src="https://www.facebook.com/tr?id=1724762025032119&ev=PageView&noscript=1"
   /></noscript>
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
   <style>
@@ -51,278 +40,420 @@
     html { scroll-behavior: smooth; }
     body {
       font-family: 'Inter', -apple-system, sans-serif;
-      background: #fafafa;
+      background: #ffffff;
       color: #1e293b;
-      line-height: 1.6;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
     }
-    .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
-    a { color: #1a7a3a; text-decoration: none; }
+    ::selection { background: #1a7a3a; color: #fff; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 16px; }
+    a { color: #1a7a3a; text-decoration: none; transition: 0.3s; }
 
+    /* ===== 导航 ===== */
     .nav {
       background: #ffffff; border-bottom: 1px solid #e2e8f0;
-      padding: 14px 0; position: sticky; top: 0; z-index: 100;
+      padding: 12px 0; position: sticky; top: 0; z-index: 100;
     }
     .nav .container { display: flex; align-items: center; justify-content: space-between; }
-    .logo { font-size: 20px; font-weight: 700; color: #0f172a; }
+    .logo { font-size: 18px; font-weight: 700; color: #0f172a; display: flex; align-items: center; gap: 6px; }
     .logo span { color: #1a7a3a; }
-    .logo small { font-size: 13px; font-weight: 400; color: #64748b; }
-
+    .logo small { font-size: 11px; font-weight: 400; color: #64748b; }
     .nav-cta {
-      background: #1a7a3a; color: #fff !important; padding: 8px 22px;
-      border-radius: 40px; font-weight: 600; font-size: 14px;
+      background: #1a7a3a; color: #fff !important; padding: 8px 18px;
+      border-radius: 40px; font-weight: 600; font-size: 13px;
+      box-shadow: 0 2px 12px rgba(26, 122, 58, 0.2);
     }
     .nav-cta:hover { background: #145c2e; }
 
+    /* ===== 首屏 ===== */
     .hero {
-      padding: 60px 0 40px; text-align: center;
-      background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 100%);
+      padding: 80px 0 40px;
+      background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+      border-bottom: 1px solid #e2e8f0;
+      text-align: center;
     }
-    .hero h1 { font-size: 36px; font-weight: 700; color: #0f172a; margin-bottom: 12px; }
-    .hero h1 span { color: #1a7a3a; }
     .hero-badge {
       display: inline-block; background: #dcfce7; color: #1a7a3a;
-      padding: 4px 18px; border-radius: 40px; font-size: 13px; font-weight: 600;
+      border-radius: 40px; padding: 4px 16px; font-size: 12px; font-weight: 600;
       margin-bottom: 16px;
     }
-
-    .trust {
-      display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;
-      padding: 20px 0; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0;
-      background: #ffffff;
+    .hero h1 { font-size: 32px; font-weight: 800; line-height: 1.1; color: #0f172a; margin-bottom: 12px; }
+    .hero h1 span { color: #1a7a3a; }
+    .hero h1 .highlight {
+      background: linear-gradient(135deg, #1a7a3a, #22c55e);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     }
-    .trust-item { display: flex; align-items: center; gap: 8px; font-size: 14px; color: #475569; }
-    .trust-item i { color: #1a7a3a; font-size: 18px; }
+    .hero p { font-size: 16px; color: #64748b; max-width: 400px; margin: 0 auto 20px; }
+    .hero-stats { display: flex; justify-content: center; gap: 24px; padding-top: 20px; border-top: 1px solid #e2e8f0; margin-top: 8px; }
+    .hero-stats div { text-align: center; }
+    .hero-stats strong { display: block; font-size: 24px; color: #0f172a; font-weight: 700; }
+    .hero-stats strong span { color: #1a7a3a; }
+    .hero-stats small { font-size: 12px; color: #64748b; }
 
-    .section { padding: 50px 0; }
-    .section-title { font-size: 28px; font-weight: 700; text-align: center; margin-bottom: 8px; }
-    .section-desc { text-align: center; color: #64748b; margin-bottom: 32px; font-size: 16px; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #1a7a3a; color: #fff; padding: 14px 32px;
+      border-radius: 40px; font-weight: 700; font-size: 15px;
+      border: none; cursor: pointer; transition: 0.3s;
+      box-shadow: 0 4px 16px rgba(26, 122, 58, 0.2);
+    }
+    .btn-primary:hover { background: #145c2e; transform: translateY(-2px); }
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: transparent; color: #0f172a; padding: 14px 32px;
+      border-radius: 40px; font-weight: 600; font-size: 15px;
+      border: 1.5px solid #e2e8f0; cursor: pointer; transition: 0.3s;
+    }
+    .btn-outline:hover { border-color: #1a7a3a; color: #1a7a3a; background: #f0fdf4; }
+    .hero-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
 
-    .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
+    /* ===== 信任条 ===== */
+    .trust-bar {
+      background: #f8fafc; border-bottom: 1px solid #e2e8f0;
+      padding: 12px 0;
+    }
+    .trust-bar .container { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+    .trust-item { display: flex; align-items: center; gap: 6px; font-size: 13px; color: #475569; font-weight: 500; }
+    .trust-item i { color: #1a7a3a; font-size: 16px; }
+
+    /* ===== 醒目联系方式条（中部） ===== */
+    .contact-bar {
+      background: #dcfce7; border: 2px solid #1a7a3a; border-radius: 12px;
+      padding: 14px 18px; display: flex; align-items: center;
+      justify-content: space-between; flex-wrap: wrap; gap: 12px; margin: 16px 0 8px;
+    }
+    .contact-bar .label { font-weight: 700; color: #0f172a; font-size: 14px; display: flex; align-items: center; gap: 6px; }
+    .contact-bar .label i { color: #1a7a3a; font-size: 18px; }
+    .contact-bar .links { display: flex; gap: 10px; flex-wrap: wrap; }
+    .contact-bar .links a {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 8px 16px; border-radius: 40px; font-weight: 600; font-size: 13px;
+      transition: 0.3s; border: none; cursor: pointer;
+    }
+    .contact-bar .links .wa { background: #25d366; color: #fff; }
+    .contact-bar .links .wa:hover { background: #1da851; }
+    .contact-bar .links .tg { background: #0088cc; color: #fff; }
+    .contact-bar .links .tg:hover { background: #006fa3; }
+    .contact-bar .links .cta-btn {
+      background: #1a7a3a; color: #fff; padding: 8px 16px;
+      border-radius: 40px; font-weight: 600; font-size: 13px;
+      border: none; cursor: pointer; transition: 0.3s;
+      display: inline-flex; align-items: center; gap: 6px;
+    }
+    .contact-bar .links .cta-btn:hover { background: #145c2e; }
+
+    /* ===== 产品区 ===== */
+    .section { padding: 40px 0; }
+    .section-title { font-size: 24px; font-weight: 700; color: #0f172a; text-align: center; margin-bottom: 6px; }
+    .section-title span { color: #1a7a3a; }
+    .section-desc { text-align: center; color: #64748b; margin-bottom: 24px; font-size: 14px; max-width: 500px; margin-left: auto; margin-right: auto; }
+
+    .product-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
     .product-card {
-      background: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px;
-      padding: 20px 18px; text-align: center; transition: 0.3s;
+      background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px;
+      padding: 14px 12px; text-align: center; transition: 0.3s;
+      display: flex; flex-direction: column; justify-content: space-between;
       box-shadow: 0 1px 3px rgba(0,0,0,0.02);
     }
-    .product-card:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0,0,0,0.06); border-color: #1a7a3a; }
-    .product-card .sku { font-size: 12px; font-weight: 600; color: #1a7a3a; letter-spacing: 0.5px; }
-    .product-card .name { font-size: 16px; font-weight: 600; margin: 6px 0; color: #0f172a; }
-    .product-card .spec { font-size: 13px; color: #64748b; }
-    .product-card .price { font-size: 20px; font-weight: 700; color: #0f172a; margin: 10px 0; display: none; }
+    .product-card:active { transform: scale(0.97); }
+    .product-card .sku { font-size: 11px; font-weight: 600; color: #1a7a3a; letter-spacing: 0.3px; }
+    .product-card .name { font-size: 14px; font-weight: 600; color: #0f172a; margin: 3px 0; line-height: 1.2; min-height: 36px; display: flex; align-items: center; justify-content: center; }
+    .product-card .spec { font-size: 12px; color: #64748b; margin-bottom: 8px; }
     .btn-buy {
-      display: inline-block; background: #1a7a3a; color: #fff;
-      padding: 8px 24px; border-radius: 40px; font-weight: 600; font-size: 14px;
-      border: none; cursor: pointer; transition: 0.3s;
+      display: inline-block; background: #f0fdf4; color: #1a7a3a;
+      padding: 8px 12px; border-radius: 40px; font-weight: 600; font-size: 12px;
+      border: 1px solid #dcfce7; cursor: pointer; transition: 0.3s;
+      width: 100%;
     }
-    .btn-buy:hover { background: #145c2e; transform: translateY(-1px); }
+    .btn-buy:active { background: #1a7a3a; color: #fff; }
 
-    .price-table {
-      background: #ffffff;
-      border-radius: 16px;
-      border: 1px solid #e2e8f0;
-      overflow: hidden;
-      margin-top: 20px;
+    /* ===== 目录表格（手机优化） ===== */
+    .table-wrapper {
+      background: #ffffff; border-radius: 12px;
+      border: 1px solid #e2e8f0; overflow: hidden; overflow-x: auto; margin-top: 12px;
     }
-    .price-table table { width: 100%; border-collapse: collapse; font-size: 14px; }
-    .price-table th {
-      background: #f8fafc; padding: 14px 16px; text-align: left;
+    .table-wrapper table { width: 100%; border-collapse: collapse; font-size: 12px; min-width: 400px; }
+    .table-wrapper th {
+      background: #f8fafc; padding: 10px 12px; text-align: left;
       font-weight: 600; color: #0f172a; border-bottom: 1px solid #e2e8f0;
+      font-size: 10px; text-transform: uppercase; letter-spacing: 0.3px;
     }
-    .price-table td { padding: 12px 16px; border-bottom: 1px solid #f1f5f9; }
-    .price-table tr:hover { background: #f8fafc; }
-    .price-table .highlight { color: #1a7a3a; font-weight: 700; }
-    /* 隐藏价格数字，显示为横杠 */
-    .price-table td:last-child {
-      color: transparent !important;
-      position: relative;
-    }
-    .price-table td:last-child::after {
-      content: "—";
-      color: #1a7a3a;
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      font-weight: 700;
-    }
+    .table-wrapper td { padding: 8px 12px; border-bottom: 1px solid #f1f5f9; color: #1e293b; font-size: 12px; }
+    .table-wrapper tr:active { background: #f8fafc; }
+    .table-wrapper .sku-code { color: #1a7a3a; font-weight: 600; }
+    .table-wrapper .spec-list { color: #64748b; font-size: 11px; }
 
-    .cta-box {
-      background: #0f172a; border-radius: 20px; padding: 40px 48px;
-      text-align: center; color: #fff;
+    /* ===== 底部联系方式条（手机友好） ===== */
+    .footer-contact {
+      background: #ffffff; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0;
+      padding: 16px 0;
     }
-    .cta-box h3 { font-size: 28px; font-weight: 600; margin-bottom: 8px; }
-    .cta-box p { color: #94a3b8; margin-bottom: 24px; font-size: 16px; }
-    .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-    .cta-btn {
-      display: inline-flex; align-items: center; gap: 10px;
-      padding: 14px 32px; border-radius: 40px; font-weight: 600; font-size: 16px;
+    .footer-contact .container { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+    .footer-contact .label { font-size: 14px; color: #0f172a; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+    .footer-contact .label i { color: #1a7a3a; }
+    .footer-contact .links { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; width: 100%; }
+    .footer-contact .links a {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 10px 20px; border-radius: 40px; font-weight: 600; font-size: 14px;
+      transition: 0.3s; border: none; cursor: pointer; flex: 1; justify-content: center;
+      min-width: 100px;
+    }
+    .footer-contact .links .wa { background: #25d366; color: #fff; }
+    .footer-contact .links .wa:active { background: #1da851; }
+    .footer-contact .links .tg { background: #0088cc; color: #fff; }
+    .footer-contact .links .tg:active { background: #006fa3; }
+    .footer-contact .links .cta {
+      background: #1a7a3a; color: #fff; padding: 10px 20px;
+      border-radius: 40px; font-weight: 600; font-size: 14px;
       border: none; cursor: pointer; transition: 0.3s;
+      display: inline-flex; align-items: center; gap: 6px;
+      flex: 1; justify-content: center;
+      min-width: 100px;
     }
-    .cta-btn.whatsapp { background: #25d366; color: #fff; }
-    .cta-btn.whatsapp:hover { background: #1da851; transform: translateY(-2px); }
-    .cta-btn.telegram { background: #0088cc; color: #fff; }
-    .cta-btn.telegram:hover { background: #006fa3; transform: translateY(-2px); }
+    .footer-contact .links .cta:active { background: #145c2e; }
+
+    /* ===== CTA底部大横幅 ===== */
+    .cta-banner {
+      background: #0f172a; border-radius: 16px;
+      padding: 32px 24px; text-align: center; color: #fff;
+    }
+    .cta-banner h3 { font-size: 22px; font-weight: 700; margin-bottom: 6px; }
+    .cta-banner p { color: #94a3b8; margin-bottom: 20px; font-size: 14px; }
+    .cta-banner .btn-white {
+      background: #fff; color: #0f172a; padding: 14px 32px;
+      border-radius: 40px; font-weight: 700; font-size: 15px; border: none;
+      cursor: pointer; transition: 0.3s; display: inline-flex; align-items: center; gap: 8px;
+    }
+    .cta-banner .btn-white:active { transform: scale(0.97); }
 
     .footer {
-      background: #0f172a; color: #94a3b8; padding: 30px 0;
-      margin-top: 40px; text-align: center; font-size: 14px;
+      background: #f8fafc; padding: 20px 0;
+      text-align: center; color: #64748b; font-size: 13px;
+      border-top: 1px solid #e2e8f0;
     }
-    .footer a { color: #94a3b8; margin: 0 12px; }
-    .footer a:hover { color: #fff; }
-
-    @media (max-width: 768px) {
-      .hero h1 { font-size: 26px; }
-      .product-grid { grid-template-columns: 1fr 1fr; }
-      .cta-box { padding: 28px 20px; }
-      .cta-buttons { flex-direction: column; align-items: center; }
-      .price-table { font-size: 12px; overflow-x: auto; }
-      .price-table th, .price-table td { padding: 8px 10px; }
-      .trust { gap: 16px; font-size: 13px; }
-    }
-    @media (max-width: 480px) {
-      .product-grid { grid-template-columns: 1fr; }
-    }
+    .footer a { color: #64748b; margin: 0 10px; }
 
     .event-status {
-      position: fixed;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: rgba(0,0,0,0.8);
-      color: #fff;
-      padding: 8px 20px;
-      border-radius: 40px;
-      font-size: 13px;
-      z-index: 999;
-      display: none;
-      font-family: 'Inter', sans-serif;
+      position: fixed; bottom: 16px; left: 50%; transform: translateX(-50%);
+      background: rgba(0,0,0,0.8); color: #fff; padding: 6px 16px;
+      border-radius: 40px; font-size: 12px; z-index: 999; display: none;
     }
-    .event-status.show {
-      display: block;
+    .event-status.show { display: block; }
+
+    /* ===== 桌面端适配（3-4列） ===== */
+    @media (min-width: 600px) {
+      .product-grid { grid-template-columns: repeat(3, 1fr); gap: 16px; }
+      .hero h1 { font-size: 38px; }
+    }
+    @media (min-width: 900px) {
+      .product-grid { grid-template-columns: repeat(4, 1fr); gap: 20px; }
+      .hero h1 { font-size: 46px; }
+      .hero { text-align: left; }
+      .hero p { margin: 0 0 20px 0; }
+      .hero-stats { justify-content: flex-start; }
+      .hero-buttons { justify-content: flex-start; }
+      .footer-contact .container { flex-direction: row; justify-content: space-between; }
+      .footer-contact .links { width: auto; }
+      .footer-contact .links a { flex: none; }
+    }
+    @media (min-width: 1200px) {
+      .product-grid { grid-template-columns: repeat(5, 1fr); gap: 20px; }
     }
   </style>
 </head>
 <body>
 
-  <div class="event-status" id="eventStatus">✅ Evento inviato / Evento enviado</div>
+  <div class="event-status" id="eventStatus">✅ Evento inviato</div>
 
   <!-- ===== 导航 ===== -->
   <nav class="nav">
     <div class="container">
-      <div class="logo">Yuanhang<span>Peptide</span> <small id="navTag">· Alta Purezza</small></div>
-      <a href="javascript:void(0)" class="nav-cta" id="navCta" onclick="handleLeadClick('https://en.gannamaldossari.workers.dev?text=Ciao%2C%20vorrei%20ricevere%20il%20vostro%20catalogo%20prodotti', 'Contattaci')"><i class="fas fa-headset"></i> <span id="navCtaText">Contattaci</span></a>
+      <div class="logo">Yuanhang<span>Peptide</span> <small>· Advanced</small></div>
+      <a href="javascript:void(0)" class="nav-cta" onclick="handleLeadClick('https://en.gannamaldossari.workers.dev?text=Ciao%2C%20vorrei%20ricevere%20il%20vostro%20catalogo%20prodotti', 'Nav CTA')"><i class="fas fa-paper-plane"></i> <span id="navCtaText">Richiedi listino</span></a>
     </div>
   </nav>
 
-  <!-- ===== Hero ===== -->
+  <!-- ===== 首屏 ===== -->
   <section class="hero">
     <div class="container">
-      <div class="hero-badge" id="heroBadge"><i class="fas fa-flask"></i> <span id="heroBadgeText">Prodotti peptidici di alta purezza</span></div>
-      <h1 id="heroTitle">Acquista <span>peptidi</span> facilmente</h1>
-    </div>
-  </section>
-
-  <!-- ===== 信任标识 ===== -->
-  <div class="trust">
-    <span class="trust-item" id="trust1"><i class="fas fa-check-circle"></i> Purezza 99%+</span>
-    <span class="trust-item" id="trust2"><i class="fas fa-shipping-fast"></i> Spedizione globale</span>
-    <span class="trust-item" id="trust3"><i class="fas fa-lock"></i> Pagamento sicuro</span>
-    <span class="trust-item" id="trust4"><i class="fas fa-headset"></i> Supporto 1:1</span>
-  </div>
-
-  <!-- ===== 产品展示（无价格） ===== -->
-  <section class="section" id="products">
-    <div class="container">
-      <h2 class="section-title" id="productsTitle">🔥 I più venduti</h2>
-      <p class="section-desc" id="productsDesc">Peptidi selezionati di alta purezza per ordini privati</p>
-
-      <div class="product-grid">
-        <div class="product-card">
-          <div class="sku">TR10</div>
-          <div class="name">Tirzepatide</div>
-          <div class="spec">10mg × 10vials</div>
-          <a href="javascript:void(0)" class="btn-buy" id="buyBtn1" onclick="handleLeadClick('https://en.gannamaldossari.workers.dev?text=Ciao%2C%20vorrei%20acquistare%20TR10%20(Tirzepatide%2010mg*10vials)', 'Tirzepatide', 'TR10')">Acquista</a>
-        </div>
-
-        <div class="product-card">
-          <div class="sku">SM10</div>
-          <div class="name">Semaglutide</div>
-          <div class="spec">10mg × 10vials</div>
-          <a href="javascript:void(0)" class="btn-buy" id="buyBtn2" onclick="handleLeadClick('https://en.gannamaldossari.workers.dev?text=Ciao%2C%20vorrei%20acquistare%20SM10%20(Semaglutide%2010mg*10vials)', 'Semaglutide', 'SM10')">Acquista</a>
-        </div>
-
-        <div class="product-card">
-          <div class="sku">MT1</div>
-          <div class="name">Melanotan I</div>
-          <div class="spec">10mg × 10vials</div>
-          <a href="javascript:void(0)" class="btn-buy" id="buyBtn3" onclick="handleLeadClick('https://en.gannamaldossari.workers.dev?text=Ciao%2C%20vorrei%20acquistare%20MT1%20(Melanotan%20I%2010mg*10vials)', 'Melanotan I', 'MT1')">Acquista</a>
-        </div>
-
-        <div class="product-card">
-          <div class="sku">BC10</div>
-          <div class="name">BPC-157</div>
-          <div class="spec">10mg × 10vials</div>
-          <a href="javascript:void(0)" class="btn-buy" id="buyBtn4" onclick="handleLeadClick('https://en.gannamaldossari.workers.dev?text=Ciao%2C%20vorrei%20acquistare%20BC10%20(BPC-157%2010mg*10vials)', 'BPC-157', 'BC10')">Acquista</a>
-        </div>
-
-        <div class="product-card">
-          <div class="sku">CU</div>
-          <div class="name">GHK-CU</div>
-          <div class="spec">50mg × 10vials</div>
-          <a href="javascript:void(0)" class="btn-buy" id="buyBtn5" onclick="handleLeadClick('https://en.gannamaldossari.workers.dev?text=Ciao%2C%20vorrei%20acquistare%20CU%20(GHK-CU%2050mg*10vials)', 'GHK-CU', 'CU')">Acquista</a>
-        </div>
-
-        <div class="product-card">
-          <div class="sku">P41</div>
-          <div class="name">PT-141</div>
-          <div class="spec">10mg × 10vials</div>
-          <a href="javascript:void(0)" class="btn-buy" id="buyBtn6" onclick="handleLeadClick('https://en.gannamaldossari.workers.dev?text=Ciao%2C%20vorrei%20acquistare%20P41%20(PT-141%2010mg*10vials)', 'PT-141', 'P41')">Acquista</a>
-        </div>
+      <div class="hero-badge" id="heroBadge">🔬 Advanced Peptide Solutions</div>
+      <h1 id="heroTitle">High-Purity <span>Peptides</span><br><span class="highlight">For R&D</span></h1>
+      <p id="heroDesc">Prodotti di alta qualità · Spedizione globale · Supporto 1:1</p>
+      <div class="hero-buttons">
+        <a href="javascript:void(0)" class="btn-primary" id="heroCta" onclick="handleLeadClick('https://en.gannamaldossari.workers.dev?text=Ciao%2C%20vorrei%20ricevere%20il%20vostro%20catalogo%20prodotti', 'Hero CTA')"><i class="fas fa-paper-plane"></i> <span id="heroCtaText">Richiedi listino</span></a>
+        <a href="#catalog" class="btn-outline"><i class="fas fa-arrow-down"></i> <span id="heroCta2">Vedi catalogo</span></a>
+      </div>
+      <div class="hero-stats">
+        <div><strong><span>80+</span></strong><small id="stat1">Prodotti</small></div>
+        <div><strong><span>99%</span></strong><small id="stat2">Purezza</small></div>
+        <div><strong><span>🌍</span></strong><small id="stat3">Global</small></div>
       </div>
     </div>
   </section>
 
-  <!-- ===== 目录表（价格隐藏为横杠） ===== -->
-  <section class="section" style="padding-top:0;">
+  <!-- ===== 信任条 ===== -->
+  <div class="trust-bar">
     <div class="container">
-      <h2 class="section-title" style="font-size:22px;" id="catalogTitle">📋 Catalogo prodotti completo</h2>
-      <p class="section-desc" id="catalogDesc">Visualizza l'elenco completo dei prodotti. Contattaci su WhatsApp o Telegram per ricevere il listino prezzi aggiornato.</p>
-      <div class="price-table">
+      <span class="trust-item" id="trust1"><i class="fas fa-check-circle"></i> Purezza 99%</span>
+      <span class="trust-item" id="trust2"><i class="fas fa-shipping-fast"></i> Spedizione 24-48h</span>
+      <span class="trust-item" id="trust3"><i class="fas fa-lock"></i> Pagamento sicuro</span>
+      <span class="trust-item" id="trust4"><i class="fas fa-headset"></i> Supporto tecnico</span>
+    </div>
+  </div>
+
+  <!-- ===== 醒目联系方式条（中部） ===== -->
+  <div class="container">
+    <div class="contact-bar">
+      <span class="label"><i class="fas fa-headset"></i> <span id="contactLabel">📞 Contattaci subito</span></span>
+      <div class="links">
+        <a href="https://wa.me/447754979685?text=Ciao%2C%20vorrei%20ricevere%20il%20vostro%20catalogo%20prodotti" class="wa" target="_blank"><i class="fab fa-whatsapp"></i> <span id="contactWa">WhatsApp</span></a>
+        <a href="https://t.me/adasda156" class="tg" target="_blank"><i class="fab fa-telegram"></i> <span id="contactTg">Telegram</span></a>
+        <a href="javascript:void(0)" class="cta-btn" onclick="handleLeadClick('https://en.gannamaldossari.workers.dev?text=Ciao%2C%20vorrei%20ricevere%20il%20vostro%20catalogo%20prodotti', 'Contact Bar')"><i class="fas fa-paper-plane"></i> <span id="contactCta">Richiedi offerta</span></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 热销产品 ===== -->
+  <section class="section" id="products">
+    <div class="container">
+      <h2 class="section-title" id="productsTitle">🔥 <span>Best Sellers</span></h2>
+      <p class="section-desc" id="productsDesc">I nostri peptidi più richiesti</p>
+      <div class="product-grid">
+        <div class="product-card"><div class="sku">SEMA</div><div class="name">Semaglutide</div><div class="spec">2-120mg</div><a href="javascript:void(0)" class="btn-buy" onclick="handleLeadClick('https://en.gannamaldossari.workers.dev?text=Ciao%2C%20vorrei%20informazioni%20su%20Semaglutide', 'Semaglutide', 'SEMA')"><span id="buy1">Richiedi offerta</span></a></div>
+        <div class="product-card"><div class="sku">TIRZ</div><div class="name">Tirzepatide</div><div class="spec">5-120mg</div><a href="javascript:void(0)" class="btn-buy" onclick="handleLeadClick('https://en.gannamaldossari.workers.dev?text=Ciao%2C%20vorrei%20informazioni%20su%20Tirzepatide', 'Tirzepatide', 'TIRZ')"><span id="buy2">Richiedi offerta</span></a></div>
+        <div class="product-card"><div class="sku">RETA</div><div class="name">Retatrutide</div><div class="spec">5-120mg</div><a href="javascript:void(0)" class="btn-buy" onclick="handleLeadClick('https://en.gannamaldossari.workers.dev?text=Ciao%2C%20vorrei%20informazioni%20su%20Retatrutide', 'Retatrutide', 'RETA')"><span id="buy3">Richiedi offerta</span></a></div>
+        <div class="product-card"><div class="sku">BPC</div><div class="name">BPC-157</div><div class="spec">5-10mg</div><a href="javascript:void(0)" class="btn-buy" onclick="handleLeadClick('https://en.gannamaldossari.workers.dev?text=Ciao%2C%20vorrei%20informazioni%20su%20BPC-157', 'BPC-157', 'BPC')"><span id="buy4">Richiedi offerta</span></a></div>
+        <div class="product-card"><div class="sku">PT141</div><div class="name">PT-141</div><div class="spec">10mg</div><a href="javascript:void(0)" class="btn-buy" onclick="handleLeadClick('https://en.gannamaldossari.workers.dev?text=Ciao%2C%20vorrei%20informazioni%20su%20PT-141', 'PT-141', 'PT141')"><span id="buy5">Richiedi offerta</span></a></div>
+        <div class="product-card"><div class="sku">CAGRI</div><div class="name">Cagrilintide</div><div class="spec">2-10mg</div><a href="javascript:void(0)" class="btn-buy" onclick="handleLeadClick('https://en.gannamaldossari.workers.dev?text=Ciao%2C%20vorrei%20informazioni%20su%20Cagrilintide', 'Cagrilintide', 'CAGRI')"><span id="buy6">Richiedi offerta</span></a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 完整目录表 ===== -->
+  <section class="section" style="padding-top:0;" id="catalog">
+    <div class="container">
+      <h2 class="section-title" id="catalogTitle">📋 <span>Catalogo Completo</span></h2>
+      <p class="section-desc" id="catalogDesc">Tutti i nostri peptidi · Contattaci per prezzi e disponibilità</p>
+      <div class="table-wrapper">
         <table>
           <thead>
-            <tr><th id="thSku">SKU</th><th id="thProduct">Prodotto</th><th id="thSpec">Specifica</th><th id="thPrice">Prezzo</th></tr>
+            <tr><th>SKU</th><th>Prodotto</th><th>Specifiche</th><th>DMF</th></tr>
           </thead>
           <tbody>
-            <tr><td>TR5</td><td>Tirzepatide</td><td>5mg×10vials</td><td class="highlight">—</td></tr>
-            <tr><td>TR10</td><td>Tirzepatide</td><td>10mg×10vials</td><td class="highlight">—</td></tr>
-            <tr><td>TR15</td><td>Tirzepatide</td><td>15mg×10vials</td><td class="highlight">—</td></tr>
-            <tr><td>SM5</td><td>Semaglutide</td><td>5mg×10vials</td><td class="highlight">—</td></tr>
-            <tr><td>SM10</td><td>Semaglutide</td><td>10mg×10vials</td><td class="highlight">—</td></tr>
-            <tr><td>MT1</td><td>Melanotan I</td><td>10mg×10vials</td><td class="highlight">—</td></tr>
-            <tr><td>BC10</td><td>BPC-157</td><td>10mg×10vials</td><td class="highlight">—</td></tr>
-            <tr><td>CU</td><td>GHK-CU</td><td>50mg×10vials</td><td class="highlight">—</td></tr>
-            <tr><td>P41</td><td>PT-141</td><td>10mg×10vials</td><td class="highlight">—</td></tr>
-            <tr><td>RT10</td><td>Retatrutide</td><td>10mg×10vials</td><td class="highlight">—</td></tr>
-            <tr><td>BT5</td><td>TB500</td><td>5mg×10vials</td><td class="highlight">—</td></tr>
-            <tr><td>BC5</td><td>BPC-157</td><td>5mg×10vials</td><td class="highlight">—</td></tr>
+            <tr><td class="sku-code">5AM/10AM/50AM</td><td>5-Amino-1MQ</td><td class="spec-list">5mg, 10mg, 50mg</td><td>—</td></tr>
+            <tr><td class="sku-code">AA3/AA10</td><td>Acetic Acid Water</td><td class="spec-list">3ml, 10ml</td><td>—</td></tr>
+            <tr><td class="sku-code">AP2/AP5</td><td>Adipotide</td><td class="spec-list">2mg, 5mg</td><td>—</td></tr>
+            <tr><td class="sku-code">AU20/AU50/AU100</td><td>AHK-CU</td><td class="spec-list">20mg, 50mg, 100mg</td><td>—</td></tr>
+            <tr><td class="sku-code">AR50/AR100</td><td>Aicar</td><td class="spec-list">50mg, 100mg</td><td>—</td></tr>
+            <tr><td class="sku-code">2AD/5AD/10AD</td><td>AOD9604</td><td class="spec-list">2mg, 5mg, 10mg</td><td>—</td></tr>
+            <tr><td class="sku-code">RA5/RA10</td><td>ARA 290</td><td class="spec-list">5mg, 10mg</td><td>—</td></tr>
+            <tr><td class="sku-code">B12</td><td>B-12</td><td class="spec-list">10ml, 10mg</td><td>—</td></tr>
+            <tr><td class="sku-code">BA3/BA10</td><td>Bac Water</td><td class="spec-list">3ml, 10ml</td><td>—</td></tr>
+            <tr><td class="sku-code">XT100</td><td>Botulinum Toxin</td><td class="spec-list">100iu</td><td>—</td></tr>
+            <tr><td class="sku-code">BC5/BC10</td><td>BPC-157</td><td class="spec-list">5mg, 10mg</td><td>—</td></tr>
+            <tr><td class="sku-code">BB10/BB20/BB30</td><td>BPC+TB</td><td class="spec-list">10mg, 20mg, 30mg</td><td>—</td></tr>
+            <tr><td class="sku-code">BR20</td><td>Bronchogen</td><td class="spec-list">20mg</td><td>—</td></tr>
+            <tr><td class="sku-code">CGL2/CGL5/CGL10</td><td>Cagrilintide</td><td class="spec-list">2mg, 5mg, 10mg</td><td>—</td></tr>
+            <tr><td class="sku-code">CS10/CS20</td><td>Cagri+Sema</td><td class="spec-list">10mg, 20mg</td><td>—</td></tr>
+            <tr><td class="sku-code">CA20</td><td>Cardiogen</td><td class="spec-list">20mg</td><td>—</td></tr>
+            <tr><td class="sku-code">LAX20</td><td>Cartalax</td><td class="spec-list">20mg</td><td>—</td></tr>
+            <tr><td class="sku-code">CBL60</td><td>Cerebrolysin</td><td class="spec-list">60mg</td><td>—</td></tr>
+            <tr><td class="sku-code">CH20</td><td>Chonluten</td><td class="spec-list">20mg</td><td>—</td></tr>
+            <tr><td class="sku-code">CD2/CD5/CD10</td><td>CJC-1295 with DAC</td><td class="spec-list">2mg, 5mg, 10mg</td><td>—</td></tr>
+            <tr><td class="sku-code">CND2/CND5/CND10</td><td>CJC-1295 without DAC</td><td class="spec-list">2mg, 5mg, 10mg</td><td>—</td></tr>
+            <tr><td class="sku-code">CP10</td><td>CJC+IPA</td><td class="spec-list">10mg</td><td>—</td></tr>
+            <tr><td class="sku-code">COR20</td><td>Cortagen</td><td class="spec-list">20mg</td><td>—</td></tr>
+            <tr><td class="sku-code">CRY20</td><td>Crystagen</td><td class="spec-list">20mg</td><td>—</td></tr>
+            <tr><td class="sku-code">DR5/DR10</td><td>Dermorphin</td><td class="spec-list">5mg, 10mg</td><td>—</td></tr>
+            <tr><td class="sku-code">DH5/DH10</td><td>Dihexa</td><td class="spec-list">5mg, 10mg</td><td>—</td></tr>
+            <tr><td class="sku-code">DS5/DS10/DS20</td><td>DSIP</td><td class="spec-list">5mg, 10mg, 20mg</td><td>—</td></tr>
+            <tr><td class="sku-code">ET10/ET50</td><td>Epithalon</td><td class="spec-list">10mg, 50mg</td><td>—</td></tr>
+            <tr><td class="sku-code">E3K</td><td>EPO</td><td class="spec-list">3000iu</td><td>—</td></tr>
+            <tr><td class="sku-code">F410</td><td>FOXO4-DRI</td><td class="spec-list">10mg</td><td>—</td></tr>
+            <tr><td class="sku-code">FN1</td><td>Fst344</td><td class="spec-list">1mg</td><td>—</td></tr>
+            <tr><td class="sku-code">IG01/IG1</td><td>IGF-1 LR3</td><td class="spec-list">0.1mg, 1mg</td><td>—</td></tr>
+            <tr><td class="sku-code">CU50/CU100</td><td>GHK-CU</td><td class="spec-list">50mg, 100mg</td><td>—</td></tr>
+            <tr><td class="sku-code">G25/G210/G215</td><td>GHRP-2</td><td class="spec-list">5mg, 10mg, 15mg</td><td>—</td></tr>
+            <tr><td class="sku-code">G65/G610</td><td>GHRP-6</td><td class="spec-list">5mg, 10mg</td><td>—</td></tr>
+            <tr><td class="sku-code">GLOW70</td><td>GLOW</td><td class="spec-list">70mg</td><td>—</td></tr>
+            <tr><td class="sku-code">GTT400/GTT600/GTT1500</td><td>Glutathione</td><td class="spec-list">400mg, 600mg, 1500mg</td><td>—</td></tr>
+            <tr><td class="sku-code">GND2/GND5</td><td>Gonadorelin</td><td class="spec-list">2mg, 5mg</td><td>—</td></tr>
+            <tr><td class="sku-code">HCG</td><td>HCG</td><td class="spec-list">1000iu, 2000iu, 5000iu, 10000iu</td><td>—</td></tr>
+            <tr><td class="sku-code">HX2/HX5</td><td>Hexarelin</td><td class="spec-list">2mg, 5mg</td><td>—</td></tr>
+            <tr><td class="sku-code">H10/H12/H15/H24/H36</td><td>HGH</td><td class="spec-list">10iu, 12iu, 15iu, 24iu, 36iu</td><td>—</td></tr>
+            <tr><td class="sku-code">G75</td><td>HMG</td><td class="spec-list">75iu</td><td>—</td></tr>
+            <tr><td class="sku-code">HA5</td><td>Hyaluronic Acid</td><td class="spec-list">5mg</td><td>—</td></tr>
+            <tr><td class="sku-code">ISU</td><td>Insulin</td><td class="spec-list">3ml</td><td>—</td></tr>
+            <tr><td class="sku-code">KS5/KS10</td><td>Kisspeptin-10</td><td class="spec-list">5mg, 10mg</td><td>—</td></tr>
+            <tr><td class="sku-code">KLOW80</td><td>KLOW</td><td class="spec-list">80mg</td><td>—</td></tr>
+            <tr><td class="sku-code">KPV5/KPV10</td><td>KPV</td><td class="spec-list">5mg, 10mg</td><td>—</td></tr>
+            <tr><td class="sku-code">LC120</td><td>LC120</td><td class="spec-list">10ml</td><td>—</td></tr>
+            <tr><td class="sku-code">LC600/LC1200</td><td>L-Carnitine</td><td class="spec-list">600mg, 1200mg</td><td>—</td></tr>
+            <tr><td class="sku-code">LB</td><td>Lemon Bottle</td><td class="spec-list">10ml</td><td>—</td></tr>
+            <tr><td class="sku-code">LC216</td><td>Lipo-C</td><td class="spec-list">10ml</td><td>—</td></tr>
+            <tr><td class="sku-code">LL5/LL10/LL30</td><td>Liraglutide</td><td class="spec-list">5mg, 10mg, 30mg</td><td>—</td></tr>
+            <tr><td class="sku-code">LI20</td><td>Livagen</td><td class="spec-list">20mg</td><td>—</td></tr>
+            <tr><td class="sku-code">375/3710</td><td>LL37</td><td class="spec-list">5mg, 10mg</td><td>—</td></tr>
+            <tr><td class="sku-code">IP2/IP5/IP10/IP20</td><td>Ipamorelin</td><td class="spec-list">2mg, 5mg, 10mg, 20mg</td><td>—</td></tr>
+            <tr><td class="sku-code">MDT10</td><td>Mazdutide</td><td class="spec-list">10mg</td><td>—</td></tr>
+            <tr><td class="sku-code">MT1/ML5/ML10</td><td>Melanotan</td><td class="spec-list">10mg</td><td>—</td></tr>
+            <tr><td class="sku-code">FM2</td><td>MGF</td><td class="spec-list">2mg</td><td>—</td></tr>
+            <tr><td class="sku-code">MK75</td><td>MK677</td><td class="spec-list">5mg</td><td>—</td></tr>
+            <tr><td class="sku-code">MS10/MS15/MS20/MS40</td><td>MOTS-C</td><td class="spec-list">10mg, 15mg, 20mg, 40mg</td><td>—</td></tr>
+            <tr><td class="sku-code">NJ100/NJ500/NJ1000</td><td>NAD+</td><td class="spec-list">100iu, 500iu, 1000iu</td><td>—</td></tr>
+            <tr><td class="sku-code">OT2/OT5/OT10</td><td>Oxytocin</td><td class="spec-list">2mg, 5mg, 10mg</td><td>—</td></tr>
+            <tr><td class="sku-code">P21</td><td>P21</td><td class="spec-list">10mg</td><td>—</td></tr>
+            <tr><td class="sku-code">PA20</td><td>Pancragen</td><td class="spec-list">20mg</td><td>—</td></tr>
+            <tr><td class="sku-code">FMP2</td><td>PEG-MGF</td><td class="spec-list">2mg</td><td>—</td></tr>
+            <tr><td class="sku-code">PIN5/PIN10/PIN20</td><td>Pinealon</td><td class="spec-list">5mg, 10mg, 20mg</td><td>—</td></tr>
+            <tr><td class="sku-code">P27</td><td>PNC-27</td><td class="spec-list">5mg</td><td>—</td></tr>
+            <tr><td class="sku-code">MAX20</td><td>Prostamax</td><td class="spec-list">20mg</td><td>—</td></tr>
+            <tr><td class="sku-code">P41</td><td>PT-141</td><td class="spec-list">10mg</td><td>—</td></tr>
+            <tr><td class="sku-code">RT5/RT10/RT15/RT20/RT30/RT40/RT50/RT60/RT100/RT120</td><td>Retatrutide</td><td class="spec-list">5-120mg</td><td>—</td></tr>
+            <tr><td class="sku-code">SK5/SK10</td><td>Selank</td><td class="spec-list">5mg, 10mg</td><td>—</td></tr>
+            <tr><td class="sku-code">SM2/SM5/SM10/SM15/SM20/SM30/SM40/SM50/SM60/SM100/SM120</td><td>Semaglutide</td><td class="spec-list">2-120mg</td><td>—</td></tr>
+            <tr><td class="sku-code">SX5/SX10</td><td>Semax</td><td class="spec-list">5mg, 10mg</td><td>—</td></tr>
+            <tr><td class="sku-code">SMO2/SMO5/SMO10</td><td>Sermorelin</td><td class="spec-list">2mg, 5mg, 10mg</td><td>—</td></tr>
+            <tr><td class="sku-code">SL5/SL10</td><td>Slupp-332</td><td class="spec-list">5mg, 10mg</td><td>—</td></tr>
+            <tr><td class="sku-code">NP810</td><td>Snap-8</td><td class="spec-list">10mg</td><td>—</td></tr>
+            <tr><td class="sku-code">2S5/2S10/2S50</td><td>SS-31</td><td class="spec-list">5mg, 10mg, 50mg</td><td>—</td></tr>
+            <tr><td class="sku-code">WA3/WA10</td><td>Sterile Water</td><td class="spec-list">3ml, 10ml</td><td>—</td></tr>
+            <tr><td class="sku-code">SUR10</td><td>Survodutide</td><td class="spec-list">10mg</td><td>—</td></tr>
+            <tr><td class="sku-code">BT2/BT5/BT10/BT20</td><td>TB500</td><td class="spec-list">2mg, 5mg, 10mg, 20mg</td><td>—</td></tr>
+            <tr><td class="sku-code">TER10</td><td>Teriparatide</td><td class="spec-list">10mg</td><td>—</td></tr>
+            <tr><td class="sku-code">TSM2/TSM5/TSM10/TSM20/TSM40</td><td>Tesamorelin</td><td class="spec-list">2mg, 5mg, 10mg, 20mg, 40mg</td><td>—</td></tr>
+            <tr><td class="sku-code">TI</td><td>Tesamorelin+Ipamorelin</td><td class="spec-list">10mg</td><td>—</td></tr>
+            <tr><td class="sku-code">TG20</td><td>Testagen</td><td class="spec-list">20mg</td><td>—</td></tr>
+            <tr><td class="sku-code">TY10</td><td>Thymalin</td><td class="spec-list">10mg</td><td>—</td></tr>
+            <tr><td class="sku-code">TA5/TA10/TA20</td><td>Thymosin Alpha-1</td><td class="spec-list">5mg, 10mg, 20mg</td><td>—</td></tr>
+            <tr><td class="sku-code">TR5/TR10/TR15/TR20/TR30/TR40/TR50/TR60/TR100/TR120</td><td>Tirzepatide</td><td class="spec-list">5-120mg</td><td>—</td></tr>
+            <tr><td class="sku-code">VI20</td><td>Vilon</td><td class="spec-list">20mg</td><td>—</td></tr>
+            <tr><td class="sku-code">VP5/VP10</td><td>VIP</td><td class="spec-list">5mg, 10mg</td><td>—</td></tr>
           </tbody>
         </table>
       </div>
     </div>
   </section>
 
-  <!-- ===== 客服引导 ===== -->
-  <section class="section" id="contact" style="padding-top:0;">
+  <!-- ===== CTA底部大横幅 ===== -->
+  <section class="section" style="padding-top:0;">
     <div class="container">
-      <div class="cta-box">
-        <h3 id="ctaTitle">📦 Hai bisogno di peptidi?</h3>
-        <p id="ctaDesc">Contattaci su WhatsApp o Telegram per ricevere il catalogo completo e i prezzi.</p>
-        <div class="cta-buttons">
-          <a href="javascript:void(0)" class="cta-btn whatsapp" id="waBtn" onclick="handleLeadClick('https://en.gannamaldossari.workers.dev?text=Ciao%2C%20vorrei%20ricevere%20il%20vostro%20catalogo%20prodotti', 'WhatsApp')">
-            <i class="fab fa-whatsapp"></i> WhatsApp
-          </a>
-          <a href="javascript:void(0)" class="cta-btn telegram" id="tgBtn" onclick="handleLeadClick('https://t.me/adasda156', 'Telegram')">
-            <i class="fab fa-telegram"></i> Telegram
-          </a>
-        </div>
+      <div class="cta-banner">
+        <h3 id="ctaTitle">📦 Pronto a ricevere il listino?</h3>
+        <p id="ctaDesc">Contattaci su WhatsApp per il catalogo completo e i prezzi</p>
+        <a href="javascript:void(0)" class="btn-white" id="ctaBtn" onclick="handleLeadClick('https://en.gannamaldossari.workers.dev?text=Ciao%2C%20vorrei%20ricevere%20il%20vostro%20catalogo%20prodotti', 'CTA Bottom')"><i class="fab fa-whatsapp"></i> <span id="ctaBtnText">Contattaci su WhatsApp</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 底部联系方式条（手机友好） ===== -->
+  <section class="footer-contact">
+    <div class="container">
+      <span class="label"><i class="fas fa-headset"></i> <span id="footerLabel">📞 Contattaci</span></span>
+      <div class="links">
+        <a href="https://wa.me/447754979685?text=Ciao%2C%20vorrei%20ricevere%20il%20vostro%20catalogo%20prodotti" class="wa" target="_blank"><i class="fab fa-whatsapp"></i> <span id="footerWa">WhatsApp</span></a>
+        <a href="https://t.me/adasda156" class="tg" target="_blank"><i class="fab fa-telegram"></i> <span id="footerTg">Telegram</span></a>
+        <a href="javascript:void(0)" class="cta" onclick="handleLeadClick('https://en.gannamaldossari.workers.dev?text=Ciao%2C%20vorrei%20ricevere%20il%20vostro%20catalogo%20prodotti', 'Footer CTA')"><i class="fas fa-paper-plane"></i> <span id="footerCta">Richiedi offerta</span></a>
       </div>
     </div>
   </section>
@@ -330,8 +461,8 @@
   <!-- ===== Footer ===== -->
   <footer class="footer">
     <div class="container">
-      <p id="footerText">© 2026 Yuanhang Peptide · Prodotti peptidici di alta purezza</p>
-      <div style="margin-top:6px;">
+      <p id="footerText">© 2026 Yuanhang Peptide · Advanced Peptide Solutions</p>
+      <div style="margin-top:4px;">
         <a href="/" id="footerHome">Home</a>
         <a href="/privacy.html" id="footerPrivacy">Privacy</a>
         <a href="mailto:service@wescedd.xyz" id="footerContact">Contatti</a>
@@ -340,147 +471,150 @@
   </footer>
 
   <script>
-    // ============================================================
-    // 多语言翻译数据
-    // ============================================================
-    const translations = {
-      'it': {
-        navTag: '· Alta Purezza',
-        navCta: 'Contattaci',
-        heroBadge: 'Prodotti peptidici di alta purezza',
-        heroTitle: 'Acquista <span>peptidi</span> facilmente',
-        trust1: 'Purezza 99%+',
-        trust2: 'Spedizione globale',
-        trust3: 'Pagamento sicuro',
-        trust4: 'Supporto 1:1',
-        productsTitle: '🔥 I più venduti',
-        productsDesc: 'Peptidi selezionati di alta purezza per ordini privati',
-        buyBtn: 'Acquista',
-        catalogTitle: '📋 Catalogo prodotti completo',
-        catalogDesc: 'Visualizza l\'elenco completo dei prodotti. Contattaci su WhatsApp o Telegram per ricevere il listino prezzi aggiornato.',
-        thSku: 'SKU',
-        thProduct: 'Prodotto',
-        thSpec: 'Specifica',
-        thPrice: 'Prezzo',
-        ctaTitle: '📦 Hai bisogno di peptidi?',
-        ctaDesc: 'Contattaci su WhatsApp o Telegram per ricevere il catalogo completo e i prezzi.',
-        waBtn: 'WhatsApp',
-        tgBtn: 'Telegram',
-        footerText: '© 2026 Yuanhang Peptide · Prodotti peptidici di alta purezza',
-        footerHome: 'Home',
-        footerPrivacy: 'Privacy',
-        footerContact: 'Contatti'
-      },
-      'pt': {
-        navTag: '· Alta Pureza',
-        navCta: 'Contate-nos',
-        heroBadge: 'Produtos peptídicos de alta pureza',
-        heroTitle: 'Compre <span>peptídeos</span> facilmente',
-        trust1: 'Pureza 99%+',
-        trust2: 'Envio global',
-        trust3: 'Pagamento seguro',
-        trust4: 'Suporte 1:1',
-        productsTitle: '🔥 Mais vendidos',
-        productsDesc: 'Peptídeos de alta pureza selecionados para pedidos individuais',
-        buyBtn: 'Comprar',
-        catalogTitle: '📋 Catálogo completo de produtos',
-        catalogDesc: 'Veja a lista completa de produtos. Contate-nos no WhatsApp ou Telegram para receber a lista de preços atualizada.',
-        thSku: 'SKU',
-        thProduct: 'Produto',
-        thSpec: 'Especificação',
-        thPrice: 'Preço',
-        ctaTitle: '📦 Precisa de peptídeos?',
-        ctaDesc: 'Contate-nos no WhatsApp ou Telegram para obter o catálogo completo e preços.',
-        waBtn: 'WhatsApp',
-        tgBtn: 'Telegram',
-        footerText: '© 2026 Yuanhang Peptide · Produtos peptídicos de alta pureza',
-        footerHome: 'Início',
-        footerPrivacy: 'Privacidade',
-        footerContact: 'Contato'
-      }
-    };
-
-    // ============================================================
-    // 切换语言
-    // ============================================================
-    function switchLanguage(lang) {
-      const t = translations[lang] || translations['it'];
-
-      document.getElementById('navTag').textContent = t.navTag;
-      document.getElementById('navCtaText').textContent = t.navCta;
-      document.getElementById('heroBadgeText').textContent = t.heroBadge;
-      document.getElementById('heroTitle').innerHTML = t.heroTitle;
-      document.getElementById('trust1').innerHTML = '<i class="fas fa-check-circle"></i> ' + t.trust1;
-      document.getElementById('trust2').innerHTML = '<i class="fas fa-shipping-fast"></i> ' + t.trust2;
-      document.getElementById('trust3').innerHTML = '<i class="fas fa-lock"></i> ' + t.trust3;
-      document.getElementById('trust4').innerHTML = '<i class="fas fa-headset"></i> ' + t.trust4;
-      document.getElementById('productsTitle').textContent = t.productsTitle;
-      document.getElementById('productsDesc').textContent = t.productsDesc;
-      document.getElementById('catalogTitle').textContent = t.catalogTitle;
-      document.getElementById('catalogDesc').textContent = t.catalogDesc;
-      document.getElementById('thSku').textContent = t.thSku;
-      document.getElementById('thProduct').textContent = t.thProduct;
-      document.getElementById('thSpec').textContent = t.thSpec;
-      document.getElementById('thPrice').textContent = t.thPrice;
-      document.getElementById('ctaTitle').textContent = t.ctaTitle;
-      document.getElementById('ctaDesc').textContent = t.ctaDesc;
-      document.getElementById('waBtn').innerHTML = '<i class="fab fa-whatsapp"></i> ' + t.waBtn;
-      document.getElementById('tgBtn').innerHTML = '<i class="fab fa-telegram"></i> ' + t.tgBtn;
-      document.getElementById('footerText').textContent = t.footerText;
-      document.getElementById('footerHome').textContent = t.footerHome;
-      document.getElementById('footerPrivacy').textContent = t.footerPrivacy;
-      document.getElementById('footerContact').textContent = t.footerContact;
-
-      // 所有购买按钮
-      const buyBtns = document.querySelectorAll('.btn-buy');
-      buyBtns.forEach(function(btn) {
-        btn.textContent = t.buyBtn;
-      });
-
-      // 导航CTA的onclick也需要更新语言
-      const navCta = document.getElementById('navCta');
-      if (lang === 'pt') {
-        navCta.setAttribute('onclick', "handleLeadClick('https://en.gannamaldossari.workers.dev?text=Ol%C3%A1%2C%20gostaria%20de%20receber%20o%20seu%20cat%C3%A1logo%20de%20produtos', 'Contate-nos')");
-      } else {
-        navCta.setAttribute('onclick', "handleLeadClick('https://en.gannamaldossari.workers.dev?text=Ciao%2C%20vorrei%20ricevere%20il%20vostro%20catalogo%20prodotti', 'Contattaci')");
-      }
-
-      document.documentElement.setAttribute('data-lang', lang);
-      window.CURRENT_LANG = lang;
-    }
-
-    // ============================================================
-    // 点击处理函数
-    // ============================================================
     function handleLeadClick(url, productName, sku) {
       fbq('track', 'Lead', {
         content_name: productName || 'Contatto',
         content_id: sku || '',
         currency: 'EUR'
       });
-
       var statusEl = document.getElementById('eventStatus');
       if (statusEl) {
-        statusEl.textContent = '✅ Evento inviato / Evento enviado';
+        statusEl.textContent = '✅ Evento inviato';
         statusEl.classList.add('show');
-        setTimeout(function() {
-          statusEl.classList.remove('show');
-        }, 1500);
+        setTimeout(function() { statusEl.classList.remove('show'); }, 1500);
       }
-
-      setTimeout(function() {
-        window.open(url, '_blank');
-      }, 250);
+      setTimeout(function() { window.open(url, '_blank'); }, 250);
     }
 
-    // ============================================================
-    // 初始化
-    // ============================================================
+    const translations = {
+      'it': {
+        navCta: 'Richiedi listino',
+        heroBadge: '🔬 Advanced Peptide Solutions',
+        heroTitle: 'High-Purity <span>Peptides</span><br><span class="highlight">For R&D</span>',
+        heroDesc: 'Prodotti di alta qualità · Spedizione globale · Supporto 1:1',
+        heroCta: 'Richiedi listino',
+        heroCta2: 'Vedi catalogo',
+        stat1: 'Prodotti',
+        stat2: 'Purezza',
+        stat3: 'Global',
+        trust1: 'Purezza 99%',
+        trust2: 'Spedizione 24-48h',
+        trust3: 'Pagamento sicuro',
+        trust4: 'Supporto tecnico',
+        contactLabel: '📞 Contattaci subito',
+        contactWa: 'WhatsApp',
+        contactTg: 'Telegram',
+        contactCta: 'Richiedi offerta',
+        productsTitle: '🔥 <span>Best Sellers</span>',
+        productsDesc: 'I nostri peptidi più richiesti',
+        buy1: 'Richiedi offerta',
+        buy2: 'Richiedi offerta',
+        buy3: 'Richiedi offerta',
+        buy4: 'Richiedi offerta',
+        buy5: 'Richiedi offerta',
+        buy6: 'Richiedi offerta',
+        catalogTitle: '📋 <span>Catalogo Completo</span>',
+        catalogDesc: 'Tutti i nostri peptidi · Contattaci per prezzi e disponibilità',
+        ctaTitle: '📦 Pronto a ricevere il listino?',
+        ctaDesc: 'Contattaci su WhatsApp per il catalogo completo e i prezzi',
+        ctaBtn: 'Contattaci su WhatsApp',
+        footerLabel: '📞 Contattaci',
+        footerWa: 'WhatsApp',
+        footerTg: 'Telegram',
+        footerCta: 'Richiedi offerta',
+        footerText: '© 2026 Yuanhang Peptide · Advanced Peptide Solutions',
+        footerHome: 'Home',
+        footerPrivacy: 'Privacy',
+        footerContact: 'Contatti'
+      },
+      'pt': {
+        navCta: 'Solicitar lista',
+        heroBadge: '🔬 Soluções Avançadas em Peptídeos',
+        heroTitle: 'Peptídeos de <span>Alta Pureza</span><br><span class="highlight">Para P&D</span>',
+        heroDesc: 'Produtos de alta qualidade · Envio global · Suporte 1:1',
+        heroCta: 'Solicitar lista',
+        heroCta2: 'Ver catálogo',
+        stat1: 'Produtos',
+        stat2: 'Pureza',
+        stat3: 'Global',
+        trust1: 'Pureza 99%',
+        trust2: 'Envio 24-48h',
+        trust3: 'Pagamento seguro',
+        trust4: 'Suporte técnico',
+        contactLabel: '📞 Contate-nos agora',
+        contactWa: 'WhatsApp',
+        contactTg: 'Telegram',
+        contactCta: 'Solicitar orçamento',
+        productsTitle: '🔥 <span>Mais Vendidos</span>',
+        productsDesc: 'Nossos peptídeos mais procurados',
+        buy1: 'Solicitar orçamento',
+        buy2: 'Solicitar orçamento',
+        buy3: 'Solicitar orçamento',
+        buy4: 'Solicitar orçamento',
+        buy5: 'Solicitar orçamento',
+        buy6: 'Solicitar orçamento',
+        catalogTitle: '📋 <span>Catálogo Completo</span>',
+        catalogDesc: 'Todos os nossos peptídeos · Contate-nos para preços e disponibilidade',
+        ctaTitle: '📦 Pronto para receber a lista?',
+        ctaDesc: 'Contate-nos no WhatsApp para o catálogo completo e preços',
+        ctaBtn: 'Fale conosco no WhatsApp',
+        footerLabel: '📞 Contate-nos',
+        footerWa: 'WhatsApp',
+        footerTg: 'Telegram',
+        footerCta: 'Solicitar orçamento',
+        footerText: '© 2026 Yuanhang Peptide · Soluções Avançadas em Peptídeos',
+        footerHome: 'Início',
+        footerPrivacy: 'Privacidade',
+        footerContact: 'Contato'
+      }
+    };
+
+    function switchLanguage(lang) {
+      const t = translations[lang] || translations['it'];
+      document.getElementById('navCtaText').textContent = t.navCta;
+      document.getElementById('heroBadge').textContent = t.heroBadge;
+      document.getElementById('heroTitle').innerHTML = t.heroTitle;
+      document.getElementById('heroDesc').textContent = t.heroDesc;
+      document.getElementById('heroCtaText').textContent = t.heroCta;
+      document.getElementById('heroCta2').textContent = t.heroCta2;
+      document.getElementById('stat1').textContent = t.stat1;
+      document.getElementById('stat2').textContent = t.stat2;
+      document.getElementById('stat3').textContent = t.stat3;
+      document.getElementById('trust1').innerHTML = '<i class="fas fa-check-circle"></i> ' + t.trust1;
+      document.getElementById('trust2').innerHTML = '<i class="fas fa-shipping-fast"></i> ' + t.trust2;
+      document.getElementById('trust3').innerHTML = '<i class="fas fa-lock"></i> ' + t.trust3;
+      document.getElementById('trust4').innerHTML = '<i class="fas fa-headset"></i> ' + t.trust4;
+      document.getElementById('contactLabel').textContent = t.contactLabel;
+      document.getElementById('contactWa').textContent = t.contactWa;
+      document.getElementById('contactTg').textContent = t.contactTg;
+      document.getElementById('contactCta').textContent = t.contactCta;
+      document.getElementById('productsTitle').innerHTML = t.productsTitle;
+      document.getElementById('productsDesc').textContent = t.productsDesc;
+      document.getElementById('buy1').textContent = t.buy1;
+      document.getElementById('buy2').textContent = t.buy2;
+      document.getElementById('buy3').textContent = t.buy3;
+      document.getElementById('buy4').textContent = t.buy4;
+      document.getElementById('buy5').textContent = t.buy5;
+      document.getElementById('buy6').textContent = t.buy6;
+      document.getElementById('catalogTitle').innerHTML = t.catalogTitle;
+      document.getElementById('catalogDesc').textContent = t.catalogDesc;
+      document.getElementById('ctaTitle').textContent = t.ctaTitle;
+      document.getElementById('ctaDesc').textContent = t.ctaDesc;
+      document.getElementById('ctaBtnText').textContent = t.ctaBtn;
+      document.getElementById('footerLabel').textContent = t.footerLabel;
+      document.getElementById('footerWa').textContent = t.footerWa;
+      document.getElementById('footerTg').textContent = t.footerTg;
+      document.getElementById('footerCta').textContent = t.footerCta;
+      document.getElementById('footerText').textContent = t.footerText;
+      document.getElementById('footerHome').textContent = t.footerHome;
+      document.getElementById('footerPrivacy').textContent = t.footerPrivacy;
+      document.getElementById('footerContact').textContent = t.footerContact;
+    }
+
     document.addEventListener('DOMContentLoaded', function() {
       const lang = window.CURRENT_LANG || 'it';
       switchLanguage(lang);
     });
   </script>
-
 </body>
 </html>
