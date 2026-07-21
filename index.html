@@ -97,7 +97,6 @@
     .section-title { font-size: 28px; font-weight: 700; text-align: center; margin-bottom: 8px; }
     .section-desc { text-align: center; color: #64748b; margin-bottom: 32px; font-size: 16px; }
 
-    /* ===== 产品网格（全部展示） ===== */
     .product-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -159,11 +158,6 @@
       margin: 0 auto;
     }
     .btn-buy:hover { background: #145c2e; transform: translateY(-1px); }
-
-    /* ===== 价格表整体隐藏 ===== */
-    .price-section {
-      display: none !important;
-    }
 
     .cta-box {
       background: #0f172a; border-radius: 20px; padding: 40px 48px;
@@ -252,43 +246,14 @@
     <span class="trust-item" id="trust4"><i class="fas fa-headset"></i> Supporto 1:1</span>
   </div>
 
-  <!-- ===== 所有产品展示（无价格） ===== -->
+  <!-- ===== 所有产品展示 ===== -->
   <section class="section" id="products">
     <div class="container">
       <h2 class="section-title" id="productsTitle">🔥 I nostri prodotti</h2>
       <p class="section-desc" id="productsDesc">Peptidi selezionati di alta purezza per ordini privati</p>
 
       <div class="product-grid" id="productGrid">
-        <!-- JavaScript 动态渲染所有产品 -->
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== 价格表（已隐藏） ===== -->
-  <section class="section price-section" style="padding-top:0;">
-    <div class="container">
-      <h2 class="section-title" style="font-size:22px;" id="priceTitle">📋 Listino prezzi completo</h2>
-      <p class="section-desc" id="priceDesc">Visualizza l'elenco completo dei prodotti. Contattaci per prezzi all'ingrosso.</p>
-      <div class="price-table">
-        <table>
-          <thead>
-            <tr><th id="thSku">SKU</th><th id="thProduct">Prodotto</th><th id="thSpec">Specifica</th><th id="thPrice">Prezzo (€)</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>TR5</td><td>Tirzepatide</td><td>5mg×10vials</td><td class="highlight">€36</td></tr>
-            <tr><td>TR10</td><td>Tirzepatide</td><td>10mg×10vials</td><td class="highlight">€49</td></tr>
-            <tr><td>TR15</td><td>Tirzepatide</td><td>15mg×10vials</td><td class="highlight">€61</td></tr>
-            <tr><td>SM5</td><td>Semaglutide</td><td>5mg×10vials</td><td class="highlight">€31</td></tr>
-            <tr><td>SM10</td><td>Semaglutide</td><td>10mg×10vials</td><td class="highlight">€44</td></tr>
-            <tr><td>MT1</td><td>Melanotan I</td><td>10mg×10vials</td><td class="highlight">€45</td></tr>
-            <tr><td>BC10</td><td>BPC-157</td><td>10mg×10vials</td><td class="highlight">€51</td></tr>
-            <tr><td>CU</td><td>GHK-CU</td><td>50mg×10vials</td><td class="highlight">€24</td></tr>
-            <tr><td>P41</td><td>PT-141</td><td>10mg×10vials</td><td class="highlight">€48</td></tr>
-            <tr><td>RT10</td><td>Retatrutide</td><td>10mg×10vials</td><td class="highlight">€95</td></tr>
-            <tr><td>BT5</td><td>TB500</td><td>5mg×10vials</td><td class="highlight">€65</td></tr>
-            <tr><td>BC5</td><td>BPC-157</td><td>5mg×10vials</td><td class="highlight">€35</td></tr>
-          </tbody>
-        </table>
+        <!-- JavaScript 动态渲染 -->
       </div>
     </div>
   </section>
@@ -325,7 +290,7 @@
 
   <script>
     // ============================================================
-    // 产品数据（所有产品）
+    // 产品数据（全部产品，无价格）
     // ============================================================
     const allProducts = [
       { sku: "TR5", name: "Tirzepatide", spec: "5mg×10vials" },
@@ -439,7 +404,7 @@
     ];
 
     // ============================================================
-    // 多语言翻译数据
+    // 多语言翻译
     // ============================================================
     const translations = {
       'it': {
@@ -494,4 +459,51 @@
       const t = translations[lang] || translations['it'];
       let html = '';
       allProducts.forEach(function(p) {
-        const text = encodeURIComponent('Ciao, vorrei acquistare '
+        // 构建购买链接
+        const msg = encodeURIComponent('Ciao, vorrei acquistare ' + p.sku + ' (' + p.name + ' ' + p.spec + ')');
+        const url = 'https://en.gannamaldossari.workers.dev?text=' + msg;
+        html += `
+          <div class="product-card">
+            <div>
+              <div class="sku">${p.sku}</div>
+              <div class="name">${p.name}</div>
+              <div class="spec">${p.spec}</div>
+            </div>
+            <a href="javascript:void(0)" class="btn-buy" onclick="handleLeadClick('${url}', '${p.name}', '${p.sku}')">${t.buyBtn}</a>
+          </div>
+        `;
+      });
+      grid.innerHTML = html;
+    }
+
+    // ============================================================
+    // 切换语言
+    // ============================================================
+    function switchLanguage(lang) {
+      const t = translations[lang] || translations['it'];
+
+      document.getElementById('navTag').textContent = t.navTag;
+      document.getElementById('navCtaText').textContent = t.navCta;
+      document.getElementById('heroBadgeText').textContent = t.heroBadge;
+      document.getElementById('heroTitle').innerHTML = t.heroTitle;
+      document.getElementById('trust1').innerHTML = '<i class="fas fa-check-circle"></i> ' + t.trust1;
+      document.getElementById('trust2').innerHTML = '<i class="fas fa-shipping-fast"></i> ' + t.trust2;
+      document.getElementById('trust3').innerHTML = '<i class="fas fa-lock"></i> ' + t.trust3;
+      document.getElementById('trust4').innerHTML = '<i class="fas fa-headset"></i> ' + t.trust4;
+      document.getElementById('productsTitle').textContent = t.productsTitle;
+      document.getElementById('productsDesc').textContent = t.productsDesc;
+      document.getElementById('ctaTitle').textContent = t.ctaTitle;
+      document.getElementById('ctaDesc').textContent = t.ctaDesc;
+      document.getElementById('waBtn').innerHTML = '<i class="fab fa-whatsapp"></i> ' + t.waBtn;
+      document.getElementById('tgBtn').innerHTML = '<i class="fab fa-telegram"></i> ' + t.tgBtn;
+      document.getElementById('footerText').textContent = t.footerText;
+      document.getElementById('footerHome').textContent = t.footerHome;
+      document.getElementById('footerPrivacy').textContent = t.footerPrivacy;
+      document.getElementById('footerContact').textContent = t.footerContact;
+
+      // 重新渲染产品（更新按钮文字）
+      renderProducts(lang);
+
+      const navCta = document.getElementById('navCta');
+      if (lang === 'pt') {
+        navCta.setAttribute('onclick', "handleLeadClick('https://en
