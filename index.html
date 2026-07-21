@@ -16,11 +16,11 @@
   t.src=v;s=b.getElementsByTagName(e)[0];
   s.parentNode.insertBefore(t,s)}(window, document,'script',
   'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '1724762025032119');
+  fbq('init', '919256076948739');
   fbq('track', 'PageView');
   </script>
   <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=1724762025032119&ev=PageView&noscript=1"
+  src="https://www.facebook.com/tr?id=919256076948739&ev=PageView&noscript=1"
   /></noscript>
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
@@ -144,7 +144,6 @@
       .product-grid { grid-template-columns: 1fr; }
     }
 
-    /* 测试模式下显示事件上报状态 */
     .event-status {
       position: fixed;
       bottom: 20px;
@@ -166,7 +165,6 @@
 </head>
 <body>
 
-  <!-- 事件上报状态提示（仅用于测试，可删除） -->
   <div class="event-status" id="eventStatus">✅ 事件已上报</div>
 
   <!-- ===== 导航 ===== -->
@@ -291,7 +289,7 @@
           <a href="javascript:void(0)" class="cta-btn whatsapp" onclick="handleLeadClick('https://en.gannamaldossari.workers.dev?text=Ciao%2C%20vorrei%20ricevere%20il%20vostro%20catalogo%20prodotti', 'WhatsApp')">
             <i class="fab fa-whatsapp"></i> WhatsApp
           </a>
-          <a href="https://t.me/adasda156" class="cta-btn telegram" target="_blank" onclick="handleLeadClick('https://t.me/adasda156', 'Telegram')">
+          <a href="javascript:void(0)" class="cta-btn telegram" onclick="handleLeadClick('https://t.me/adasda156', 'Telegram')">
             <i class="fab fa-telegram"></i> Telegram
           </a>
         </div>
@@ -312,20 +310,13 @@
   </footer>
 
   <script>
-    /**
-     * 统一的点击处理函数
-     * 1. 上报 Lead 事件
-     * 2. 延迟 250ms 后跳转，确保事件发送成功
-     */
     function handleLeadClick(url, productName, sku) {
-      // 上报 Lead 事件
       fbq('track', 'Lead', {
         content_name: productName || 'Contatto',
         content_id: sku || '',
         currency: 'EUR'
       });
 
-      // 显示状态提示（测试用）
       var statusEl = document.getElementById('eventStatus');
       if (statusEl) {
         statusEl.textContent = '✅ 事件已上报: ' + (productName || 'Lead');
@@ -335,14 +326,10 @@
         }, 1500);
       }
 
-      // 延迟 250ms 跳转，确保像素事件有足够时间发送
       setTimeout(function() {
         window.open(url, '_blank');
       }, 250);
     }
-
-    // 如果有 Telegram 链接需要直接跳转（不经过分流），额外处理
-    // 如果 Telegram 链接也想上报事件，已经在 onclick 里处理了
   </script>
 
 </body>
