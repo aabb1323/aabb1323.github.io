@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
   <title>Yuanhang Peptide · Premium Peptide Products</title>
 
-  <!-- ===== 语言检测 ===== -->
   <script>
   (function() {
     const lang = navigator.language || navigator.userLanguage;
@@ -82,6 +81,15 @@
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     }
     .hero p { font-size: 16px; color: #64748b; max-width: 400px; margin: 0 auto 20px; }
+
+    /* ===== 优惠钩子 ===== */
+    .offer-banner {
+      background: #fef3c7; border: 2px solid #f59e0b; border-radius: 12px;
+      padding: 10px 20px; margin: 12px auto 16px; display: inline-block;
+      font-weight: 700; font-size: 15px; color: #92400e;
+    }
+    .offer-banner i { margin-right: 8px; }
+
     .hero-stats { display: flex; justify-content: center; gap: 24px; padding-top: 20px; border-top: 1px solid #e2e8f0; margin-top: 8px; }
     .hero-stats div { text-align: center; }
     .hero-stats strong { display: block; font-size: 24px; color: #0f172a; font-weight: 700; }
@@ -113,6 +121,7 @@
     .trust-item { display: flex; align-items: center; gap: 6px; font-size: 13px; color: #475569; font-weight: 500; }
     .trust-item i { color: #1a7a3a; font-size: 16px; }
 
+    /* ===== 联系方式条（带钩子） ===== */
     .contact-bar {
       background: #dcfce7; border: 2px solid #1a7a3a; border-radius: 12px;
       padding: 14px 18px; display: flex; align-items: center;
@@ -137,11 +146,23 @@
       display: inline-flex; align-items: center; gap: 6px;
     }
     .contact-bar .links .cta-btn:hover { background: #145c2e; }
+    .contact-bar .response-time {
+      font-size: 12px; color: #1a7a3a; font-weight: 600;
+      display: flex; align-items: center; gap: 4px;
+    }
 
     .section { padding: 40px 0; }
     .section-title { font-size: 24px; font-weight: 700; color: #0f172a; text-align: center; margin-bottom: 6px; }
     .section-title span { color: #1a7a3a; }
     .section-desc { text-align: center; color: #64748b; margin-bottom: 24px; font-size: 14px; max-width: 500px; margin-left: auto; margin-right: auto; }
+
+    /* ===== 免费配送钩子 ===== */
+    .shipping-banner {
+      background: #f0fdf4; border: 1px solid #1a7a3a; border-radius: 40px;
+      padding: 8px 20px; text-align: center; font-size: 14px; font-weight: 600;
+      color: #1a7a3a; margin-bottom: 20px; display: inline-block;
+    }
+    .shipping-banner i { margin-right: 6px; }
 
     .product-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
     .product-card {
@@ -211,6 +232,12 @@
     }
     .cta-banner h3 { font-size: 22px; font-weight: 700; margin-bottom: 6px; }
     .cta-banner p { color: #94a3b8; margin-bottom: 20px; font-size: 14px; }
+    /* ===== 限时优惠钩子 ===== */
+    .cta-banner .time-limited {
+      background: #fef3c7; color: #92400e; padding: 6px 16px;
+      border-radius: 40px; font-size: 13px; font-weight: 700;
+      display: inline-block; margin-bottom: 12px;
+    }
     .cta-banner .btn-white {
       background: #fff; color: #0f172a; padding: 14px 32px;
       border-radius: 40px; font-weight: 700; font-size: 15px; border: none;
@@ -256,7 +283,6 @@
 
   <div class="event-status" id="eventStatus">✅ Evento inviato</div>
 
-  <!-- ===== 导航 ===== -->
   <nav class="nav">
     <div class="container">
       <div class="logo">Yuanhang<span>Peptide</span> <small>· Premium</small></div>
@@ -264,12 +290,13 @@
     </div>
   </nav>
 
-  <!-- ===== 首屏 ===== -->
   <section class="hero">
     <div class="container">
       <div class="hero-badge" id="heroBadge">💎 Premium Peptide Products</div>
       <h1 id="heroTitle">High-Purity <span>Peptides</span><br><span class="highlight">For Personal Use</span></h1>
       <p id="heroDesc">Prodotti di alta qualità · Spedizione globale · Supporto 1:1</p>
+      <!-- ===== 首屏优惠钩子 ===== -->
+      <div class="offer-banner" id="offerBanner"><i class="fas fa-gift"></i> <span id="offerText">🎁 10% di sconto sul primo ordine · Contattaci ora!</span></div>
       <div class="hero-buttons">
         <a href="javascript:void(0)" class="btn-primary" id="heroCta" onclick="handleLeadClick('https://en.gannamaldossari.workers.dev?text=Ciao%2C%20vorrei%20ricevere%20il%20vostro%20catalogo%20prodotti', 'Hero CTA')"><i class="fas fa-paper-plane"></i> <span id="heroCtaText">Richiedi listino</span></a>
         <a href="#catalog" class="btn-outline"><i class="fas fa-arrow-down"></i> <span id="heroCta2">Vedi catalogo</span></a>
@@ -282,7 +309,6 @@
     </div>
   </section>
 
-  <!-- ===== 信任条 ===== -->
   <div class="trust-bar">
     <div class="container">
       <span class="trust-item" id="trust1"><i class="fas fa-check-circle"></i> Purezza 99%</span>
@@ -292,7 +318,7 @@
     </div>
   </div>
 
-  <!-- ===== 醒目联系方式条 ===== -->
+  <!-- ===== 联系方式条（带钩子） ===== -->
   <div class="container">
     <div class="contact-bar">
       <span class="label"><i class="fas fa-headset"></i> <span id="contactLabel">📞 Contattaci subito</span></span>
@@ -301,12 +327,18 @@
         <a href="https://t.me/adasda156" class="tg" target="_blank"><i class="fab fa-telegram"></i> <span id="contactTg">Telegram</span></a>
         <a href="javascript:void(0)" class="cta-btn" onclick="handleLeadClick('https://en.gannamaldossari.workers.dev?text=Ciao%2C%20vorrei%20ricevere%20il%20vostro%20catalogo%20prodotti', 'Contact Bar')"><i class="fas fa-paper-plane"></i> <span id="contactCta">Richiedi offerta</span></a>
       </div>
+      <!-- ===== 快速响应钩子 ===== -->
+      <span class="response-time" id="responseTime"><i class="fas fa-clock"></i> 💬 <span id="responseText">Rispondiamo entro 30 minuti</span></span>
     </div>
   </div>
 
-  <!-- ===== 热销产品 ===== -->
+  <!-- ===== 产品区 ===== -->
   <section class="section" id="products">
     <div class="container">
+      <!-- ===== 免费配送钩子 ===== -->
+      <div style="text-align:center;">
+        <div class="shipping-banner" id="shippingBanner"><i class="fas fa-truck"></i> <span id="shippingText">📦 Spedizione gratuita per ordini superiori a €200</span></div>
+      </div>
       <h2 class="section-title" id="productsTitle">🔥 <span>Best Sellers</span></h2>
       <p class="section-desc" id="productsDesc">I nostri peptidi più richiesti</p>
       <div class="product-grid">
@@ -426,10 +458,11 @@
     </div>
   </section>
 
-  <!-- ===== CTA底部大横幅 ===== -->
+  <!-- ===== CTA底部大横幅（带限时优惠） ===== -->
   <section class="section" style="padding-top:0;">
     <div class="container">
       <div class="cta-banner">
+        <div class="time-limited" id="timeLimited"><i class="fas fa-clock"></i> <span id="timeText">⏳ Offerta valida fino al 31/08/2026</span></div>
         <h3 id="ctaTitle">📦 Pronto a ricevere il listino?</h3>
         <p id="ctaDesc">Contattaci su WhatsApp per il catalogo completo e i prezzi</p>
         <a href="javascript:void(0)" class="btn-white" id="ctaBtn" onclick="handleLeadClick('https://en.gannamaldossari.workers.dev?text=Ciao%2C%20vorrei%20ricevere%20il%20vostro%20catalogo%20prodotti', 'CTA Bottom')"><i class="fab fa-whatsapp"></i> <span id="ctaBtnText">Contattaci su WhatsApp</span></a>
@@ -483,6 +516,7 @@
         heroBadge: '💎 Premium Peptide Products',
         heroTitle: 'High-Purity <span>Peptides</span><br><span class="highlight">For Personal Use</span>',
         heroDesc: 'Prodotti di alta qualità · Spedizione globale · Supporto 1:1',
+        offerText: '🎁 10% di sconto sul primo ordine · Contattaci ora!',
         heroCta: 'Richiedi listino',
         heroCta2: 'Vedi catalogo',
         stat1: 'Prodotti',
@@ -496,6 +530,8 @@
         contactWa: 'WhatsApp',
         contactTg: 'Telegram',
         contactCta: 'Richiedi offerta',
+        responseText: '💬 Rispondiamo entro 30 minuti',
+        shippingText: '📦 Spedizione gratuita per ordini superiori a €200',
         productsTitle: '🔥 <span>Best Sellers</span>',
         productsDesc: 'I nostri peptidi più richiesti',
         buy1: 'Richiedi offerta',
@@ -506,6 +542,7 @@
         buy6: 'Richiedi offerta',
         catalogTitle: '📋 <span>Catalogo Completo</span>',
         catalogDesc: 'Tutti i nostri peptidi · Contattaci per prezzi e disponibilità',
+        timeText: '⏳ Offerta valida fino al 31/08/2026',
         ctaTitle: '📦 Pronto a ricevere il listino?',
         ctaDesc: 'Contattaci su WhatsApp per il catalogo completo e i prezzi',
         ctaBtn: 'Contattaci su WhatsApp',
@@ -523,6 +560,7 @@
         heroBadge: '💎 Produtos Premium de Peptídeos',
         heroTitle: 'Peptídeos de <span>Alta Pureza</span><br><span class="highlight">Para Uso Pessoal</span>',
         heroDesc: 'Produtos de alta qualidade · Envio global · Suporte 1:1',
+        offerText: '🎁 10% de desconto na primeira compra · Fale conosco agora!',
         heroCta: 'Solicitar lista',
         heroCta2: 'Ver catálogo',
         stat1: 'Produtos',
@@ -536,6 +574,8 @@
         contactWa: 'WhatsApp',
         contactTg: 'Telegram',
         contactCta: 'Solicitar orçamento',
+        responseText: '💬 Respondemos em até 30 minutos',
+        shippingText: '📦 Frete grátis para pedidos acima de €200',
         productsTitle: '🔥 <span>Mais Vendidos</span>',
         productsDesc: 'Nossos peptídeos mais procurados',
         buy1: 'Solicitar orçamento',
@@ -546,6 +586,7 @@
         buy6: 'Solicitar orçamento',
         catalogTitle: '📋 <span>Catálogo Completo</span>',
         catalogDesc: 'Todos os nossos peptídeos · Contate-nos para preços e disponibilidade',
+        timeText: '⏳ Oferta válida até 31/08/2026',
         ctaTitle: '📦 Pronto para receber a lista?',
         ctaDesc: 'Contate-nos no WhatsApp para o catálogo completo e preços',
         ctaBtn: 'Fale conosco no WhatsApp',
@@ -566,6 +607,7 @@
       document.getElementById('heroBadge').textContent = t.heroBadge;
       document.getElementById('heroTitle').innerHTML = t.heroTitle;
       document.getElementById('heroDesc').textContent = t.heroDesc;
+      document.getElementById('offerText').textContent = t.offerText;
       document.getElementById('heroCtaText').textContent = t.heroCta;
       document.getElementById('heroCta2').textContent = t.heroCta2;
       document.getElementById('stat1').textContent = t.stat1;
@@ -579,6 +621,8 @@
       document.getElementById('contactWa').textContent = t.contactWa;
       document.getElementById('contactTg').textContent = t.contactTg;
       document.getElementById('contactCta').textContent = t.contactCta;
+      document.getElementById('responseText').textContent = t.responseText;
+      document.getElementById('shippingText').textContent = t.shippingText;
       document.getElementById('productsTitle').innerHTML = t.productsTitle;
       document.getElementById('productsDesc').textContent = t.productsDesc;
       document.getElementById('buy1').textContent = t.buy1;
@@ -589,6 +633,7 @@
       document.getElementById('buy6').textContent = t.buy6;
       document.getElementById('catalogTitle').innerHTML = t.catalogTitle;
       document.getElementById('catalogDesc').textContent = t.catalogDesc;
+      document.getElementById('timeText').textContent = t.timeText;
       document.getElementById('ctaTitle').textContent = t.ctaTitle;
       document.getElementById('ctaDesc').textContent = t.ctaDesc;
       document.getElementById('ctaBtnText').textContent = t.ctaBtn;
