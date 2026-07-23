@@ -9,9 +9,16 @@
   <script>
   (function() {
     const lang = navigator.language || navigator.userLanguage;
-    const isPt = lang.startsWith('pt');
-    const isIt = lang.startsWith('it');
-    window.CURRENT_LANG = isPt ? 'pt' : (isIt ? 'it' : 'en');
+    const langMap = {
+      'it': 'it',
+      'pt': 'pt',
+      'de': 'de',
+      'fr': 'fr',
+      'nl': 'nl',
+      'pl': 'pl'
+    };
+    const baseLang = lang.split('-')[0];
+    window.CURRENT_LANG = langMap[baseLang] || 'en';
     document.documentElement.setAttribute('data-lang', window.CURRENT_LANG);
   })();
   </script>
@@ -19,12 +26,12 @@
   <!-- ===== 国家分流链接选择 ===== -->
   <script>
   function getCountrySpecificLink() {
-    let link = 'https://wb.gannamaldossari.workers.dev';
+    // 巴西客户 → en，其他国家 → wb
     const lang = navigator.language || navigator.userLanguage;
     if (lang.startsWith('pt')) {
-      link = 'https://en.gannamaldossari.workers.dev';
+      return 'https://en.gannamaldossari.workers.dev';
     }
-    return link;
+    return 'https://wb.gannamaldossari.workers.dev';
   }
   window.WHATSAPP_LINK = getCountrySpecificLink();
   </script>
@@ -94,7 +101,7 @@
       font-weight: 800;
       line-height: 1.2;
       color: #0f172a;
-      margin-bottom: 12px;
+      margin-bottom: 8px;
     }
     .hero h1 span { color: #1a7a3a; }
     .hero h1 .highlight {
@@ -102,7 +109,13 @@
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     }
 
-    /* ===== 合作描述文字样式 ===== */
+    .hook-banner {
+      background: #fef3c7; border: 2px solid #f59e0b; border-radius: 40px;
+      padding: 8px 20px; display: inline-block; font-weight: 700; font-size: 15px;
+      color: #92400e; margin: 8px 0 16px;
+    }
+    .hook-banner i { margin-right: 8px; }
+
     .hero-desc {
       max-width: 700px;
       margin: 0 auto 16px;
@@ -111,10 +124,7 @@
       line-height: 1.7;
       text-align: left;
     }
-    .hero-desc strong {
-      color: #0f172a;
-      font-weight: 700;
-    }
+    .hero-desc strong { color: #0f172a; font-weight: 700; }
     .hero-desc ul {
       list-style: none;
       padding: 0;
@@ -133,17 +143,6 @@
       position: absolute;
       left: 0;
     }
-    .hero-desc .highlight-text {
-      color: #1a7a3a;
-      font-weight: 600;
-    }
-
-    .offer-banner {
-      background: #fef3c7; border: 2px solid #f59e0b; border-radius: 12px;
-      padding: 10px 20px; margin: 12px 0 16px; display: inline-block;
-      font-weight: 700; font-size: 15px; color: #92400e;
-    }
-    .offer-banner i { margin-right: 8px; }
 
     .hero-stats { display: flex; justify-content: center; gap: 24px; padding-top: 20px; border-top: 1px solid #e2e8f0; margin-top: 8px; }
     .hero-stats div { text-align: center; }
@@ -166,7 +165,7 @@
       border: 1.5px solid #e2e8f0; cursor: pointer; transition: 0.3s;
     }
     .btn-outline:hover { border-color: #1a7a3a; color: #1a7a3a; background: #f0fdf4; }
-    .hero-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 8px; }
+    .hero-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
 
     .trust-bar {
       background: #f8fafc; border-bottom: 1px solid #e2e8f0;
@@ -347,13 +346,13 @@
     </div>
   </nav>
 
-  <!-- ===== 首屏 ===== -->
   <section class="hero">
     <div class="container">
       <div class="hero-badge" id="heroBadge">💎 Premium Peptide Products</div>
       <h1 id="heroTitle">High-Purity Peptide Products<br><span class="highlight">｜ Partners Wanted</span></h1>
 
-      <!-- ===== 合作描述文字 ===== -->
+      <div class="hook-banner" id="hookBanner"><i class="fas fa-gift"></i> <span id="hookText">🎁 10% off first order · Contact us now!</span></div>
+
       <div class="hero-desc" id="heroDesc">
         <p><strong id="descP1">Providing high-purity peptide products for both individual use and team collaboration.</strong></p>
         <p id="descP2">We are actively recruiting distributors and dealers worldwide — sharing market opportunities together.</p>
@@ -368,10 +367,8 @@
         <p id="descP4" style="margin-top:8px;font-weight:600;color:#0f172a;">Whether you are an individual user or a team, studio, or distributor with sales channels — all are welcome to inquire about cooperation and grow together.</p>
       </div>
 
-      <div class="offer-banner" id="offerBanner"><i class="fas fa-gift"></i> <span id="offerText">🎁 10% off on first order · Contact us now!</span></div>
-
       <div class="hero-buttons">
-        <a href="javascript:void(0)" class="btn-primary" id="heroCta" onclick="handleLeadClick('', 'Hero CTA')"><i class="fas fa-paper-plane"></i> <span id="heroCtaText">Request Price List</span></a>
+        <a href="javascript:void(0)" class="btn-primary" id="heroCta" onclick="handleLeadClick('', 'Hero CTA')"><i class="fab fa-whatsapp"></i> <span id="heroCtaText">Contact Us</span></a>
         <a href="#catalog" class="btn-outline"><i class="fas fa-arrow-down"></i> <span id="heroCta2">View Catalog</span></a>
       </div>
 
@@ -383,7 +380,6 @@
     </div>
   </section>
 
-  <!-- ===== 信任条 ===== -->
   <div class="trust-bar">
     <div class="container">
       <span class="trust-item" id="trust1"><i class="fas fa-check-circle"></i> Purity 99%</span>
@@ -393,39 +389,36 @@
     </div>
   </div>
 
-  <!-- ===== 联系方式条 ===== -->
   <div class="container">
     <div class="contact-bar">
-      <span class="label"><i class="fas fa-headset"></i> <span id="contactLabel">📞 Contact us now</span></span>
+      <span class="label"><i class="fas fa-headset"></i> <span id="contactLabel">📞 Contact Us</span></span>
       <div class="links">
         <a href="javascript:void(0)" class="wa" onclick="handleLeadClick('', 'WhatsApp')"><i class="fab fa-whatsapp"></i> <span id="contactWa">WhatsApp</span></a>
         <a href="javascript:void(0)" class="tg" onclick="handleLeadClick('', 'Telegram')"><i class="fab fa-telegram"></i> <span id="contactTg">Telegram</span></a>
         <a href="javascript:void(0)" class="cta-btn" onclick="handleLeadClick('', 'Contact Bar')"><i class="fas fa-paper-plane"></i> <span id="contactCta">Request Quote</span></a>
       </div>
-      <span class="response-time" id="responseTime"><i class="fas fa-clock"></i> 💬 <span id="responseText">We reply within 30 minutes</span></span>
+      <span class="response-time" id="responseTime"><i class="fas fa-clock"></i> 💬 <span id="responseText">Reply within 30 min</span></span>
     </div>
   </div>
 
-  <!-- ===== 产品区 ===== -->
   <section class="section" id="products">
     <div class="container">
       <div style="text-align:center;">
-        <div class="shipping-banner" id="shippingBanner"><i class="fas fa-truck"></i> <span id="shippingText">📦 Free shipping on orders over €200</span></div>
+        <div class="shipping-banner" id="shippingBanner"><i class="fas fa-truck"></i> <span id="shippingText">📦 Free shipping over €200</span></div>
       </div>
       <h2 class="section-title" id="productsTitle">🔥 <span>Best Sellers</span></h2>
       <p class="section-desc" id="productsDesc">Our most requested peptides</p>
       <div class="product-grid">
-        <div class="product-card"><div class="sku">SEMA</div><div class="name">Semaglutide</div><div class="spec">2-120mg</div><a href="javascript:void(0)" class="btn-buy" onclick="handleLeadClick('Semaglutide', 'SEMA')"><span id="buy1">Request Quote</span></a></div>
-        <div class="product-card"><div class="sku">TIRZ</div><div class="name">Tirzepatide</div><div class="spec">5-120mg</div><a href="javascript:void(0)" class="btn-buy" onclick="handleLeadClick('Tirzepatide', 'TIRZ')"><span id="buy2">Request Quote</span></a></div>
-        <div class="product-card"><div class="sku">RETA</div><div class="name">Retatrutide</div><div class="spec">5-120mg</div><a href="javascript:void(0)" class="btn-buy" onclick="handleLeadClick('Retatrutide', 'RETA')"><span id="buy3">Request Quote</span></a></div>
-        <div class="product-card"><div class="sku">BPC</div><div class="name">BPC-157</div><div class="spec">5-10mg</div><a href="javascript:void(0)" class="btn-buy" onclick="handleLeadClick('BPC-157', 'BPC')"><span id="buy4">Request Quote</span></a></div>
-        <div class="product-card"><div class="sku">PT141</div><div class="name">PT-141</div><div class="spec">10mg</div><a href="javascript:void(0)" class="btn-buy" onclick="handleLeadClick('PT-141', 'PT141')"><span id="buy5">Request Quote</span></a></div>
-        <div class="product-card"><div class="sku">CAGRI</div><div class="name">Cagrilintide</div><div class="spec">2-10mg</div><a href="javascript:void(0)" class="btn-buy" onclick="handleLeadClick('Cagrilintide', 'CAGRI')"><span id="buy6">Request Quote</span></a></div>
+        <div class="product-card"><div class="sku">SEMA</div><div class="name">Semaglutide</div><div class="spec">2-120mg</div><a href="javascript:void(0)" class="btn-buy" onclick="handleLeadClick('Semaglutide', 'SEMA')"><span id="buy1">Contact Us</span></a></div>
+        <div class="product-card"><div class="sku">TIRZ</div><div class="name">Tirzepatide</div><div class="spec">5-120mg</div><a href="javascript:void(0)" class="btn-buy" onclick="handleLeadClick('Tirzepatide', 'TIRZ')"><span id="buy2">Contact Us</span></a></div>
+        <div class="product-card"><div class="sku">RETA</div><div class="name">Retatrutide</div><div class="spec">5-120mg</div><a href="javascript:void(0)" class="btn-buy" onclick="handleLeadClick('Retatrutide', 'RETA')"><span id="buy3">Contact Us</span></a></div>
+        <div class="product-card"><div class="sku">BPC</div><div class="name">BPC-157</div><div class="spec">5-10mg</div><a href="javascript:void(0)" class="btn-buy" onclick="handleLeadClick('BPC-157', 'BPC')"><span id="buy4">Contact Us</span></a></div>
+        <div class="product-card"><div class="sku">PT141</div><div class="name">PT-141</div><div class="spec">10mg</div><a href="javascript:void(0)" class="btn-buy" onclick="handleLeadClick('PT-141', 'PT141')"><span id="buy5">Contact Us</span></a></div>
+        <div class="product-card"><div class="sku">CAGRI</div><div class="name">Cagrilintide</div><div class="spec">2-10mg</div><a href="javascript:void(0)" class="btn-buy" onclick="handleLeadClick('Cagrilintide', 'CAGRI')"><span id="buy6">Contact Us</span></a></div>
       </div>
     </div>
   </section>
 
-  <!-- ===== 完整目录表 ===== -->
   <section class="section" style="padding-top:0;" id="catalog">
     <div class="container">
       <h2 class="section-title" id="catalogTitle">📋 <span>Full Catalog</span></h2>
@@ -531,19 +524,17 @@
     </div>
   </section>
 
-  <!-- ===== CTA底部大横幅 ===== -->
   <section class="section" style="padding-top:0;">
     <div class="container">
       <div class="cta-banner">
-        <div class="time-limited" id="timeLimited"><i class="fas fa-clock"></i> <span id="timeText">⏳ Offer valid until 31/08/2026</span></div>
-        <h3 id="ctaTitle">📦 Ready to receive the price list?</h3>
+        <div class="time-limited" id="timeLimited"><i class="fas fa-clock"></i> <span id="timeText">⏳ Limited time offer</span></div>
+        <h3 id="ctaTitle">📦 Need more information?</h3>
         <p id="ctaDesc">Contact us on WhatsApp for the full catalog and prices</p>
         <a href="javascript:void(0)" class="btn-white" id="ctaBtn" onclick="handleLeadClick('', 'CTA Bottom')"><i class="fab fa-whatsapp"></i> <span id="ctaBtnText">Contact us on WhatsApp</span></a>
       </div>
     </div>
   </section>
 
-  <!-- ===== 底部联系方式条 ===== -->
   <section class="footer-contact">
     <div class="container">
       <span class="label"><i class="fas fa-headset"></i> <span id="footerLabel">📞 Contact us</span></span>
@@ -607,13 +598,14 @@
     }
 
     // ============================================================
-    // 多语言翻译
+    // 多语言翻译（7种语言）
     // ============================================================
     const translations = {
       'en': {
         navCta: 'Contact Us',
         heroBadge: '💎 Premium Peptide Products',
         heroTitle: 'High-Purity Peptide Products<br><span class="highlight">｜ Partners Wanted</span>',
+        hookText: '🎁 10% off first order · Contact us now!',
         descP1: 'Providing high-purity peptide products for both individual use and team collaboration.',
         descP2: 'We are actively recruiting distributors and dealers worldwide — sharing market opportunities together.',
         descP3: 'Cooperation advantages:',
@@ -623,8 +615,7 @@
         descLi4: 'Comprehensive pre-sales and after-sales support',
         descLi5: 'Long-term stable supply with flexible cooperation models',
         descP4: 'Whether you are an individual user or a team, studio, or distributor with sales channels — all are welcome to inquire about cooperation and grow together.',
-        offerText: '🎁 10% off on first order · Contact us now!',
-        heroCta: 'Request Price List',
+        heroCta: 'Contact Us',
         heroCta2: 'View Catalog',
         stat1: 'Products',
         stat2: 'Purity',
@@ -633,24 +624,24 @@
         trust2: 'Shipping 24-48h',
         trust3: 'Secure Payment',
         trust4: 'Technical Support',
-        contactLabel: '📞 Contact us now',
+        contactLabel: '📞 Contact Us',
         contactWa: 'WhatsApp',
         contactTg: 'Telegram',
         contactCta: 'Request Quote',
-        responseText: 'We reply within 30 minutes',
-        shippingText: '📦 Free shipping on orders over €200',
+        responseText: 'Reply within 30 min',
+        shippingText: '📦 Free shipping over €200',
         productsTitle: '🔥 <span>Best Sellers</span>',
         productsDesc: 'Our most requested peptides',
-        buy1: 'Request Quote',
-        buy2: 'Request Quote',
-        buy3: 'Request Quote',
-        buy4: 'Request Quote',
-        buy5: 'Request Quote',
-        buy6: 'Request Quote',
+        buy1: 'Contact Us',
+        buy2: 'Contact Us',
+        buy3: 'Contact Us',
+        buy4: 'Contact Us',
+        buy5: 'Contact Us',
+        buy6: 'Contact Us',
         catalogTitle: '📋 <span>Full Catalog</span>',
         catalogDesc: 'All our peptides · Contact us for prices and availability',
-        timeText: '⏳ Offer valid until 31/08/2026',
-        ctaTitle: '📦 Ready to receive the price list?',
+        timeText: '⏳ Limited time offer',
+        ctaTitle: '📦 Need more information?',
         ctaDesc: 'Contact us on WhatsApp for the full catalog and prices',
         ctaBtn: 'Contact us on WhatsApp',
         footerLabel: '📞 Contact us',
@@ -666,6 +657,7 @@
         navCta: 'Contattaci',
         heroBadge: '💎 Prodotti Premium di Peptidi',
         heroTitle: 'Prodotti peptidici di alta purezza<br><span class="highlight">｜ Cerchiamo Partner</span>',
+        hookText: '🎁 10% di sconto sul primo ordine · Contattaci ora!',
         descP1: 'Forniamo prodotti peptidici di alta purezza per uso personale e collaborazione con team.',
         descP2: 'Stiamo reclutando attivamente distributori e rivenditori in tutto il mondo — condividiamo opportunità di mercato.',
         descP3: 'Vantaggi della collaborazione:',
@@ -675,8 +667,7 @@
         descLi4: 'Supporto completo pre e post-vendita',
         descLi5: 'Fornitura stabile a lungo termine con modelli di collaborazione flessibili',
         descP4: 'Che tu sia un utente individuale o un team, studio o distributore con canali di vendita — tutti sono benvenuti a contattarci per collaborare e crescere insieme.',
-        offerText: '🎁 10% di sconto sul primo ordine · Contattaci ora!',
-        heroCta: 'Richiedi listino',
+        heroCta: 'Contattaci',
         heroCta2: 'Vedi catalogo',
         stat1: 'Prodotti',
         stat2: 'Purezza',
@@ -685,24 +676,24 @@
         trust2: 'Spedizione 24-48h',
         trust3: 'Pagamento sicuro',
         trust4: 'Supporto tecnico',
-        contactLabel: '📞 Contattaci subito',
+        contactLabel: '📞 Contattaci',
         contactWa: 'WhatsApp',
         contactTg: 'Telegram',
         contactCta: 'Richiedi offerta',
         responseText: 'Rispondiamo entro 30 minuti',
-        shippingText: '📦 Spedizione gratuita per ordini superiori a €200',
+        shippingText: '📦 Spedizione gratuita oltre €200',
         productsTitle: '🔥 <span>Best Sellers</span>',
         productsDesc: 'I nostri peptidi più richiesti',
-        buy1: 'Richiedi offerta',
-        buy2: 'Richiedi offerta',
-        buy3: 'Richiedi offerta',
-        buy4: 'Richiedi offerta',
-        buy5: 'Richiedi offerta',
-        buy6: 'Richiedi offerta',
+        buy1: 'Contattaci',
+        buy2: 'Contattaci',
+        buy3: 'Contattaci',
+        buy4: 'Contattaci',
+        buy5: 'Contattaci',
+        buy6: 'Contattaci',
         catalogTitle: '📋 <span>Catalogo Completo</span>',
         catalogDesc: 'Tutti i nostri peptidi · Contattaci per prezzi e disponibilità',
-        timeText: '⏳ Offerta valida fino al 31/08/2026',
-        ctaTitle: '📦 Pronto a ricevere il listino?',
+        timeText: '⏳ Offerta a tempo limitato',
+        ctaTitle: '📦 Hai bisogno di più informazioni?',
         ctaDesc: 'Contattaci su WhatsApp per il catalogo completo e i prezzi',
         ctaBtn: 'Contattaci su WhatsApp',
         footerLabel: '📞 Contattaci',
@@ -718,6 +709,7 @@
         navCta: 'Contate-nos',
         heroBadge: '💎 Produtos Premium de Peptídeos',
         heroTitle: 'Produtos peptídicos de alta pureza<br><span class="highlight">｜ Procuramos Parceiros</span>',
+        hookText: '🎁 10% de desconto na primeira compra · Fale conosco agora!',
         descP1: 'Fornecemos produtos peptídicos de alta pureza para uso pessoal e colaboração com equipes.',
         descP2: 'Estamos recrutando ativamente distribuidores e revendedores em todo o mundo — compartilhando oportunidades de mercado.',
         descP3: 'Vantagens da colaboração:',
@@ -727,8 +719,7 @@
         descLi4: 'Suporte completo pré e pós-venda',
         descLi5: 'Fornecimento estável de longo prazo com modelos de colaboração flexíveis',
         descP4: 'Seja você um usuário individual ou uma equipe, estúdio ou distribuidor com canais de venda — todos são bem-vindos para nos contatar e crescer juntos.',
-        offerText: '🎁 10% de desconto na primeira compra · Fale conosco agora!',
-        heroCta: 'Solicitar lista',
+        heroCta: 'Contate-nos',
         heroCta2: 'Ver catálogo',
         stat1: 'Produtos',
         stat2: 'Pureza',
@@ -737,24 +728,24 @@
         trust2: 'Envio 24-48h',
         trust3: 'Pagamento seguro',
         trust4: 'Suporte técnico',
-        contactLabel: '📞 Contate-nos agora',
+        contactLabel: '📞 Contate-nos',
         contactWa: 'WhatsApp',
         contactTg: 'Telegram',
         contactCta: 'Solicitar orçamento',
         responseText: 'Respondemos em até 30 minutos',
-        shippingText: '📦 Frete grátis para pedidos acima de €200',
+        shippingText: '📦 Frete grátis acima de €200',
         productsTitle: '🔥 <span>Mais Vendidos</span>',
         productsDesc: 'Nossos peptídeos mais procurados',
-        buy1: 'Solicitar orçamento',
-        buy2: 'Solicitar orçamento',
-        buy3: 'Solicitar orçamento',
-        buy4: 'Solicitar orçamento',
-        buy5: 'Solicitar orçamento',
-        buy6: 'Solicitar orçamento',
+        buy1: 'Contate-nos',
+        buy2: 'Contate-nos',
+        buy3: 'Contate-nos',
+        buy4: 'Contate-nos',
+        buy5: 'Contate-nos',
+        buy6: 'Contate-nos',
         catalogTitle: '📋 <span>Catálogo Completo</span>',
         catalogDesc: 'Todos os nossos peptídeos · Contate-nos para preços e disponibilidade',
-        timeText: '⏳ Oferta válida até 31/08/2026',
-        ctaTitle: '📦 Pronto para receber a lista?',
+        timeText: '⏳ Oferta por tempo limitado',
+        ctaTitle: '📦 Precisa de mais informações?',
         ctaDesc: 'Contate-nos no WhatsApp para o catálogo completo e preços',
         ctaBtn: 'Fale conosco no WhatsApp',
         footerLabel: '📞 Contate-nos',
@@ -765,6 +756,214 @@
         footerHome: 'Início',
         footerPrivacy: 'Privacidade',
         footerContact: 'Contato'
+      },
+      'de': {
+        navCta: 'Kontaktiere uns',
+        heroBadge: '💎 Hochreine Peptidprodukte',
+        heroTitle: 'Hochreine Peptidprodukte<br><span class="highlight">｜ Partner gesucht</span>',
+        hookText: '🎁 10% Rabatt auf erste Bestellung · Jetzt kontaktieren!',
+        descP1: 'Wir bieten hochreine Peptidprodukte für den persönlichen Gebrauch und die Teamzusammenarbeit an.',
+        descP2: 'Wir suchen aktiv Vertriebspartner und Händler weltweit — gemeinsam Marktchancen nutzen.',
+        descP3: 'Vorteile der Zusammenarbeit:',
+        descLi1: 'Hochreine Produkte mit stabiler Qualität',
+        descLi2: 'Unterstützung für Einzelkäufe und Großeinkäufe',
+        descLi3: 'Konkurrenzfähige Händlerpreise mit attraktiven Gewinnspannen',
+        descLi4: 'Umfassende Vor- und Nachbetreuung',
+        descLi5: 'Langfristig stabile Lieferung mit flexiblen Kooperationsmodellen',
+        descP4: 'Ob Einzelnutzer oder Team, Studio oder Vertriebspartner mit Vertriebskanälen — alle sind willkommen, um gemeinsam zu wachsen.',
+        heroCta: 'Kontaktiere uns',
+        heroCta2: 'Katalog ansehen',
+        stat1: 'Produkte',
+        stat2: 'Reinheit',
+        stat3: 'Global',
+        trust1: 'Reinheit 99%',
+        trust2: 'Versand 24-48h',
+        trust3: 'Sichere Zahlung',
+        trust4: 'Technischer Support',
+        contactLabel: '📞 Kontaktiere uns',
+        contactWa: 'WhatsApp',
+        contactTg: 'Telegram',
+        contactCta: 'Angebot anfordern',
+        responseText: 'Antwort innerhalb von 30 min',
+        shippingText: '📦 Kostenloser Versand ab €200',
+        productsTitle: '🔥 <span>Bestseller</span>',
+        productsDesc: 'Unsere meistgefragten Peptide',
+        buy1: 'Kontaktiere uns',
+        buy2: 'Kontaktiere uns',
+        buy3: 'Kontaktiere uns',
+        buy4: 'Kontaktiere uns',
+        buy5: 'Kontaktiere uns',
+        buy6: 'Kontaktiere uns',
+        catalogTitle: '📋 <span>Vollständiger Katalog</span>',
+        catalogDesc: 'Alle unsere Peptide · Kontaktiere uns für Preise und Verfügbarkeit',
+        timeText: '⏳ Zeitlich begrenztes Angebot',
+        ctaTitle: '📦 Benötigen Sie weitere Informationen?',
+        ctaDesc: 'Kontaktieren Sie uns auf WhatsApp für den vollständigen Katalog und Preise',
+        ctaBtn: 'Kontaktiere uns auf WhatsApp',
+        footerLabel: '📞 Kontaktiere uns',
+        footerWa: 'WhatsApp',
+        footerTg: 'Telegram',
+        footerCta: 'Angebot anfordern',
+        footerText: '© 2026 Yuanhang Peptide · Hochreine Peptidprodukte',
+        footerHome: 'Startseite',
+        footerPrivacy: 'Datenschutz',
+        footerContact: 'Kontakt'
+      },
+      'fr': {
+        navCta: 'Contactez-nous',
+        heroBadge: '💎 Produits peptidiques premium',
+        heroTitle: 'Produits peptidiques haute pureté<br><span class="highlight">｜ Partenaires recherchés</span>',
+        hookText: '🎁 10% de réduction sur la première commande · Contactez-nous maintenant!',
+        descP1: 'Nous fournissons des produits peptidiques de haute pureté pour un usage personnel et une collaboration en équipe.',
+        descP2: 'Nous recrutons activement des distributeurs et revendeurs dans le monde entier — partageons les opportunités du marché.',
+        descP3: 'Avantages de la collaboration:',
+        descLi1: 'Produits haute pureté avec qualité stable',
+        descLi2: 'Support pour achats individuels et coopération en gros',
+        descLi3: 'Prix compétitifs pour revendeurs avec marges bénéficiaires attractives',
+        descLi4: 'Support complet avant et après-vente',
+        descLi5: 'Approvisionnement stable à long terme avec modèles de collaboration flexibles',
+        descP4: 'Que vous soyez un utilisateur individuel ou une équipe, studio ou distributeur avec canaux de vente — tous sont les bienvenus pour collaborer et grandir ensemble.',
+        heroCta: 'Contactez-nous',
+        heroCta2: 'Voir le catalogue',
+        stat1: 'Produits',
+        stat2: 'Pureté',
+        stat3: 'Global',
+        trust1: 'Pureté 99%',
+        trust2: 'Livraison 24-48h',
+        trust3: 'Paiement sécurisé',
+        trust4: 'Support technique',
+        contactLabel: '📞 Contactez-nous',
+        contactWa: 'WhatsApp',
+        contactTg: 'Telegram',
+        contactCta: 'Demander un devis',
+        responseText: 'Réponse sous 30 min',
+        shippingText: '📦 Livraison gratuite dès €200',
+        productsTitle: '🔥 <span>Meilleures ventes</span>',
+        productsDesc: 'Nos peptides les plus demandés',
+        buy1: 'Contactez-nous',
+        buy2: 'Contactez-nous',
+        buy3: 'Contactez-nous',
+        buy4: 'Contactez-nous',
+        buy5: 'Contactez-nous',
+        buy6: 'Contactez-nous',
+        catalogTitle: '📋 <span>Catalogue complet</span>',
+        catalogDesc: 'Tous nos peptides · Contactez-nous pour les prix et disponibilités',
+        timeText: '⏳ Offre limitée dans le temps',
+        ctaTitle: '📦 Besoin de plus d\'informations?',
+        ctaDesc: 'Contactez-nous sur WhatsApp pour le catalogue complet et les prix',
+        ctaBtn: 'Contactez-nous sur WhatsApp',
+        footerLabel: '📞 Contactez-nous',
+        footerWa: 'WhatsApp',
+        footerTg: 'Telegram',
+        footerCta: 'Demander un devis',
+        footerText: '© 2026 Yuanhang Peptide · Produits peptidiques premium',
+        footerHome: 'Accueil',
+        footerPrivacy: 'Confidentialité',
+        footerContact: 'Contact'
+      },
+      'nl': {
+        navCta: 'Neem contact op',
+        heroBadge: '💎 Premium Peptide Producten',
+        heroTitle: 'Hoogzuivere Peptide Producten<br><span class="highlight">｜ Partners gezocht</span>',
+        hookText: '🎁 10% korting op eerste bestelling · Neem nu contact op!',
+        descP1: 'Wij leveren hoogzuivere peptide producten voor persoonlijk gebruik en teamsamenwerking.',
+        descP2: 'We zoeken actief distributeurs en dealers wereldwijd — samen marktkansen benutten.',
+        descP3: 'Samenwerkingsvoordelen:',
+        descLi1: 'Hoogzuivere producten met stabiele kwaliteit',
+        descLi2: 'Ondersteuning voor individuele aankopen en groothandel',
+        descLi3: 'Concurrerende prijzen voor dealers met aantrekkelijke winstmarges',
+        descLi4: 'Uitgebreide voor- en naverkoopondersteuning',
+        descLi5: 'Langdurige stabiele levering met flexibele samenwerkingsmodellen',
+        descP4: 'Of u nu een individuele gebruiker bent of een team, studio of distributeur met verkoopkanalen — iedereen is welkom om samen te groeien.',
+        heroCta: 'Neem contact op',
+        heroCta2: 'Bekijk catalogus',
+        stat1: 'Producten',
+        stat2: 'Zuiverheid',
+        stat3: 'Global',
+        trust1: 'Zuiverheid 99%',
+        trust2: 'Verzending 24-48h',
+        trust3: 'Veilige betaling',
+        trust4: 'Technische ondersteuning',
+        contactLabel: '📞 Neem contact op',
+        contactWa: 'WhatsApp',
+        contactTg: 'Telegram',
+        contactCta: 'Offerte aanvragen',
+        responseText: 'Antwoord binnen 30 min',
+        shippingText: '📦 Gratis verzending vanaf €200',
+        productsTitle: '🔥 <span>Bestsellers</span>',
+        productsDesc: 'Onze meest gevraagde peptiden',
+        buy1: 'Neem contact op',
+        buy2: 'Neem contact op',
+        buy3: 'Neem contact op',
+        buy4: 'Neem contact op',
+        buy5: 'Neem contact op',
+        buy6: 'Neem contact op',
+        catalogTitle: '📋 <span>Volledige catalogus</span>',
+        catalogDesc: 'Al onze peptiden · Neem contact op voor prijzen en beschikbaarheid',
+        timeText: '⏳ Tijdelijk aanbod',
+        ctaTitle: '📦 Meer informatie nodig?',
+        ctaDesc: 'Neem contact op via WhatsApp voor de volledige catalogus en prijzen',
+        ctaBtn: 'Neem contact op via WhatsApp',
+        footerLabel: '📞 Neem contact op',
+        footerWa: 'WhatsApp',
+        footerTg: 'Telegram',
+        footerCta: 'Offerte aanvragen',
+        footerText: '© 2026 Yuanhang Peptide · Premium Peptide Producten',
+        footerHome: 'Home',
+        footerPrivacy: 'Privacy',
+        footerContact: 'Contact'
+      },
+      'pl': {
+        navCta: 'Skontaktuj się',
+        heroBadge: '💎 Premium Produkty Peptydowe',
+        heroTitle: 'Produkty peptydowe wysokiej czystości<br><span class="highlight">｜ Poszukujemy Partnerów</span>',
+        hookText: '🎁 10% zniżki na pierwsze zamówienie · Skontaktuj się teraz!',
+        descP1: 'Dostarczamy produkty peptydowe wysokiej czystości do użytku osobistego i współpracy zespołowej.',
+        descP2: 'Aktywnie poszukujemy dystrybutorów i dealerów na całym świecie — razem wykorzystujemy szanse rynkowe.',
+        descP3: 'Korzyści współpracy:',
+        descLi1: 'Produkty wysokiej czystości o stabilnej jakości',
+        descLi2: 'Wsparcie dla zakupów indywidualnych i współpracy hurtowej',
+        descLi3: 'Konkurencyjne ceny dla dealerów z atrakcyjnymi marżami',
+        descLi4: 'Kompleksowe wsparcie przed- i posprzedażowe',
+        descLi5: 'Długoterminowe stabilne dostawy z elastycznymi modelami współpracy',
+        descP4: 'Niezależnie od tego, czy jesteś indywidualnym użytkownikiem, czy zespołem, studiem lub dystrybutorem z kanałami sprzedaży — wszyscy są mile widziani, aby współpracować i rozwijać się razem.',
+        heroCta: 'Skontaktuj się',
+        heroCta2: 'Zobacz katalog',
+        stat1: 'Produkty',
+        stat2: 'Czystość',
+        stat3: 'Global',
+        trust1: 'Czystość 99%',
+        trust2: 'Wysyłka 24-48h',
+        trust3: 'Bezpieczna płatność',
+        trust4: 'Wsparcie techniczne',
+        contactLabel: '📞 Skontaktuj się',
+        contactWa: 'WhatsApp',
+        contactTg: 'Telegram',
+        contactCta: 'Poproś o wycenę',
+        responseText: 'Odpowiedź w ciągu 30 min',
+        shippingText: '📦 Darmowa wysyłka od €200',
+        productsTitle: '🔥 <span>Bestsellery</span>',
+        productsDesc: 'Nasze najczęściej wybierane peptydy',
+        buy1: 'Skontaktuj się',
+        buy2: 'Skontaktuj się',
+        buy3: 'Skontaktuj się',
+        buy4: 'Skontaktuj się',
+        buy5: 'Skontaktuj się',
+        buy6: 'Skontaktuj się',
+        catalogTitle: '📋 <span>Pełny katalog</span>',
+        catalogDesc: 'Wszystkie nasze peptydy · Skontaktuj się w sprawie cen i dostępności',
+        timeText: '⏳ Oferta ograniczona czasowo',
+        ctaTitle: '📦 Potrzebujesz więcej informacji?',
+        ctaDesc: 'Skontaktuj się przez WhatsApp po pełny katalog i ceny',
+        ctaBtn: 'Skontaktuj się przez WhatsApp',
+        footerLabel: '📞 Skontaktuj się',
+        footerWa: 'WhatsApp',
+        footerTg: 'Telegram',
+        footerCta: 'Poproś o wycenę',
+        footerText: '© 2026 Yuanhang Peptide · Premium Produkty Peptydowe',
+        footerHome: 'Strona główna',
+        footerPrivacy: 'Prywatność',
+        footerContact: 'Kontakt'
       }
     };
 
@@ -773,6 +972,7 @@
       document.getElementById('navCtaText').textContent = t.navCta;
       document.getElementById('heroBadge').textContent = t.heroBadge;
       document.getElementById('heroTitle').innerHTML = t.heroTitle;
+      document.getElementById('hookText').textContent = t.hookText;
       document.getElementById('descP1').textContent = t.descP1;
       document.getElementById('descP2').textContent = t.descP2;
       document.getElementById('descP3').textContent = t.descP3;
@@ -782,7 +982,6 @@
       document.getElementById('descLi4').textContent = t.descLi4;
       document.getElementById('descLi5').textContent = t.descLi5;
       document.getElementById('descP4').textContent = t.descP4;
-      document.getElementById('offerText').textContent = t.offerText;
       document.getElementById('heroCtaText').textContent = t.heroCta;
       document.getElementById('heroCta2').textContent = t.heroCta2;
       document.getElementById('stat1').textContent = t.stat1;
