@@ -15,7 +15,8 @@
       'de': 'de',
       'fr': 'fr',
       'nl': 'nl',
-      'pl': 'pl'
+      'pl': 'pl',
+      'es': 'es'
     };
     const baseLang = lang.split('-')[0];
     window.CURRENT_LANG = langMap[baseLang] || 'en';
@@ -26,7 +27,6 @@
   <!-- ===== 国家分流链接选择 ===== -->
   <script>
   function getCountrySpecificLink() {
-    // 巴西客户 → en，其他国家 → wb
     const lang = navigator.language || navigator.userLanguage;
     if (lang.startsWith('pt')) {
       return 'https://en.gannamaldossari.workers.dev';
@@ -404,7 +404,7 @@
   <section class="section" id="products">
     <div class="container">
       <div style="text-align:center;">
-        <div class="shipping-banner" id="shippingBanner"><i class="fas fa-truck"></i> <span id="shippingText">📦 Free shipping over €500</span></div>
+        <div class="shipping-banner" id="shippingBanner"><i class="fas fa-truck"></i> <span id="shippingText">📦 Free shipping over €200</span></div>
       </div>
       <h2 class="section-title" id="productsTitle">🔥 <span>Best Sellers</span></h2>
       <p class="section-desc" id="productsDesc">Our most requested peptides</p>
@@ -598,7 +598,7 @@
     }
 
     // ============================================================
-    // 多语言翻译（7种语言）
+    // 多语言翻译（8种语言）
     // ============================================================
     const translations = {
       'en': {
@@ -964,6 +964,58 @@
         footerHome: 'Strona główna',
         footerPrivacy: 'Prywatność',
         footerContact: 'Kontakt'
+      },
+      'es': {
+        navCta: 'Contáctanos',
+        heroBadge: '💎 Productos Premium de Péptidos',
+        heroTitle: 'Productos peptídicos de alta pureza<br><span class="highlight">｜ Buscamos Socios</span>',
+        hookText: '🎁 10% de descuento en el primer pedido · ¡Contáctanos ahora!',
+        descP1: 'Ofrecemos productos peptídicos de alta pureza para uso personal y colaboración en equipo.',
+        descP2: 'Estamos reclutando activamente distribuidores y revendedores en todo el mundo — compartiendo oportunidades de mercado juntos.',
+        descP3: 'Ventajas de la colaboración:',
+        descLi1: 'Productos de alta pureza con calidad estable',
+        descLi2: 'Soporte para compras individuales y cooperación a gran escala',
+        descLi3: 'Precios competitivos para revendedores con márgenes atractivos',
+        descLi4: 'Soporte completo pre y postventa',
+        descLi5: 'Suministro estable a largo plazo con modelos flexibles de colaboración',
+        descP4: 'Ya sea que seas un usuario individual o un equipo, estudio o distribuidor con canales de venta — todos son bienvenidos a consultar sobre colaboración y crecer juntos.',
+        heroCta: 'Contáctanos',
+        heroCta2: 'Ver catálogo',
+        stat1: 'Productos',
+        stat2: 'Pureza',
+        stat3: 'Global',
+        trust1: 'Pureza 99%',
+        trust2: 'Envío 24-48h',
+        trust3: 'Pago seguro',
+        trust4: 'Soporte técnico',
+        contactLabel: '📞 Contáctanos',
+        contactWa: 'WhatsApp',
+        contactTg: 'Telegram',
+        contactCta: 'Solicitar presupuesto',
+        responseText: 'Respondemos en 30 min',
+        shippingText: '📦 Envío gratis desde €200',
+        productsTitle: '🔥 <span>Más Vendidos</span>',
+        productsDesc: 'Nuestros péptidos más solicitados',
+        buy1: 'Contáctanos',
+        buy2: 'Contáctanos',
+        buy3: 'Contáctanos',
+        buy4: 'Contáctanos',
+        buy5: 'Contáctanos',
+        buy6: 'Contáctanos',
+        catalogTitle: '📋 <span>Catálogo Completo</span>',
+        catalogDesc: 'Todos nuestros péptidos · Contáctanos para precios y disponibilidad',
+        timeText: '⏳ Oferta por tiempo limitado',
+        ctaTitle: '📦 ¿Necesitas más información?',
+        ctaDesc: 'Contáctanos en WhatsApp para el catálogo completo y precios',
+        ctaBtn: 'Contáctanos en WhatsApp',
+        footerLabel: '📞 Contáctanos',
+        footerWa: 'WhatsApp',
+        footerTg: 'Telegram',
+        footerCta: 'Solicitar presupuesto',
+        footerText: '© 2026 Yuanhang Peptide · Productos Premium de Péptidos',
+        footerHome: 'Inicio',
+        footerPrivacy: 'Privacidad',
+        footerContact: 'Contacto'
       }
     };
 
