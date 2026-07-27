@@ -360,9 +360,17 @@
     <div class="contact-bar">
       <span class="label"><i class="fas fa-headset"></i> <span id="contactLabel">📞 Contact Us</span></span>
       <div class="links">
-        <a href="javascript:void(0)" class="wa" onclick="handleLeadClick('', 'WhatsApp')"><i class="fab fa-whatsapp"></i> <span id="contactWa">WhatsApp</span></a>
-        <a href="javascript:void(0)" class="tg" onclick="handleLeadClick('', 'Telegram')"><i class="fab fa-telegram"></i> <span id="contactTg">Telegram</span></a>
-        <a href="javascript:void(0)" class="cta-btn" onclick="handleLeadClick('', 'Contact Bar')"><i class="fas fa-paper-plane"></i> <span id="contactCta">Request Quote</span></a>
+        <!-- ✅ WhatsApp 按钮：走分流链接 -->
+        <a href="javascript:void(0)" class="wa" onclick="handleLeadClick('', 'WhatsApp')">
+          <i class="fab fa-whatsapp"></i> <span id="contactWa">WhatsApp</span>
+        </a>
+        <!-- ✅ Telegram 按钮：直接跳转 -->
+        <a href="https://t.me/adasda156" class="tg" target="_blank">
+          <i class="fab fa-telegram"></i> <span id="contactTg">Telegram</span>
+        </a>
+        <a href="javascript:void(0)" class="cta-btn" onclick="handleLeadClick('', 'Contact Bar')">
+          <i class="fas fa-paper-plane"></i> <span id="contactCta">Request Quote</span>
+        </a>
       </div>
       <span class="response-time" id="responseTime"><i class="fas fa-clock"></i> 💬 <span id="responseText">Reply within 30 min</span></span>
     </div>
@@ -583,9 +591,17 @@
     <div class="container">
       <span class="label"><i class="fas fa-headset"></i> <span id="footerLabel">📞 Contact us</span></span>
       <div class="links">
-        <a href="javascript:void(0)" class="wa" onclick="handleLeadClick('', 'Footer WhatsApp')"><i class="fab fa-whatsapp"></i> <span id="footerWa">WhatsApp</span></a>
-        <a href="https://t.me/adasda156" class="tg" target="_blank"><i class="fab fa-telegram"></i> <span id="footerTg">Telegram</span></a>
-        <a href="javascript:void(0)" class="cta" onclick="handleLeadClick('', 'Footer CTA')"><i class="fas fa-paper-plane"></i> <span id="footerCta">Request Quote</span></a>
+        <!-- ✅ WhatsApp 按钮：走分流链接 -->
+        <a href="javascript:void(0)" class="wa" onclick="handleLeadClick('', 'Footer WhatsApp')">
+          <i class="fab fa-whatsapp"></i> <span id="footerWa">WhatsApp</span>
+        </a>
+        <!-- ✅ Telegram 按钮：直接跳转 -->
+        <a href="https://t.me/adasda156" class="tg" target="_blank">
+          <i class="fab fa-telegram"></i> <span id="footerTg">Telegram</span>
+        </a>
+        <a href="javascript:void(0)" class="cta" onclick="handleLeadClick('', 'Footer CTA')">
+          <i class="fas fa-paper-plane"></i> <span id="footerCta">Request Quote</span>
+        </a>
       </div>
     </div>
   </section>
