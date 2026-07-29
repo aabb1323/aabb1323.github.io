@@ -24,13 +24,10 @@
   })();
   </script>
 
-  <!-- ===== 国家分流链接选择 ===== -->
+  <!-- ===== 核心分流：统一跳转 wb ===== -->
   <script>
   function getCountrySpecificLink() {
-    const lang = navigator.language || navigator.userLanguage;
-    if (lang.startsWith('pt')) {
-      return 'https://en.gannamaldossari.workers.dev';
-    }
+    // 所有用户统一跳转 wb，不再区分国家
     return 'https://wb.gannamaldossari.workers.dev';
   }
   window.WHATSAPP_LINK = getCountrySpecificLink();
@@ -629,15 +626,10 @@
 
   <script>
     // ============================================================
-    // 核心函数：根据国家选择分流链接
+    // 核心函数：所有用户统一跳转 wb
     // ============================================================
     function getCountrySpecificLink() {
-      let link = 'https://wb.gannamaldossari.workers.dev';
-      const lang = navigator.language || navigator.userLanguage;
-      if (lang.startsWith('pt')) {
-        link = 'https://en.gannamaldossari.workers.dev';
-      }
-      return link;
+      return 'https://wb.gannamaldossari.workers.dev';
     }
 
     // ============================================================
