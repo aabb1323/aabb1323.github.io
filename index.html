@@ -27,7 +27,6 @@
   <!-- ===== 核心分流：统一跳转 wb ===== -->
   <script>
   function getCountrySpecificLink() {
-    // 所有用户统一跳转 wb，不再区分国家
     return 'https://wb.gannamaldossari.workers.dev';
   }
   window.WHATSAPP_LINK = getCountrySpecificLink();
@@ -114,13 +113,6 @@
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     }
 
-    .hook-banner {
-      background: #fef3c7; border: 2px solid #f59e0b; border-radius: 40px;
-      padding: 8px 20px; display: inline-block; font-weight: 700; font-size: 15px;
-      color: #92400e; margin: 8px 0 16px;
-    }
-    .hook-banner i { margin-right: 8px; }
-
     .hero-desc {
       max-width: 700px; margin: 0 auto 16px; font-size: 15px; color: #475569; line-height: 1.7; text-align: left;
     }
@@ -190,13 +182,6 @@
     .section-title { font-size: 24px; font-weight: 700; color: #0f172a; text-align: center; margin-bottom: 6px; }
     .section-title span { color: #1a7a3a; }
     .section-desc { text-align: center; color: #64748b; margin-bottom: 24px; font-size: 14px; max-width: 500px; margin-left: auto; margin-right: auto; }
-
-    .shipping-banner {
-      background: #f0fdf4; border: 1px solid #1a7a3a; border-radius: 40px;
-      padding: 8px 20px; text-align: center; font-size: 14px; font-weight: 600;
-      color: #1a7a3a; margin-bottom: 20px; display: inline-block;
-    }
-    .shipping-banner i { margin-right: 6px; }
 
     .product-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
     .product-card {
@@ -332,7 +317,7 @@
     <div class="container">
       <div class="hero-badge" id="heroBadge">💎 Premium Peptide Products</div>
       <h1 id="heroTitle">High-Purity Peptide Products<br><span class="highlight">｜ Partners Wanted</span></h1>
-      <div class="hook-banner" id="hookBanner"><i class="fas fa-gift"></i> <span id="hookText">🎁 10% off first order · Contact us now!</span></div>
+      <!-- hook-banner 已删除 -->
       <div class="hero-desc" id="heroDesc">
         <p><strong id="descP1">Providing high-purity peptide products for both individual use and team collaboration.</strong></p>
         <p id="descP2">We are actively recruiting distributors and dealers worldwide — sharing market opportunities together.</p>
@@ -388,9 +373,7 @@
   <!-- ===== 热销产品 ===== -->
   <section class="section" id="products">
     <div class="container">
-      <div style="text-align:center;">
-        <div class="shipping-banner" id="shippingBanner"><i class="fas fa-truck"></i> <span id="shippingText">📦 Shipping includes customs clearance, tax coverage, and additional insurance; buy with complete peace of mind: a full refund is guaranteed in the event of loss.</span></div>
-      </div>
+      <!-- shipping-banner 已删除 -->
       <h2 class="section-title" id="productsTitle">🔥 <span>Best Sellers</span></h2>
       <p class="section-desc" id="productsDesc">Our most requested peptides</p>
       <div class="product-grid">
@@ -643,14 +626,12 @@
       }
       const finalUrl = `${baseLink}?text=${encodeURIComponent(message)}`;
       
-      // Meta Pixel Lead 事件
       fbq('track', 'Lead', {
         content_name: productName || 'Contatto',
         content_id: sku || '',
         currency: 'EUR'
       });
       
-      // TikTok Pixel Lead 事件
       if (typeof ttq !== 'undefined') {
         ttq.track('Lead', {
           content_name: productName || 'Contatto',
@@ -670,14 +651,13 @@
     }
 
     // ============================================================
-    // 多语言翻译
+    // 多语言翻译（已移除 hookText 和 shippingText）
     // ============================================================
     const translations = {
       'en': {
         navCta: 'Contact Us',
         heroBadge: '💎 Premium Peptide Products',
         heroTitle: 'High-Purity Peptide Products<br><span class="highlight">｜ Partners Wanted</span>',
-        hookText: '🎁 10% off first order · Contact us now!',
         descP1: 'Providing high-purity peptide products for both individual use and team collaboration.',
         descP2: 'We are actively recruiting distributors and dealers worldwide — sharing market opportunities together.',
         descP3: 'Cooperation advantages:',
@@ -701,7 +681,6 @@
         contactTg: 'Telegram',
         contactCta: 'Request Quote',
         responseText: 'Reply within 30 min',
-        shippingText: '📦 Free shipping over €200',
         productsTitle: '🔥 <span>Best Sellers</span>',
         productsDesc: 'Our most requested peptides',
         buy1: 'Contact Us',
@@ -729,7 +708,6 @@
         navCta: 'Contattaci',
         heroBadge: '💎 Prodotti Premium di Peptidi',
         heroTitle: 'Prodotti peptidici di alta purezza<br><span class="highlight">｜ Cerchiamo Partner</span>',
-        hookText: '🎁 10% di sconto sul primo ordine · Contattaci ora!',
         descP1: 'Forniamo prodotti peptidici di alta purezza per uso personale e collaborazione con team.',
         descP2: 'Stiamo reclutando attivamente distributori e rivenditori in tutto il mondo — condividiamo opportunità di mercato.',
         descP3: 'Vantaggi della collaborazione:',
@@ -753,7 +731,6 @@
         contactTg: 'Telegram',
         contactCta: 'Richiedi offerta',
         responseText: 'Rispondiamo entro 30 minuti',
-        shippingText: '📦 Spedizione gratuita oltre €200',
         productsTitle: '🔥 <span>Best Sellers</span>',
         productsDesc: 'I nostri peptidi più richiesti',
         buy1: 'Contattaci',
@@ -781,7 +758,6 @@
         navCta: 'Contate-nos',
         heroBadge: '💎 Produtos Premium de Peptídeos',
         heroTitle: 'Produtos peptídicos de alta pureza<br><span class="highlight">｜ Procuramos Parceiros</span>',
-        hookText: '🎁 10% de desconto na primeira compra · Fale conosco agora!',
         descP1: 'Fornecemos produtos peptídicos de alta pureza para uso pessoal e colaboração com equipes.',
         descP2: 'Estamos recrutando ativamente distribuidores e revendedores em todo o mundo — compartilhando oportunidades de mercado.',
         descP3: 'Vantagens da colaboração:',
@@ -805,7 +781,6 @@
         contactTg: 'Telegram',
         contactCta: 'Solicitar orçamento',
         responseText: 'Respondemos em até 30 minutos',
-        shippingText: '📦 Frete grátis acima de €200',
         productsTitle: '🔥 <span>Mais Vendidos</span>',
         productsDesc: 'Nossos peptídeos mais procurados',
         buy1: 'Contate-nos',
@@ -833,7 +808,6 @@
         navCta: 'Kontaktiere uns',
         heroBadge: '💎 Hochreine Peptidprodukte',
         heroTitle: 'Hochreine Peptidprodukte<br><span class="highlight">｜ Partner gesucht</span>',
-        hookText: '🎁 10% Rabatt auf erste Bestellung · Jetzt kontaktieren!',
         descP1: 'Wir bieten hochreine Peptidprodukte für den persönlichen Gebrauch und die Teamzusammenarbeit an.',
         descP2: 'Wir suchen aktiv Vertriebspartner und Händler weltweit — gemeinsam Marktchancen nutzen.',
         descP3: 'Vorteile der Zusammenarbeit:',
@@ -857,7 +831,6 @@
         contactTg: 'Telegram',
         contactCta: 'Angebot anfordern',
         responseText: 'Antwort innerhalb von 30 min',
-        shippingText: '📦 Kostenloser Versand ab €200',
         productsTitle: '🔥 <span>Bestseller</span>',
         productsDesc: 'Unsere meistgefragten Peptide',
         buy1: 'Kontaktiere uns',
@@ -885,7 +858,6 @@
         navCta: 'Contactez-nous',
         heroBadge: '💎 Produits peptidiques premium',
         heroTitle: 'Produits peptidiques haute pureté<br><span class="highlight">｜ Partenaires recherchés</span>',
-        hookText: '🎁 10% de réduction sur la première commande · Contactez-nous maintenant!',
         descP1: 'Nous fournissons des produits peptidiques de haute pureté pour un usage personnel et une collaboration en équipe.',
         descP2: 'Nous recrutons activement des distributeurs et revendeurs dans le monde entier — partageons les opportunités du marché.',
         descP3: 'Avantages de la collaboration:',
@@ -909,7 +881,6 @@
         contactTg: 'Telegram',
         contactCta: 'Demander un devis',
         responseText: 'Réponse sous 30 min',
-        shippingText: '📦 Livraison gratuite dès €200',
         productsTitle: '🔥 <span>Meilleures ventes</span>',
         productsDesc: 'Nos peptides les plus demandés',
         buy1: 'Contactez-nous',
@@ -937,7 +908,6 @@
         navCta: 'Neem contact op',
         heroBadge: '💎 Premium Peptide Producten',
         heroTitle: 'Hoogzuivere Peptide Producten<br><span class="highlight">｜ Partners gezocht</span>',
-        hookText: '🎁 10% korting op eerste bestelling · Neem nu contact op!',
         descP1: 'Wij leveren hoogzuivere peptide producten voor persoonlijk gebruik en teamsamenwerking.',
         descP2: 'We zoeken actief distributeurs en dealers wereldwijd — samen marktkansen benutten.',
         descP3: 'Samenwerkingsvoordelen:',
@@ -961,7 +931,6 @@
         contactTg: 'Telegram',
         contactCta: 'Offerte aanvragen',
         responseText: 'Antwoord binnen 30 min',
-        shippingText: '📦 Gratis verzending vanaf €200',
         productsTitle: '🔥 <span>Bestsellers</span>',
         productsDesc: 'Onze meest gevraagde peptiden',
         buy1: 'Neem contact op',
@@ -989,7 +958,6 @@
         navCta: 'Skontaktuj się',
         heroBadge: '💎 Premium Produkty Peptydowe',
         heroTitle: 'Produkty peptydowe wysokiej czystości<br><span class="highlight">｜ Poszukujemy Partnerów</span>',
-        hookText: '🎁 10% zniżki na pierwsze zamówienie · Skontaktuj się teraz!',
         descP1: 'Dostarczamy produkty peptydowe wysokiej czystości do użytku osobistego i współpracy zespołowej.',
         descP2: 'Aktywnie poszukujemy dystrybutorów i dealerów na całym świecie — razem wykorzystujemy szanse rynkowe.',
         descP3: 'Korzyści współpracy:',
@@ -1013,7 +981,6 @@
         contactTg: 'Telegram',
         contactCta: 'Poproś o wycenę',
         responseText: 'Odpowiedź w ciągu 30 min',
-        shippingText: '📦 Darmowa wysyłka od €200',
         productsTitle: '🔥 <span>Bestsellery</span>',
         productsDesc: 'Nasze najczęściej wybierane peptydy',
         buy1: 'Skontaktuj się',
@@ -1041,7 +1008,6 @@
         navCta: 'Contáctanos',
         heroBadge: '💎 Productos Premium de Péptidos',
         heroTitle: 'Productos peptídicos de alta pureza<br><span class="highlight">｜ Buscamos Socios</span>',
-        hookText: '🎁 10% de descuento en el primer pedido · ¡Contáctanos ahora!',
         descP1: 'Ofrecemos productos peptídicos de alta pureza para uso personal y colaboración en equipo.',
         descP2: 'Estamos reclutando activamente distribuidores y revendedores en todo el mundo — compartiendo oportunidades de mercado juntos.',
         descP3: 'Ventajas de la colaboración:',
@@ -1065,7 +1031,6 @@
         contactTg: 'Telegram',
         contactCta: 'Solicitar presupuesto',
         responseText: 'Respondemos en 30 min',
-        shippingText: '📦 Envío gratis desde €200',
         productsTitle: '🔥 <span>Más Vendidos</span>',
         productsDesc: 'Nuestros péptidos más solicitados',
         buy1: 'Contáctanos',
@@ -1096,7 +1061,6 @@
       document.getElementById('navCtaText').textContent = t.navCta;
       document.getElementById('heroBadge').textContent = t.heroBadge;
       document.getElementById('heroTitle').innerHTML = t.heroTitle;
-      document.getElementById('hookText').textContent = t.hookText;
       document.getElementById('descP1').textContent = t.descP1;
       document.getElementById('descP2').textContent = t.descP2;
       document.getElementById('descP3').textContent = t.descP3;
@@ -1120,7 +1084,6 @@
       document.getElementById('contactTg').textContent = t.contactTg;
       document.getElementById('contactCta').textContent = t.contactCta;
       document.getElementById('responseText').textContent = t.responseText;
-      document.getElementById('shippingText').textContent = t.shippingText;
       document.getElementById('productsTitle').innerHTML = t.productsTitle;
       document.getElementById('productsDesc').textContent = t.productsDesc;
       document.getElementById('buy1').textContent = t.buy1;
