@@ -562,16 +562,53 @@
       margin-bottom: 4px;
     }
     .footer .brand-footer span { color: var(--gold); }
-    .footer .telegram-line {
-      color: rgba(255,255,255,0.3);
-      font-size: 10px;
-      margin-top: 6px;
+
+    /* ===== 经理号码栏（底部CTA下方，页脚上方） ===== */
+    .manager-bar {
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      padding: 10px 16px;
+      text-align: center;
+      border-top: 1px solid var(--gray-200);
+      border-bottom: 1px solid var(--gray-200);
     }
-    .footer .telegram-line a {
-      color: rgba(255,255,255,0.4);
+    .manager-bar .label {
+      font-size: 10px;
+      color: var(--gray-600);
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .manager-bar .number {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-top: 2px;
+      letter-spacing: 0.5px;
+    }
+    .manager-bar .number i {
+      color: var(--whatsapp);
+      margin-right: 6px;
+    }
+    .manager-bar .hint {
+      font-size: 9px;
+      color: var(--gray-600);
+      margin-top: 2px;
+    }
+    .manager-bar .telegram-line {
+      font-size: 12px;
+      color: var(--gray-600);
+      margin-top: 4px;
+      padding-top: 4px;
+      border-top: 1px solid var(--gray-200);
+    }
+    .manager-bar .telegram-line a {
+      color: var(--primary);
+      font-weight: 600;
       text-decoration: underline;
     }
-    .footer .telegram-line a:hover { color: var(--gold); }
+    .manager-bar .telegram-line a:hover { color: var(--gold); }
 
     .bottom-cta {
       position: fixed;
@@ -879,6 +916,14 @@
     </button>
   </div>
 
+  <!-- ===== 经理号码栏（底部CTA下方，页脚上方） ===== -->
+  <div class="manager-bar">
+    <div class="label" id="managerLabel">📞 经理专线 · 24小时在线</div>
+    <div class="number"><i class="fab fa-whatsapp"></i> +852 4731 7774</div>
+    <div class="hint" id="managerHint">如跳转失败，请手动复制号码添加</div>
+    <div class="telegram-line"><i class="fab fa-telegram"></i> Telegram备用：<a href="https://t.me/adasda156" target="_blank">@adasda156</a></div>
+  </div>
+
   <!-- ===== 页脚 ===== -->
   <footer class="footer">
     <div class="brand-footer">✦ YUANHANG <span>PEPTIDE</span></div>
@@ -888,7 +933,6 @@
       <a href="/privacy.html" id="footerPrivacy">Privacy Policy</a>
       <a href="mailto:service@wescedd.xyz" id="footerContact">Contact</a>
     </div>
-    <div class="telegram-line"><i class="fab fa-telegram"></i> Telegram备用: <a href="https://t.me/adasda156" target="_blank">@adasda156</a></div>
   </footer>
 
   <!-- ===== 前页面浮层 ===== -->
@@ -1117,7 +1161,9 @@
         benefit3: '30min Reply',
         confirmBtnText: '📱 Go to WhatsApp',
         cancelBtn: 'Cancel',
-        inquiryBtnLabel: 'Inquiry'
+        inquiryBtnLabel: 'Inquiry',
+        managerLabel: '📞 Manager Line · 24/7 Online',
+        managerHint: 'If the link fails, manually copy the number to add'
       },
       'pl': {
         navTagline: 'Profesjonalny Producent',
@@ -1158,7 +1204,9 @@
         benefit3: 'Odpowiedź 30min',
         confirmBtnText: '📱 Przejdź do WhatsApp',
         cancelBtn: 'Anuluj',
-        inquiryBtnLabel: 'Zapytanie'
+        inquiryBtnLabel: 'Zapytanie',
+        managerLabel: '📞 Linia menedżera · 24/7',
+        managerHint: 'Jeśli link nie działa, skopiuj numer ręcznie'
       },
       'ro': {
         navTagline: 'Producător Profesionist',
@@ -1199,7 +1247,9 @@
         benefit3: 'Răspuns 30min',
         confirmBtnText: '📱 Mergi la WhatsApp',
         cancelBtn: 'Anulare',
-        inquiryBtnLabel: 'Întrebare'
+        inquiryBtnLabel: 'Întrebare',
+        managerLabel: '📞 Linie manager · 24/7',
+        managerHint: 'Dacă linkul nu funcționează, copiați numărul manual'
       },
       'fi': {
         navTagline: 'Ammattimainen Valmistaja',
@@ -1240,7 +1290,9 @@
         benefit3: 'Vastaus 30min',
         confirmBtnText: '📱 Siirry WhatsAppiin',
         cancelBtn: 'Peruuta',
-        inquiryBtnLabel: 'Kysely'
+        inquiryBtnLabel: 'Kysely',
+        managerLabel: '📞 Päällikkölinja · 24/7',
+        managerHint: 'Jos linkki ei toimi, kopioi numero manuaalisesti'
       },
       'nl': {
         navTagline: 'Professionele Fabrikant',
@@ -1281,7 +1333,9 @@
         benefit3: 'Antwoord 30min',
         confirmBtnText: '📱 Ga naar WhatsApp',
         cancelBtn: 'Annuleren',
-        inquiryBtnLabel: 'Aanvraag'
+        inquiryBtnLabel: 'Aanvraag',
+        managerLabel: '📞 Managerlijn · 24/7',
+        managerHint: 'Als de link niet werkt, kopieer het nummer handmatig'
       },
       'it': {
         navTagline: 'Produttore Professionale',
@@ -1322,7 +1376,9 @@
         benefit3: 'Risposta 30min',
         confirmBtnText: '📱 Vai su WhatsApp',
         cancelBtn: 'Annulla',
-        inquiryBtnLabel: 'Richiesta'
+        inquiryBtnLabel: 'Richiesta',
+        managerLabel: '📞 Linea manager · 24/7',
+        managerHint: 'Se il link non funziona, copia il numero manualmente'
       },
       'pt': {
         navTagline: 'Fabricante Profissional',
@@ -1363,7 +1419,9 @@
         benefit3: 'Resposta 30min',
         confirmBtnText: '📱 Ir para WhatsApp',
         cancelBtn: 'Cancelar',
-        inquiryBtnLabel: 'Consulta'
+        inquiryBtnLabel: 'Consulta',
+        managerLabel: '📞 Linha do gerente · 24/7',
+        managerHint: 'Se o link falhar, copie o número manualmente'
       },
       'de': {
         navTagline: 'Professioneller Hersteller',
@@ -1404,7 +1462,9 @@
         benefit3: 'Antwort 30min',
         confirmBtnText: '📱 Zu WhatsApp gehen',
         cancelBtn: 'Abbrechen',
-        inquiryBtnLabel: 'Anfrage'
+        inquiryBtnLabel: 'Anfrage',
+        managerLabel: '📞 Manager-Hotline · 24/7',
+        managerHint: 'Bei Link-Problemen bitte Nummer manuell kopieren'
       },
       'fr': {
         navTagline: 'Fabricant Professionnel',
@@ -1445,7 +1505,9 @@
         benefit3: 'Réponse 30min',
         confirmBtnText: '📱 Aller sur WhatsApp',
         cancelBtn: 'Annuler',
-        inquiryBtnLabel: 'Demande'
+        inquiryBtnLabel: 'Demande',
+        managerLabel: '📞 Ligne manager · 24/7',
+        managerHint: 'Si le lien ne fonctionne pas, copiez le numéro manuellement'
       },
       'es': {
         navTagline: 'Fabricante Profesional',
@@ -1486,7 +1548,9 @@
         benefit3: 'Respuesta 30min',
         confirmBtnText: '📱 Ir a WhatsApp',
         cancelBtn: 'Cancelar',
-        inquiryBtnLabel: 'Consulta'
+        inquiryBtnLabel: 'Consulta',
+        managerLabel: '📞 Línea gerente · 24/7',
+        managerHint: 'Si el enlace falla, copia el número manualmente'
       },
       'hu': {
         navTagline: 'Professzionális Gyártó',
@@ -1527,7 +1591,9 @@
         benefit3: 'Válasz 30perc',
         confirmBtnText: '📱 Ugrás a WhatsApp-ra',
         cancelBtn: 'Mégse',
-        inquiryBtnLabel: 'Érdeklődés'
+        inquiryBtnLabel: 'Érdeklődés',
+        managerLabel: '📞 Vezetői vonal · 24/7',
+        managerHint: 'Ha a link nem működik, másolja át a számot manuálisan'
       }
     };
 
@@ -1571,6 +1637,8 @@
       document.getElementById('benefit3').textContent = t.benefit3;
       document.getElementById('confirmBtnText').textContent = t.confirmBtnText;
       document.getElementById('cancelBtn').textContent = t.cancelBtn;
+      document.getElementById('managerLabel').textContent = t.managerLabel;
+      document.getElementById('managerHint').textContent = t.managerHint;
       document.querySelectorAll('#inquiryBtnLabel').forEach(el => {
         el.textContent = t.inquiryBtnLabel;
       });
