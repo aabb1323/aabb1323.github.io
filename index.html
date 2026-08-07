@@ -95,7 +95,6 @@
       --shadow-hover: 0 8px 40px rgba(15, 33, 55, 0.15);
     }
 
-    /* ===== NAV ===== */
     .nav {
       background: var(--primary);
       padding: 14px 0;
@@ -141,7 +140,6 @@
     }
     .nav-cta:hover { background: var(--gold-light); transform: scale(1.02); }
 
-    /* ===== HERO 信任条 ===== */
     .trust-hero {
       background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
       padding: 24px 0 20px;
@@ -188,7 +186,6 @@
       border: 1px solid rgba(255,255,255,0.06);
     }
 
-    /* ===== 联系条 ===== */
     .contact-strip {
       background: #ffffff;
       padding: 10px 0;
@@ -243,7 +240,6 @@
     }
     .contact-strip .response i { color: #22c55e; }
 
-    /* ===== 支付方式 ===== */
     .payment-row {
       background: #ffffff;
       border: 1px solid var(--gray-200);
@@ -275,7 +271,6 @@
     }
     .payment-row .methods span i { font-size: 14px; color: var(--gold); }
 
-    /* ===== 页面标题 ===== */
     .page-header {
       padding: 20px 0 6px;
     }
@@ -300,7 +295,6 @@
       margin-top: 8px;
     }
 
-    /* ===== 产品列表 ===== */
     .catalog-list {
       display: flex;
       flex-direction: column;
@@ -401,7 +395,6 @@
       letter-spacing: 0.5px;
     }
 
-    /* ===== 更多产品卡片（高端版） ===== */
     .more-products-card {
       background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
       border-radius: 16px;
@@ -468,7 +461,6 @@
       box-shadow: 0 2px 8px rgba(201, 168, 76, 0.2);
     }
 
-    /* ===== 底部信任条 ===== */
     .footer-trust {
       background: #ffffff;
       border-radius: 12px;
@@ -496,7 +488,6 @@
     }
     .footer-trust .item span { font-weight: 400; color: var(--gray-600); font-size: 10px; display: block; }
 
-    /* ===== 页脚 ===== */
     .footer {
       background: var(--primary);
       padding: 20px 0 16px;
@@ -521,7 +512,6 @@
     }
     .footer .brand-footer span { color: var(--gold); }
 
-    /* ===== 底部固定 CTA ===== */
     .bottom-cta {
       position: fixed;
       bottom: 0;
@@ -588,7 +578,7 @@
     <div class="container">
       <div class="logo">
         <span class="brand">✦ YUANHANG <span>PEPTIDE</span></span>
-        <span class="tagline" id="navTagline">Premium Laboratory Grade</span>
+        <span class="tagline" id="navTagline">Professional Manufacturer</span>
       </div>
       <a href="javascript:void(0)" class="nav-cta" onclick="handleLeadClick('', 'Nav')"><i class="fas fa-paper-plane"></i> <span id="navCta">Contact</span></a>
     </div>
@@ -598,11 +588,11 @@
   <div class="trust-hero">
     <div class="container">
       <div class="stars">★★★★★</div>
-      <div class="rating-text" id="ratingText"><strong>4.9/5</strong> · 500+ Reviews · Trusted by Laboratories Worldwide</div>
+      <div class="rating-text" id="ratingText"><strong>4.9/5</strong> · 500+ Reviews · Trusted Worldwide</div>
       <div class="badge-row">
         <span class="badge-item"><i class="fas fa-flask"></i> <span class="pill" id="badge1">HPLC ≥ 99%</span></span>
         <span class="badge-item"><i class="fas fa-certificate"></i> <span class="pill" id="badge2">GMP Standard</span></span>
-        <span class="badge-item"><i class="fas fa-file-alt"></i> <span class="pill" id="badge3">COA Included</span></span>
+        <span class="badge-item"><i class="fas fa-tag"></i> <span class="pill" id="badge3">Direct Factory</span></span>
         <span class="badge-item"><i class="fas fa-truck"></i> <span class="pill" id="badge4">Global Shipping</span></span>
       </div>
     </div>
@@ -646,9 +636,9 @@
 
     <!-- ===== 更多产品 ===== -->
     <div class="more-products-card">
-      <span class="icon">🔬</span>
+      <span class="icon">🏭</span>
       <span class="badge-count" id="moreBadge">200+ Products Available</span>
-      <h3 id="moreTitle">Need More Products?</h3>
+      <h3 id="moreTitle">Direct from Our GMP Facility</h3>
       <p id="moreDesc">Not listed? We offer 200+ peptides, custom specifications & bulk orders.<br>Request our complete product catalog.</p>
       <button class="btn-more" onclick="handleMoreProducts()">
         <i class="fas fa-file-pdf"></i> <span id="moreBtnLabel">📩 Request Full Catalog</span>
@@ -658,7 +648,7 @@
     <!-- ===== 底部信任条 ===== -->
     <div class="footer-trust">
       <div class="item"><i class="fas fa-flask"></i> <div><strong>99%+ Purity</strong><span>HPLC tested</span></div></div>
-      <div class="item"><i class="fas fa-shield-alt"></i> <div><strong>Quality Guarantee</strong><span>COA with every order</span></div></div>
+      <div class="item"><i class="fas fa-shield-alt"></i> <div><strong>Quality Assured</strong><span>GMP certified facility</span></div></div>
       <div class="item"><i class="fas fa-truck-fast"></i> <div><strong>Fast Shipping</strong><span id="shippingLabel">7-12 days worldwide</span></div></div>
       <div class="item"><i class="fas fa-handshake"></i> <div><strong>B2B & Wholesale</strong><span>Bulk discounts available</span></div></div>
     </div>
@@ -679,7 +669,7 @@
   <!-- ===== 页脚 ===== -->
   <footer class="footer">
     <div class="brand-footer">✦ YUANHANG <span>PEPTIDE</span></div>
-    <p id="footerText">© 2026 · Premium Research Peptides · All rights reserved</p>
+    <p id="footerText">© 2026 · Professional Peptide Manufacturer · All rights reserved</p>
     <div style="margin-top:4px;">
       <a href="/" id="footerHome">Home</a>
       <a href="/privacy.html" id="footerPrivacy">Privacy Policy</a>
@@ -816,16 +806,16 @@
     }
 
     // ============================================================
-    // 多语言翻译
+    // 多语言翻译（含移除COA相关，改为Quality Assured）
     // ============================================================
     const translations = {
       'en': {
-        navTagline: 'Premium Laboratory Grade',
+        navTagline: 'Professional Manufacturer',
         navCta: 'Contact',
-        ratingText: '4.9/5 · 500+ Reviews · Trusted by Laboratories Worldwide',
+        ratingText: '4.9/5 · 500+ Reviews · Trusted Worldwide',
         badge1: 'HPLC ≥ 99%',
         badge2: 'GMP Standard',
-        badge3: 'COA Included',
+        badge3: 'Direct Factory',
         badge4: 'Global Shipping',
         contactLabel: 'Get in Touch',
         waLabel: 'WhatsApp',
@@ -836,25 +826,25 @@
         pageTitle: '📋 <span>Full Catalog</span>',
         pageDesc: 'High-purity research peptides · HPLC tested ≥ 99%',
         moreBadge: '200+ Products Available',
-        moreTitle: 'Need More Products?',
+        moreTitle: 'Direct from Our GMP Facility',
         moreDesc: 'Not listed? We offer 200+ peptides, custom specifications & bulk orders. Request our complete product catalog.',
         moreBtnLabel: '📩 Request Full Catalog',
         ctaTitle: '💬 Talk to Our Team',
         ctaSub: 'Get expert advice & pricing',
         ctaBtnLabel: 'Contact Us',
         shippingLabel: '7-12 days worldwide',
-        footerText: '© 2026 · Premium Research Peptides · All rights reserved',
+        footerText: '© 2026 · Professional Peptide Manufacturer · All rights reserved',
         footerHome: 'Home',
         footerPrivacy: 'Privacy Policy',
         footerContact: 'Contact'
       },
       'pl': {
-        navTagline: 'Premium Klasa Laboratoryjna',
+        navTagline: 'Profesjonalny Producent',
         navCta: 'Kontakt',
-        ratingText: '4.9/5 · 500+ Opinii · Zaufany przez laboratoria na całym świecie',
+        ratingText: '4.9/5 · 500+ Opinii · Zaufany na całym świecie',
         badge1: 'HPLC ≥ 99%',
         badge2: 'Standard GMP',
-        badge3: 'COA w zestawie',
+        badge3: 'Bezpośrednio z fabryki',
         badge4: 'Wysyłka globalna',
         contactLabel: 'Skontaktuj się',
         waLabel: 'WhatsApp',
@@ -865,25 +855,25 @@
         pageTitle: '📋 <span>Pełny Katalog</span>',
         pageDesc: 'Peptydy wysokiej czystości · Testowane HPLC ≥ 99%',
         moreBadge: '200+ Produktów dostępnych',
-        moreTitle: 'Potrzebujesz więcej produktów?',
+        moreTitle: 'Bezpośrednio z naszej fabryki GMP',
         moreDesc: 'Nie ma na liście? Oferujemy 200+ peptydów, specyfikacje na zamówienie i zamówienia hurtowe. Poproś o pełny katalog produktów.',
         moreBtnLabel: '📩 Poproś o pełny katalog',
         ctaTitle: '💬 Porozmawiaj z naszym zespołem',
         ctaSub: 'Uzyskaj poradę eksperta i wycenę',
         ctaBtnLabel: 'Skontaktuj się',
         shippingLabel: '7-12 dni na całym świecie',
-        footerText: '© 2026 · Premium Peptydy Badawcze · Wszelkie prawa zastrzeżone',
+        footerText: '© 2026 · Profesjonalny Producent Peptydów · Wszelkie prawa zastrzeżone',
         footerHome: 'Strona główna',
         footerPrivacy: 'Polityka prywatności',
         footerContact: 'Kontakt'
       },
       'ro': {
-        navTagline: 'Calitate Premium de Laborator',
+        navTagline: 'Producător Profesionist',
         navCta: 'Contact',
-        ratingText: '4.9/5 · 500+ Recenzii · Încredere în laboratoare din întreaga lume',
+        ratingText: '4.9/5 · 500+ Recenzii · Încredere în întreaga lume',
         badge1: 'HPLC ≥ 99%',
         badge2: 'Standard GMP',
-        badge3: 'COA Inclus',
+        badge3: 'Direct din fabrică',
         badge4: 'Livrare globală',
         contactLabel: 'Contactează-ne',
         waLabel: 'WhatsApp',
@@ -894,25 +884,25 @@
         pageTitle: '📋 <span>Catalog Complet</span>',
         pageDesc: 'Peptizi de cercetare de înaltă puritate · Testați HPLC ≥ 99%',
         moreBadge: '200+ Produse disponibile',
-        moreTitle: 'Aveți nevoie de mai multe produse?',
+        moreTitle: 'Direct din fabrica noastră GMP',
         moreDesc: 'Nu este pe listă? Oferim 200+ peptide, specificații personalizate și comenzi en-gros. Solicitați catalogul complet de produse.',
         moreBtnLabel: '📩 Solicitați catalogul complet',
         ctaTitle: '💬 Vorbiți cu echipa noastră',
         ctaSub: 'Obțineți sfaturi de specialitate și prețuri',
         ctaBtnLabel: 'Contactează-ne',
         shippingLabel: '7-12 zile în întreaga lume',
-        footerText: '© 2026 · Peptizi Premium de Cercetare · Toate drepturile rezervate',
+        footerText: '© 2026 · Producător Profesionist de Peptide · Toate drepturile rezervate',
         footerHome: 'Acasă',
         footerPrivacy: 'Politica de confidențialitate',
         footerContact: 'Contact'
       },
       'fi': {
-        navTagline: 'Premium Laboratoriolaatu',
+        navTagline: 'Ammattimainen Valmistaja',
         navCta: 'Ota yhteyttä',
-        ratingText: '4.9/5 · 500+ Arvostelua · Laboratorioiden luottama maailmanlaajuisesti',
+        ratingText: '4.9/5 · 500+ Arvostelua · Luotettu maailmanlaajuisesti',
         badge1: 'HPLC ≥ 99%',
         badge2: 'GMP-standardi',
-        badge3: 'COA Mukana',
+        badge3: 'Suoraan tehtaalta',
         badge4: 'Maailmanlaajuinen toimitus',
         contactLabel: 'Ota yhteyttä',
         waLabel: 'WhatsApp',
@@ -923,25 +913,25 @@
         pageTitle: '📋 <span>Täysi Luettelo</span>',
         pageDesc: 'Korkealaatuiset tutkimuspeptidit · HPLC-testattu ≥ 99%',
         moreBadge: '200+ Tuotetta saatavilla',
-        moreTitle: 'Tarvitsetko lisää tuotteita?',
+        moreTitle: 'Suoraan GMP-tehtaaltamme',
         moreDesc: 'Ei listalla? Tarjoamme 200+ peptidiä, räätälöityjä spesifikaatioita ja tukkutilauksia. Pyydä täysi tuoteluettelo.',
         moreBtnLabel: '📩 Pyydä täysi luettelo',
         ctaTitle: '💬 Keskustele tiimimme kanssa',
         ctaSub: 'Saat asiantuntijaneuvontaa ja hinnoittelua',
         ctaBtnLabel: 'Ota yhteyttä',
         shippingLabel: '7-12 päivää maailmanlaajuisesti',
-        footerText: '© 2026 · Premium Tutkimuspeptidit · Kaikki oikeudet pidätetään',
+        footerText: '© 2026 · Ammattimainen Peptidivalmistaja · Kaikki oikeudet pidätetään',
         footerHome: 'Kotisivu',
         footerPrivacy: 'Tietosuojakäytäntö',
         footerContact: 'Yhteystiedot'
       },
       'nl': {
-        navTagline: 'Premium Laboratoriumkwaliteit',
+        navTagline: 'Professionele Fabrikant',
         navCta: 'Contact',
-        ratingText: '4.9/5 · 500+ Beoordelingen · Vertrouwd door laboratoria wereldwijd',
+        ratingText: '4.9/5 · 500+ Beoordelingen · Wereldwijd vertrouwd',
         badge1: 'HPLC ≥ 99%',
         badge2: 'GMP-standaard',
-        badge3: 'COA Inbegrepen',
+        badge3: 'Direct vanuit fabriek',
         badge4: 'Wereldwijde verzending',
         contactLabel: 'Neem contact op',
         waLabel: 'WhatsApp',
@@ -952,25 +942,25 @@
         pageTitle: '📋 <span>Volledige Catalogus</span>',
         pageDesc: 'Hoogzuivere onderzoekspeptiden · HPLC-getest ≥ 99%',
         moreBadge: '200+ Producten beschikbaar',
-        moreTitle: 'Meer producten nodig?',
+        moreTitle: 'Direct vanuit onze GMP-faciliteit',
         moreDesc: 'Niet op de lijst? Wij bieden 200+ peptiden, aangepaste specificaties en groothandelsbestellingen. Vraag de volledige productcatalogus aan.',
         moreBtnLabel: '📩 Vraag volledige catalogus aan',
         ctaTitle: '💬 Praat met ons team',
         ctaSub: 'Krijg deskundig advies en prijzen',
         ctaBtnLabel: 'Neem contact op',
         shippingLabel: '7-12 dagen wereldwijd',
-        footerText: '© 2026 · Premium Onderzoekspeptiden · Alle rechten voorbehouden',
+        footerText: '© 2026 · Professionele Peptidefabrikant · Alle rechten voorbehouden',
         footerHome: 'Home',
         footerPrivacy: 'Privacybeleid',
         footerContact: 'Contact'
       },
       'it': {
-        navTagline: 'Grado Premium da Laboratorio',
+        navTagline: 'Produttore Professionale',
         navCta: 'Contattaci',
-        ratingText: '4.9/5 · 500+ Recensioni · Fiducioso dai laboratori di tutto il mondo',
+        ratingText: '4.9/5 · 500+ Recensioni · Fiducia in tutto il mondo',
         badge1: 'HPLC ≥ 99%',
         badge2: 'Standard GMP',
-        badge3: 'COA Incluso',
+        badge3: 'Direttamente dalla fabbrica',
         badge4: 'Spedizione globale',
         contactLabel: 'Contattaci',
         waLabel: 'WhatsApp',
@@ -981,25 +971,25 @@
         pageTitle: '📋 <span>Catalogo Completo</span>',
         pageDesc: 'Peptidi di ricerca ad alta purezza · Testati HPLC ≥ 99%',
         moreBadge: '200+ Prodotti disponibili',
-        moreTitle: 'Hai bisogno di più prodotti?',
+        moreTitle: 'Direttamente dal nostro stabilimento GMP',
         moreDesc: 'Non in lista? Offriamo 200+ peptidi, specifiche personalizzate e ordini all\'ingrosso. Richiedi il catalogo completo dei prodotti.',
         moreBtnLabel: '📩 Richiedi catalogo completo',
         ctaTitle: '💬 Parla con il nostro team',
         ctaSub: 'Ottieni consulenza esperta e prezzi',
         ctaBtnLabel: 'Contattaci',
         shippingLabel: '7-12 giorni in tutto il mondo',
-        footerText: '© 2026 · Peptidi Premium per Ricerca · Tutti i diritti riservati',
+        footerText: '© 2026 · Produttore Professionale di Peptidi · Tutti i diritti riservati',
         footerHome: 'Home',
         footerPrivacy: 'Informativa sulla privacy',
         footerContact: 'Contatti'
       },
       'pt': {
-        navTagline: 'Grau Premium de Laboratório',
+        navTagline: 'Fabricante Profissional',
         navCta: 'Contato',
-        ratingText: '4.9/5 · 500+ Avaliações · Confiado por laboratórios em todo o mundo',
+        ratingText: '4.9/5 · 500+ Avaliações · Confiável em todo o mundo',
         badge1: 'HPLC ≥ 99%',
         badge2: 'Padrão GMP',
-        badge3: 'COA Incluído',
+        badge3: 'Direto da fábrica',
         badge4: 'Envio global',
         contactLabel: 'Fale Conosco',
         waLabel: 'WhatsApp',
@@ -1010,25 +1000,25 @@
         pageTitle: '📋 <span>Catálogo Completo</span>',
         pageDesc: 'Peptídeos de pesquisa de alta pureza · Testados por HPLC ≥ 99%',
         moreBadge: '200+ Produtos disponíveis',
-        moreTitle: 'Precisa de mais produtos?',
+        moreTitle: 'Direto da nossa fábrica GMP',
         moreDesc: 'Não está na lista? Oferecemos 200+ peptídeos, especificações personalizadas e pedidos em atacado. Solicite o catálogo completo de produtos.',
         moreBtnLabel: '📩 Solicitar catálogo completo',
         ctaTitle: '💬 Fale com nossa equipe',
         ctaSub: 'Obtenha aconselhamento especializado e preços',
         ctaBtnLabel: 'Contate-nos',
         shippingLabel: '7-12 dias em todo o mundo',
-        footerText: '© 2026 · Peptídeos Premium para Pesquisa · Todos os direitos reservados',
+        footerText: '© 2026 · Fabricante Profissional de Peptídeos · Todos os direitos reservados',
         footerHome: 'Início',
         footerPrivacy: 'Política de privacidade',
         footerContact: 'Contato'
       },
       'de': {
-        navTagline: 'Premium Laborqualität',
+        navTagline: 'Professioneller Hersteller',
         navCta: 'Kontakt',
-        ratingText: '4.9/5 · 500+ Bewertungen · Von Laboren weltweit vertrauenswürdig',
+        ratingText: '4.9/5 · 500+ Bewertungen · Weltweit vertrauenswürdig',
         badge1: 'HPLC ≥ 99%',
         badge2: 'GMP-Standard',
-        badge3: 'COA inklusive',
+        badge3: 'Direkt ab Werk',
         badge4: 'Weltweiter Versand',
         contactLabel: 'Kontakt',
         waLabel: 'WhatsApp',
@@ -1039,25 +1029,25 @@
         pageTitle: '📋 <span>Vollständiger Katalog</span>',
         pageDesc: 'Hochreine Forschungspeptide · HPLC-getestet ≥ 99%',
         moreBadge: '200+ Produkte verfügbar',
-        moreTitle: 'Brauchen Sie mehr Produkte?',
+        moreTitle: 'Direkt aus unserem GMP-Werk',
         moreDesc: 'Nicht auf der Liste? Wir bieten 200+ Peptide, kundenspezifische Spezifikationen und Großhandelsbestellungen. Fordern Sie den vollständigen Produktkatalog an.',
         moreBtnLabel: '📩 Vollständigen Katalog anfordern',
         ctaTitle: '💬 Sprechen Sie mit unserem Team',
         ctaSub: 'Erhalten Sie Expertenberatung und Preise',
         ctaBtnLabel: 'Kontaktiere uns',
         shippingLabel: '7-12 Tage weltweit',
-        footerText: '© 2026 · Premium Forschungspeptide · Alle Rechte vorbehalten',
+        footerText: '© 2026 · Professioneller Peptidhersteller · Alle Rechte vorbehalten',
         footerHome: 'Startseite',
         footerPrivacy: 'Datenschutzerklärung',
         footerContact: 'Kontakt'
       },
       'fr': {
-        navTagline: 'Qualité Premium de Laboratoire',
+        navTagline: 'Fabricant Professionnel',
         navCta: 'Contact',
-        ratingText: '4.9/5 · 500+ Avis · Approuvé par les laboratoires du monde entier',
+        ratingText: '4.9/5 · 500+ Avis · Approuvé dans le monde entier',
         badge1: 'HPLC ≥ 99%',
         badge2: 'Norme GMP',
-        badge3: 'COA Inclus',
+        badge3: 'Directement de l\'usine',
         badge4: 'Livraison mondiale',
         contactLabel: 'Contactez-nous',
         waLabel: 'WhatsApp',
@@ -1068,25 +1058,25 @@
         pageTitle: '📋 <span>Catalogue Complet</span>',
         pageDesc: 'Peptides de recherche haute pureté · Testés HPLC ≥ 99%',
         moreBadge: '200+ Produits disponibles',
-        moreTitle: 'Besoin de plus de produits?',
+        moreTitle: 'Directement de notre usine GMP',
         moreDesc: 'Pas sur la liste? Nous offrons 200+ peptides, spécifications personnalisées et commandes en gros. Demandez le catalogue complet des produits.',
         moreBtnLabel: '📩 Demander le catalogue complet',
         ctaTitle: '💬 Parlez à notre équipe',
         ctaSub: 'Obtenez des conseils d\'experts et des tarifs',
         ctaBtnLabel: 'Contactez-nous',
         shippingLabel: '7-12 jours dans le monde',
-        footerText: '© 2026 · Peptides Premium de Recherche · Tous droits réservés',
+        footerText: '© 2026 · Fabricant Professionnel de Peptides · Tous droits réservés',
         footerHome: 'Accueil',
         footerPrivacy: 'Politique de confidentialité',
         footerContact: 'Contact'
       },
       'es': {
-        navTagline: 'Grado Premium de Laboratorio',
+        navTagline: 'Fabricante Profesional',
         navCta: 'Contacto',
-        ratingText: '4.9/5 · 500+ Reseñas · Confiado por laboratorios de todo el mundo',
+        ratingText: '4.9/5 · 500+ Reseñas · Confiable en todo el mundo',
         badge1: 'HPLC ≥ 99%',
         badge2: 'Estándar GMP',
-        badge3: 'COA Incluido',
+        badge3: 'Directo de fábrica',
         badge4: 'Envío global',
         contactLabel: 'Ponte en Contacto',
         waLabel: 'WhatsApp',
@@ -1097,25 +1087,25 @@
         pageTitle: '📋 <span>Catálogo Completo</span>',
         pageDesc: 'Péptidos de investigación de alta pureza · Probados por HPLC ≥ 99%',
         moreBadge: '200+ Productos disponibles',
-        moreTitle: '¿Necesitas más productos?',
+        moreTitle: 'Directo desde nuestra fábrica GMP',
         moreDesc: '¿No está en la lista? Ofrecemos 200+ péptidos, especificaciones personalizadas y pedidos al por mayor. Solicita el catálogo completo de productos.',
         moreBtnLabel: '📩 Solicitar catálogo completo',
         ctaTitle: '💬 Habla con nuestro equipo',
         ctaSub: 'Obtén asesoramiento experto y precios',
         ctaBtnLabel: 'Contáctanos',
         shippingLabel: '7-12 días en todo el mundo',
-        footerText: '© 2026 · Péptidos Premium de Investigación · Todos los derechos reservados',
+        footerText: '© 2026 · Fabricante Profesional de Péptidos · Todos los derechos reservados',
         footerHome: 'Inicio',
         footerPrivacy: 'Política de privacidad',
         footerContact: 'Contacto'
       },
       'hu': {
-        navTagline: 'Prémium Laboratóriumi Minőség',
+        navTagline: 'Professzionális Gyártó',
         navCta: 'Kapcsolat',
-        ratingText: '4.9/5 · 500+ Vélemény · A világ laboratóriumai által megbízható',
+        ratingText: '4.9/5 · 500+ Vélemény · Világszerte megbízható',
         badge1: 'HPLC ≥ 99%',
         badge2: 'GMP Szabvány',
-        badge3: 'COA Mellékelve',
+        badge3: 'Közvetlenül a gyártól',
         badge4: 'Globális szállítás',
         contactLabel: 'Kapcsolatfelvétel',
         waLabel: 'WhatsApp',
@@ -1126,14 +1116,14 @@
         pageTitle: '📋 <span>Teljes Katalógus</span>',
         pageDesc: 'Nagytisztaságú kutatási peptidek · HPLC tesztelt ≥ 99%',
         moreBadge: '200+ Termék elérhető',
-        moreTitle: 'Több termékre van szüksége?',
+        moreTitle: 'Közvetlenül a GMP-létesítményünkből',
         moreDesc: 'Nincs a listán? Több mint 200 peptidet, egyedi specifikációkat és nagykereskedelmi megrendeléseket kínálunk. Kérje a teljes termékkatalógust.',
         moreBtnLabel: '📩 Kérje a teljes katalógust',
         ctaTitle: '💬 Beszéljen csapatunkkal',
         ctaSub: 'Szerezzen szakértői tanácsot és árajánlatot',
         ctaBtnLabel: 'Kapcsolatfelvétel',
         shippingLabel: '7-12 nap világszerte',
-        footerText: '© 2026 · Prémium Kutatási Peptidek · Minden jog fenntartva',
+        footerText: '© 2026 · Professzionális Peptidgyártó · Minden jog fenntartva',
         footerHome: 'Kezdőlap',
         footerPrivacy: 'Adatvédelmi irányelvek',
         footerContact: 'Kapcsolat'
