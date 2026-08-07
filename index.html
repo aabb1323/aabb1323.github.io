@@ -20,16 +20,39 @@
   })();
   </script>
 
-  <!-- ===== 核心分流：随机轮换三个号码 ===== -->
+  <!-- ===== 核心分流：多语言开场白 + 国家 + 三个号码随机轮换 ===== -->
   <script>
   function getCountrySpecificLink() {
-    const phones = [
-      '85244428242',
-      '85247105985',
-      '85244611616'
-    ];
+    const lang = navigator.language || navigator.userLanguage;
+    const countryCode = lang.split('-')[1] || lang.split('-')[0];
+    
+    const countryNames = {
+      'PL': 'Poland', 'DE': 'Germany', 'FR': 'France', 'IT': 'Italy',
+      'ES': 'Spain', 'PT': 'Portugal', 'NL': 'Netherlands', 'FI': 'Finland',
+      'HU': 'Hungary', 'RO': 'Romania', 'US': 'United States', 'GB': 'United Kingdom',
+      'CA': 'Canada', 'AU': 'Australia', 'default': 'your region'
+    };
+    const country = countryNames[countryCode] || countryNames['default'];
+    
+    const phones = ['85244428242', '85247105985', '85244611616'];
     const phone = phones[Math.floor(Math.random() * phones.length)];
-    const message = "Hello, I'm interested in your products. Could you please send me your price list? Thank you!";
+    
+    const messages = {
+      'en': `Hello, I'm from ${country}. I'm interested in your products. Could you please send me your price list? Thank you!`,
+      'pl': `Witam, jestem z ${country}. Jestem zainteresowany Państwa produktami. Czy mogliby Państwo przesłać mi cennik? Dziękuję!`,
+      'de': `Hallo, ich bin aus ${country}. Ich bin an Ihren Produkten interessiert. Könnten Sie mir bitte Ihre Preisliste senden? Vielen Dank!`,
+      'fr': `Bonjour, je viens de ${country}. Je suis intéressé par vos produits. Pourriez-vous m'envoyer votre liste de prix ? Merci !`,
+      'it': `Salve, vengo da ${country}. Sono interessato ai vostri prodotti. Potreste inviarmi il vostro listino prezzi? Grazie!`,
+      'es': `Hola, soy de ${country}. Estoy interesado en sus productos. ¿Podrían enviarme su lista de precios? ¡Gracias!`,
+      'pt': `Olá, sou de ${country}. Estou interessado nos seus produtos. Poderia enviar-me a sua lista de preços? Obrigado!`,
+      'nl': `Hallo, ik kom uit ${country}. Ik ben geïnteresseerd in uw producten. Kunt u mij uw prijslijst sturen? Dank u!`,
+      'hu': `Üdvözlöm, ${country}-ból/-ből jövök. Érdekelnek a termékei. El tudná küldeni az árlistáját? Köszönöm!`,
+      'ro': `Bună, sunt din ${country}. Sunt interesat de produsele dumneavoastră. Puteți să-mi trimiteți lista de prețuri? Mulțumesc!`,
+      'fi': `Hei, olen kotoisin ${country}sta. Olen kiinnostunut tuotteistanne. Voisitteko lähettää minulle hinnastonne? Kiitos!`
+    };
+    
+    const currentLang = window.CURRENT_LANG || 'en';
+    const message = messages[currentLang] || messages['en'];
     return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
   }
   window.WHATSAPP_LINK = getCountrySpecificLink();
@@ -337,7 +360,7 @@
       background: #ffffff;
       border: 1px solid var(--gray-200);
       border-radius: 12px;
-      padding: 14px 16px;
+      padding: 12px 14px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -345,6 +368,7 @@
       box-shadow: var(--shadow);
       position: relative;
       overflow: hidden;
+      gap: 6px;
     }
     .product-item::before {
       content: '';
@@ -370,10 +394,10 @@
       display: inline-block;
     }
     .product-item .name {
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 700;
       color: var(--gray-900);
-      margin: 3px 0 1px;
+      margin: 2px 0 1px;
     }
     .product-item .spec {
       font-size: 11px;
@@ -381,21 +405,42 @@
       font-weight: 500;
     }
     .product-item .price {
-      font-size: 18px;
+      font-size: 16px;
       font-weight: 800;
       color: var(--primary);
       white-space: nowrap;
-      margin-left: 8px;
+      margin-left: 4px;
+    }
+    .product-item .btn-inquiry {
+      background: var(--whatsapp);
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      padding: 5px 12px;
+      font-size: 10px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.2s;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      box-shadow: 0 2px 8px rgba(37, 211, 102, 0.2);
+      flex-shrink: 0;
+    }
+    .product-item .btn-inquiry:active {
+      transform: scale(0.95);
+      background: var(--whatsapp-dark);
     }
     .product-item .hot-tag {
       position: absolute;
-      top: 8px;
-      right: 8px;
+      top: 6px;
+      right: 6px;
       background: #ef4444;
       color: #fff;
-      font-size: 8px;
+      font-size: 7px;
       font-weight: 700;
-      padding: 1px 10px;
+      padding: 1px 8px;
       border-radius: 20px;
       text-transform: uppercase;
       letter-spacing: 0.5px;
@@ -584,7 +629,7 @@
     }
     .event-status.show { display: block; }
 
-    /* ===== 前页面浮层样式 ===== */
+    /* ===== 浮层样式 ===== */
     .overlay {
       display: none;
       position: fixed;
@@ -799,7 +844,7 @@
       <div class="divider"></div>
     </div>
 
-    <!-- ===== 产品列表 - 无按钮 ===== -->
+    <!-- ===== 产品列表 ===== -->
     <div class="catalog-list" id="productList"></div>
 
     <!-- ===== 更多产品卡片 ===== -->
@@ -846,9 +891,7 @@
     <div class="telegram-line"><i class="fab fa-telegram"></i> Telegram备用: <a href="https://t.me/adasda156" target="_blank">@adasda156</a></div>
   </footer>
 
-  <!-- ============================================================ -->
-  <!-- 前页面浮层（二次确认） -->
-  <!-- ============================================================ -->
+  <!-- ===== 前页面浮层 ===== -->
   <div class="overlay" id="inquiryOverlay">
     <div class="overlay-box">
       <button class="close-btn" onclick="closeOverlay()">✕</button>
@@ -950,31 +993,15 @@
     // ============================================================
     let pendingSource = '';
 
-    function getCountrySpecificLink() {
-      const phones = [
-        '85244428242',
-        '85247105985',
-        '85244611616'
-      ];
-      const phone = phones[Math.floor(Math.random() * phones.length)];
-      const message = "Hello, I'm interested in your products. Could you please send me your price list? Thank you!";
-      return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
-    }
-
-    // 打开浮层（第一步）
     function openOverlay(source) {
       pendingSource = source || '';
       const overlay = document.getElementById('inquiryOverlay');
       overlay.classList.add('show');
       document.body.style.overflow = 'hidden';
-      // 重置选择
-      const radios = document.querySelectorAll('input[name="purpose"]');
-      radios.forEach(r => r.checked = false);
       document.querySelector('input[name="purpose"][value="personal"]').checked = true;
       document.getElementById('confirmBtn').disabled = false;
     }
 
-    // 关闭浮层
     function closeOverlay() {
       const overlay = document.getElementById('inquiryOverlay');
       overlay.classList.remove('show');
@@ -982,7 +1009,6 @@
       pendingSource = '';
     }
 
-    // 确认并跳转（第二步 - 真正触发像素）
     function confirmAndRedirect() {
       const overlay = document.getElementById('inquiryOverlay');
       overlay.classList.remove('show');
@@ -998,7 +1024,6 @@
 
       const finalUrl = getCountrySpecificLink();
 
-      // ✅ 在这里触发像素 - 只有点击"去WhatsApp"才触发
       fbq('track', 'Lead', {
         content_name: purposeMap[purpose] || 'Inquiry',
         content_id: pendingSource || 'website',
@@ -1012,7 +1037,6 @@
         });
       }
 
-      // 显示状态
       const statusEl = document.getElementById('eventStatus');
       if (statusEl) {
         statusEl.textContent = '✅ Event sent';
@@ -1020,11 +1044,9 @@
         setTimeout(() => statusEl.classList.remove('show'), 1500);
       }
 
-      // 跳转WhatsApp
       setTimeout(() => window.open(finalUrl, '_blank'), 300);
     }
 
-    // 点击浮层外部关闭
     document.getElementById('inquiryOverlay').addEventListener('click', function(e) {
       if (e.target === this) closeOverlay();
     });
@@ -1044,13 +1066,16 @@
             <div class="spec">${item.spec}</div>
           </div>
           <div class="price">€${item.price}</div>
+          <button class="btn-inquiry" onclick="openOverlay('Product ${item.sku}')">
+            <i class="fab fa-whatsapp"></i> <span id="inquiryBtnLabel">Inquiry</span>
+          </button>
         `;
         container.appendChild(div);
       });
     }
 
     // ============================================================
-    // 多语言翻译（含浮层文案）
+    // 多语言翻译
     // ============================================================
     const translations = {
       'en': {
@@ -1082,7 +1107,6 @@
         footerHome: 'Home',
         footerPrivacy: 'Privacy Policy',
         footerContact: 'Contact',
-        // 浮层文案
         overlayTitle: 'Confirm Your Inquiry',
         overlaySub: 'Please let us know your needs so we can serve you better.',
         opt1: '🧑‍⚕️ Personal Use',
@@ -1092,7 +1116,8 @@
         benefit2: 'Free Catalog',
         benefit3: '30min Reply',
         confirmBtnText: '📱 Go to WhatsApp',
-        cancelBtn: 'Cancel'
+        cancelBtn: 'Cancel',
+        inquiryBtnLabel: 'Inquiry'
       },
       'pl': {
         navTagline: 'Profesjonalny Producent',
@@ -1132,7 +1157,8 @@
         benefit2: 'Darmowy katalog',
         benefit3: 'Odpowiedź 30min',
         confirmBtnText: '📱 Przejdź do WhatsApp',
-        cancelBtn: 'Anuluj'
+        cancelBtn: 'Anuluj',
+        inquiryBtnLabel: 'Zapytanie'
       },
       'ro': {
         navTagline: 'Producător Profesionist',
@@ -1172,7 +1198,8 @@
         benefit2: 'Catalog gratuit',
         benefit3: 'Răspuns 30min',
         confirmBtnText: '📱 Mergi la WhatsApp',
-        cancelBtn: 'Anulare'
+        cancelBtn: 'Anulare',
+        inquiryBtnLabel: 'Întrebare'
       },
       'fi': {
         navTagline: 'Ammattimainen Valmistaja',
@@ -1212,7 +1239,8 @@
         benefit2: 'Ilmainen luettelo',
         benefit3: 'Vastaus 30min',
         confirmBtnText: '📱 Siirry WhatsAppiin',
-        cancelBtn: 'Peruuta'
+        cancelBtn: 'Peruuta',
+        inquiryBtnLabel: 'Kysely'
       },
       'nl': {
         navTagline: 'Professionele Fabrikant',
@@ -1252,7 +1280,8 @@
         benefit2: 'Gratis catalogus',
         benefit3: 'Antwoord 30min',
         confirmBtnText: '📱 Ga naar WhatsApp',
-        cancelBtn: 'Annuleren'
+        cancelBtn: 'Annuleren',
+        inquiryBtnLabel: 'Aanvraag'
       },
       'it': {
         navTagline: 'Produttore Professionale',
@@ -1292,7 +1321,8 @@
         benefit2: 'Catalogo gratuito',
         benefit3: 'Risposta 30min',
         confirmBtnText: '📱 Vai su WhatsApp',
-        cancelBtn: 'Annulla'
+        cancelBtn: 'Annulla',
+        inquiryBtnLabel: 'Richiesta'
       },
       'pt': {
         navTagline: 'Fabricante Profissional',
@@ -1332,7 +1362,8 @@
         benefit2: 'Catálogo gratuito',
         benefit3: 'Resposta 30min',
         confirmBtnText: '📱 Ir para WhatsApp',
-        cancelBtn: 'Cancelar'
+        cancelBtn: 'Cancelar',
+        inquiryBtnLabel: 'Consulta'
       },
       'de': {
         navTagline: 'Professioneller Hersteller',
@@ -1372,7 +1403,8 @@
         benefit2: 'Kostenloser Katalog',
         benefit3: 'Antwort 30min',
         confirmBtnText: '📱 Zu WhatsApp gehen',
-        cancelBtn: 'Abbrechen'
+        cancelBtn: 'Abbrechen',
+        inquiryBtnLabel: 'Anfrage'
       },
       'fr': {
         navTagline: 'Fabricant Professionnel',
@@ -1412,7 +1444,8 @@
         benefit2: 'Catalogue gratuit',
         benefit3: 'Réponse 30min',
         confirmBtnText: '📱 Aller sur WhatsApp',
-        cancelBtn: 'Annuler'
+        cancelBtn: 'Annuler',
+        inquiryBtnLabel: 'Demande'
       },
       'es': {
         navTagline: 'Fabricante Profesional',
@@ -1452,7 +1485,8 @@
         benefit2: 'Catálogo gratuito',
         benefit3: 'Respuesta 30min',
         confirmBtnText: '📱 Ir a WhatsApp',
-        cancelBtn: 'Cancelar'
+        cancelBtn: 'Cancelar',
+        inquiryBtnLabel: 'Consulta'
       },
       'hu': {
         navTagline: 'Professzionális Gyártó',
@@ -1492,7 +1526,8 @@
         benefit2: 'Ingyenes katalógus',
         benefit3: 'Válasz 30perc',
         confirmBtnText: '📱 Ugrás a WhatsApp-ra',
-        cancelBtn: 'Mégse'
+        cancelBtn: 'Mégse',
+        inquiryBtnLabel: 'Érdeklődés'
       }
     };
 
@@ -1526,7 +1561,6 @@
       document.getElementById('footerHome').textContent = t.footerHome;
       document.getElementById('footerPrivacy').textContent = t.footerPrivacy;
       document.getElementById('footerContact').textContent = t.footerContact;
-      // 浮层文案
       document.getElementById('overlayTitle').textContent = t.overlayTitle;
       document.getElementById('overlaySub').textContent = t.overlaySub;
       document.getElementById('opt1').textContent = t.opt1;
@@ -1537,6 +1571,9 @@
       document.getElementById('benefit3').textContent = t.benefit3;
       document.getElementById('confirmBtnText').textContent = t.confirmBtnText;
       document.getElementById('cancelBtn').textContent = t.cancelBtn;
+      document.querySelectorAll('#inquiryBtnLabel').forEach(el => {
+        el.textContent = t.inquiryBtnLabel;
+      });
     }
 
     // ============================================================
