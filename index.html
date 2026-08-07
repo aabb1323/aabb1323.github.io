@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
-  <title>Yuanhang Peptide · Premium Peptide Products</title>
+  <title>Yuanhang Peptide · Premium Research Peptides</title>
 
   <!-- ===== 语言检测 ===== -->
   <script>
@@ -59,7 +59,7 @@
   src="https://analytics.tiktok.com/i18n/pixel/events.js?sdkid=D9KCJSRC77U7JAF0V120&noscript=1"
   /></noscript>
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
   <style>
@@ -67,216 +67,514 @@
     html { scroll-behavior: smooth; }
     body {
       font-family: 'Inter', -apple-system, sans-serif;
-      background: #f8f9fa;
-      color: #1e293b;
-      line-height: 1.5;
+      background: #f0f2f5;
+      color: #1a1a2e;
+      line-height: 1.6;
       -webkit-font-smoothing: antialiased;
       padding-bottom: 80px;
     }
-    ::selection { background: #1a3a5c; color: #fff; }
-    .container { max-width: 600px; margin: 0 auto; padding: 0 14px; }
+    ::selection { background: #c9a84c; color: #1a1a2e; }
+    .container { max-width: 500px; margin: 0 auto; padding: 0 16px; }
     a { color: #1a3a5c; text-decoration: none; }
 
     :root {
-      --primary: #1a3a5c;
-      --primary-dark: #0f2a3f;
+      --primary: #0f2137;
+      --primary-light: #1a3a5c;
+      --primary-dark: #0a1628;
       --gold: #c9a84c;
       --gold-light: #e8d5a3;
+      --gold-dark: #a8872e;
       --gray-50: #f8f9fa;
       --gray-100: #f1f3f5;
       --gray-200: #e9ecef;
       --gray-300: #dee2e6;
       --gray-600: #6c757d;
       --gray-800: #343a40;
-      --gray-900: #212529;
+      --gray-900: #1a1a2e;
+      --shadow: 0 4px 24px rgba(15, 33, 55, 0.08);
+      --shadow-hover: 0 8px 40px rgba(15, 33, 55, 0.15);
     }
 
+    /* ===== NAV ===== */
     .nav {
-      background: #ffffff; border-bottom: 1px solid var(--gray-200);
-      padding: 10px 0; position: sticky; top: 0; z-index: 100;
+      background: var(--primary);
+      padding: 14px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 2px solid var(--gold);
     }
-    .nav .container { display: flex; align-items: center; justify-content: space-between; }
-    .logo { font-size: 17px; font-weight: 700; color: var(--gray-900); display: flex; align-items: center; gap: 4px; }
-    .logo span { color: var(--primary); }
-    .logo small { font-size: 9px; font-weight: 400; color: var(--gray-600); }
+    .nav .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+    .logo .brand {
+      font-size: 20px;
+      font-weight: 900;
+      color: #ffffff;
+      letter-spacing: 0.5px;
+    }
+    .logo .brand span { color: var(--gold); }
+    .logo .tagline {
+      font-size: 9px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+    }
     .nav-cta {
-      background: var(--primary); color: #fff !important; padding: 6px 14px;
-      border-radius: 6px; font-weight: 600; font-size: 12px;
+      background: var(--gold);
+      color: var(--primary) !important;
+      padding: 8px 18px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 12px;
+      transition: 0.3s;
       white-space: nowrap;
+      letter-spacing: 0.3px;
     }
-    .nav-cta:hover { background: var(--primary-dark); }
+    .nav-cta:hover { background: var(--gold-light); transform: scale(1.02); }
 
+    /* ===== HERO 信任条 ===== */
+    .trust-hero {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      padding: 24px 0 20px;
+      border-bottom: 3px solid var(--gold);
+    }
+    .trust-hero .container { text-align: center; }
+    .trust-hero .stars {
+      color: var(--gold);
+      font-size: 16px;
+      letter-spacing: 2px;
+    }
+    .trust-hero .rating-text {
+      color: rgba(255,255,255,0.7);
+      font-size: 12px;
+      font-weight: 500;
+      margin-top: 2px;
+    }
+    .trust-hero .rating-text strong { color: #fff; }
+    .trust-hero .badge-row {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 14px;
+      flex-wrap: wrap;
+    }
+    .trust-hero .badge-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: rgba(255,255,255,0.8);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .trust-hero .badge-item i {
+      color: var(--gold);
+      font-size: 14px;
+    }
+    .trust-hero .badge-item .pill {
+      background: rgba(255,255,255,0.08);
+      padding: 2px 10px;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    /* ===== 联系条 ===== */
     .contact-strip {
-      background: #ffffff; border-bottom: 1px solid var(--gray-200);
+      background: #ffffff;
       padding: 10px 0;
+      border-bottom: 1px solid var(--gray-200);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
     }
     .contact-strip .container {
-      display: flex; flex-wrap: wrap; align-items: center;
-      justify-content: space-between; gap: 6px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
     }
-    .contact-strip .label { font-size: 12px; font-weight: 600; color: var(--gray-800); display: flex; align-items: center; gap: 4px; }
-    .contact-strip .label i { color: var(--primary); }
+    .contact-strip .label {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--gray-800);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .contact-strip .label i { color: var(--gold); }
     .contact-strip .links { display: flex; gap: 6px; flex-wrap: wrap; }
     .contact-strip .links a {
-      display: inline-flex; align-items: center; gap: 4px;
-      padding: 4px 12px; border-radius: 6px; font-weight: 500; font-size: 11px;
-      border: none; cursor: pointer;
-    }
-    .contact-strip .links .wa { background: #25d366; color: #fff; }
-    .contact-strip .links .tg { background: #0088cc; color: #fff; }
-    .contact-strip .links .cta { background: var(--primary); color: #fff; }
-    .contact-strip .response { font-size: 10px; color: var(--gray-600); display: flex; align-items: center; gap: 4px; }
-
-    .payment-row {
-      background: #ffffff; border: 1px solid var(--gray-200); border-radius: 8px;
-      padding: 8px 12px; display: flex; flex-wrap: wrap;
-      align-items: center; justify-content: center; gap: 8px 14px;
-      margin: 12px 0 8px;
-    }
-    .payment-row .label { font-size: 10px; font-weight: 600; color: var(--gray-600); text-transform: uppercase; letter-spacing: 0.3px; }
-    .payment-row .methods { display: flex; gap: 10px; flex-wrap: wrap; }
-    .payment-row .methods span { font-size: 11px; color: var(--gray-800); font-weight: 500; display: flex; align-items: center; gap: 4px; }
-    .payment-row .methods span i { font-size: 14px; color: var(--primary); }
-
-    .page-header {
-      padding: 16px 0 8px;
-    }
-    .page-header h1 {
-      font-size: 22px; font-weight: 700; color: var(--gray-900);
-    }
-    .page-header h1 span { color: var(--primary); }
-    .page-header p {
-      font-size: 13px; color: var(--gray-600); margin-top: 2px;
-    }
-    .page-header .badge {
-      display: inline-block; background: var(--gold-light); color: var(--primary-dark);
-      border-radius: 4px; padding: 2px 10px; font-size: 10px; font-weight: 700;
-      letter-spacing: 0.3px; text-transform: uppercase;
-    }
-
-    .catalog-list {
-      display: flex; flex-direction: column; gap: 8px;
-      margin-top: 12px;
-    }
-    .product-item {
-      background: #ffffff; border: 1px solid var(--gray-200); border-radius: 8px;
-      padding: 12px 14px;
-      display: flex; align-items: center; justify-content: space-between;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 5px 14px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 11px;
+      border: none;
+      cursor: pointer;
       transition: 0.2s;
     }
-    .product-item:active { background: var(--gray-50); }
-    .product-item .info { flex: 1; min-width: 0; }
-    .product-item .sku {
-      font-size: 9px; font-weight: 700; color: var(--primary);
-      letter-spacing: 0.5px; text-transform: uppercase;
+    .contact-strip .links .wa { background: #25d366; color: #fff; }
+    .contact-strip .links .wa:hover { background: #1da851; }
+    .contact-strip .links .tg { background: #0088cc; color: #fff; }
+    .contact-strip .links .tg:hover { background: #006fa3; }
+    .contact-strip .links .cta {
+      background: var(--primary);
+      color: #fff;
     }
-    .product-item .name {
-      font-size: 14px; font-weight: 600; color: var(--gray-900);
-      margin: 1px 0;
+    .contact-strip .links .cta:hover { background: var(--primary-light); }
+    .contact-strip .response {
+      font-size: 9px;
+      color: var(--gray-600);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-weight: 500;
     }
-    .product-item .spec {
-      font-size: 11px; color: var(--gray-600);
+    .contact-strip .response i { color: #22c55e; }
+
+    /* ===== 支付方式 ===== */
+    .payment-row {
+      background: #ffffff;
+      border: 1px solid var(--gray-200);
+      border-radius: 12px;
+      padding: 10px 16px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 6px 16px;
+      margin: 14px 0 10px;
+      box-shadow: var(--shadow);
     }
-    .product-item .price {
-      font-size: 16px; font-weight: 700; color: var(--primary);
-      margin: 0 8px 0 4px;
-      white-space: nowrap;
+    .payment-row .label {
+      font-size: 9px;
+      font-weight: 700;
+      color: var(--gray-600);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
-    .product-item .btn-inquire {
-      background: var(--gray-100); color: var(--gray-800);
-      border: 1px solid var(--gray-200); border-radius: 6px;
-      padding: 4px 12px; font-size: 11px; font-weight: 600;
-      cursor: pointer; transition: 0.2s; white-space: nowrap;
+    .payment-row .methods { display: flex; gap: 10px; flex-wrap: wrap; }
+    .payment-row .methods span {
+      font-size: 11px;
+      color: var(--gray-800);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 4px;
     }
-    .product-item .btn-inquire:active {
-      background: var(--primary); color: #fff; border-color: var(--primary);
+    .payment-row .methods span i { font-size: 14px; color: var(--gold); }
+
+    /* ===== 页面标题 ===== */
+    .page-header {
+      padding: 20px 0 6px;
+    }
+    .page-header h1 {
+      font-size: 24px;
+      font-weight: 900;
+      color: var(--gray-900);
+      letter-spacing: -0.5px;
+    }
+    .page-header h1 span { color: var(--gold); }
+    .page-header .sub {
+      font-size: 13px;
+      color: var(--gray-600);
+      margin-top: 2px;
+      font-weight: 500;
+    }
+    .page-header .divider {
+      width: 50px;
+      height: 3px;
+      background: var(--gold);
+      border-radius: 2px;
+      margin-top: 8px;
     }
 
-    /* ===== 更多产品咨询卡片 ===== */
+    /* ===== 产品列表 ===== */
+    .catalog-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .product-item {
+      background: #ffffff;
+      border: 1px solid var(--gray-200);
+      border-radius: 12px;
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: 0.25s;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+    .product-item::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: var(--gold);
+      border-radius: 0 4px 4px 0;
+      opacity: 0.6;
+    }
+    .product-item:active {
+      transform: scale(0.98);
+      box-shadow: var(--shadow-hover);
+    }
+    .product-item .info { flex: 1; min-width: 0; }
+    .product-item .sku {
+      font-size: 9px;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      background: rgba(201, 168, 76, 0.12);
+      padding: 1px 8px;
+      border-radius: 20px;
+      display: inline-block;
+    }
+    .product-item .name {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--gray-900);
+      margin: 3px 0 1px;
+    }
+    .product-item .spec {
+      font-size: 11px;
+      color: var(--gray-600);
+      font-weight: 500;
+    }
+    .product-item .price {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--primary);
+      margin: 0 10px 0 4px;
+      white-space: nowrap;
+    }
+    .product-item .price small {
+      font-size: 10px;
+      font-weight: 400;
+      color: var(--gray-600);
+    }
+    .product-item .btn-inquire {
+      background: var(--gray-100);
+      color: var(--gray-800);
+      border: 1px solid var(--gray-200);
+      border-radius: 50px;
+      padding: 6px 16px;
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.2s;
+      white-space: nowrap;
+    }
+    .product-item .btn-inquire:active {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+    .product-item .hot-tag {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background: #ef4444;
+      color: #fff;
+      font-size: 8px;
+      font-weight: 700;
+      padding: 1px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* ===== 更多产品卡片（高端版） ===== */
     .more-products-card {
       background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-      border-radius: 12px;
-      padding: 20px 18px;
+      border-radius: 16px;
+      padding: 28px 20px 24px;
       text-align: center;
       color: #fff;
-      margin-top: 12px;
-      border: none;
+      margin-top: 16px;
+      border: 1px solid rgba(201, 168, 76, 0.2);
+      box-shadow: 0 8px 32px rgba(15, 33, 55, 0.25);
+      position: relative;
+      overflow: hidden;
     }
-    .more-products-card .icon {
-      font-size: 28px;
-      margin-bottom: 6px;
-      display: block;
+    .more-products-card::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -30%;
+      width: 200px;
+      height: 200px;
+      background: rgba(201, 168, 76, 0.06);
+      border-radius: 50%;
+    }
+    .more-products-card .icon { font-size: 32px; display: block; margin-bottom: 4px; }
+    .more-products-card .badge-count {
+      display: inline-block;
+      background: rgba(201, 168, 76, 0.2);
+      border: 1px solid rgba(201, 168, 76, 0.3);
+      border-radius: 20px;
+      padding: 2px 14px;
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--gold-light);
+      margin-bottom: 8px;
+      letter-spacing: 0.5px;
     }
     .more-products-card h3 {
-      font-size: 17px;
-      font-weight: 700;
+      font-size: 18px;
+      font-weight: 800;
       margin-bottom: 4px;
     }
     .more-products-card p {
       font-size: 13px;
-      color: rgba(255,255,255,0.8);
-      margin-bottom: 12px;
-      line-height: 1.5;
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 16px;
+      line-height: 1.6;
     }
     .more-products-card .btn-more {
-      background: #fff;
-      color: var(--primary-dark);
+      background: var(--gold);
+      color: var(--primary);
       border: none;
-      padding: 10px 28px;
-      border-radius: 8px;
-      font-weight: 700;
+      padding: 12px 32px;
+      border-radius: 50px;
+      font-weight: 800;
       font-size: 14px;
       cursor: pointer;
       transition: 0.3s;
       display: inline-flex;
       align-items: center;
       gap: 8px;
+      box-shadow: 0 4px 16px rgba(201, 168, 76, 0.3);
     }
     .more-products-card .btn-more:active {
       transform: scale(0.96);
-      opacity: 0.9;
+      box-shadow: 0 2px 8px rgba(201, 168, 76, 0.2);
     }
-    .more-products-card .badge-count {
-      display: inline-block;
-      background: rgba(255,255,255,0.2);
-      border-radius: 20px;
-      padding: 2px 12px;
+
+    /* ===== 底部信任条 ===== */
+    .footer-trust {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 18px 16px;
+      margin-top: 20px;
+      border: 1px solid var(--gray-200);
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 16px;
+    }
+    .footer-trust .item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
       font-size: 11px;
       font-weight: 600;
-      margin-bottom: 8px;
-      color: rgba(255,255,255,0.9);
+      color: var(--gray-800);
     }
+    .footer-trust .item i {
+      font-size: 18px;
+      color: var(--gold);
+      width: 24px;
+      text-align: center;
+    }
+    .footer-trust .item span { font-weight: 400; color: var(--gray-600); font-size: 10px; display: block; }
 
-    .bottom-cta {
-      position: fixed; bottom: 0; left: 0; right: 0;
-      background: #ffffff; border-top: 1px solid var(--gray-200);
-      padding: 10px 16px;
-      display: flex; align-items: center; justify-content: space-between;
-      gap: 10px; z-index: 99;
-    }
-    .bottom-cta .info { font-size: 11px; color: var(--gray-600); }
-    .bottom-cta .info strong { color: var(--gray-900); }
-    .bottom-cta .btn-wa {
-      background: #25d366; color: #fff; border: none;
-      padding: 10px 20px; border-radius: 8px;
-      font-weight: 600; font-size: 14px;
-      display: inline-flex; align-items: center; gap: 6px;
-      cursor: pointer;
-    }
-    .bottom-cta .btn-wa:active { background: #1da851; }
-
+    /* ===== 页脚 ===== */
     .footer {
-      background: var(--gray-50); padding: 16px 0; text-align: center;
-      color: var(--gray-600); font-size: 11px;
-      border-top: 1px solid var(--gray-200);
-      margin-top: 20px;
+      background: var(--primary);
+      padding: 20px 0 16px;
+      text-align: center;
+      color: rgba(255,255,255,0.4);
+      font-size: 10px;
+      border-top: 2px solid var(--gold);
+      margin-top: 24px;
     }
-    .footer a { color: var(--gray-600); margin: 0 8px; }
+    .footer a {
+      color: rgba(255,255,255,0.5);
+      margin: 0 10px;
+      font-weight: 500;
+      transition: 0.2s;
+    }
+    .footer a:hover { color: var(--gold); }
+    .footer .brand-footer {
+      font-size: 13px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 4px;
+    }
+    .footer .brand-footer span { color: var(--gold); }
+
+    /* ===== 底部固定 CTA ===== */
+    .bottom-cta {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-top: 1px solid rgba(201, 168, 76, 0.2);
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      z-index: 99;
+      box-shadow: 0 -4px 24px rgba(0,0,0,0.06);
+    }
+    .bottom-cta .info { font-size: 10px; color: var(--gray-600); }
+    .bottom-cta .info strong {
+      color: var(--gray-900);
+      font-size: 12px;
+      display: block;
+    }
+    .bottom-cta .btn-wa {
+      background: #25d366;
+      color: #fff;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 13px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(37, 211, 102, 0.3);
+      transition: 0.2s;
+    }
+    .bottom-cta .btn-wa:active { transform: scale(0.96); }
 
     .event-status {
-      position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%);
-      background: rgba(0,0,0,0.8); color: #fff; padding: 4px 14px;
-      border-radius: 40px; font-size: 11px; z-index: 999; display: none;
+      position: fixed;
+      bottom: 80px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0,0,0,0.85);
+      color: #fff;
+      padding: 6px 18px;
+      border-radius: 40px;
+      font-size: 11px;
+      z-index: 999;
+      display: none;
+      backdrop-filter: blur(4px);
     }
     .event-status.show { display: block; }
   </style>
@@ -288,10 +586,27 @@
   <!-- ===== 导航 ===== -->
   <nav class="nav">
     <div class="container">
-      <div class="logo">Yuanhang<span>Peptide</span> <small>· Premium</small></div>
+      <div class="logo">
+        <span class="brand">✦ YUANHANG <span>PEPTIDE</span></span>
+        <span class="tagline" id="navTagline">Premium Laboratory Grade</span>
+      </div>
       <a href="javascript:void(0)" class="nav-cta" onclick="handleLeadClick('', 'Nav')"><i class="fas fa-paper-plane"></i> <span id="navCta">Contact</span></a>
     </div>
   </nav>
+
+  <!-- ===== 信任条 ===== -->
+  <div class="trust-hero">
+    <div class="container">
+      <div class="stars">★★★★★</div>
+      <div class="rating-text" id="ratingText"><strong>4.9/5</strong> · 500+ Reviews · Trusted by Laboratories Worldwide</div>
+      <div class="badge-row">
+        <span class="badge-item"><i class="fas fa-flask"></i> <span class="pill" id="badge1">HPLC ≥ 99%</span></span>
+        <span class="badge-item"><i class="fas fa-certificate"></i> <span class="pill" id="badge2">GMP Standard</span></span>
+        <span class="badge-item"><i class="fas fa-file-alt"></i> <span class="pill" id="badge3">COA Included</span></span>
+        <span class="badge-item"><i class="fas fa-truck"></i> <span class="pill" id="badge4">Global Shipping</span></span>
+      </div>
+    </div>
+  </div>
 
   <!-- ===== 联系条 ===== -->
   <div class="contact-strip">
@@ -302,14 +617,15 @@
         <a href="https://t.me/adasda156" class="tg" target="_blank"><i class="fab fa-telegram"></i> <span id="tgLabel">Telegram</span></a>
         <a href="javascript:void(0)" class="cta" onclick="handleLeadClick('', 'Quote')"><i class="fas fa-paper-plane"></i> <span id="quoteLabel">Quote</span></a>
       </div>
-      <span class="response"><i class="fas fa-clock"></i> <span id="responseLabel">Reply 30min</span></span>
+      <span class="response"><i class="fas fa-circle" style="color:#22c55e;font-size:8px;"></i> <span id="responseLabel">Reply within 30 min</span></span>
     </div>
   </div>
 
   <div class="container">
-    <!-- 支付方式 -->
+
+    <!-- ===== 支付方式 ===== -->
     <div class="payment-row">
-      <span class="label"><i class="fas fa-credit-card"></i> <span id="payLabel">Payment</span></span>
+      <span class="label"><i class="fas fa-lock" style="color:var(--gold);"></i> <span id="payLabel">Secure Payment</span></span>
       <div class="methods">
         <span><i class="fab fa-cc-paypal"></i> PayPal</span>
         <span><i class="fas fa-university"></i> Bank</span>
@@ -318,44 +634,55 @@
       </div>
     </div>
 
-    <!-- 页面标题 -->
+    <!-- ===== 页面标题 ===== -->
     <div class="page-header">
       <h1 id="pageTitle">📋 <span>Full Catalog</span></h1>
-      <p id="pageDesc">All peptides · Prices in EUR (€) per box · Bulk discounts</p>
-      <span class="badge" id="badgeLabel">✦ Premium Grade</span>
+      <div class="sub" id="pageDesc">High-purity research peptides · HPLC tested ≥ 99%</div>
+      <div class="divider"></div>
     </div>
 
     <!-- ===== 产品列表 ===== -->
     <div class="catalog-list" id="productList"></div>
 
-    <!-- ===== 更多产品咨询卡片 ===== -->
-    <div class="more-products-card" id="moreProductsCard">
-      <span class="icon">📦</span>
+    <!-- ===== 更多产品 ===== -->
+    <div class="more-products-card">
+      <span class="icon">🔬</span>
       <span class="badge-count" id="moreBadge">200+ Products Available</span>
-      <h3 id="moreTitle">More Products · Custom Specifications</h3>
-      <p id="moreDesc">Not listed? We offer 200+ peptides, custom specs & bulk orders.<br>Contact us for a full product list.</p>
+      <h3 id="moreTitle">Need More Products?</h3>
+      <p id="moreDesc">Not listed? We offer 200+ peptides, custom specifications & bulk orders.<br>Request our complete product catalog.</p>
       <button class="btn-more" onclick="handleMoreProducts()">
-        <i class="fas fa-paper-plane"></i> <span id="moreBtnLabel">📩 Inquire More Products</span>
+        <i class="fas fa-file-pdf"></i> <span id="moreBtnLabel">📩 Request Full Catalog</span>
       </button>
     </div>
+
+    <!-- ===== 底部信任条 ===== -->
+    <div class="footer-trust">
+      <div class="item"><i class="fas fa-flask"></i> <div><strong>99%+ Purity</strong><span>HPLC tested</span></div></div>
+      <div class="item"><i class="fas fa-shield-alt"></i> <div><strong>Quality Guarantee</strong><span>COA with every order</span></div></div>
+      <div class="item"><i class="fas fa-truck-fast"></i> <div><strong>Fast Shipping</strong><span id="shippingLabel">7-12 days worldwide</span></div></div>
+      <div class="item"><i class="fas fa-handshake"></i> <div><strong>B2B & Wholesale</strong><span>Bulk discounts available</span></div></div>
+    </div>
+
   </div>
 
   <!-- ===== 底部固定 CTA ===== -->
   <div class="bottom-cta">
     <div class="info">
-      <strong id="ctaTitle">📦 Wholesale & Distributor</strong><br>
-      <span id="ctaSub">Contact us for bulk pricing</span>
+      <strong id="ctaTitle">💬 Talk to Our Team</strong>
+      <span id="ctaSub">Get expert advice & pricing</span>
     </div>
     <button class="btn-wa" onclick="handleLeadClick('', 'Bottom CTA')">
       <i class="fab fa-whatsapp"></i> <span id="ctaBtnLabel">Contact Us</span>
     </button>
   </div>
 
+  <!-- ===== 页脚 ===== -->
   <footer class="footer">
-    <p id="footerText">© 2026 Yuanhang Peptide · Premium Peptide Products</p>
-    <div>
+    <div class="brand-footer">✦ YUANHANG <span>PEPTIDE</span></div>
+    <p id="footerText">© 2026 · Premium Research Peptides · All rights reserved</p>
+    <div style="margin-top:4px;">
       <a href="/" id="footerHome">Home</a>
-      <a href="/privacy.html" id="footerPrivacy">Privacy</a>
+      <a href="/privacy.html" id="footerPrivacy">Privacy Policy</a>
       <a href="mailto:service@wescedd.xyz" id="footerContact">Contact</a>
     </div>
   </footer>
@@ -365,60 +692,60 @@
     // 产品数据
     // ============================================================
     const productData = [
-      { sku: 'RT', name: 'Retatrutide', spec: '5mg×10vials', price: '22.16' },
-      { sku: 'RT', name: 'Retatrutide', spec: '10mg×10vials', price: '41.87' },
-      { sku: 'RT', name: 'Retatrutide', spec: '15mg×10vials', price: '59.10' },
-      { sku: 'RT', name: 'Retatrutide', spec: '20mg×10vials', price: '68.96' },
-      { sku: 'RT', name: 'Retatrutide', spec: '30mg×10vials', price: '103.43' },
-      { sku: 'TR', name: 'Tirzepatide', spec: '5mg×10vials', price: '19.70' },
-      { sku: 'TR', name: 'Tirzepatide', spec: '10mg×10vials', price: '29.55' },
-      { sku: 'TR', name: 'Tirzepatide', spec: '15mg×10vials', price: '41.87' },
-      { sku: 'TR', name: 'Tirzepatide', spec: '20mg×10vials', price: '54.18' },
-      { sku: 'SM5', name: 'Semaglutide', spec: '5mg×10vials', price: '23.10' },
-      { sku: 'SM10', name: 'Semaglutide', spec: '10mg×10vials', price: '35.00' },
-      { sku: 'Cu50', name: 'GHK-CU', spec: '50mg×10vials', price: '17.24' },
-      { sku: 'Cu100', name: 'GHK-CU', spec: '100mg×10vials', price: '24.63' },
-      { sku: 'BC2', name: 'BPC-157', spec: '2mg×10vials', price: '12.31' },
-      { sku: 'BC5', name: 'BPC-157', spec: '5mg×10vials', price: '19.70' },
-      { sku: 'BC10', name: 'BPC-157', spec: '10mg×10vials', price: '29.55' },
-      { sku: 'H10', name: 'HGH', spec: '10iu×10vials', price: '29.55' },
-      { sku: 'H12', name: 'HGH', spec: '12iu×10vials', price: '49.25' },
-      { sku: 'H24', name: 'HGH', spec: '24iu×10vials', price: '68.96' },
-      { sku: 'NJ100', name: 'NAD+', spec: '100mg×10vials', price: '22.16' },
-      { sku: 'KPV5', name: 'KPV', spec: '5mg×10vials', price: '22.16' },
-      { sku: 'P41', name: 'PT-141', spec: '10mg×10vials', price: '41.87' },
-      { sku: 'CGL5', name: 'Cagrilintide', spec: '5mg×10vials', price: '78.81' },
-      { sku: 'CGL10', name: 'Cagrilintide', spec: '10mg×10vials', price: '142.84' },
-      { sku: 'TB2', name: 'TB500', spec: '2mg×10vials', price: '27.09' },
-      { sku: 'TSM2', name: 'Tesamorelin', spec: '2mg×10vials', price: '34.48' },
-      { sku: 'DS5', name: 'DSIP', spec: '5mg×10vials', price: '29.55' },
-      { sku: 'ML10', name: 'Melanotan II', spec: '10mg×10vials', price: '32.01' },
-      { sku: 'BB10', name: 'BPC+TB', spec: '10mg×10vials', price: '54.18' },
-      { sku: 'GLOW70', name: 'GLOW', spec: '70mg×10vials', price: '132.99' },
-      { sku: 'CND2', name: 'CJC-1295 (no DAC)', spec: '2mg×10vials', price: '22.16' },
-      { sku: 'HCG1000', name: 'HCG', spec: '1000iu×10vials', price: '14.78' },
-      { sku: 'BAC', name: 'Benzyl Alcohol 0.9%', spec: '3ml×10vials', price: '2.46' },
-      { sku: 'B-12', name: 'B-12', spec: '10mg×10vials', price: '14.78' },
-      { sku: 'LC216', name: 'Lipo-C', spec: '10ml×10vials', price: '34.48' },
-      { sku: '5AM', name: '5-Amino-1MQ', spec: '5mg×10vials', price: '9.85' },
-      { sku: 'LB', name: 'Lemon Bottle', spec: '10ml×10vials', price: '34.48' },
-      { sku: 'G75', name: 'HMG', spec: '75iu×10vials', price: '36.94' },
-      { sku: 'AP2', name: 'Adipotide', spec: '2mg×10vials', price: '36.94' },
-      { sku: 'RA10', name: 'ARA-290', spec: '10mg×10vials', price: '54.18' },
-      { sku: 'GND2', name: 'Gonadorelin', spec: '2mg×10vials', price: '14.78' },
-      { sku: 'HX2', name: 'Hexarelin', spec: '2mg×10vials', price: '27.09' },
-      { sku: 'OT2', name: 'Oxytocin', spec: '2mg×10vials', price: '12.31' },
-      { sku: 'TY10', name: 'Thymalin', spec: '10mg×10vials', price: '41.87' },
-      { sku: 'G25', name: 'GHRP-2', spec: '5mg×10vials', price: '17.24' },
-      { sku: 'G65', name: 'GHRP-6', spec: '5mg×10vials', price: '17.24' },
-      { sku: 'DR5', name: 'Dermorphin', spec: '5mg×10vials', price: '36.94' },
-      { sku: 'GTT600', name: 'Glutathione', spec: '600mg×10vials', price: '14.78' },
-      { sku: '375', name: 'LL37', spec: '5mg×10vials', price: '59.10' },
-      { sku: 'VP10', name: 'VIP', spec: '10mg×10vials', price: '88.66' },
-      { sku: 'F410', name: 'FOXO4-DRI', spec: '10mg×10vials', price: '27.09' },
-      { sku: 'FM2', name: 'MGF', spec: '2mg×10vials', price: '24.63' },
-      { sku: 'FMP2', name: 'PEG-MGF', spec: '2mg×10vials', price: '59.10' },
-      { sku: 'MK75', name: 'MK677', spec: '5mg×10vials', price: '5.42' }
+      { sku: 'RT', name: 'Retatrutide', spec: '5mg×10vials', price: '22.16', hot: true },
+      { sku: 'RT', name: 'Retatrutide', spec: '10mg×10vials', price: '41.87', hot: false },
+      { sku: 'RT', name: 'Retatrutide', spec: '15mg×10vials', price: '59.10', hot: false },
+      { sku: 'RT', name: 'Retatrutide', spec: '20mg×10vials', price: '68.96', hot: false },
+      { sku: 'RT', name: 'Retatrutide', spec: '30mg×10vials', price: '103.43', hot: false },
+      { sku: 'TR', name: 'Tirzepatide', spec: '5mg×10vials', price: '19.70', hot: true },
+      { sku: 'TR', name: 'Tirzepatide', spec: '10mg×10vials', price: '29.55', hot: false },
+      { sku: 'TR', name: 'Tirzepatide', spec: '15mg×10vials', price: '41.87', hot: false },
+      { sku: 'TR', name: 'Tirzepatide', spec: '20mg×10vials', price: '54.18', hot: false },
+      { sku: 'SM5', name: 'Semaglutide', spec: '5mg×10vials', price: '23.10', hot: true },
+      { sku: 'SM10', name: 'Semaglutide', spec: '10mg×10vials', price: '35.00', hot: false },
+      { sku: 'Cu50', name: 'GHK-CU', spec: '50mg×10vials', price: '17.24', hot: false },
+      { sku: 'Cu100', name: 'GHK-CU', spec: '100mg×10vials', price: '24.63', hot: false },
+      { sku: 'BC2', name: 'BPC-157', spec: '2mg×10vials', price: '12.31', hot: true },
+      { sku: 'BC5', name: 'BPC-157', spec: '5mg×10vials', price: '19.70', hot: false },
+      { sku: 'BC10', name: 'BPC-157', spec: '10mg×10vials', price: '29.55', hot: false },
+      { sku: 'H10', name: 'HGH', spec: '10iu×10vials', price: '29.55', hot: true },
+      { sku: 'H12', name: 'HGH', spec: '12iu×10vials', price: '49.25', hot: false },
+      { sku: 'H24', name: 'HGH', spec: '24iu×10vials', price: '68.96', hot: false },
+      { sku: 'NJ100', name: 'NAD+', spec: '100mg×10vials', price: '22.16', hot: false },
+      { sku: 'KPV5', name: 'KPV', spec: '5mg×10vials', price: '22.16', hot: false },
+      { sku: 'P41', name: 'PT-141', spec: '10mg×10vials', price: '41.87', hot: false },
+      { sku: 'CGL5', name: 'Cagrilintide', spec: '5mg×10vials', price: '78.81', hot: false },
+      { sku: 'CGL10', name: 'Cagrilintide', spec: '10mg×10vials', price: '142.84', hot: false },
+      { sku: 'TB2', name: 'TB500', spec: '2mg×10vials', price: '27.09', hot: false },
+      { sku: 'TSM2', name: 'Tesamorelin', spec: '2mg×10vials', price: '34.48', hot: false },
+      { sku: 'DS5', name: 'DSIP', spec: '5mg×10vials', price: '29.55', hot: false },
+      { sku: 'ML10', name: 'Melanotan II', spec: '10mg×10vials', price: '32.01', hot: false },
+      { sku: 'BB10', name: 'BPC+TB', spec: '10mg×10vials', price: '54.18', hot: false },
+      { sku: 'GLOW70', name: 'GLOW', spec: '70mg×10vials', price: '132.99', hot: false },
+      { sku: 'CND2', name: 'CJC-1295 (no DAC)', spec: '2mg×10vials', price: '22.16', hot: false },
+      { sku: 'HCG1000', name: 'HCG', spec: '1000iu×10vials', price: '14.78', hot: false },
+      { sku: 'BAC', name: 'Benzyl Alcohol 0.9%', spec: '3ml×10vials', price: '2.46', hot: false },
+      { sku: 'B-12', name: 'B-12', spec: '10mg×10vials', price: '14.78', hot: false },
+      { sku: 'LC216', name: 'Lipo-C', spec: '10ml×10vials', price: '34.48', hot: false },
+      { sku: '5AM', name: '5-Amino-1MQ', spec: '5mg×10vials', price: '9.85', hot: false },
+      { sku: 'LB', name: 'Lemon Bottle', spec: '10ml×10vials', price: '34.48', hot: false },
+      { sku: 'G75', name: 'HMG', spec: '75iu×10vials', price: '36.94', hot: false },
+      { sku: 'AP2', name: 'Adipotide', spec: '2mg×10vials', price: '36.94', hot: false },
+      { sku: 'RA10', name: 'ARA-290', spec: '10mg×10vials', price: '54.18', hot: false },
+      { sku: 'GND2', name: 'Gonadorelin', spec: '2mg×10vials', price: '14.78', hot: false },
+      { sku: 'HX2', name: 'Hexarelin', spec: '2mg×10vials', price: '27.09', hot: false },
+      { sku: 'OT2', name: 'Oxytocin', spec: '2mg×10vials', price: '12.31', hot: false },
+      { sku: 'TY10', name: 'Thymalin', spec: '10mg×10vials', price: '41.87', hot: false },
+      { sku: 'G25', name: 'GHRP-2', spec: '5mg×10vials', price: '17.24', hot: false },
+      { sku: 'G65', name: 'GHRP-6', spec: '5mg×10vials', price: '17.24', hot: false },
+      { sku: 'DR5', name: 'Dermorphin', spec: '5mg×10vials', price: '36.94', hot: false },
+      { sku: 'GTT600', name: 'Glutathione', spec: '600mg×10vials', price: '14.78', hot: false },
+      { sku: '375', name: 'LL37', spec: '5mg×10vials', price: '59.10', hot: false },
+      { sku: 'VP10', name: 'VIP', spec: '10mg×10vials', price: '88.66', hot: false },
+      { sku: 'F410', name: 'FOXO4-DRI', spec: '10mg×10vials', price: '27.09', hot: false },
+      { sku: 'FM2', name: 'MGF', spec: '2mg×10vials', price: '24.63', hot: false },
+      { sku: 'FMP2', name: 'PEG-MGF', spec: '2mg×10vials', price: '59.10', hot: false },
+      { sku: 'MK75', name: 'MK677', spec: '5mg×10vials', price: '5.42', hot: false }
     ];
 
     // ============================================================
@@ -428,7 +755,6 @@
       return 'https://wb.gannamaldossari.workers.dev';
     }
 
-    // 标准产品咨询
     function handleLeadClick(productName, sku) {
       const baseLink = getCountrySpecificLink();
       let message = "Hello, I'm interested in your products. Could you please send me your price list? Thank you!";
@@ -439,7 +765,6 @@
       trackAndRedirect(finalUrl, productName, sku);
     }
 
-    // 更多产品咨询（专门用于"更多产品"按钮）
     function handleMoreProducts() {
       const baseLink = getCountrySpecificLink();
       const message = "Hello, I'm interested in other products not listed. Could you please send me your full product list? Thank you!";
@@ -447,7 +772,6 @@
       trackAndRedirect(finalUrl, 'More Products', 'MORE');
     }
 
-    // 统一追踪+跳转
     function trackAndRedirect(finalUrl, productName, sku) {
       fbq('track', 'Lead', {
         content_name: productName || 'Contatto',
@@ -461,7 +785,6 @@
           currency: 'EUR'
         });
       }
-
       const statusEl = document.getElementById('eventStatus');
       if (statusEl) {
         statusEl.textContent = '✅ Event sent';
@@ -479,6 +802,7 @@
         const div = document.createElement('div');
         div.className = 'product-item';
         div.innerHTML = `
+          ${item.hot ? '<span class="hot-tag">🔥 Best Seller</span>' : ''}
           <div class="info">
             <div class="sku">${item.sku}</div>
             <div class="name">${item.name}</div>
@@ -492,267 +816,339 @@
     }
 
     // ============================================================
-    // 多语言翻译 (含罗马尼亚语、芬兰语、荷兰语 + 更多产品)
+    // 多语言翻译
     // ============================================================
     const translations = {
       'en': {
+        navTagline: 'Premium Laboratory Grade',
         navCta: 'Contact',
+        ratingText: '4.9/5 · 500+ Reviews · Trusted by Laboratories Worldwide',
+        badge1: 'HPLC ≥ 99%',
+        badge2: 'GMP Standard',
+        badge3: 'COA Included',
+        badge4: 'Global Shipping',
         contactLabel: 'Get in Touch',
         waLabel: 'WhatsApp',
         tgLabel: 'Telegram',
         quoteLabel: 'Quote',
-        responseLabel: 'Reply 30min',
-        payLabel: 'Payment',
+        responseLabel: 'Reply within 30 min',
+        payLabel: 'Secure Payment',
         pageTitle: '📋 <span>Full Catalog</span>',
-        pageDesc: 'All peptides · Prices in EUR (€) per box · Bulk discounts',
-        badgeLabel: '✦ Premium Grade',
+        pageDesc: 'High-purity research peptides · HPLC tested ≥ 99%',
         moreBadge: '200+ Products Available',
-        moreTitle: 'More Products · Custom Specifications',
-        moreDesc: 'Not listed? We offer 200+ peptides, custom specs & bulk orders. Contact us for a full product list.',
-        moreBtnLabel: '📩 Inquire More Products',
-        ctaTitle: '📦 Wholesale & Distributor',
-        ctaSub: 'Contact us for bulk pricing',
+        moreTitle: 'Need More Products?',
+        moreDesc: 'Not listed? We offer 200+ peptides, custom specifications & bulk orders. Request our complete product catalog.',
+        moreBtnLabel: '📩 Request Full Catalog',
+        ctaTitle: '💬 Talk to Our Team',
+        ctaSub: 'Get expert advice & pricing',
         ctaBtnLabel: 'Contact Us',
-        footerText: '© 2026 Yuanhang Peptide · Premium Peptide Products',
+        shippingLabel: '7-12 days worldwide',
+        footerText: '© 2026 · Premium Research Peptides · All rights reserved',
         footerHome: 'Home',
-        footerPrivacy: 'Privacy',
+        footerPrivacy: 'Privacy Policy',
         footerContact: 'Contact'
       },
       'pl': {
-        navCta: 'Skontaktuj się',
+        navTagline: 'Premium Klasa Laboratoryjna',
+        navCta: 'Kontakt',
+        ratingText: '4.9/5 · 500+ Opinii · Zaufany przez laboratoria na całym świecie',
+        badge1: 'HPLC ≥ 99%',
+        badge2: 'Standard GMP',
+        badge3: 'COA w zestawie',
+        badge4: 'Wysyłka globalna',
         contactLabel: 'Skontaktuj się',
         waLabel: 'WhatsApp',
         tgLabel: 'Telegram',
         quoteLabel: 'Wycenę',
-        responseLabel: 'Odpowiedź 30min',
-        payLabel: 'Płatność',
+        responseLabel: 'Odpowiedź w 30 min',
+        payLabel: 'Bezpieczna płatność',
         pageTitle: '📋 <span>Pełny Katalog</span>',
-        pageDesc: 'Wszystkie peptydy · Ceny w EUR (€) za pudełko · Rabaty',
-        badgeLabel: '✦ Premium Jakość',
-        moreBadge: '200+ Produktów Dostępnych',
-        moreTitle: 'Więcej Produktów · Niestandardowe Specyfikacje',
-        moreDesc: 'Nie ma na liście? Oferujemy 200+ peptydów, specyfikacje na zamówienie i zamówienia hurtowe. Skontaktuj się z nami po pełną listę produktów.',
-        moreBtnLabel: '📩 Zapytaj o Więcej Produktów',
-        ctaTitle: '📦 Hurt & Dystrybucja',
-        ctaSub: 'Skontaktuj się w sprawie cen hurtowych',
+        pageDesc: 'Peptydy wysokiej czystości · Testowane HPLC ≥ 99%',
+        moreBadge: '200+ Produktów dostępnych',
+        moreTitle: 'Potrzebujesz więcej produktów?',
+        moreDesc: 'Nie ma na liście? Oferujemy 200+ peptydów, specyfikacje na zamówienie i zamówienia hurtowe. Poproś o pełny katalog produktów.',
+        moreBtnLabel: '📩 Poproś o pełny katalog',
+        ctaTitle: '💬 Porozmawiaj z naszym zespołem',
+        ctaSub: 'Uzyskaj poradę eksperta i wycenę',
         ctaBtnLabel: 'Skontaktuj się',
-        footerText: '© 2026 Yuanhang Peptide · Premium Produkty Peptydowe',
+        shippingLabel: '7-12 dni na całym świecie',
+        footerText: '© 2026 · Premium Peptydy Badawcze · Wszelkie prawa zastrzeżone',
         footerHome: 'Strona główna',
-        footerPrivacy: 'Prywatność',
+        footerPrivacy: 'Polityka prywatności',
         footerContact: 'Kontakt'
       },
       'ro': {
-        navCta: 'Contactează-ne',
+        navTagline: 'Calitate Premium de Laborator',
+        navCta: 'Contact',
+        ratingText: '4.9/5 · 500+ Recenzii · Încredere în laboratoare din întreaga lume',
+        badge1: 'HPLC ≥ 99%',
+        badge2: 'Standard GMP',
+        badge3: 'COA Inclus',
+        badge4: 'Livrare globală',
         contactLabel: 'Contactează-ne',
         waLabel: 'WhatsApp',
         tgLabel: 'Telegram',
         quoteLabel: 'Oferta',
-        responseLabel: 'Răspuns 30min',
-        payLabel: 'Plată',
+        responseLabel: 'Răspuns în 30 min',
+        payLabel: 'Plată securizată',
         pageTitle: '📋 <span>Catalog Complet</span>',
-        pageDesc: 'Toți peptidii · Prețuri în EUR (€) per cutie · Reduceri',
-        badgeLabel: '✦ Calitate Premium',
-        moreBadge: '200+ Produse Disponibile',
-        moreTitle: 'Mai Multe Produse · Specificații Personalizate',
-        moreDesc: 'Nu este pe listă? Oferim 200+ peptide, specificații personalizate și comenzi en-gros. Contactați-ne pentru lista completă de produse.',
-        moreBtnLabel: '📩 Întrebați despre Mai Multe Produse',
-        ctaTitle: '📦 Angro & Distribuitor',
-        ctaSub: 'Contactați-ne pentru prețuri de angro',
+        pageDesc: 'Peptizi de cercetare de înaltă puritate · Testați HPLC ≥ 99%',
+        moreBadge: '200+ Produse disponibile',
+        moreTitle: 'Aveți nevoie de mai multe produse?',
+        moreDesc: 'Nu este pe listă? Oferim 200+ peptide, specificații personalizate și comenzi en-gros. Solicitați catalogul complet de produse.',
+        moreBtnLabel: '📩 Solicitați catalogul complet',
+        ctaTitle: '💬 Vorbiți cu echipa noastră',
+        ctaSub: 'Obțineți sfaturi de specialitate și prețuri',
         ctaBtnLabel: 'Contactează-ne',
-        footerText: '© 2026 Yuanhang Peptide · Produse Peptidice Premium',
+        shippingLabel: '7-12 zile în întreaga lume',
+        footerText: '© 2026 · Peptizi Premium de Cercetare · Toate drepturile rezervate',
         footerHome: 'Acasă',
-        footerPrivacy: 'Confidențialitate',
+        footerPrivacy: 'Politica de confidențialitate',
         footerContact: 'Contact'
       },
       'fi': {
+        navTagline: 'Premium Laboratoriolaatu',
         navCta: 'Ota yhteyttä',
+        ratingText: '4.9/5 · 500+ Arvostelua · Laboratorioiden luottama maailmanlaajuisesti',
+        badge1: 'HPLC ≥ 99%',
+        badge2: 'GMP-standardi',
+        badge3: 'COA Mukana',
+        badge4: 'Maailmanlaajuinen toimitus',
         contactLabel: 'Ota yhteyttä',
         waLabel: 'WhatsApp',
         tgLabel: 'Telegram',
         quoteLabel: 'Tarjous',
-        responseLabel: 'Vastaus 30min',
-        payLabel: 'Maksu',
+        responseLabel: 'Vastaus 30 min',
+        payLabel: 'Turvallinen maksu',
         pageTitle: '📋 <span>Täysi Luettelo</span>',
-        pageDesc: 'Kaikki peptidit · Hinnat EUR (€) / laatikko · Alennukset',
-        badgeLabel: '✦ Premium Laatu',
-        moreBadge: '200+ Tuotetta Saatavilla',
-        moreTitle: 'Lisää Tuotteita · Räätälöidyt Spesifikaatiot',
-        moreDesc: 'Ei listalla? Tarjoamme 200+ peptidiä, räätälöityjä spesifikaatioita ja tukkutilauksia. Ota yhteyttä saadaksesi täyden tuoteluettelon.',
-        moreBtnLabel: '📩 Kysy Lisää Tuotteita',
-        ctaTitle: '📦 Tukkukauppa & Jakelija',
-        ctaSub: 'Ota yhteyttä tukkuhintoja varten',
+        pageDesc: 'Korkealaatuiset tutkimuspeptidit · HPLC-testattu ≥ 99%',
+        moreBadge: '200+ Tuotetta saatavilla',
+        moreTitle: 'Tarvitsetko lisää tuotteita?',
+        moreDesc: 'Ei listalla? Tarjoamme 200+ peptidiä, räätälöityjä spesifikaatioita ja tukkutilauksia. Pyydä täysi tuoteluettelo.',
+        moreBtnLabel: '📩 Pyydä täysi luettelo',
+        ctaTitle: '💬 Keskustele tiimimme kanssa',
+        ctaSub: 'Saat asiantuntijaneuvontaa ja hinnoittelua',
         ctaBtnLabel: 'Ota yhteyttä',
-        footerText: '© 2026 Yuanhang Peptide · Premium Peptidituotteet',
+        shippingLabel: '7-12 päivää maailmanlaajuisesti',
+        footerText: '© 2026 · Premium Tutkimuspeptidit · Kaikki oikeudet pidätetään',
         footerHome: 'Kotisivu',
-        footerPrivacy: 'Tietosuoja',
+        footerPrivacy: 'Tietosuojakäytäntö',
         footerContact: 'Yhteystiedot'
       },
       'nl': {
-        navCta: 'Neem contact op',
+        navTagline: 'Premium Laboratoriumkwaliteit',
+        navCta: 'Contact',
+        ratingText: '4.9/5 · 500+ Beoordelingen · Vertrouwd door laboratoria wereldwijd',
+        badge1: 'HPLC ≥ 99%',
+        badge2: 'GMP-standaard',
+        badge3: 'COA Inbegrepen',
+        badge4: 'Wereldwijde verzending',
         contactLabel: 'Neem contact op',
         waLabel: 'WhatsApp',
         tgLabel: 'Telegram',
         quoteLabel: 'Offerte',
-        responseLabel: 'Antwoord 30min',
-        payLabel: 'Betaling',
+        responseLabel: 'Antwoord binnen 30 min',
+        payLabel: 'Veilige betaling',
         pageTitle: '📋 <span>Volledige Catalogus</span>',
-        pageDesc: 'Alle peptiden · Prijzen in EUR (€) per doos · Kortingen',
-        badgeLabel: '✦ Premium Kwaliteit',
-        moreBadge: '200+ Producten Beschikbaar',
-        moreTitle: 'Meer Producten · Aangepaste Specificaties',
-        moreDesc: 'Niet op de lijst? Wij bieden 200+ peptiden, aangepaste specificaties en groothandelsbestellingen. Neem contact op voor de volledige productlijst.',
-        moreBtnLabel: '📩 Vraag naar Meer Producten',
-        ctaTitle: '📦 Groothandel & Distributie',
-        ctaSub: 'Neem contact op voor groothandelsprijzen',
+        pageDesc: 'Hoogzuivere onderzoekspeptiden · HPLC-getest ≥ 99%',
+        moreBadge: '200+ Producten beschikbaar',
+        moreTitle: 'Meer producten nodig?',
+        moreDesc: 'Niet op de lijst? Wij bieden 200+ peptiden, aangepaste specificaties en groothandelsbestellingen. Vraag de volledige productcatalogus aan.',
+        moreBtnLabel: '📩 Vraag volledige catalogus aan',
+        ctaTitle: '💬 Praat met ons team',
+        ctaSub: 'Krijg deskundig advies en prijzen',
         ctaBtnLabel: 'Neem contact op',
-        footerText: '© 2026 Yuanhang Peptide · Premium Peptide Producten',
+        shippingLabel: '7-12 dagen wereldwijd',
+        footerText: '© 2026 · Premium Onderzoekspeptiden · Alle rechten voorbehouden',
         footerHome: 'Home',
-        footerPrivacy: 'Privacy',
+        footerPrivacy: 'Privacybeleid',
         footerContact: 'Contact'
       },
       'it': {
+        navTagline: 'Grado Premium da Laboratorio',
         navCta: 'Contattaci',
+        ratingText: '4.9/5 · 500+ Recensioni · Fiducioso dai laboratori di tutto il mondo',
+        badge1: 'HPLC ≥ 99%',
+        badge2: 'Standard GMP',
+        badge3: 'COA Incluso',
+        badge4: 'Spedizione globale',
         contactLabel: 'Contattaci',
         waLabel: 'WhatsApp',
         tgLabel: 'Telegram',
         quoteLabel: 'Preventivo',
-        responseLabel: 'Risposta 30min',
-        payLabel: 'Pagamento',
+        responseLabel: 'Risposta in 30 min',
+        payLabel: 'Pagamento sicuro',
         pageTitle: '📋 <span>Catalogo Completo</span>',
-        pageDesc: 'Tutti i peptidi · Prezzi in EUR (€) a scatola · Sconti all\'ingrosso',
-        badgeLabel: '✦ Grado Premium',
-        moreBadge: '200+ Prodotti Disponibili',
-        moreTitle: 'Più Prodotti · Specifiche Personalizzate',
-        moreDesc: 'Non in lista? Offriamo 200+ peptidi, specifiche personalizzate e ordini all\'ingrosso. Contattaci per l\'elenco completo dei prodotti.',
-        moreBtnLabel: '📩 Richiedi Altri Prodotti',
-        ctaTitle: '📦 All\'ingrosso & Distributori',
-        ctaSub: 'Contattaci per prezzi all\'ingrosso',
+        pageDesc: 'Peptidi di ricerca ad alta purezza · Testati HPLC ≥ 99%',
+        moreBadge: '200+ Prodotti disponibili',
+        moreTitle: 'Hai bisogno di più prodotti?',
+        moreDesc: 'Non in lista? Offriamo 200+ peptidi, specifiche personalizzate e ordini all\'ingrosso. Richiedi il catalogo completo dei prodotti.',
+        moreBtnLabel: '📩 Richiedi catalogo completo',
+        ctaTitle: '💬 Parla con il nostro team',
+        ctaSub: 'Ottieni consulenza esperta e prezzi',
         ctaBtnLabel: 'Contattaci',
-        footerText: '© 2026 Yuanhang Peptide · Prodotti Peptidici Premium',
+        shippingLabel: '7-12 giorni in tutto il mondo',
+        footerText: '© 2026 · Peptidi Premium per Ricerca · Tutti i diritti riservati',
         footerHome: 'Home',
-        footerPrivacy: 'Privacy',
+        footerPrivacy: 'Informativa sulla privacy',
         footerContact: 'Contatti'
       },
       'pt': {
+        navTagline: 'Grau Premium de Laboratório',
         navCta: 'Contato',
+        ratingText: '4.9/5 · 500+ Avaliações · Confiado por laboratórios em todo o mundo',
+        badge1: 'HPLC ≥ 99%',
+        badge2: 'Padrão GMP',
+        badge3: 'COA Incluído',
+        badge4: 'Envio global',
         contactLabel: 'Fale Conosco',
         waLabel: 'WhatsApp',
         tgLabel: 'Telegram',
         quoteLabel: 'Orçamento',
-        responseLabel: 'Resposta 30min',
-        payLabel: 'Pagamento',
+        responseLabel: 'Resposta em 30 min',
+        payLabel: 'Pagamento seguro',
         pageTitle: '📋 <span>Catálogo Completo</span>',
-        pageDesc: 'Todos os peptídeos · Preços em EUR (€) por caixa · Descontos',
-        badgeLabel: '✦ Grau Premium',
-        moreBadge: '200+ Produtos Disponíveis',
-        moreTitle: 'Mais Produtos · Especificações Personalizadas',
-        moreDesc: 'Não está na lista? Oferecemos 200+ peptídeos, especificações personalizadas e pedidos em atacado. Contate-nos para a lista completa de produtos.',
-        moreBtnLabel: '📩 Consulte Mais Produtos',
-        ctaTitle: '📦 Atacado & Distribuidores',
-        ctaSub: 'Contate-nos para preços em atacado',
+        pageDesc: 'Peptídeos de pesquisa de alta pureza · Testados por HPLC ≥ 99%',
+        moreBadge: '200+ Produtos disponíveis',
+        moreTitle: 'Precisa de mais produtos?',
+        moreDesc: 'Não está na lista? Oferecemos 200+ peptídeos, especificações personalizadas e pedidos em atacado. Solicite o catálogo completo de produtos.',
+        moreBtnLabel: '📩 Solicitar catálogo completo',
+        ctaTitle: '💬 Fale com nossa equipe',
+        ctaSub: 'Obtenha aconselhamento especializado e preços',
         ctaBtnLabel: 'Contate-nos',
-        footerText: '© 2026 Yuanhang Peptide · Produtos Peptídicos Premium',
+        shippingLabel: '7-12 dias em todo o mundo',
+        footerText: '© 2026 · Peptídeos Premium para Pesquisa · Todos os direitos reservados',
         footerHome: 'Início',
-        footerPrivacy: 'Privacidade',
+        footerPrivacy: 'Política de privacidade',
         footerContact: 'Contato'
       },
       'de': {
+        navTagline: 'Premium Laborqualität',
         navCta: 'Kontakt',
+        ratingText: '4.9/5 · 500+ Bewertungen · Von Laboren weltweit vertrauenswürdig',
+        badge1: 'HPLC ≥ 99%',
+        badge2: 'GMP-Standard',
+        badge3: 'COA inklusive',
+        badge4: 'Weltweiter Versand',
         contactLabel: 'Kontakt',
         waLabel: 'WhatsApp',
         tgLabel: 'Telegram',
         quoteLabel: 'Angebot',
-        responseLabel: 'Antwort 30min',
-        payLabel: 'Zahlung',
+        responseLabel: 'Antwort in 30 min',
+        payLabel: 'Sichere Zahlung',
         pageTitle: '📋 <span>Vollständiger Katalog</span>',
-        pageDesc: 'Alle Peptide · Preise in EUR (€) pro Box · Mengenrabatte',
-        badgeLabel: '✦ Premium Qualität',
-        moreBadge: '200+ Produkte Verfügbar',
-        moreTitle: 'Weitere Produkte · Kundenspezifische Spezifikationen',
-        moreDesc: 'Nicht auf der Liste? Wir bieten 200+ Peptide, kundenspezifische Spezifikationen und Großhandelsbestellungen. Kontaktiere uns für die vollständige Produktliste.',
-        moreBtnLabel: '📩 Nach weiteren Produkten fragen',
-        ctaTitle: '📦 Großhandel & Distributor',
-        ctaSub: 'Kontaktiere uns für Großhandelspreise',
+        pageDesc: 'Hochreine Forschungspeptide · HPLC-getestet ≥ 99%',
+        moreBadge: '200+ Produkte verfügbar',
+        moreTitle: 'Brauchen Sie mehr Produkte?',
+        moreDesc: 'Nicht auf der Liste? Wir bieten 200+ Peptide, kundenspezifische Spezifikationen und Großhandelsbestellungen. Fordern Sie den vollständigen Produktkatalog an.',
+        moreBtnLabel: '📩 Vollständigen Katalog anfordern',
+        ctaTitle: '💬 Sprechen Sie mit unserem Team',
+        ctaSub: 'Erhalten Sie Expertenberatung und Preise',
         ctaBtnLabel: 'Kontaktiere uns',
-        footerText: '© 2026 Yuanhang Peptide · Premium Peptidprodukte',
+        shippingLabel: '7-12 Tage weltweit',
+        footerText: '© 2026 · Premium Forschungspeptide · Alle Rechte vorbehalten',
         footerHome: 'Startseite',
-        footerPrivacy: 'Datenschutz',
+        footerPrivacy: 'Datenschutzerklärung',
         footerContact: 'Kontakt'
       },
       'fr': {
+        navTagline: 'Qualité Premium de Laboratoire',
         navCta: 'Contact',
+        ratingText: '4.9/5 · 500+ Avis · Approuvé par les laboratoires du monde entier',
+        badge1: 'HPLC ≥ 99%',
+        badge2: 'Norme GMP',
+        badge3: 'COA Inclus',
+        badge4: 'Livraison mondiale',
         contactLabel: 'Contactez-nous',
         waLabel: 'WhatsApp',
         tgLabel: 'Telegram',
         quoteLabel: 'Devis',
-        responseLabel: 'Réponse 30min',
-        payLabel: 'Paiement',
+        responseLabel: 'Réponse en 30 min',
+        payLabel: 'Paiement sécurisé',
         pageTitle: '📋 <span>Catalogue Complet</span>',
-        pageDesc: 'Tous les peptides · Prix en EUR (€) par boîte · Remises',
-        badgeLabel: '✦ Qualité Premium',
-        moreBadge: '200+ Produits Disponibles',
-        moreTitle: 'Plus de Produits · Spécifications Personnalisées',
-        moreDesc: 'Pas sur la liste? Nous offrons 200+ peptides, spécifications personnalisées et commandes en gros. Contactez-nous pour la liste complète des produits.',
-        moreBtnLabel: '📩 Demander plus de produits',
-        ctaTitle: '📦 Grossiste & Distributeur',
-        ctaSub: 'Contactez-nous pour les prix de gros',
+        pageDesc: 'Peptides de recherche haute pureté · Testés HPLC ≥ 99%',
+        moreBadge: '200+ Produits disponibles',
+        moreTitle: 'Besoin de plus de produits?',
+        moreDesc: 'Pas sur la liste? Nous offrons 200+ peptides, spécifications personnalisées et commandes en gros. Demandez le catalogue complet des produits.',
+        moreBtnLabel: '📩 Demander le catalogue complet',
+        ctaTitle: '💬 Parlez à notre équipe',
+        ctaSub: 'Obtenez des conseils d\'experts et des tarifs',
         ctaBtnLabel: 'Contactez-nous',
-        footerText: '© 2026 Yuanhang Peptide · Produits Peptidiques Premium',
+        shippingLabel: '7-12 jours dans le monde',
+        footerText: '© 2026 · Peptides Premium de Recherche · Tous droits réservés',
         footerHome: 'Accueil',
-        footerPrivacy: 'Confidentialité',
+        footerPrivacy: 'Politique de confidentialité',
         footerContact: 'Contact'
       },
       'es': {
+        navTagline: 'Grado Premium de Laboratorio',
         navCta: 'Contacto',
+        ratingText: '4.9/5 · 500+ Reseñas · Confiado por laboratorios de todo el mundo',
+        badge1: 'HPLC ≥ 99%',
+        badge2: 'Estándar GMP',
+        badge3: 'COA Incluido',
+        badge4: 'Envío global',
         contactLabel: 'Ponte en Contacto',
         waLabel: 'WhatsApp',
         tgLabel: 'Telegram',
         quoteLabel: 'Presupuesto',
-        responseLabel: 'Respuesta 30min',
-        payLabel: 'Pago',
+        responseLabel: 'Respuesta en 30 min',
+        payLabel: 'Pago seguro',
         pageTitle: '📋 <span>Catálogo Completo</span>',
-        pageDesc: 'Todos los péptidos · Precios en EUR (€) por caja · Descuentos',
-        badgeLabel: '✦ Grado Premium',
-        moreBadge: '200+ Productos Disponibles',
-        moreTitle: 'Más Productos · Especificaciones Personalizadas',
-        moreDesc: '¿No está en la lista? Ofrecemos 200+ péptidos, especificaciones personalizadas y pedidos al por mayor. Contáctanos para la lista completa de productos.',
-        moreBtnLabel: '📩 Consultar Más Productos',
-        ctaTitle: '📦 Mayorista & Distribuidor',
-        ctaSub: 'Contáctanos para precios al por mayor',
+        pageDesc: 'Péptidos de investigación de alta pureza · Probados por HPLC ≥ 99%',
+        moreBadge: '200+ Productos disponibles',
+        moreTitle: '¿Necesitas más productos?',
+        moreDesc: '¿No está en la lista? Ofrecemos 200+ péptidos, especificaciones personalizadas y pedidos al por mayor. Solicita el catálogo completo de productos.',
+        moreBtnLabel: '📩 Solicitar catálogo completo',
+        ctaTitle: '💬 Habla con nuestro equipo',
+        ctaSub: 'Obtén asesoramiento experto y precios',
         ctaBtnLabel: 'Contáctanos',
-        footerText: '© 2026 Yuanhang Peptide · Productos Peptídicos Premium',
+        shippingLabel: '7-12 días en todo el mundo',
+        footerText: '© 2026 · Péptidos Premium de Investigación · Todos los derechos reservados',
         footerHome: 'Inicio',
-        footerPrivacy: 'Privacidad',
+        footerPrivacy: 'Política de privacidad',
         footerContact: 'Contacto'
       },
       'hu': {
+        navTagline: 'Prémium Laboratóriumi Minőség',
         navCta: 'Kapcsolat',
+        ratingText: '4.9/5 · 500+ Vélemény · A világ laboratóriumai által megbízható',
+        badge1: 'HPLC ≥ 99%',
+        badge2: 'GMP Szabvány',
+        badge3: 'COA Mellékelve',
+        badge4: 'Globális szállítás',
         contactLabel: 'Kapcsolatfelvétel',
         waLabel: 'WhatsApp',
         tgLabel: 'Telegram',
         quoteLabel: 'Ajánlatkérés',
-        responseLabel: 'Válasz 30perc',
-        payLabel: 'Fizetés',
+        responseLabel: 'Válasz 30 percen belül',
+        payLabel: 'Biztonságos fizetés',
         pageTitle: '📋 <span>Teljes Katalógus</span>',
-        pageDesc: 'Összes peptid · Árak EUR (€) / doboz · Kedvezmények',
-        badgeLabel: '✦ Prémium Minőség',
-        moreBadge: '200+ Termék Elérhető',
-        moreTitle: 'Több Termék · Egyedi Specifikációk',
-        moreDesc: 'Nincs a listán? Több mint 200 peptidet, egyedi specifikációkat és nagykereskedelmi megrendeléseket kínálunk. Lépjen kapcsolatba a teljes terméklistaért.',
-        moreBtnLabel: '📩 Érdeklődjön További Termékekről',
-        ctaTitle: '📦 Nagykereskedelem & Disztribúció',
-        ctaSub: 'Lépjen kapcsolatba nagykereskedelmi árakért',
+        pageDesc: 'Nagytisztaságú kutatási peptidek · HPLC tesztelt ≥ 99%',
+        moreBadge: '200+ Termék elérhető',
+        moreTitle: 'Több termékre van szüksége?',
+        moreDesc: 'Nincs a listán? Több mint 200 peptidet, egyedi specifikációkat és nagykereskedelmi megrendeléseket kínálunk. Kérje a teljes termékkatalógust.',
+        moreBtnLabel: '📩 Kérje a teljes katalógust',
+        ctaTitle: '💬 Beszéljen csapatunkkal',
+        ctaSub: 'Szerezzen szakértői tanácsot és árajánlatot',
         ctaBtnLabel: 'Kapcsolatfelvétel',
-        footerText: '© 2026 Yuanhang Peptide · Prémium Peptid Termékek',
+        shippingLabel: '7-12 nap világszerte',
+        footerText: '© 2026 · Prémium Kutatási Peptidek · Minden jog fenntartva',
         footerHome: 'Kezdőlap',
-        footerPrivacy: 'Adatvédelem',
+        footerPrivacy: 'Adatvédelmi irányelvek',
         footerContact: 'Kapcsolat'
       }
     };
 
     function switchLanguage(lang) {
       const t = translations[lang] || translations['en'];
+      document.getElementById('navTagline').textContent = t.navTagline;
       document.getElementById('navCta').textContent = t.navCta;
+      document.getElementById('ratingText').innerHTML = t.ratingText;
+      document.getElementById('badge1').textContent = t.badge1;
+      document.getElementById('badge2').textContent = t.badge2;
+      document.getElementById('badge3').textContent = t.badge3;
+      document.getElementById('badge4').textContent = t.badge4;
       document.getElementById('contactLabel').textContent = t.contactLabel;
       document.getElementById('waLabel').textContent = t.waLabel;
       document.getElementById('tgLabel').textContent = t.tgLabel;
@@ -761,7 +1157,6 @@
       document.getElementById('payLabel').textContent = t.payLabel;
       document.getElementById('pageTitle').innerHTML = t.pageTitle;
       document.getElementById('pageDesc').textContent = t.pageDesc;
-      document.getElementById('badgeLabel').textContent = t.badgeLabel;
       document.getElementById('moreBadge').textContent = t.moreBadge;
       document.getElementById('moreTitle').textContent = t.moreTitle;
       document.getElementById('moreDesc').textContent = t.moreDesc;
@@ -769,6 +1164,7 @@
       document.getElementById('ctaTitle').textContent = t.ctaTitle;
       document.getElementById('ctaSub').textContent = t.ctaSub;
       document.getElementById('ctaBtnLabel').textContent = t.ctaBtnLabel;
+      document.getElementById('shippingLabel').textContent = t.shippingLabel;
       document.getElementById('footerText').textContent = t.footerText;
       document.getElementById('footerHome').textContent = t.footerHome;
       document.getElementById('footerPrivacy').textContent = t.footerPrivacy;
