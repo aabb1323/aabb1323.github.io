@@ -20,10 +20,17 @@
   })();
   </script>
 
-  <!-- ===== 核心分流 ===== -->
+  <!-- ===== 核心分流：随机轮换三个号码 ===== -->
   <script>
   function getCountrySpecificLink() {
-    return 'https://wb.gannamaldossari.workers.dev';
+    const phones = [
+      '85244428242',
+      '85247105985',
+      '85244611616'
+    ];
+    const phone = phones[Math.floor(Math.random() * phones.length)];
+    const message = "Hello, I'm interested in your products. Could you please send me your price list? Thank you!";
+    return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
   }
   window.WHATSAPP_LINK = getCountrySpecificLink();
   </script>
@@ -576,6 +583,147 @@
       backdrop-filter: blur(4px);
     }
     .event-status.show { display: block; }
+
+    /* ===== 前页面浮层样式 ===== */
+    .overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(4px);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .overlay.show { display: flex; }
+    .overlay-box {
+      background: #ffffff;
+      border-radius: 20px;
+      max-width: 420px;
+      width: 100%;
+      padding: 32px 24px 28px;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.3);
+      position: relative;
+      animation: slideUp 0.3s ease-out;
+    }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(30px) scale(0.95); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .overlay-box .close-btn {
+      position: absolute;
+      top: 12px;
+      right: 16px;
+      background: none;
+      border: none;
+      font-size: 24px;
+      color: var(--gray-600);
+      cursor: pointer;
+      padding: 4px 8px;
+      border-radius: 50%;
+      transition: 0.2s;
+    }
+    .overlay-box .close-btn:hover { background: var(--gray-100); }
+    .overlay-box .icon-big {
+      font-size: 48px;
+      text-align: center;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .overlay-box h2 {
+      font-size: 20px;
+      font-weight: 800;
+      text-align: center;
+      color: var(--gray-900);
+      margin-bottom: 2px;
+    }
+    .overlay-box .sub {
+      text-align: center;
+      font-size: 13px;
+      color: var(--gray-600);
+      margin-bottom: 16px;
+    }
+    .overlay-box .options {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    .overlay-box .options label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border: 2px solid var(--gray-200);
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.2s;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--gray-800);
+    }
+    .overlay-box .options label:hover { border-color: var(--gold); background: var(--gray-50); }
+    .overlay-box .options input[type="radio"] {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--gold);
+      flex-shrink: 0;
+    }
+    .overlay-box .benefits {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+      padding: 12px 0;
+      border-top: 1px solid var(--gray-200);
+      border-bottom: 1px solid var(--gray-200);
+    }
+    .overlay-box .benefits span {
+      font-size: 11px;
+      color: var(--gray-600);
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .overlay-box .benefits span i { color: var(--gold); }
+    .overlay-box .btn-confirm {
+      width: 100%;
+      background: var(--whatsapp);
+      color: #fff;
+      border: none;
+      padding: 14px;
+      border-radius: 12px;
+      font-weight: 800;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
+    }
+    .overlay-box .btn-confirm:active { transform: scale(0.97); background: var(--whatsapp-dark); }
+    .overlay-box .btn-confirm:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+      transform: none;
+    }
+    .overlay-box .btn-cancel {
+      width: 100%;
+      background: transparent;
+      color: var(--gray-600);
+      border: none;
+      padding: 10px;
+      font-size: 13px;
+      cursor: pointer;
+      margin-top: 4px;
+      font-weight: 500;
+    }
+    .overlay-box .btn-cancel:hover { color: var(--gray-900); }
   </style>
 </head>
 <body>
@@ -589,7 +737,7 @@
         <span class="brand">✦ YUANHANG <span>PEPTIDE</span></span>
         <span class="tagline" id="navTagline">Professional Manufacturer</span>
       </div>
-      <a href="javascript:void(0)" class="nav-cta" onclick="handleLeadClick('', 'Nav')"><i class="fab fa-whatsapp"></i> <span id="navCta">WhatsApp Inquiry</span></a>
+      <a href="javascript:void(0)" class="nav-cta" onclick="openOverlay('Nav')"><i class="fab fa-whatsapp"></i> <span id="navCta">WhatsApp Inquiry</span></a>
     </div>
   </nav>
 
@@ -621,10 +769,10 @@
     </div>
   </div>
 
-  <!-- ===== 入口2：联系条 ===== -->
+  <!-- ===== 联系条 ===== -->
   <div class="contact-strip">
     <div class="container">
-      <button class="wa-main" onclick="handleLeadClick('', 'Contact Bar')">
+      <button class="wa-main" onclick="openOverlay('Contact Bar')">
         <i class="fab fa-whatsapp"></i> <span id="waLabel">📱 WhatsApp Inquiry</span>
       </button>
       <span class="response"><i class="fas fa-circle" style="color:#22c55e;font-size:8px;"></i> <span id="responseLabel">Reply within 30 min</span></span>
@@ -660,7 +808,7 @@
       <span class="badge-count" id="moreBadge">200+ Products Available</span>
       <h3 id="moreTitle">Direct from Our GMP Facility</h3>
       <p id="moreDesc">Not listed? We offer 200+ peptides, custom specifications & bulk orders.<br>Get the full catalog on WhatsApp.</p>
-      <button class="btn-wa" onclick="handleMoreProducts()">
+      <button class="btn-wa" onclick="openOverlay('More Products')">
         <i class="fab fa-whatsapp"></i> <span id="moreBtnLabel">📩 Get Full Catalog on WhatsApp</span>
       </button>
     </div>
@@ -675,18 +823,18 @@
 
   </div>
 
-  <!-- ===== 入口3：底部固定 CTA ===== -->
+  <!-- ===== 底部固定 CTA ===== -->
   <div class="bottom-cta">
     <div class="info">
       <strong id="ctaTitle">💬 Get Your Quote Now</strong>
       <span id="ctaSub">Reply within 30 minutes</span>
     </div>
-    <button class="btn-wa" onclick="handleLeadClick('', 'Bottom CTA')">
+    <button class="btn-wa" onclick="openOverlay('Bottom CTA')">
       <i class="fab fa-whatsapp"></i> <span id="ctaBtnLabel">📱 WhatsApp Inquiry</span>
     </button>
   </div>
 
-  <!-- ===== 页脚（含Telegram备用） ===== -->
+  <!-- ===== 页脚 ===== -->
   <footer class="footer">
     <div class="brand-footer">✦ YUANHANG <span>PEPTIDE</span></div>
     <p id="footerText">© 2026 · Professional Peptide Manufacturer · All rights reserved</p>
@@ -695,9 +843,46 @@
       <a href="/privacy.html" id="footerPrivacy">Privacy Policy</a>
       <a href="mailto:service@wescedd.xyz" id="footerContact">Contact</a>
     </div>
-    <!-- Telegram 备用联系方式 -->
     <div class="telegram-line"><i class="fab fa-telegram"></i> Telegram备用: <a href="https://t.me/adasda156" target="_blank">@adasda156</a></div>
   </footer>
+
+  <!-- ============================================================ -->
+  <!-- 前页面浮层（二次确认） -->
+  <!-- ============================================================ -->
+  <div class="overlay" id="inquiryOverlay">
+    <div class="overlay-box">
+      <button class="close-btn" onclick="closeOverlay()">✕</button>
+      <span class="icon-big">👋</span>
+      <h2 id="overlayTitle">Confirm Your Inquiry</h2>
+      <p class="sub" id="overlaySub">Please let us know your needs so we can serve you better.</p>
+
+      <div class="options">
+        <label>
+          <input type="radio" name="purpose" value="personal" checked />
+          <span id="opt1">🧑‍⚕️ Personal Use</span>
+        </label>
+        <label>
+          <input type="radio" name="purpose" value="team" />
+          <span id="opt2">👥 Team / Studio</span>
+        </label>
+        <label>
+          <input type="radio" name="purpose" value="wholesale" />
+          <span id="opt3">📦 Wholesale / Distributor</span>
+        </label>
+      </div>
+
+      <div class="benefits">
+        <span><i class="fas fa-check-circle"></i> <span id="benefit1">Factory Price</span></span>
+        <span><i class="fas fa-check-circle"></i> <span id="benefit2">Free Catalog</span></span>
+        <span><i class="fas fa-check-circle"></i> <span id="benefit3">30min Reply</span></span>
+      </div>
+
+      <button class="btn-confirm" id="confirmBtn" onclick="confirmAndRedirect()">
+        <i class="fab fa-whatsapp"></i> <span id="confirmBtnText">📱 Go to WhatsApp</span>
+      </button>
+      <button class="btn-cancel" onclick="closeOverlay()" id="cancelBtn">Cancel</button>
+    </div>
+  </div>
 
   <script>
     // ============================================================
@@ -761,50 +946,88 @@
     ];
 
     // ============================================================
-    // 核心函数 - 只有3个入口触发像素
+    // 核心函数
     // ============================================================
+    let pendingSource = '';
+
     function getCountrySpecificLink() {
-      return 'https://wb.gannamaldossari.workers.dev';
+      const phones = [
+        '85244428242',
+        '85247105985',
+        '85244611616'
+      ];
+      const phone = phones[Math.floor(Math.random() * phones.length)];
+      const message = "Hello, I'm interested in your products. Could you please send me your price list? Thank you!";
+      return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
     }
 
-    function handleLeadClick(productName, sku) {
-      const baseLink = getCountrySpecificLink();
-      let message = "Hello, I'm interested in your products. Could you please send me your price list? Thank you!";
-      if (productName && productName !== '') {
-        message = `Hello, I'm interested in ${productName}. Could you please send me more information? Thank you!`;
-      }
-      const finalUrl = `${baseLink}?text=${encodeURIComponent(message)}`;
-      trackAndRedirect(finalUrl, productName, sku);
+    // 打开浮层（第一步）
+    function openOverlay(source) {
+      pendingSource = source || '';
+      const overlay = document.getElementById('inquiryOverlay');
+      overlay.classList.add('show');
+      document.body.style.overflow = 'hidden';
+      // 重置选择
+      const radios = document.querySelectorAll('input[name="purpose"]');
+      radios.forEach(r => r.checked = false);
+      document.querySelector('input[name="purpose"][value="personal"]').checked = true;
+      document.getElementById('confirmBtn').disabled = false;
     }
 
-    function handleMoreProducts() {
-      const baseLink = getCountrySpecificLink();
-      const message = "Hello, I'm interested in other products not listed. Could you please send me your full product list? Thank you!";
-      const finalUrl = `${baseLink}?text=${encodeURIComponent(message)}`;
-      trackAndRedirect(finalUrl, 'More Products', 'MORE');
+    // 关闭浮层
+    function closeOverlay() {
+      const overlay = document.getElementById('inquiryOverlay');
+      overlay.classList.remove('show');
+      document.body.style.overflow = '';
+      pendingSource = '';
     }
 
-    function trackAndRedirect(finalUrl, productName, sku) {
+    // 确认并跳转（第二步 - 真正触发像素）
+    function confirmAndRedirect() {
+      const overlay = document.getElementById('inquiryOverlay');
+      overlay.classList.remove('show');
+      document.body.style.overflow = '';
+
+      const selected = document.querySelector('input[name="purpose"]:checked');
+      const purpose = selected ? selected.value : 'personal';
+      const purposeMap = {
+        'personal': 'Personal Use',
+        'team': 'Team / Studio',
+        'wholesale': 'Wholesale / Distributor'
+      };
+
+      const finalUrl = getCountrySpecificLink();
+
+      // ✅ 在这里触发像素 - 只有点击"去WhatsApp"才触发
       fbq('track', 'Lead', {
-        content_name: productName || 'Contact',
-        content_id: sku || '',
+        content_name: purposeMap[purpose] || 'Inquiry',
+        content_id: pendingSource || 'website',
         currency: 'EUR'
       });
       if (typeof ttq !== 'undefined') {
         ttq.track('Lead', {
-          content_name: productName || 'Contact',
-          content_id: sku || '',
+          content_name: purposeMap[purpose] || 'Inquiry',
+          content_id: pendingSource || 'website',
           currency: 'EUR'
         });
       }
+
+      // 显示状态
       const statusEl = document.getElementById('eventStatus');
       if (statusEl) {
         statusEl.textContent = '✅ Event sent';
         statusEl.classList.add('show');
         setTimeout(() => statusEl.classList.remove('show'), 1500);
       }
-      setTimeout(() => window.open(finalUrl, '_blank'), 250);
+
+      // 跳转WhatsApp
+      setTimeout(() => window.open(finalUrl, '_blank'), 300);
     }
+
+    // 点击浮层外部关闭
+    document.getElementById('inquiryOverlay').addEventListener('click', function(e) {
+      if (e.target === this) closeOverlay();
+    });
 
     function renderProducts() {
       const container = document.getElementById('productList');
@@ -827,7 +1050,7 @@
     }
 
     // ============================================================
-    // 多语言翻译
+    // 多语言翻译（含浮层文案）
     // ============================================================
     const translations = {
       'en': {
@@ -858,7 +1081,18 @@
         footerText: '© 2026 · Professional Peptide Manufacturer · All rights reserved',
         footerHome: 'Home',
         footerPrivacy: 'Privacy Policy',
-        footerContact: 'Contact'
+        footerContact: 'Contact',
+        // 浮层文案
+        overlayTitle: 'Confirm Your Inquiry',
+        overlaySub: 'Please let us know your needs so we can serve you better.',
+        opt1: '🧑‍⚕️ Personal Use',
+        opt2: '👥 Team / Studio',
+        opt3: '📦 Wholesale / Distributor',
+        benefit1: 'Factory Price',
+        benefit2: 'Free Catalog',
+        benefit3: '30min Reply',
+        confirmBtnText: '📱 Go to WhatsApp',
+        cancelBtn: 'Cancel'
       },
       'pl': {
         navTagline: 'Profesjonalny Producent',
@@ -888,7 +1122,17 @@
         footerText: '© 2026 · Profesjonalny Producent Peptydów · Wszelkie prawa zastrzeżone',
         footerHome: 'Strona główna',
         footerPrivacy: 'Polityka prywatności',
-        footerContact: 'Kontakt'
+        footerContact: 'Kontakt',
+        overlayTitle: 'Potwierdź swoje zapytanie',
+        overlaySub: 'Poinformuj nas o swoich potrzebach, abyśmy mogli lepiej Ci służyć.',
+        opt1: '🧑‍⚕️ Użytek osobisty',
+        opt2: '👥 Zespół / Studio',
+        opt3: '📦 Hurt / Dystrybutor',
+        benefit1: 'Cena fabryczna',
+        benefit2: 'Darmowy katalog',
+        benefit3: 'Odpowiedź 30min',
+        confirmBtnText: '📱 Przejdź do WhatsApp',
+        cancelBtn: 'Anuluj'
       },
       'ro': {
         navTagline: 'Producător Profesionist',
@@ -918,7 +1162,17 @@
         footerText: '© 2026 · Producător Profesionist de Peptide · Toate drepturile rezervate',
         footerHome: 'Acasă',
         footerPrivacy: 'Politica de confidențialitate',
-        footerContact: 'Contact'
+        footerContact: 'Contact',
+        overlayTitle: 'Confirmați cererea dvs.',
+        overlaySub: 'Vă rugăm să ne spuneți nevoile dvs. pentru a vă putea servi mai bine.',
+        opt1: '🧑‍⚕️ Utilizare personală',
+        opt2: '👥 Echipa / Studio',
+        opt3: '📦 Angro / Distribuitor',
+        benefit1: 'Preț de fabrică',
+        benefit2: 'Catalog gratuit',
+        benefit3: 'Răspuns 30min',
+        confirmBtnText: '📱 Mergi la WhatsApp',
+        cancelBtn: 'Anulare'
       },
       'fi': {
         navTagline: 'Ammattimainen Valmistaja',
@@ -948,7 +1202,17 @@
         footerText: '© 2026 · Ammattimainen Peptidivalmistaja · Kaikki oikeudet pidätetään',
         footerHome: 'Kotisivu',
         footerPrivacy: 'Tietosuojakäytäntö',
-        footerContact: 'Yhteystiedot'
+        footerContact: 'Yhteystiedot',
+        overlayTitle: 'Vahvista kyselysi',
+        overlaySub: 'Kerro meille tarpeistasi, jotta voimme palvella sinua paremmin.',
+        opt1: '🧑‍⚕️ Henkilökohtainen käyttö',
+        opt2: '👥 Tiimi / Studio',
+        opt3: '📦 Tukkukauppa / Jakelija',
+        benefit1: 'Tehdashinta',
+        benefit2: 'Ilmainen luettelo',
+        benefit3: 'Vastaus 30min',
+        confirmBtnText: '📱 Siirry WhatsAppiin',
+        cancelBtn: 'Peruuta'
       },
       'nl': {
         navTagline: 'Professionele Fabrikant',
@@ -978,7 +1242,17 @@
         footerText: '© 2026 · Professionele Peptidefabrikant · Alle rechten voorbehouden',
         footerHome: 'Home',
         footerPrivacy: 'Privacybeleid',
-        footerContact: 'Contact'
+        footerContact: 'Contact',
+        overlayTitle: 'Bevestig uw aanvraag',
+        overlaySub: 'Laat ons uw behoeften weten, zodat we u beter van dienst kunnen zijn.',
+        opt1: '🧑‍⚕️ Persoonlijk gebruik',
+        opt2: '👥 Team / Studio',
+        opt3: '📦 Groothandel / Distribiteur',
+        benefit1: 'Fabrieksprijs',
+        benefit2: 'Gratis catalogus',
+        benefit3: 'Antwoord 30min',
+        confirmBtnText: '📱 Ga naar WhatsApp',
+        cancelBtn: 'Annuleren'
       },
       'it': {
         navTagline: 'Produttore Professionale',
@@ -1008,7 +1282,17 @@
         footerText: '© 2026 · Produttore Professionale di Peptidi · Tutti i diritti riservati',
         footerHome: 'Home',
         footerPrivacy: 'Informativa sulla privacy',
-        footerContact: 'Contatti'
+        footerContact: 'Contatti',
+        overlayTitle: 'Conferma la tua richiesta',
+        overlaySub: 'Facci sapere le tue esigenze per poterti servire meglio.',
+        opt1: '🧑‍⚕️ Uso personale',
+        opt2: '👥 Team / Studio',
+        opt3: '📦 Ingrosso / Distributore',
+        benefit1: 'Prezzo di fabbrica',
+        benefit2: 'Catalogo gratuito',
+        benefit3: 'Risposta 30min',
+        confirmBtnText: '📱 Vai su WhatsApp',
+        cancelBtn: 'Annulla'
       },
       'pt': {
         navTagline: 'Fabricante Profissional',
@@ -1038,7 +1322,17 @@
         footerText: '© 2026 · Fabricante Profissional de Peptídeos · Todos os direitos reservados',
         footerHome: 'Início',
         footerPrivacy: 'Política de privacidade',
-        footerContact: 'Contato'
+        footerContact: 'Contato',
+        overlayTitle: 'Confirme sua consulta',
+        overlaySub: 'Informe-nos suas necessidades para melhor atendê-lo.',
+        opt1: '🧑‍⚕️ Uso pessoal',
+        opt2: '👥 Equipe / Estúdio',
+        opt3: '📦 Atacado / Distribuidor',
+        benefit1: 'Preço de fábrica',
+        benefit2: 'Catálogo gratuito',
+        benefit3: 'Resposta 30min',
+        confirmBtnText: '📱 Ir para WhatsApp',
+        cancelBtn: 'Cancelar'
       },
       'de': {
         navTagline: 'Professioneller Hersteller',
@@ -1068,7 +1362,17 @@
         footerText: '© 2026 · Professioneller Peptidhersteller · Alle Rechte vorbehalten',
         footerHome: 'Startseite',
         footerPrivacy: 'Datenschutzerklärung',
-        footerContact: 'Kontakt'
+        footerContact: 'Kontakt',
+        overlayTitle: 'Bestätigen Sie Ihre Anfrage',
+        overlaySub: 'Teilen Sie uns Ihre Bedürfnisse mit, damit wir Sie besser bedienen können.',
+        opt1: '🧑‍⚕️ Persönliche Nutzung',
+        opt2: '👥 Team / Studio',
+        opt3: '📦 Großhandel / Distributor',
+        benefit1: 'Fabrikpreis',
+        benefit2: 'Kostenloser Katalog',
+        benefit3: 'Antwort 30min',
+        confirmBtnText: '📱 Zu WhatsApp gehen',
+        cancelBtn: 'Abbrechen'
       },
       'fr': {
         navTagline: 'Fabricant Professionnel',
@@ -1098,7 +1402,17 @@
         footerText: '© 2026 · Fabricant Professionnel de Peptides · Tous droits réservés',
         footerHome: 'Accueil',
         footerPrivacy: 'Politique de confidentialité',
-        footerContact: 'Contact'
+        footerContact: 'Contact',
+        overlayTitle: 'Confirmez votre demande',
+        overlaySub: 'Faites-nous part de vos besoins pour mieux vous servir.',
+        opt1: '🧑‍⚕️ Usage personnel',
+        opt2: '👥 Équipe / Studio',
+        opt3: '📦 Grossiste / Distributeur',
+        benefit1: 'Prix usine',
+        benefit2: 'Catalogue gratuit',
+        benefit3: 'Réponse 30min',
+        confirmBtnText: '📱 Aller sur WhatsApp',
+        cancelBtn: 'Annuler'
       },
       'es': {
         navTagline: 'Fabricante Profesional',
@@ -1128,7 +1442,17 @@
         footerText: '© 2026 · Fabricante Profesional de Péptidos · Todos los derechos reservados',
         footerHome: 'Inicio',
         footerPrivacy: 'Política de privacidad',
-        footerContact: 'Contacto'
+        footerContact: 'Contacto',
+        overlayTitle: 'Confirma tu consulta',
+        overlaySub: 'Cuéntanos tus necesidades para poder servirte mejor.',
+        opt1: '🧑‍⚕️ Uso personal',
+        opt2: '👥 Equipo / Estudio',
+        opt3: '📦 Mayorista / Distribuidor',
+        benefit1: 'Precio de fábrica',
+        benefit2: 'Catálogo gratuito',
+        benefit3: 'Respuesta 30min',
+        confirmBtnText: '📱 Ir a WhatsApp',
+        cancelBtn: 'Cancelar'
       },
       'hu': {
         navTagline: 'Professzionális Gyártó',
@@ -1158,7 +1482,17 @@
         footerText: '© 2026 · Professzionális Peptidgyártó · Minden jog fenntartva',
         footerHome: 'Kezdőlap',
         footerPrivacy: 'Adatvédelmi irányelvek',
-        footerContact: 'Kapcsolat'
+        footerContact: 'Kapcsolat',
+        overlayTitle: 'Erősítse meg érdeklődését',
+        overlaySub: 'Tudassa velünk igényeit, hogy jobban segíthessünk.',
+        opt1: '🧑‍⚕️ Személyes használatra',
+        opt2: '👥 Csapat / Stúdió',
+        opt3: '📦 Nagykereskedelem / Forgalmazó',
+        benefit1: 'Gyári ár',
+        benefit2: 'Ingyenes katalógus',
+        benefit3: 'Válasz 30perc',
+        confirmBtnText: '📱 Ugrás a WhatsApp-ra',
+        cancelBtn: 'Mégse'
       }
     };
 
@@ -1192,6 +1526,17 @@
       document.getElementById('footerHome').textContent = t.footerHome;
       document.getElementById('footerPrivacy').textContent = t.footerPrivacy;
       document.getElementById('footerContact').textContent = t.footerContact;
+      // 浮层文案
+      document.getElementById('overlayTitle').textContent = t.overlayTitle;
+      document.getElementById('overlaySub').textContent = t.overlaySub;
+      document.getElementById('opt1').textContent = t.opt1;
+      document.getElementById('opt2').textContent = t.opt2;
+      document.getElementById('opt3').textContent = t.opt3;
+      document.getElementById('benefit1').textContent = t.benefit1;
+      document.getElementById('benefit2').textContent = t.benefit2;
+      document.getElementById('benefit3').textContent = t.benefit3;
+      document.getElementById('confirmBtnText').textContent = t.confirmBtnText;
+      document.getElementById('cancelBtn').textContent = t.cancelBtn;
     }
 
     // ============================================================
