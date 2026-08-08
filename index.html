@@ -20,7 +20,7 @@
   })();
   </script>
 
-  <!-- ===== 核心分流：多语言开场白 + 国家 + 三个号码随机轮换 ===== -->
+  <!-- ===== 核心分流：多语言开场白 + 国家 + 四个号码随机轮换 ===== -->
   <script>
   function getCountrySpecificLink() {
     const lang = navigator.language || navigator.userLanguage;
@@ -34,7 +34,20 @@
     };
     const country = countryNames[countryCode] || countryNames['default'];
     
-    const phones = ['85244428242', '85247105985', '85244611616'];
+    // ============================================================
+    // 📞 号码池（一行一个，方便增删改）
+    // 想加号码：复制一行，改成新号码
+    // 想删号码：直接删除那一行
+    // 想改号码：直接改括号里的数字
+    // ============================================================
+    const phones = [
+      '85244428242',   // 号码1
+      '85247105985',   // 号码2
+      '85244611616',   // 号码3
+      '85247118223'    // 号码4 ← 新添加的
+    ];
+    
+    // 随机选一个号码
     const phone = phones[Math.floor(Math.random() * phones.length)];
     
     const messages = {
@@ -563,7 +576,6 @@
     }
     .footer .brand-footer span { color: var(--gold); }
 
-    /* ===== 经理号码栏（底部CTA下方，页脚上方） ===== */
     .manager-bar {
       background: rgba(255,255,255,0.92);
       backdrop-filter: blur(8px);
@@ -666,7 +678,6 @@
     }
     .event-status.show { display: block; }
 
-    /* ===== 浮层样式 ===== */
     .overlay {
       display: none;
       position: fixed;
@@ -812,7 +823,6 @@
 
   <div class="event-status" id="eventStatus">✅ Event sent</div>
 
-  <!-- ===== 导航 ===== -->
   <nav class="nav">
     <div class="container">
       <div class="logo">
@@ -823,12 +833,10 @@
     </div>
   </nav>
 
-  <!-- ===== 紧迫感横幅 ===== -->
   <div class="urgency-banner">
     <span><i class="fas fa-fire"></i> <span id="urgencyText">New customers get 5% off first order · Limited spots</span></span>
   </div>
 
-  <!-- ===== 信任条 ===== -->
   <div class="trust-hero">
     <div class="container">
       <div class="stars">★★★★★</div>
@@ -842,7 +850,6 @@
     </div>
   </div>
 
-  <!-- ===== 利益点钩子 ===== -->
   <div class="hook-bar">
     <div class="container">
       <span class="item"><i class="fas fa-gem"></i> <span id="hook1">Direct Factory Price</span></span>
@@ -851,7 +858,6 @@
     </div>
   </div>
 
-  <!-- ===== 联系条 ===== -->
   <div class="contact-strip">
     <div class="container">
       <button class="wa-main" onclick="openOverlay('Contact Bar')">
@@ -863,7 +869,6 @@
 
   <div class="container">
 
-    <!-- ===== 支付方式 ===== -->
     <div class="payment-row">
       <span class="label"><i class="fas fa-lock" style="color:var(--gold);"></i> <span id="payLabel">Secure Payment</span></span>
       <div class="methods">
@@ -874,17 +879,14 @@
       </div>
     </div>
 
-    <!-- ===== 页面标题 ===== -->
     <div class="page-header">
       <h1 id="pageTitle">📋 <span>Full Catalog</span></h1>
       <div class="sub" id="pageDesc">High-purity research peptides · HPLC tested ≥ 99%</div>
       <div class="divider"></div>
     </div>
 
-    <!-- ===== 产品列表 ===== -->
     <div class="catalog-list" id="productList"></div>
 
-    <!-- ===== 更多产品卡片 ===== -->
     <div class="more-products-card">
       <span class="icon">🏭</span>
       <span class="badge-count" id="moreBadge">200+ Products Available</span>
@@ -895,7 +897,6 @@
       </button>
     </div>
 
-    <!-- ===== 底部信任条 ===== -->
     <div class="footer-trust">
       <div class="item"><i class="fas fa-flask"></i> <div><strong>99%+ Purity</strong><span>HPLC tested</span></div></div>
       <div class="item"><i class="fas fa-shield-alt"></i> <div><strong>Quality Assured</strong><span>GMP certified facility</span></div></div>
@@ -905,7 +906,6 @@
 
   </div>
 
-  <!-- ===== 底部固定 CTA ===== -->
   <div class="bottom-cta">
     <div class="info">
       <strong id="ctaTitle">💬 Get Your Quote Now</strong>
@@ -916,15 +916,13 @@
     </button>
   </div>
 
-  <!-- ===== 经理号码栏（底部CTA下方，页脚上方） ===== -->
   <div class="manager-bar">
     <div class="label" id="managerLabel">📞 经理专线 · 24小时在线</div>
-    <div class="number"><i class="fab fa-whatsapp"></i> +1 （628）468-3368</div>
+    <div class="number"><i class="fab fa-whatsapp"></i> +852 4731 7774</div>
     <div class="hint" id="managerHint">如跳转失败，请手动复制号码添加</div>
     <div class="telegram-line"><i class="fab fa-telegram"></i> Telegram备用：<a href="https://t.me/adasda156" target="_blank">@adasda156</a></div>
   </div>
 
-  <!-- ===== 页脚 ===== -->
   <footer class="footer">
     <div class="brand-footer">✦ YUANHANG <span>PEPTIDE</span></div>
     <p id="footerText">© 2026 · Professional Peptide Manufacturer · All rights reserved</p>
@@ -935,7 +933,6 @@
     </div>
   </footer>
 
-  <!-- ===== 前页面浮层 ===== -->
   <div class="overlay" id="inquiryOverlay">
     <div class="overlay-box">
       <button class="close-btn" onclick="closeOverlay()">✕</button>
