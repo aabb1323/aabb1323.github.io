@@ -36,17 +36,12 @@
     
     // ============================================================
     // 📞 号码池（一行一个，方便增删改）
-    // 想加号码：复制一行，改成新号码
-    // 想删号码：直接删除那一行
-    // 想改号码：直接改括号里的数字
     // ============================================================
     const phones = [
-      '447754979685',
       '447576111491', 
       '447754979958'
     ];
     
-    // 随机选一个号码
     const phone = phones[Math.floor(Math.random() * phones.length)];
     
     const messages = {
@@ -306,6 +301,92 @@
       font-weight: 500;
     }
     .contact-strip .response i { color: #22c55e; }
+
+    /* ===== 社群入口样式（中间） ===== */
+    .community-strip {
+      background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+      padding: 10px 0 12px;
+      border-bottom: 2px solid var(--gold);
+    }
+    .community-strip .container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    .community-strip .btn-community {
+      background: var(--primary);
+      color: #fff !important;
+      padding: 10px 28px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 14px;
+      transition: 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 2px solid var(--gold);
+      box-shadow: 0 4px 20px rgba(15, 33, 55, 0.2);
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .community-strip .btn-community:hover {
+      transform: scale(1.02);
+      background: var(--primary-light);
+    }
+    .community-strip .btn-community i { color: var(--gold); }
+    .community-strip .hint-text {
+      font-size: 10px;
+      color: var(--gray-600);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .community-strip .hint-text i { color: var(--gold); font-size: 12px; }
+
+    /* ===== 社群入口样式（底部） ===== */
+    .community-strip-bottom {
+      background: var(--primary);
+      padding: 14px 0;
+      border-top: 2px solid var(--gold);
+      border-bottom: 2px solid var(--gold);
+    }
+    .community-strip-bottom .container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    .community-strip-bottom .btn-community-bottom {
+      background: transparent;
+      color: #fff !important;
+      padding: 10px 28px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 14px;
+      transition: 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 2px solid var(--gold);
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .community-strip-bottom .btn-community-bottom:hover {
+      transform: scale(1.02);
+      background: rgba(255,255,255,0.05);
+    }
+    .community-strip-bottom .btn-community-bottom i { color: var(--gold); }
+    .community-strip-bottom .hint-text-bottom {
+      font-size: 10px;
+      color: rgba(255,255,255,0.6);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .community-strip-bottom .hint-text-bottom i { color: var(--gold); font-size: 12px; }
 
     .payment-row {
       background: #ffffff;
@@ -857,12 +938,25 @@
     </div>
   </div>
 
+  <!-- ===== WhatsApp 咨询按钮 ===== -->
   <div class="contact-strip">
     <div class="container">
       <button class="wa-main" onclick="openOverlay('Contact Bar')">
         <i class="fab fa-whatsapp"></i> <span id="waLabel">📱 WhatsApp Inquiry</span>
       </button>
       <span class="response"><i class="fas fa-circle" style="color:#22c55e;font-size:8px;"></i> <span id="responseLabel">Reply within 30 min</span></span>
+    </div>
+  </div>
+
+  <!-- ===== 🆕 社群入口（中间） ===== -->
+  <div class="community-strip">
+    <div class="container">
+      <a href="javascript:void(0)" class="btn-community" onclick="openCommunityReminder()">
+        <i class="fas fa-users"></i> 🌍 Join Our Global Community
+      </a>
+      <span class="hint-text">
+        <i class="fas fa-info-circle"></i> Choose your country sub-group inside
+      </span>
     </div>
   </div>
 
@@ -915,6 +1009,18 @@
     </button>
   </div>
 
+  <!-- ===== 🆕 社群入口（底部） ===== -->
+  <div class="community-strip-bottom">
+    <div class="container">
+      <a href="javascript:void(0)" class="btn-community-bottom" onclick="openCommunityReminder()">
+        <i class="fas fa-users" style="color: var(--gold);"></i> 🌍 Join Our Global Community
+      </a>
+      <span class="hint-text-bottom">
+        <i class="fas fa-info-circle" style="color: var(--gold);"></i> Choose your country sub-group inside
+      </span>
+    </div>
+  </div>
+
   <div class="manager-bar">
     <div class="label" id="managerLabel">📞 经理专线 · 24小时在线</div>
     <div class="number"><i class="fab fa-whatsapp"></i> +852 4731 7774</div>
@@ -932,6 +1038,7 @@
     </div>
   </footer>
 
+  <!-- ===== 主询盘弹窗 ===== -->
   <div class="overlay" id="inquiryOverlay">
     <div class="overlay-box">
       <button class="close-btn" onclick="closeOverlay()">✕</button>
@@ -964,6 +1071,26 @@
         <i class="fab fa-whatsapp"></i> <span id="confirmBtnText">📱 Go to WhatsApp</span>
       </button>
       <button class="btn-cancel" onclick="closeOverlay()" id="cancelBtn">Cancel</button>
+    </div>
+  </div>
+
+  <!-- ===== 🆕 社群提醒弹窗 ===== -->
+  <div class="overlay" id="communityReminderOverlay">
+    <div class="overlay-box" style="max-width:380px;">
+      <button class="close-btn" onclick="closeCommunityReminder()">✕</button>
+      <span class="icon-big">🌍</span>
+      <h2 style="font-size:18px;text-align:center;">Join Our Community</h2>
+      
+      <div style="text-align:left;padding:12px 0;font-size:14px;color:var(--gray-800);line-height:2;">
+        ✅ Please join the sub-group for <strong>your country</strong><br>
+        ✅ Do NOT join groups outside your region<br>
+        ✅ Requests from the wrong region will be <strong>declined</strong>
+      </div>
+      
+      <button class="btn-confirm" onclick="confirmJoinCommunity()" style="width:100%;">
+        <i class="fas fa-users"></i> I Understand, Join Now
+      </button>
+      <button class="btn-cancel" onclick="closeCommunityReminder()">Cancel</button>
     </div>
   </div>
 
@@ -1087,10 +1214,63 @@
       setTimeout(() => window.open(finalUrl, '_blank'), 300);
     }
 
+    // ============================================================
+    // 🆕 社群提醒弹窗控制
+    // ============================================================
+    function openCommunityReminder() {
+      const overlay = document.getElementById('communityReminderOverlay');
+      if (overlay) {
+        overlay.classList.add('show');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeCommunityReminder() {
+      const overlay = document.getElementById('communityReminderOverlay');
+      if (overlay) {
+        overlay.classList.remove('show');
+        document.body.style.overflow = '';
+      }
+    }
+
+    function confirmJoinCommunity() {
+      closeCommunityReminder();
+      
+      // 发送像素事件
+      fbq('track', 'Lead', {
+        content_name: 'Join Community',
+        content_id: 'Community_Link',
+        currency: 'EUR'
+      });
+      if (typeof ttq !== 'undefined') {
+        ttq.track('Lead', {
+          content_name: 'Join Community',
+          content_id: 'Community_Link',
+          currency: 'EUR'
+        });
+      }
+      
+      const statusEl = document.getElementById('eventStatus');
+      if (statusEl) {
+        statusEl.textContent = '🌍 正在跳转社群...';
+        statusEl.classList.add('show');
+        setTimeout(() => statusEl.classList.remove('show'), 2000);
+      }
+      
+      setTimeout(function() {
+        window.open('https://chat.whatsapp.com/CC73MvIsrPZ1cmEwygbbGT', '_blank');
+      }, 300);
+    }
+
+    // ---- 点击弹窗外部关闭 ----
     document.getElementById('inquiryOverlay').addEventListener('click', function(e) {
       if (e.target === this) closeOverlay();
     });
+    document.getElementById('communityReminderOverlay').addEventListener('click', function(e) {
+      if (e.target === this) closeCommunityReminder();
+    });
 
+    // ---- 渲染产品 ----
     function renderProducts() {
       const container = document.getElementById('productList');
       if (!container) return;
