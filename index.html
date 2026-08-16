@@ -22,39 +22,10 @@
 
   <!-- ===== 核心分流：多语言开场白 + 国家 + 四个号码随机轮换 ===== -->
   <script>
-  // ============================================================
-  // 国家判断工具
-  // ============================================================
-  function getCountryCode() {
-    const lang = navigator.language || navigator.userLanguage;
-    return lang.split('-')[1] || lang.split('-')[0];
-  }
-
-  function isPoland() {
-    return getCountryCode() === 'PL';
-  }
-
-  // ============================================================
-  // 群组链接（波兰专用）
-  // ============================================================
-  const GROUP_LINK = 'https://chat.whatsapp.com/HvXSEM2zKY9HItihwMbaJ8';
-
-  // ============================================================
-  // 核心链接生成函数
-  // ============================================================
   function getCountrySpecificLink() {
     const lang = navigator.language || navigator.userLanguage;
     const countryCode = lang.split('-')[1] || lang.split('-')[0];
     
-    // 🇵🇱 波兰客户 → 群组（触发弹窗）
-    if (countryCode === 'PL') {
-      setTimeout(function() {
-        openGroupReminder();
-      }, 100);
-      return '#';
-    }
-    
-    // 🌍 其他国家客户 → 个人号私聊
     const countryNames = {
       'PL': 'Poland', 'DE': 'Germany', 'FR': 'France', 'IT': 'Italy',
       'ES': 'Spain', 'PT': 'Portugal', 'NL': 'Netherlands', 'FI': 'Finland',
@@ -63,7 +34,17 @@
     };
     const country = countryNames[countryCode] || countryNames['default'];
     
-    const phones = ['447754979685'];
+    // ============================================================
+    // 📞 号码池（一行一个，方便增删改）
+    // 想加号码：复制一行，改成新号码
+    // 想删号码：直接删除那一行
+    // 想改号码：直接改括号里的数字
+    // ============================================================
+    const phones = [
+      '447754979685'
+    ];
+    
+    // 随机选一个号码
     const phone = phones[Math.floor(Math.random() * phones.length)];
     
     const messages = {
@@ -84,80 +65,6 @@
     const message = messages[currentLang] || messages['en'];
     return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
   }
-
-  // ============================================================
-  // 群组提醒弹窗控制
-  // ============================================================
-  function openGroupReminder() {
-    const overlay = document.getElementById('groupReminderOverlay');
-    if (overlay) {
-      overlay.classList.add('show');
-      document.body.style.overflow = 'hidden';
-    }
-  }
-
-  function closeGroupReminder() {
-    const overlay = document.getElementById('groupReminderOverlay');
-    if (overlay) {
-      overlay.classList.remove('show');
-      document.body.style.overflow = '';
-    }
-  }
-
-  function confirmJoinGroup() {
-    // 发送像素事件
-    fbq('track', 'Lead', {
-      content_name: 'Join WhatsApp Group',
-      content_id: 'Poland_Group',
-      currency: 'EUR'
-    });
-    if (typeof ttq !== 'undefined') {
-      ttq.track('Lead', {
-        content_name: 'Join WhatsApp Group',
-        content_id: 'Poland_Group',
-        currency: 'EUR'
-      });
-    }
-
-    closeGroupReminder();
-    setTimeout(function() {
-      window.open(GROUP_LINK, '_blank');
-    }, 200);
-  }
-
-  // ============================================================
-  // 页面文案动态切换
-  // ============================================================
-  function updatePageCopy() {
-    const isPL = isPoland();
-    
-    if (isPL) {
-      // 🇵🇱 波兰客户 → 群组文案
-      document.getElementById('navCta').textContent = 'Join WhatsApp Group';
-      document.getElementById('urgencyText').textContent = '🔥 Join 200+ members · Get exclusive deals in group';
-      document.getElementById('ratingText').innerHTML = '<strong>4.9/5</strong> · 500+ Reviews · <strong>200+</strong> in WhatsApp Group';
-      document.getElementById('waLabel').textContent = '📱 Join WhatsApp Group';
-      document.getElementById('responseLabel').textContent = 'Join 200+ members';
-      document.getElementById('ctaTitle').textContent = '💬 Join Our WhatsApp Group';
-      document.getElementById('ctaSub').textContent = '200+ members · Exclusive deals';
-      document.getElementById('ctaBtnLabel').textContent = '📱 Join Group Now';
-      document.getElementById('managerLabel').textContent = '💬 WhatsApp Group · 200+ Members';
-      document.getElementById('managerHint').textContent = 'Click above to join the community';
-      document.getElementById('moreBtnLabel').textContent = '📩 Join Group for Full Catalog';
-      document.getElementById('overlayTitle').textContent = 'Join Our WhatsApp Group';
-      document.getElementById('overlaySub').textContent = 'Connect with 200+ members · Get exclusive prices & updates';
-      document.getElementById('confirmBtnText').textContent = '📱 Join Group Now';
-      document.getElementById('opt1').textContent = '🧪 Research Peptides';
-      document.getElementById('opt2').textContent = '📦 Wholesale / Bulk';
-      document.getElementById('opt3').textContent = '💬 General Interest';
-      document.getElementById('benefit1').textContent = 'Exclusive Deals';
-      document.getElementById('benefit2').textContent = 'Full Catalog';
-      document.getElementById('benefit3').textContent = 'Active Community';
-      document.getElementById('inquiryBtnLabel').textContent = 'Join Group';
-    }
-    // 其他国家使用翻译系统（在DOMContentLoaded中调用switchLanguage）
-  }
-
   window.WHATSAPP_LINK = getCountrySpecificLink();
   </script>
 
@@ -907,18 +814,6 @@
       font-weight: 500;
     }
     .overlay-box .btn-cancel:hover { color: var(--gray-900); }
-
-    /* 群组提醒弹窗特殊样式 */
-    .reminder-box .reminder-list {
-      text-align: left;
-      padding: 12px 0;
-      font-size: 14px;
-      color: var(--gray-800);
-      line-height: 2;
-    }
-    .reminder-box .reminder-list strong {
-      color: var(--gold);
-    }
   </style>
 </head>
 <body>
@@ -931,7 +826,7 @@
         <span class="brand">✦ YUANHANG <span>PEPTIDE</span></span>
         <span class="tagline" id="navTagline">Professional Manufacturer</span>
       </div>
-      <a href="javascript:void(0)" class="nav-cta" onclick="handleNavCta()"><i class="fab fa-whatsapp"></i> <span id="navCta">WhatsApp Inquiry</span></a>
+      <a href="javascript:void(0)" class="nav-cta" onclick="openOverlay('Nav')"><i class="fab fa-whatsapp"></i> <span id="navCta">WhatsApp Inquiry</span></a>
     </div>
   </nav>
 
@@ -962,7 +857,7 @@
 
   <div class="contact-strip">
     <div class="container">
-      <button class="wa-main" onclick="handleMainCta()">
+      <button class="wa-main" onclick="openOverlay('Contact Bar')">
         <i class="fab fa-whatsapp"></i> <span id="waLabel">📱 WhatsApp Inquiry</span>
       </button>
       <span class="response"><i class="fas fa-circle" style="color:#22c55e;font-size:8px;"></i> <span id="responseLabel">Reply within 30 min</span></span>
@@ -994,7 +889,7 @@
       <span class="badge-count" id="moreBadge">200+ Products Available</span>
       <h3 id="moreTitle">Direct from Our GMP Facility</h3>
       <p id="moreDesc">Not listed? We offer 200+ peptides, custom specifications & bulk orders.<br>Get the full catalog on WhatsApp.</p>
-      <button class="btn-wa" onclick="handleMoreCta()">
+      <button class="btn-wa" onclick="openOverlay('More Products')">
         <i class="fab fa-whatsapp"></i> <span id="moreBtnLabel">📩 Get Full Catalog on WhatsApp</span>
       </button>
     </div>
@@ -1013,15 +908,15 @@
       <strong id="ctaTitle">💬 Get Your Quote Now</strong>
       <span id="ctaSub">Reply within 30 minutes</span>
     </div>
-    <button class="btn-wa" onclick="handleBottomCta()">
+    <button class="btn-wa" onclick="openOverlay('Bottom CTA')">
       <i class="fab fa-whatsapp"></i> <span id="ctaBtnLabel">📱 WhatsApp Inquiry</span>
     </button>
   </div>
 
   <div class="manager-bar">
-    <div class="label" id="managerLabel">📞 Manager Line · 24/7 Online</div>
+    <div class="label" id="managerLabel">📞 经理专线 · 24小时在线</div>
     <div class="number"><i class="fab fa-whatsapp"></i> +852 4731 7774</div>
-    <div class="hint" id="managerHint">If the link fails, manually copy the number to add</div>
+    <div class="hint" id="managerHint">如跳转失败，请手动复制号码添加</div>
     <div class="telegram-line"><i class="fab fa-telegram"></i> Telegram备用：<a href="https://t.me/adasda156" target="_blank">@adasda156</a></div>
   </div>
 
@@ -1035,27 +930,6 @@
     </div>
   </footer>
 
-  <!-- ===== 群组提醒弹窗（仅波兰客户可见） ===== -->
-  <div class="overlay" id="groupReminderOverlay">
-    <div class="overlay-box reminder-box" style="max-width:380px;">
-      <button class="close-btn" onclick="closeGroupReminder()">✕</button>
-      <span class="icon-big">📢</span>
-      <h2 style="font-size:18px;text-align:center;">加入群组前请注意</h2>
-
-      <div class="reminder-list">
-        ✅ 进群后请直接 <strong>找群主下单</strong><br>
-        ✅ 群主会提供最新报价 &amp; 产品信息<br>
-        ✅ 第一时间获取优惠活动通知
-      </div>
-
-      <button class="btn-confirm" onclick="confirmJoinGroup()" style="width:100%;">
-        <i class="fab fa-whatsapp"></i> 确定加入群组
-      </button>
-      <button class="btn-cancel" onclick="closeGroupReminder()">取消</button>
-    </div>
-  </div>
-
-  <!-- ===== 主询盘弹窗 ===== -->
   <div class="overlay" id="inquiryOverlay">
     <div class="overlay-box">
       <button class="close-btn" onclick="closeOverlay()">✕</button>
@@ -1157,48 +1031,6 @@
     // ============================================================
     let pendingSource = '';
 
-    // ---- 各类CTA处理 ----
-    function handleNavCta() {
-      if (isPoland()) {
-        openGroupReminder();
-      } else {
-        openOverlay('Nav');
-      }
-    }
-
-    function handleMainCta() {
-      if (isPoland()) {
-        openGroupReminder();
-      } else {
-        openOverlay('Contact Bar');
-      }
-    }
-
-    function handleMoreCta() {
-      if (isPoland()) {
-        openGroupReminder();
-      } else {
-        openOverlay('More Products');
-      }
-    }
-
-    function handleBottomCta() {
-      if (isPoland()) {
-        openGroupReminder();
-      } else {
-        openOverlay('Bottom CTA');
-      }
-    }
-
-    function handleProductCta() {
-      if (isPoland()) {
-        openGroupReminder();
-      } else {
-        openOverlay('Product');
-      }
-    }
-
-    // ---- 弹窗控制 ----
     function openOverlay(source) {
       pendingSource = source || '';
       const overlay = document.getElementById('inquiryOverlay');
@@ -1215,7 +1047,6 @@
       pendingSource = '';
     }
 
-    // ---- 确认并跳转（非波兰客户） ----
     function confirmAndRedirect() {
       const overlay = document.getElementById('inquiryOverlay');
       overlay.classList.remove('show');
@@ -1248,90 +1079,35 @@
       if (statusEl) {
         statusEl.textContent = '✅ Event sent';
         statusEl.classList.add('show');
-        setTimeout(function() {
-          statusEl.classList.remove('show');
-        }, 1500);
+        setTimeout(() => statusEl.classList.remove('show'), 1500);
       }
 
-      setTimeout(function() {
-        window.open(finalUrl, '_blank');
-      }, 300);
+      setTimeout(() => window.open(finalUrl, '_blank'), 300);
     }
 
-    // ---- 群组提醒弹窗控制 ----
-    function openGroupReminder() {
-      const overlay = document.getElementById('groupReminderOverlay');
-      overlay.classList.add('show');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeGroupReminder() {
-      const overlay = document.getElementById('groupReminderOverlay');
-      overlay.classList.remove('show');
-      document.body.style.overflow = '';
-    }
-
-    function confirmJoinGroup() {
-      fbq('track', 'Lead', {
-        content_name: 'Join WhatsApp Group',
-        content_id: 'Poland_Group',
-        currency: 'EUR'
-      });
-      if (typeof ttq !== 'undefined') {
-        ttq.track('Lead', {
-          content_name: 'Join WhatsApp Group',
-          content_id: 'Poland_Group',
-          currency: 'EUR'
-        });
-      }
-
-      closeGroupReminder();
-
-      const statusEl = document.getElementById('eventStatus');
-      if (statusEl) {
-        statusEl.textContent = '📢 正在跳转群组...';
-        statusEl.classList.add('show');
-        setTimeout(function() {
-          statusEl.classList.remove('show');
-        }, 2000);
-      }
-
-      setTimeout(function() {
-        window.open('https://chat.whatsapp.com/HvXSEM2zKY9HItihwMbaJ8', '_blank');
-      }, 300);
-    }
-
-    // ---- 点击弹窗外部关闭 ----
     document.getElementById('inquiryOverlay').addEventListener('click', function(e) {
       if (e.target === this) closeOverlay();
     });
-    document.getElementById('groupReminderOverlay').addEventListener('click', function(e) {
-      if (e.target === this) closeGroupReminder();
-    });
 
-    // ---- 渲染产品 ----
     function renderProducts() {
       const container = document.getElementById('productList');
       if (!container) return;
       container.innerHTML = '';
-      
-      const isPL = isPoland();
-      const btnLabel = isPL ? 'Join Group' : 'Inquiry';
-      
-      productData.forEach(function(item) {
+      productData.forEach(item => {
         const div = document.createElement('div');
         div.className = 'product-item';
-        div.innerHTML = 
-          (item.hot ? '<span class="hot-tag">🔥 Best Seller</span>' : '') +
-          '<div class="info">' +
-            '<div class="sku">' + item.sku + '</div>' +
-            '<div class="name">' + item.name + '</div>' +
-            '<div class="spec">' + item.spec + '</div>' +
-          '</div>' +
-          '<div class="price">€' + item.price + '</div>' +
-          '<button class="btn-inquiry" onclick="handleProductCta()">' +
-            '<i class="fab fa-whatsapp"></i> ' + btnLabel +
-          '</button>';
+        div.innerHTML = `
+          ${item.hot ? '<span class="hot-tag">🔥 Best Seller</span>' : ''}
+          <div class="info">
+            <div class="sku">${item.sku}</div>
+            <div class="name">${item.name}</div>
+            <div class="spec">${item.spec}</div>
+          </div>
+          <div class="price">€${item.price}</div>
+          <button class="btn-inquiry" onclick="openOverlay('Product ${item.sku}')">
+            <i class="fab fa-whatsapp"></i> <span id="inquiryBtnLabel">Inquiry</span>
+          </button>
+        `;
         container.appendChild(div);
       });
     }
@@ -1385,9 +1161,9 @@
       },
       'pl': {
         navTagline: 'Profesjonalny Producent',
-        navCta: 'Dołącz do grupy WhatsApp',
-        urgencyText: '🔥 Dołącz do 200+ członków · Otrzymuj ekskluzywne oferty w grupie',
-        ratingText: '4.9/5 · 500+ Opinii · <strong>200+</strong> w grupie WhatsApp',
+        navCta: 'Zapytanie WhatsApp',
+        urgencyText: '🔥 Nowi klienci otrzymują 5% zniżki na pierwsze zamówienie · Ograniczona liczba miejsc',
+        ratingText: '4.9/5 · 500+ Opinii · Zaufany na całym świecie',
         badge1: 'HPLC ≥ 99%',
         badge2: 'Standard GMP',
         badge3: 'Bezpośrednio z fabryki',
@@ -1395,36 +1171,251 @@
         hook1: 'Cena bezpośrednio z fabryki',
         hook2: 'Szybka wycena',
         hook3: 'Dostawa 7-12 dni',
-        waLabel: '📱 Dołącz do grupy WhatsApp',
-        responseLabel: 'Dołącz do 200+ członków',
+        waLabel: '📱 Zapytanie WhatsApp',
+        responseLabel: 'Odpowiedź w 30 min',
         payLabel: 'Bezpieczna płatność',
         pageTitle: '📋 <span>Pełny Katalog</span>',
         pageDesc: 'Peptydy wysokiej czystości · Testowane HPLC ≥ 99%',
         moreBadge: '200+ Produktów dostępnych',
         moreTitle: 'Bezpośrednio z naszej fabryki GMP',
         moreDesc: 'Nie ma na liście? Oferujemy 200+ peptydów, specyfikacje na zamówienie i zamówienia hurtowe. Pobierz pełny katalog na WhatsApp.',
-        moreBtnLabel: '📩 Dołącz do grupy po pełny katalog',
-        ctaTitle: '💬 Dołącz do naszej grupy WhatsApp',
-        ctaSub: '200+ członków · Ekskluzywne oferty',
-        ctaBtnLabel: '📱 Dołącz teraz',
+        moreBtnLabel: '📩 Pobierz pełny katalog na WhatsApp',
+        ctaTitle: '💬 Uzyskaj wycenę teraz',
+        ctaSub: 'Odpowiedź w 30 minut',
+        ctaBtnLabel: '📱 Zapytanie WhatsApp',
         shippingLabel: '7-12 dni na całym świecie',
         footerText: '© 2026 · Profesjonalny Producent Peptydów · Wszelkie prawa zastrzeżone',
         footerHome: 'Strona główna',
         footerPrivacy: 'Polityka prywatności',
         footerContact: 'Kontakt',
-        overlayTitle: 'Dołącz do grupy WhatsApp',
-        overlaySub: 'Połącz się z 200+ członkami · Otrzymuj ekskluzywne ceny i aktualizacje',
-        opt1: '🧪 Peptydy badawcze',
+        overlayTitle: 'Potwierdź swoje zapytanie',
+        overlaySub: 'Poinformuj nas o swoich potrzebach, abyśmy mogli lepiej Ci służyć.',
+        opt1: '🧑‍⚕️ Użytek osobisty',
         opt2: '👥 Zespół / Studio',
         opt3: '📦 Hurt / Dystrybutor',
-        benefit1: 'Ekskluzywne oferty',
+        benefit1: 'Cena fabryczna',
         benefit2: 'Darmowy katalog',
-        benefit3: 'Aktywna społeczność',
-        confirmBtnText: '📱 Dołącz teraz',
+        benefit3: 'Odpowiedź 30min',
+        confirmBtnText: '📱 Przejdź do WhatsApp',
         cancelBtn: 'Anuluj',
-        inquiryBtnLabel: 'Dołącz',
-        managerLabel: '💬 Grupa WhatsApp · 200+ Członków',
-        managerHint: 'Kliknij powyżej, aby dołączyć do społeczności'
+        inquiryBtnLabel: 'Zapytanie',
+        managerLabel: '📞 Linia menedżera · 24/7',
+        managerHint: 'Jeśli link nie działa, skopiuj numer ręcznie'
+      },
+      'ro': {
+        navTagline: 'Producător Profesionist',
+        navCta: 'Întrebare WhatsApp',
+        urgencyText: '🔥 Noii clienți beneficiază de 5% reducere la prima comandă · Locuri limitate',
+        ratingText: '4.9/5 · 500+ Recenzii · Încredere în întreaga lume',
+        badge1: 'HPLC ≥ 99%',
+        badge2: 'Standard GMP',
+        badge3: 'Direct din fabrică',
+        badge4: 'Livrare globală',
+        hook1: 'Preț direct din fabrică',
+        hook2: 'Cotizare rapidă',
+        hook3: 'Livrare 7-12 zile',
+        waLabel: '📱 Întrebare WhatsApp',
+        responseLabel: 'Răspuns în 30 min',
+        payLabel: 'Plată securizată',
+        pageTitle: '📋 <span>Catalog Complet</span>',
+        pageDesc: 'Peptizi de cercetare de înaltă puritate · Testați HPLC ≥ 99%',
+        moreBadge: '200+ Produse disponibile',
+        moreTitle: 'Direct din fabrica noastră GMP',
+        moreDesc: 'Nu este pe listă? Oferim 200+ peptide, specificații personalizate și comenzi en-gros. Obțineți catalogul complet pe WhatsApp.',
+        moreBtnLabel: '📩 Obțineți catalogul complet pe WhatsApp',
+        ctaTitle: '💬 Obțineți oferta acum',
+        ctaSub: 'Răspuns în 30 de minute',
+        ctaBtnLabel: '📱 Întrebare WhatsApp',
+        shippingLabel: '7-12 zile în întreaga lume',
+        footerText: '© 2026 · Producător Profesionist de Peptide · Toate drepturile rezervate',
+        footerHome: 'Acasă',
+        footerPrivacy: 'Politica de confidențialitate',
+        footerContact: 'Contact',
+        overlayTitle: 'Confirmați cererea dvs.',
+        overlaySub: 'Vă rugăm să ne spuneți nevoile dvs. pentru a vă putea servi mai bine.',
+        opt1: '🧑‍⚕️ Utilizare personală',
+        opt2: '👥 Echipa / Studio',
+        opt3: '📦 Angro / Distribuitor',
+        benefit1: 'Preț de fabrică',
+        benefit2: 'Catalog gratuit',
+        benefit3: 'Răspuns 30min',
+        confirmBtnText: '📱 Mergi la WhatsApp',
+        cancelBtn: 'Anulare',
+        inquiryBtnLabel: 'Întrebare',
+        managerLabel: '📞 Linie manager · 24/7',
+        managerHint: 'Dacă linkul nu funcționează, copiați numărul manual'
+      },
+      'fi': {
+        navTagline: 'Ammattimainen Valmistaja',
+        navCta: 'WhatsApp-kysely',
+        urgencyText: '🔥 Uudet asiakkaat saavat 5% alennuksen ensimmäisestä tilauksesta · Rajoitettu määrä',
+        ratingText: '4.9/5 · 500+ Arvostelua · Luotettu maailmanlaajuisesti',
+        badge1: 'HPLC ≥ 99%',
+        badge2: 'GMP-standardi',
+        badge3: 'Suoraan tehtaalta',
+        badge4: 'Maailmanlaajuinen toimitus',
+        hook1: 'Suora tehdashinta',
+        hook2: 'Nopea tarjous',
+        hook3: 'Toimitus 7-12 päivää',
+        waLabel: '📱 WhatsApp-kysely',
+        responseLabel: 'Vastaus 30 min',
+        payLabel: 'Turvallinen maksu',
+        pageTitle: '📋 <span>Täysi Luettelo</span>',
+        pageDesc: 'Korkealaatuiset tutkimuspeptidit · HPLC-testattu ≥ 99%',
+        moreBadge: '200+ Tuotetta saatavilla',
+        moreTitle: 'Suoraan GMP-tehtaaltamme',
+        moreDesc: 'Ei listalla? Tarjoamme 200+ peptidiä, räätälöityjä spesifikaatioita ja tukkutilauksia. Hanki täysi luettelo WhatsAppilla.',
+        moreBtnLabel: '📩 Hanki täysi luettelo WhatsAppilla',
+        ctaTitle: '💬 Pyydä tarjous nyt',
+        ctaSub: 'Vastaus 30 minuutissa',
+        ctaBtnLabel: '📱 WhatsApp-kysely',
+        shippingLabel: '7-12 päivää maailmanlaajuisesti',
+        footerText: '© 2026 · Ammattimainen Peptidivalmistaja · Kaikki oikeudet pidätetään',
+        footerHome: 'Kotisivu',
+        footerPrivacy: 'Tietosuojakäytäntö',
+        footerContact: 'Yhteystiedot',
+        overlayTitle: 'Vahvista kyselysi',
+        overlaySub: 'Kerro meille tarpeistasi, jotta voimme palvella sinua paremmin.',
+        opt1: '🧑‍⚕️ Henkilökohtainen käyttö',
+        opt2: '👥 Tiimi / Studio',
+        opt3: '📦 Tukkukauppa / Jakelija',
+        benefit1: 'Tehdashinta',
+        benefit2: 'Ilmainen luettelo',
+        benefit3: 'Vastaus 30min',
+        confirmBtnText: '📱 Siirry WhatsAppiin',
+        cancelBtn: 'Peruuta',
+        inquiryBtnLabel: 'Kysely',
+        managerLabel: '📞 Päällikkölinja · 24/7',
+        managerHint: 'Jos linkki ei toimi, kopioi numero manuaalisesti'
+      },
+      'nl': {
+        navTagline: 'Professionele Fabrikant',
+        navCta: 'WhatsApp-aanvraag',
+        urgencyText: '🔥 Nieuwe klanten krijgen 5% korting op eerste bestelling · Beperkt aantal',
+        ratingText: '4.9/5 · 500+ Beoordelingen · Wereldwijd vertrouwd',
+        badge1: 'HPLC ≥ 99%',
+        badge2: 'GMP-standaard',
+        badge3: 'Direct vanuit fabriek',
+        badge4: 'Wereldwijde verzending',
+        hook1: 'Directe fabrieksprijs',
+        hook2: 'Snelle offerte',
+        hook3: 'Levering 7-12 dagen',
+        waLabel: '📱 WhatsApp-aanvraag',
+        responseLabel: 'Antwoord binnen 30 min',
+        payLabel: 'Veilige betaling',
+        pageTitle: '📋 <span>Volledige Catalogus</span>',
+        pageDesc: 'Hoogzuivere onderzoekspeptiden · HPLC-getest ≥ 99%',
+        moreBadge: '200+ Producten beschikbaar',
+        moreTitle: 'Direct vanuit onze GMP-faciliteit',
+        moreDesc: 'Niet op de lijst? Wij bieden 200+ peptiden, aangepaste specificaties en groothandelsbestellingen. Ontvang de volledige catalogus op WhatsApp.',
+        moreBtnLabel: '📩 Ontvang volledige catalogus op WhatsApp',
+        ctaTitle: '💬 Vraag nu uw offerte aan',
+        ctaSub: 'Antwoord binnen 30 minuten',
+        ctaBtnLabel: '📱 WhatsApp-aanvraag',
+        shippingLabel: '7-12 dagen wereldwijd',
+        footerText: '© 2026 · Professionele Peptidefabrikant · Alle rechten voorbehouden',
+        footerHome: 'Home',
+        footerPrivacy: 'Privacybeleid',
+        footerContact: 'Contact',
+        overlayTitle: 'Bevestig uw aanvraag',
+        overlaySub: 'Laat ons uw behoeften weten, zodat we u beter van dienst kunnen zijn.',
+        opt1: '🧑‍⚕️ Persoonlijk gebruik',
+        opt2: '👥 Team / Studio',
+        opt3: '📦 Groothandel / Distribiteur',
+        benefit1: 'Fabrieksprijs',
+        benefit2: 'Gratis catalogus',
+        benefit3: 'Antwoord 30min',
+        confirmBtnText: '📱 Ga naar WhatsApp',
+        cancelBtn: 'Annuleren',
+        inquiryBtnLabel: 'Aanvraag',
+        managerLabel: '📞 Managerlijn · 24/7',
+        managerHint: 'Als de link niet werkt, kopieer het nummer handmatig'
+      },
+      'it': {
+        navTagline: 'Produttore Professionale',
+        navCta: 'Richiesta WhatsApp',
+        urgencyText: '🔥 Nuovi clienti ricevono il 5% di sconto sul primo ordine · Posti limitati',
+        ratingText: '4.9/5 · 500+ Recensioni · Fiducia in tutto il mondo',
+        badge1: 'HPLC ≥ 99%',
+        badge2: 'Standard GMP',
+        badge3: 'Direttamente dalla fabbrica',
+        badge4: 'Spedizione globale',
+        hook1: 'Prezzo diretto di fabbrica',
+        hook2: 'Preventivo rapido',
+        hook3: 'Consegna 7-12 giorni',
+        waLabel: '📱 Richiesta WhatsApp',
+        responseLabel: 'Risposta in 30 min',
+        payLabel: 'Pagamento sicuro',
+        pageTitle: '📋 <span>Catalogo Completo</span>',
+        pageDesc: 'Peptidi di ricerca ad alta purezza · Testati HPLC ≥ 99%',
+        moreBadge: '200+ Prodotti disponibili',
+        moreTitle: 'Direttamente dal nostro stabilimento GMP',
+        moreDesc: 'Non in lista? Offriamo 200+ peptidi, specifiche personalizzate e ordini all\'ingrosso. Ottieni il catalogo completo su WhatsApp.',
+        moreBtnLabel: '📩 Ottieni il catalogo completo su WhatsApp',
+        ctaTitle: '💬 Ottieni il preventivo ora',
+        ctaSub: 'Risposta in 30 minuti',
+        ctaBtnLabel: '📱 Richiesta WhatsApp',
+        shippingLabel: '7-12 giorni in tutto il mondo',
+        footerText: '© 2026 · Produttore Professionale di Peptidi · Tutti i diritti riservati',
+        footerHome: 'Home',
+        footerPrivacy: 'Informativa sulla privacy',
+        footerContact: 'Contatti',
+        overlayTitle: 'Conferma la tua richiesta',
+        overlaySub: 'Facci sapere le tue esigenze per poterti servire meglio.',
+        opt1: '🧑‍⚕️ Uso personale',
+        opt2: '👥 Team / Studio',
+        opt3: '📦 Ingrosso / Distributore',
+        benefit1: 'Prezzo di fabbrica',
+        benefit2: 'Catalogo gratuito',
+        benefit3: 'Risposta 30min',
+        confirmBtnText: '📱 Vai su WhatsApp',
+        cancelBtn: 'Annulla',
+        inquiryBtnLabel: 'Richiesta',
+        managerLabel: '📞 Linea manager · 24/7',
+        managerHint: 'Se il link non funziona, copia il numero manualmente'
+      },
+      'pt': {
+        navTagline: 'Fabricante Profissional',
+        navCta: 'Consulta WhatsApp',
+        urgencyText: '🔥 Novos clientes ganham 5% de desconto no primeiro pedido · Vagas limitadas',
+        ratingText: '4.9/5 · 500+ Avaliações · Confiável em todo o mundo',
+        badge1: 'HPLC ≥ 99%',
+        badge2: 'Padrão GMP',
+        badge3: 'Direto da fábrica',
+        badge4: 'Envio global',
+        hook1: 'Preço direto de fábrica',
+        hook2: 'Orçamento rápido',
+        hook3: 'Entrega 7-12 dias',
+        waLabel: '📱 Consulta WhatsApp',
+        responseLabel: 'Resposta em 30 min',
+        payLabel: 'Pagamento seguro',
+        pageTitle: '📋 <span>Catálogo Completo</span>',
+        pageDesc: 'Peptídeos de pesquisa de alta pureza · Testados por HPLC ≥ 99%',
+        moreBadge: '200+ Produtos disponíveis',
+        moreTitle: 'Direto da nossa fábrica GMP',
+        moreDesc: 'Não está na lista? Oferecemos 200+ peptídeos, especificações personalizadas e pedidos em atacado. Obtenha o catálogo completo no WhatsApp.',
+        moreBtnLabel: '📩 Obtenha o catálogo completo no WhatsApp',
+        ctaTitle: '💬 Obtenha seu orçamento agora',
+        ctaSub: 'Resposta em 30 minutos',
+        ctaBtnLabel: '📱 Consulta WhatsApp',
+        shippingLabel: '7-12 dias em todo o mundo',
+        footerText: '© 2026 · Fabricante Profissional de Peptídeos · Todos os direitos reservados',
+        footerHome: 'Início',
+        footerPrivacy: 'Política de privacidade',
+        footerContact: 'Contato',
+        overlayTitle: 'Confirme sua consulta',
+        overlaySub: 'Informe-nos suas necessidades para melhor atendê-lo.',
+        opt1: '🧑‍⚕️ Uso pessoal',
+        opt2: '👥 Equipe / Estúdio',
+        opt3: '📦 Atacado / Distribuidor',
+        benefit1: 'Preço de fábrica',
+        benefit2: 'Catálogo gratuito',
+        benefit3: 'Resposta 30min',
+        confirmBtnText: '📱 Ir para WhatsApp',
+        cancelBtn: 'Cancelar',
+        inquiryBtnLabel: 'Consulta',
+        managerLabel: '📞 Linha do gerente · 24/7',
+        managerHint: 'Se o link falhar, copie o número manualmente'
       },
       'de': {
         navTagline: 'Professioneller Hersteller',
@@ -1512,49 +1503,6 @@
         managerLabel: '📞 Ligne manager · 24/7',
         managerHint: 'Si le lien ne fonctionne pas, copiez le numéro manuellement'
       },
-      'it': {
-        navTagline: 'Produttore Professionale',
-        navCta: 'Richiesta WhatsApp',
-        urgencyText: '🔥 Nuovi clienti ricevono il 5% di sconto sul primo ordine · Posti limitati',
-        ratingText: '4.9/5 · 500+ Recensioni · Fiducia in tutto il mondo',
-        badge1: 'HPLC ≥ 99%',
-        badge2: 'Standard GMP',
-        badge3: 'Direttamente dalla fabbrica',
-        badge4: 'Spedizione globale',
-        hook1: 'Prezzo diretto di fabbrica',
-        hook2: 'Preventivo rapido',
-        hook3: 'Consegna 7-12 giorni',
-        waLabel: '📱 Richiesta WhatsApp',
-        responseLabel: 'Risposta in 30 min',
-        payLabel: 'Pagamento sicuro',
-        pageTitle: '📋 <span>Catalogo Completo</span>',
-        pageDesc: 'Peptidi di ricerca ad alta purezza · Testati HPLC ≥ 99%',
-        moreBadge: '200+ Prodotti disponibili',
-        moreTitle: 'Direttamente dal nostro stabilimento GMP',
-        moreDesc: 'Non in lista? Offriamo 200+ peptidi, specifiche personalizzate e ordini all\'ingrosso. Ottieni il catalogo completo su WhatsApp.',
-        moreBtnLabel: '📩 Ottieni il catalogo completo su WhatsApp',
-        ctaTitle: '💬 Ottieni il preventivo ora',
-        ctaSub: 'Risposta in 30 minuti',
-        ctaBtnLabel: '📱 Richiesta WhatsApp',
-        shippingLabel: '7-12 giorni in tutto il mondo',
-        footerText: '© 2026 · Produttore Professionale di Peptidi · Tutti i diritti riservati',
-        footerHome: 'Home',
-        footerPrivacy: 'Informativa sulla privacy',
-        footerContact: 'Contatti',
-        overlayTitle: 'Conferma la tua richiesta',
-        overlaySub: 'Facci sapere le tue esigenze per poterti servire meglio.',
-        opt1: '🧑‍⚕️ Uso personale',
-        opt2: '👥 Team / Studio',
-        opt3: '📦 Ingrosso / Distributore',
-        benefit1: 'Prezzo di fabbrica',
-        benefit2: 'Catalogo gratuito',
-        benefit3: 'Risposta 30min',
-        confirmBtnText: '📱 Vai su WhatsApp',
-        cancelBtn: 'Annulla',
-        inquiryBtnLabel: 'Richiesta',
-        managerLabel: '📞 Linea manager · 24/7',
-        managerHint: 'Se il link non funziona, copia il numero manualmente'
-      },
       'es': {
         navTagline: 'Fabricante Profesional',
         navCta: 'Consulta WhatsApp',
@@ -1598,92 +1546,6 @@
         managerLabel: '📞 Línea gerente · 24/7',
         managerHint: 'Si el enlace falla, copia el número manualmente'
       },
-      'pt': {
-        navTagline: 'Fabricante Profissional',
-        navCta: 'Consulta WhatsApp',
-        urgencyText: '🔥 Novos clientes ganham 5% de desconto no primeiro pedido · Vagas limitadas',
-        ratingText: '4.9/5 · 500+ Avaliações · Confiável em todo o mundo',
-        badge1: 'HPLC ≥ 99%',
-        badge2: 'Padrão GMP',
-        badge3: 'Direto da fábrica',
-        badge4: 'Envio global',
-        hook1: 'Preço direto de fábrica',
-        hook2: 'Orçamento rápido',
-        hook3: 'Entrega 7-12 dias',
-        waLabel: '📱 Consulta WhatsApp',
-        responseLabel: 'Resposta em 30 min',
-        payLabel: 'Pagamento seguro',
-        pageTitle: '📋 <span>Catálogo Completo</span>',
-        pageDesc: 'Peptídeos de pesquisa de alta pureza · Testados por HPLC ≥ 99%',
-        moreBadge: '200+ Produtos disponíveis',
-        moreTitle: 'Direto da nossa fábrica GMP',
-        moreDesc: 'Não está na lista? Oferecemos 200+ peptídeos, especificações personalizadas e pedidos em atacado. Obtenha o catálogo completo no WhatsApp.',
-        moreBtnLabel: '📩 Obtenha o catálogo completo no WhatsApp',
-        ctaTitle: '💬 Obtenha seu orçamento agora',
-        ctaSub: 'Resposta em 30 minutos',
-        ctaBtnLabel: '📱 Consulta WhatsApp',
-        shippingLabel: '7-12 dias em todo o mundo',
-        footerText: '© 2026 · Fabricante Profissional de Peptídeos · Todos os direitos reservados',
-        footerHome: 'Início',
-        footerPrivacy: 'Política de privacidade',
-        footerContact: 'Contato',
-        overlayTitle: 'Confirme sua consulta',
-        overlaySub: 'Informe-nos suas necessidades para melhor atendê-lo.',
-        opt1: '🧑‍⚕️ Uso pessoal',
-        opt2: '👥 Equipe / Estúdio',
-        opt3: '📦 Atacado / Distribuidor',
-        benefit1: 'Preço de fábrica',
-        benefit2: 'Catálogo gratuito',
-        benefit3: 'Resposta 30min',
-        confirmBtnText: '📱 Ir para WhatsApp',
-        cancelBtn: 'Cancelar',
-        inquiryBtnLabel: 'Consulta',
-        managerLabel: '📞 Linha do gerente · 24/7',
-        managerHint: 'Se o link falhar, copie o número manualmente'
-      },
-      'nl': {
-        navTagline: 'Professionele Fabrikant',
-        navCta: 'WhatsApp-aanvraag',
-        urgencyText: '🔥 Nieuwe klanten krijgen 5% korting op eerste bestelling · Beperkt aantal',
-        ratingText: '4.9/5 · 500+ Beoordelingen · Wereldwijd vertrouwd',
-        badge1: 'HPLC ≥ 99%',
-        badge2: 'GMP-standaard',
-        badge3: 'Direct vanuit fabriek',
-        badge4: 'Wereldwijde verzending',
-        hook1: 'Directe fabrieksprijs',
-        hook2: 'Snelle offerte',
-        hook3: 'Levering 7-12 dagen',
-        waLabel: '📱 WhatsApp-aanvraag',
-        responseLabel: 'Antwoord binnen 30 min',
-        payLabel: 'Veilige betaling',
-        pageTitle: '📋 <span>Volledige Catalogus</span>',
-        pageDesc: 'Hoogzuivere onderzoekspeptiden · HPLC-getest ≥ 99%',
-        moreBadge: '200+ Producten beschikbaar',
-        moreTitle: 'Direct vanuit onze GMP-faciliteit',
-        moreDesc: 'Niet op de lijst? Wij bieden 200+ peptiden, aangepaste specificaties en groothandelsbestellingen. Ontvang de volledige catalogus op WhatsApp.',
-        moreBtnLabel: '📩 Ontvang volledige catalogus op WhatsApp',
-        ctaTitle: '💬 Vraag nu uw offerte aan',
-        ctaSub: 'Antwoord binnen 30 minuten',
-        ctaBtnLabel: '📱 WhatsApp-aanvraag',
-        shippingLabel: '7-12 dagen wereldwijd',
-        footerText: '© 2026 · Professionele Peptidefabrikant · Alle rechten voorbehouden',
-        footerHome: 'Home',
-        footerPrivacy: 'Privacybeleid',
-        footerContact: 'Contact',
-        overlayTitle: 'Bevestig uw aanvraag',
-        overlaySub: 'Laat ons uw behoeften weten, zodat we u beter van dienst kunnen zijn.',
-        opt1: '🧑‍⚕️ Persoonlijk gebruik',
-        opt2: '👥 Team / Studio',
-        opt3: '📦 Groothandel / Distribiteur',
-        benefit1: 'Fabrieksprijs',
-        benefit2: 'Gratis catalogus',
-        benefit3: 'Antwoord 30min',
-        confirmBtnText: '📱 Ga naar WhatsApp',
-        cancelBtn: 'Annuleren',
-        inquiryBtnLabel: 'Aanvraag',
-        managerLabel: '📞 Managerlijn · 24/7',
-        managerHint: 'Als de link niet werkt, kopieer het nummer handmatig'
-      },
       'hu': {
         navTagline: 'Professzionális Gyártó',
         navCta: 'WhatsApp-érdeklődés',
@@ -1726,92 +1588,6 @@
         inquiryBtnLabel: 'Érdeklődés',
         managerLabel: '📞 Vezetői vonal · 24/7',
         managerHint: 'Ha a link nem működik, másolja át a számot manuálisan'
-      },
-      'ro': {
-        navTagline: 'Producător Profesionist',
-        navCta: 'Întrebare WhatsApp',
-        urgencyText: '🔥 Noii clienți beneficiază de 5% reducere la prima comandă · Locuri limitate',
-        ratingText: '4.9/5 · 500+ Recenzii · Încredere în întreaga lume',
-        badge1: 'HPLC ≥ 99%',
-        badge2: 'Standard GMP',
-        badge3: 'Direct din fabrică',
-        badge4: 'Livrare globală',
-        hook1: 'Preț direct din fabrică',
-        hook2: 'Cotizare rapidă',
-        hook3: 'Livrare 7-12 zile',
-        waLabel: '📱 Întrebare WhatsApp',
-        responseLabel: 'Răspuns în 30 min',
-        payLabel: 'Plată securizată',
-        pageTitle: '📋 <span>Catalog Complet</span>',
-        pageDesc: 'Peptizi de cercetare de înaltă puritate · Testați HPLC ≥ 99%',
-        moreBadge: '200+ Produse disponibile',
-        moreTitle: 'Direct din fabrica noastră GMP',
-        moreDesc: 'Nu este pe listă? Oferim 200+ peptide, specificații personalizate și comenzi en-gros. Obțineți catalogul complet pe WhatsApp.',
-        moreBtnLabel: '📩 Obțineți catalogul complet pe WhatsApp',
-        ctaTitle: '💬 Obțineți oferta acum',
-        ctaSub: 'Răspuns în 30 de minute',
-        ctaBtnLabel: '📱 Întrebare WhatsApp',
-        shippingLabel: '7-12 zile în întreaga lume',
-        footerText: '© 2026 · Producător Profesionist de Peptide · Toate drepturile rezervate',
-        footerHome: 'Acasă',
-        footerPrivacy: 'Politica de confidențialitate',
-        footerContact: 'Contact',
-        overlayTitle: 'Confirmați cererea dvs.',
-        overlaySub: 'Vă rugăm să ne spuneți nevoile dvs. pentru a vă putea servi mai bine.',
-        opt1: '🧑‍⚕️ Utilizare personală',
-        opt2: '👥 Echipa / Studio',
-        opt3: '📦 Angro / Distribuitor',
-        benefit1: 'Preț de fabrică',
-        benefit2: 'Catalog gratuit',
-        benefit3: 'Răspuns 30min',
-        confirmBtnText: '📱 Mergi la WhatsApp',
-        cancelBtn: 'Anulare',
-        inquiryBtnLabel: 'Întrebare',
-        managerLabel: '📞 Linie manager · 24/7',
-        managerHint: 'Dacă linkul nu funcționează, copiați numărul manual'
-      },
-      'fi': {
-        navTagline: 'Ammattimainen Valmistaja',
-        navCta: 'WhatsApp-kysely',
-        urgencyText: '🔥 Uudet asiakkaat saavat 5% alennuksen ensimmäisestä tilauksesta · Rajoitettu määrä',
-        ratingText: '4.9/5 · 500+ Arvostelua · Luotettu maailmanlaajuisesti',
-        badge1: 'HPLC ≥ 99%',
-        badge2: 'GMP-standardi',
-        badge3: 'Suoraan tehtaalta',
-        badge4: 'Maailmanlaajuinen toimitus',
-        hook1: 'Suora tehdashinta',
-        hook2: 'Nopea tarjous',
-        hook3: 'Toimitus 7-12 päivää',
-        waLabel: '📱 WhatsApp-kysely',
-        responseLabel: 'Vastaus 30 min',
-        payLabel: 'Turvallinen maksu',
-        pageTitle: '📋 <span>Täysi Luettelo</span>',
-        pageDesc: 'Korkealaatuiset tutkimuspeptidit · HPLC-testattu ≥ 99%',
-        moreBadge: '200+ Tuotetta saatavilla',
-        moreTitle: 'Suoraan GMP-tehtaaltamme',
-        moreDesc: 'Ei listalla? Tarjoamme 200+ peptidiä, räätälöityjä spesifikaatioita ja tukkutilauksia. Hanki täysi luettelo WhatsAppilla.',
-        moreBtnLabel: '📩 Hanki täysi luettelo WhatsAppilla',
-        ctaTitle: '💬 Pyydä tarjous nyt',
-        ctaSub: 'Vastaus 30 minuutissa',
-        ctaBtnLabel: '📱 WhatsApp-kysely',
-        shippingLabel: '7-12 päivää maailmanlaajuisesti',
-        footerText: '© 2026 · Ammattimainen Peptidivalmistaja · Kaikki oikeudet pidätetään',
-        footerHome: 'Kotisivu',
-        footerPrivacy: 'Tietosuojakäytäntö',
-        footerContact: 'Yhteystiedot',
-        overlayTitle: 'Vahvista kyselysi',
-        overlaySub: 'Kerro meille tarpeistasi, jotta voimme palvella sinua paremmin.',
-        opt1: '🧑‍⚕️ Henkilökohtainen käyttö',
-        opt2: '👥 Tiimi / Studio',
-        opt3: '📦 Tukkukauppa / Jakelija',
-        benefit1: 'Tehdashinta',
-        benefit2: 'Ilmainen luettelo',
-        benefit3: 'Vastaus 30min',
-        confirmBtnText: '📱 Siirry WhatsAppiin',
-        cancelBtn: 'Peruuta',
-        inquiryBtnLabel: 'Kysely',
-        managerLabel: '📞 Päällikkölinja · 24/7',
-        managerHint: 'Jos linkki ei toimi, kopioi numero manuaalisesti'
       }
     };
 
@@ -1857,6 +1633,9 @@
       document.getElementById('cancelBtn').textContent = t.cancelBtn;
       document.getElementById('managerLabel').textContent = t.managerLabel;
       document.getElementById('managerHint').textContent = t.managerHint;
+      document.querySelectorAll('#inquiryBtnLabel').forEach(el => {
+        el.textContent = t.inquiryBtnLabel;
+      });
     }
 
     // ============================================================
@@ -1864,15 +1643,8 @@
     // ============================================================
     document.addEventListener('DOMContentLoaded', function() {
       renderProducts();
-      
       const lang = window.CURRENT_LANG || 'en';
-      
-      // 如果是波兰客户，使用群组文案（波兰语）
-      if (isPoland()) {
-        updatePageCopy();
-      } else {
-        switchLanguage(lang);
-      }
+      switchLanguage(lang);
     });
   </script>
 </body>
