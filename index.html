@@ -966,88 +966,85 @@
 
   <script>
     // ============================================================
-    // 产品数据（已按最新价格表更新）
+    // 产品数据（已按9月1日最新价格表更新）
     // ============================================================
     const productData = [
-      // ========== Retatrutide ==========
-      { sku: 'RT', name: 'Retatrutide', spec: '5mg×10vials', price: '24', hot: true },
-      { sku: 'RT', name: 'Retatrutide', spec: '10mg×10vials', price: '45', hot: false },
-      { sku: 'RT', name: 'Retatrutide', spec: '15mg×10vials', price: '64', hot: false },
-      { sku: 'RT', name: 'Retatrutide', spec: '20mg×10vials', price: '84', hot: false },
-      { sku: 'RT', name: 'Retatrutide', spec: '30mg×10vials', price: '109', hot: false },
       // ========== Tirzepatide ==========
-      { sku: 'TR', name: 'Tirzepatide', spec: '5mg×10vials', price: '20', hot: true },
-      { sku: 'TR', name: 'Tirzepatide', spec: '10mg×10vials', price: '32', hot: false },
-      { sku: 'TR', name: 'Tirzepatide', spec: '15mg×10vials', price: '45', hot: false },
-      { sku: 'TR', name: 'Tirzepatide', spec: '20mg×10vials', price: '55', hot: false },
+      { sku: 'TR5', name: 'Tirzepatide', spec: '5mg×10vials', price: '22', hot: true },
+      { sku: 'TR10', name: 'Tirzepatide', spec: '10mg×10vials', price: '34', hot: false },
+      { sku: 'TR15', name: 'Tirzepatide', spec: '15mg×10vials', price: '47', hot: false },
+      { sku: 'TR20', name: 'Tirzepatide', spec: '20mg×10vials', price: '57', hot: false },
+      { sku: 'TR30', name: 'Tirzepatide', spec: '30mg×10vials', price: '77', hot: false },
+      // ========== Retatrutide ==========
+      { sku: 'RT5', name: 'Retatrutide', spec: '5mg×10vials', price: '24', hot: true },
+      { sku: 'RT10', name: 'Retatrutide', spec: '10mg×10vials', price: '47', hot: false },
+      { sku: 'RT15', name: 'Retatrutide', spec: '15mg×10vials', price: '67', hot: false },
+      { sku: 'RT20', name: 'Retatrutide', spec: '20mg×10vials', price: '88', hot: false },
+      { sku: 'RT30', name: 'Retatrutide', spec: '30mg×10vials', price: '113', hot: false },
       // ========== Semaglutide ==========
-      { sku: 'SM5', name: 'Semaglutide', spec: '5mg×10vials', price: '20', hot: true },
-      { sku: 'SM10', name: 'Semaglutide', spec: '10mg×10vials', price: '30', hot: false },
+      { sku: 'SM5', name: 'Semaglutide', spec: '5mg×10vials', price: '21', hot: true },
+      { sku: 'SM10', name: 'Semaglutide', spec: '10mg×10vials', price: '31', hot: false },
       // ========== GHK-CU ==========
-      { sku: 'Cu50', name: 'GHK-CU', spec: '50mg×10vials', price: '15', hot: false },
-      { sku: 'Cu100', name: 'GHK-CU', spec: '100mg×10vials', price: '22', hot: false },
+      { sku: 'CU50', name: 'GHK-CU', spec: '50mg×10vials', price: '16', hot: false },
+      { sku: 'CU100', name: 'GHK-CU', spec: '100mg×10vials', price: '26', hot: false },
       // ========== NAD+ ==========
-      { sku: 'NJ100', name: 'NAD+', spec: '100mg×10vials', price: '17', hot: false },
+      { sku: 'NJ100', name: 'NAD+', spec: '100mg×10vials', price: '18', hot: false },
       // ========== BPC-157 ==========
-      { sku: 'BC5', name: 'BPC-157', spec: '5mg×10vials', price: '25', hot: true },
-      { sku: 'BC10', name: 'BPC-157', spec: '10mg×10vials', price: '37', hot: false },
+      { sku: 'BC5', name: 'BPC-157', spec: '5mg×10vials', price: '42', hot: true },
+      { sku: 'BC10', name: 'BPC-157', spec: '10mg×10vials', price: '58', hot: false },
       // ========== KPV ==========
-      { sku: 'KPV5', name: 'KPV', spec: '5mg×10vials', price: '22', hot: false },
+      { sku: 'KP5', name: 'KPV', spec: '5mg×10vials', price: '31', hot: false },
       // ========== PT-141 ==========
-      { sku: 'P41', name: 'PT-141', spec: '10mg×10vials', price: '55', hot: false },
+      { sku: 'p41', name: 'PT-141', spec: '10mg×10vials', price: '83', hot: false },
       // ========== Cagrilintide ==========
-      { sku: 'CGL5', name: 'Cagrilintide', spec: '5mg×10vials', price: '82', hot: false },
-      { sku: 'CGL10', name: 'Cagrilintide', spec: '10mg×10vials', price: '151', hot: false },
+      { sku: 'CGL5', name: 'Cagrilintide', spec: '5mg×10vials', price: '85', hot: false },
+      { sku: 'CGL10', name: 'Cagrilintide', spec: '10mg×10vials', price: '157', hot: false },
       // ========== TB500 ==========
-      { sku: 'TB5', name: 'TB500', spec: '5mg×10vials', price: '55', hot: false },
+      { sku: 'TB5', name: 'TB500', spec: '5mg×10vials', price: '79', hot: false },
       // ========== Tesamorelin ==========
-      { sku: 'TSM5', name: 'Tesamorelin', spec: '5mg×10vials', price: '82', hot: false },
+      { sku: 'TSM5', name: 'Tesamorelin', spec: '5mg×10vials', price: '85', hot: false },
       // ========== DSIP ==========
-      { sku: 'DS5', name: 'DSIP', spec: '5mg×10vials', price: '38', hot: false },
+      { sku: 'DS5', name: 'DSIP', spec: '5mg×10vials', price: '40', hot: false },
       // ========== Melanotan II ==========
-      { sku: 'ML10', name: 'Melanotan II', spec: '10mg×10vials', price: '52', hot: false },
+      { sku: 'MT-2', name: 'Melanotan II', spec: '10mg×10vials', price: '72', hot: false },
       // ========== BPC+TB ==========
-      { sku: 'BB10', name: 'BPC+TB', spec: '10mg×10vials', price: '74', hot: false },
+      { sku: 'BB10', name: 'BPC+TB', spec: '10mg×10vials', price: '79', hot: false },
       // ========== GLOW ==========
-      { sku: 'GLOW70', name: 'GLOW', spec: '70mg×10vials', price: '149', hot: false },
+      { sku: 'Glow70', name: 'GLOW', spec: '70mg×10vials', price: '154', hot: false },
       // ========== CJC-1295 (no DAC) ==========
-      { sku: 'CND5', name: 'CJC-1295 (no DAC)', spec: '5mg×10vials', price: '49', hot: false },
+      { sku: 'CND5', name: 'CJC-1295 (no DAC)', spec: '5mg×10vials', price: '68', hot: false },
       // ========== HCG ==========
       { sku: 'HCG1000', name: 'HCG', spec: '1000iu×10vials', price: '16', hot: false },
       // ========== Benzyl Alcohol ==========
       { sku: 'BAC', name: 'Benzyl Alcohol 0.9%', spec: '3ml×10vials', price: '3', hot: false },
       // ========== B-12 ==========
-      { sku: 'B-12', name: 'B-12', spec: '10mg×10vials', price: '25', hot: false },
+      { sku: 'B12', name: 'B-12', spec: '10ml×10vials', price: '31', hot: false },
       // ========== Lipo-C ==========
-      { sku: 'LC216', name: 'Lipo-C', spec: '10ml×10vials', price: '64', hot: false },
+      { sku: 'LC216', name: 'Lipo-C', spec: '10ml×10vials', price: '67', hot: false },
       // ========== 5-Amino-1MQ ==========
-      { sku: '5AM', name: '5-Amino-1MQ', spec: '5mg×10vials', price: '25', hot: false },
+      { sku: '5AM', name: '5-Amino-1MQ', spec: '5mg×10vials', price: '26', hot: false },
       // ========== Lemon Bottle ==========
-      { sku: 'LB', name: 'Lemon Bottle', spec: '10ml×10vials', price: '42', hot: false },
+      { sku: 'LB', name: 'Lemon Bottle', spec: '10ml×10vials', price: '44', hot: false },
       // ========== HMG ==========
       { sku: 'G75', name: 'HMG', spec: '75iu×10vials', price: '40', hot: false },
-      // ========== Adipotide ==========
-      { sku: 'AP2', name: 'Adipotide', spec: '2mg×10vials', price: '40', hot: false },
       // ========== ARA-290 ==========
-      { sku: 'RA10', name: 'ARA-290', spec: '10mg×10vials', price: '69', hot: false },
+      { sku: 'RA10', name: 'ARA-290', spec: '10mg×10vials', price: '72', hot: false },
       // ========== Gonadorelin ==========
-      { sku: 'GND2', name: 'Gonadorelin', spec: '2mg×10vials', price: '16', hot: false },
+      { sku: 'GND5', name: 'Gonadorelin', spec: '5mg×10vials', price: '54', hot: false },
       // ========== Hexarelin ==========
-      { sku: 'HX2', name: 'Hexarelin', spec: '2mg×10vials', price: '29', hot: false },
+      { sku: 'HX2', name: 'Hexarelin', spec: '2mg×10vials', price: '48', hot: false },
       // ========== Oxytocin ==========
-      { sku: 'OT5', name: 'Oxytocin', spec: '5mg×10vials', price: '24', hot: false },
+      { sku: 'OT', name: 'Oxytocin', spec: '5mg×10vials', price: '31', hot: false },
       // ========== Thymalin ==========
-      { sku: 'TY10', name: 'Thymalin', spec: '10mg×10vials', price: '46', hot: false },
+      { sku: 'TY10', name: 'Thymalin', spec: '10mg×10vials', price: '75', hot: false },
       // ========== GHRP-2 ==========
-      { sku: 'G25', name: 'GHRP-2', spec: '5mg×10vials', price: '18', hot: false },
+      { sku: 'G25', name: 'GHRP-2', spec: '5mg×10vials', price: '44', hot: false },
       // ========== GHRP-6 ==========
-      { sku: 'G65', name: 'GHRP-6', spec: '5mg×10vials', price: '18', hot: false },
-      // ========== Dermorphin ==========
-      { sku: 'DR5', name: 'Dermorphin', spec: '5mg×10vials', price: '40', hot: false },
+      { sku: 'G65', name: 'GHRP-6', spec: '5mg×10vials', price: '44', hot: false },
       // ========== Glutathione ==========
-      { sku: 'GTT600', name: 'Glutathione', spec: '600mg×10vials', price: '25', hot: false },
+      { sku: 'GTT600', name: 'Glutathione', spec: '600mg×10vials', price: '34', hot: false },
       // ========== LL37 ==========
-      { sku: '375', name: 'LL37', spec: '5mg×10vials', price: '65', hot: false },
+      { sku: '375', name: 'LL37', spec: '5mg×10vials', price: '95', hot: false },
       // ========== VIP ==========
       { sku: 'VIP10', name: 'VIP', spec: '10mg×10vials', price: '129', hot: false },
       // ========== FOXO4-DRI ==========
