@@ -40,23 +40,40 @@
     const phone = phones[Math.floor(Math.random() * phones.length)];
     
     const messages = {
-      'en': `Hello, I'm from ${country}. I'm interested in your products. Could you please send me your price list? Thank you!`,
-      'pl': `Witam, jestem z ${country}. Jestem zainteresowany Państwa produktami. Czy mogliby Państwo przesłać mi cennik? Dziękuję!`,
-      'de': `Hallo, ich bin aus ${country}. Ich bin an Ihren Produkten interessiert. Könnten Sie mir bitte Ihre Preisliste senden? Vielen Dank!`,
-      'fr': `Bonjour, je viens de ${country}. Je suis intéressé par vos produits. Pourriez-vous m'envoyer votre liste de prix ? Merci !`,
-      'it': `Salve, vengo da ${country}. Sono interessato ai vostri prodotti. Potreste inviarmi il vostro listino prezzi? Grazie!`,
-      'es': `Hola, soy de ${country}. Estoy interesado en sus productos. ¿Podrían enviarme su lista de precios? ¡Gracias!`,
-      'pt': `Olá, sou de ${country}. Estou interessado nos seus produtos. Poderia enviar-me a sua lista de preços? Obrigado!`,
-      'nl': `Hallo, ik kom uit ${country}. Ik ben geïnteresseerd in uw producten. Kunt u mij uw prijslijst sturen? Dank u!`,
-      'hu': `Üdvözlöm, ${country}-ból/-ből jövök. Érdekelnek a termékei. El tudná küldeni az árlistáját? Köszönöm!`,
-      'ro': `Bună, sunt din ${country}. Sunt interesat de produsele dumneavoastră. Puteți să-mi trimiteți lista de prețuri? Mulțumesc!`,
-      'fi': `Hei, olen kotoisin ${country}sta. Olen kiinnostunut tuotteistanne. Voisitteko lähettää minulle hinnastonne? Kiitos!`
+      'en': `Hi, I'm interested in your products. Please send me the price list.`,
+      'pl': `Witam, jestem zainteresowany Państwa produktami. Proszę o przesłanie cennika.`,
+      'de': `Hallo, ich bin an Ihren Produkten interessiert. Bitte senden Sie mir die Preisliste.`,
+      'fr': `Bonjour, je suis intéressé par vos produits. Veuillez m'envoyer la liste de prix.`,
+      'it': `Salve, sono interessato ai vostri prodotti. Per favore, inviatemi il listino prezzi.`,
+      'es': `Hola, estoy interesado en sus productos. Por favor, envíenme la lista de precios.`,
+      'pt': `Olá, estou interessado nos seus produtos. Por favor, envie-me a lista de preços.`,
+      'nl': `Hallo, ik ben geïnteresseerd in uw producten. Stuur me alsjeblieft de prijslijst.`,
+      'hu': `Üdvözlöm, érdekelnek a termékei. Kérem, küldje el az árlistát.`,
+      'ro': `Bună, sunt interesat de produsele dumneavoastră. Vă rog să-mi trimiteți lista de prețuri.`,
+      'fi': `Hei, olen kiinnostunut tuotteistanne. Lähettäkää minulle hinnasto.`
     };
     
     const currentLang = window.CURRENT_LANG || 'en';
-    const message = messages[currentLang] || messages['en'];
-    return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+    const baseMessage = messages[currentLang] || messages['en'];
+    return { phone, baseMessage };
   }
+
+  function getFinalWhatsAppLink(timing) {
+    const { phone, baseMessage } = getCountrySpecificLink();
+    
+    const timingMap = {
+      'now': 'I want to buy NOW',
+      'week': 'I plan to buy within 1 week',
+      'month': 'I plan to buy within 1 month'
+    };
+    
+    const timingLabel = timingMap[timing] || 'I\'m interested';
+    
+    const fullMessage = `${baseMessage} (${timingLabel})`;
+    
+    return `https://wa.me/${phone}?text=${encodeURIComponent(fullMessage)}`;
+  }
+
   window.WHATSAPP_LINK = getCountrySpecificLink();
   </script>
 
@@ -786,6 +803,17 @@
       accent-color: var(--gold);
       flex-shrink: 0;
     }
+
+    .overlay-box .section-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--gray-600);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin: 4px 0 6px;
+      display: block;
+    }
+
     .overlay-box .benefits {
       display: flex;
       justify-content: center;
@@ -956,25 +984,27 @@
     </div>
   </footer>
 
+  <!-- ===== 新弹窗：只问购买时间 ===== -->
   <div class="overlay" id="inquiryOverlay">
     <div class="overlay-box">
       <button class="close-btn" onclick="closeOverlay()">✕</button>
       <span class="icon-big">👋</span>
       <h2 id="overlayTitle">Confirm Your Inquiry</h2>
-      <p class="sub" id="overlaySub">Please let us know your needs so we can serve you better.</p>
+      <p class="sub" id="overlaySub">Please let us know your timing so we can serve you better.</p>
 
       <div class="options">
+        <span class="section-label">📌 您计划什么时候购买？</span>
         <label>
-          <input type="radio" name="purpose" value="personal" checked />
-          <span id="opt1">🧑‍⚕️ Personal Use</span>
+          <input type="radio" name="timing" value="now" />
+          <span id="opt1">🔥 马上购买</span>
         </label>
         <label>
-          <input type="radio" name="purpose" value="team" />
-          <span id="opt2">👥 Team / Studio</span>
+          <input type="radio" name="timing" value="week" />
+          <span id="opt2">📅 一周内购买</span>
         </label>
         <label>
-          <input type="radio" name="purpose" value="wholesale" />
-          <span id="opt3">📦 Wholesale / Distributor</span>
+          <input type="radio" name="timing" value="month" />
+          <span id="opt3">📆 一个月内购买</span>
         </label>
       </div>
 
@@ -984,7 +1014,7 @@
         <span><i class="fas fa-check-circle"></i> <span id="benefit3">30min Reply</span></span>
       </div>
 
-      <button class="btn-confirm" id="confirmBtn" onclick="confirmAndRedirect()">
+      <button class="btn-confirm" id="confirmBtn" onclick="confirmAndRedirect()" disabled>
         <i class="fab fa-whatsapp"></i> <span id="confirmBtnText">📱 Go to WhatsApp</span>
       </button>
       <button class="btn-cancel" onclick="closeOverlay()" id="cancelBtn">Cancel</button>
@@ -993,7 +1023,7 @@
 
   <script>
     // ============================================================
-    // 多语言翻译（包含规格单位）
+    // 多语言翻译
     // ============================================================
     const translations = {
       'en': {
@@ -1026,10 +1056,10 @@
         footerPrivacy: 'Privacy Policy',
         footerContact: 'Contact',
         overlayTitle: 'Confirm Your Inquiry',
-        overlaySub: 'Please let us know your needs so we can serve you better.',
-        opt1: '🧑‍⚕️ Personal Use',
-        opt2: '👥 Team / Studio',
-        opt3: '📦 Wholesale / Distributor',
+        overlaySub: 'Please let us know your timing so we can serve you better.',
+        opt1: '🔥 Buy Now',
+        opt2: '📅 Buy within 1 week',
+        opt3: '📆 Buy within 1 month',
         benefit1: 'Factory Price',
         benefit2: 'Free Catalog',
         benefit3: '30min Reply',
@@ -1038,9 +1068,7 @@
         inquiryBtnLabel: 'Inquiry',
         managerLabel: '📞 Manager Line · 24/7 Online',
         managerHint: 'If the link fails, manually copy the number to add',
-        // 规格单位翻译
-        unit: 'vials',
-        unitShort: 'vial'
+        unit: 'vials'
       },
       'pl': {
         navTagline: 'Profesjonalny Producent',
@@ -1072,10 +1100,10 @@
         footerPrivacy: 'Polityka prywatności',
         footerContact: 'Kontakt',
         overlayTitle: 'Potwierdź swoje zapytanie',
-        overlaySub: 'Poinformuj nas o swoich potrzebach, abyśmy mogli lepiej Ci służyć.',
-        opt1: '🧑‍⚕️ Użytek osobisty',
-        opt2: '👥 Zespół / Studio',
-        opt3: '📦 Hurt / Dystrybutor',
+        overlaySub: 'Poinformuj nas o swoim terminie, abyśmy mogli lepiej Ci służyć.',
+        opt1: '🔥 Kup teraz',
+        opt2: '📅 Kup w ciągu tygodnia',
+        opt3: '📆 Kup w ciągu miesiąca',
         benefit1: 'Cena fabryczna',
         benefit2: 'Darmowy katalog',
         benefit3: 'Odpowiedź 30min',
@@ -1084,8 +1112,7 @@
         inquiryBtnLabel: 'Zapytanie',
         managerLabel: '📞 Linia menedżera · 24/7',
         managerHint: 'Jeśli link nie działa, skopiuj numer ręcznie',
-        unit: 'fiolek',
-        unitShort: 'fiolka'
+        unit: 'fiolek'
       },
       'ro': {
         navTagline: 'Producător Profesionist',
@@ -1117,10 +1144,10 @@
         footerPrivacy: 'Politica de confidențialitate',
         footerContact: 'Contact',
         overlayTitle: 'Confirmați cererea dvs.',
-        overlaySub: 'Vă rugăm să ne spuneți nevoile dvs. pentru a vă putea servi mai bine.',
-        opt1: '🧑‍⚕️ Utilizare personală',
-        opt2: '👥 Echipa / Studio',
-        opt3: '📦 Angro / Distribuitor',
+        overlaySub: 'Spuneți-ne termenul dvs. pentru a vă putea servi mai bine.',
+        opt1: '🔥 Cumpăr acum',
+        opt2: '📅 Cumpăr în 1 săptămână',
+        opt3: '📆 Cumpăr în 1 lună',
         benefit1: 'Preț de fabrică',
         benefit2: 'Catalog gratuit',
         benefit3: 'Răspuns 30min',
@@ -1129,8 +1156,7 @@
         inquiryBtnLabel: 'Întrebare',
         managerLabel: '📞 Linie manager · 24/7',
         managerHint: 'Dacă linkul nu funcționează, copiați numărul manual',
-        unit: 'flacoane',
-        unitShort: 'flacon'
+        unit: 'flacoane'
       },
       'fi': {
         navTagline: 'Ammattimainen Valmistaja',
@@ -1162,10 +1188,10 @@
         footerPrivacy: 'Tietosuojakäytäntö',
         footerContact: 'Yhteystiedot',
         overlayTitle: 'Vahvista kyselysi',
-        overlaySub: 'Kerro meille tarpeistasi, jotta voimme palvella sinua paremmin.',
-        opt1: '🧑‍⚕️ Henkilökohtainen käyttö',
-        opt2: '👥 Tiimi / Studio',
-        opt3: '📦 Tukkukauppa / Jakelija',
+        overlaySub: 'Kerro meille aikataulusi, jotta voimme palvella sinua paremmin.',
+        opt1: '🔥 Osta nyt',
+        opt2: '📅 Osta viikon sisällä',
+        opt3: '📆 Osta kuukauden sisällä',
         benefit1: 'Tehdashinta',
         benefit2: 'Ilmainen luettelo',
         benefit3: 'Vastaus 30min',
@@ -1174,8 +1200,7 @@
         inquiryBtnLabel: 'Kysely',
         managerLabel: '📞 Päällikkölinja · 24/7',
         managerHint: 'Jos linkki ei toimi, kopioi numero manuaalisesti',
-        unit: 'pullosta',
-        unitShort: 'pullo'
+        unit: 'pullosta'
       },
       'nl': {
         navTagline: 'Professionele Fabrikant',
@@ -1207,10 +1232,10 @@
         footerPrivacy: 'Privacybeleid',
         footerContact: 'Contact',
         overlayTitle: 'Bevestig uw aanvraag',
-        overlaySub: 'Laat ons uw behoeften weten, zodat we u beter van dienst kunnen zijn.',
-        opt1: '🧑‍⚕️ Persoonlijk gebruik',
-        opt2: '👥 Team / Studio',
-        opt3: '📦 Groothandel / Distribiteur',
+        overlaySub: 'Laat ons uw timing weten, zodat we u beter van dienst kunnen zijn.',
+        opt1: '🔥 Nu kopen',
+        opt2: '📅 Binnen 1 week kopen',
+        opt3: '📆 Binnen 1 maand kopen',
         benefit1: 'Fabrieksprijs',
         benefit2: 'Gratis catalogus',
         benefit3: 'Antwoord 30min',
@@ -1219,8 +1244,7 @@
         inquiryBtnLabel: 'Aanvraag',
         managerLabel: '📞 Managerlijn · 24/7',
         managerHint: 'Als de link niet werkt, kopieer het nummer handmatig',
-        unit: 'flacons',
-        unitShort: 'flacon'
+        unit: 'flacons'
       },
       'it': {
         navTagline: 'Produttore Professionale',
@@ -1252,10 +1276,10 @@
         footerPrivacy: 'Informativa sulla privacy',
         footerContact: 'Contatti',
         overlayTitle: 'Conferma la tua richiesta',
-        overlaySub: 'Facci sapere le tue esigenze per poterti servire meglio.',
-        opt1: '🧑‍⚕️ Uso personale',
-        opt2: '👥 Team / Studio',
-        opt3: '📦 Ingrosso / Distributore',
+        overlaySub: 'Facci sapere i tuoi tempi per poterti servire meglio.',
+        opt1: '🔥 Acquista ora',
+        opt2: '📅 Acquista entro 1 settimana',
+        opt3: '📆 Acquista entro 1 mese',
         benefit1: 'Prezzo di fabbrica',
         benefit2: 'Catalogo gratuito',
         benefit3: 'Risposta 30min',
@@ -1264,8 +1288,7 @@
         inquiryBtnLabel: 'Richiesta',
         managerLabel: '📞 Linea manager · 24/7',
         managerHint: 'Se il link non funziona, copia il numero manualmente',
-        unit: 'flaconcini',
-        unitShort: 'flaconcino'
+        unit: 'flaconcini'
       },
       'pt': {
         navTagline: 'Fabricante Profissional',
@@ -1297,10 +1320,10 @@
         footerPrivacy: 'Política de privacidade',
         footerContact: 'Contato',
         overlayTitle: 'Confirme sua consulta',
-        overlaySub: 'Informe-nos suas necessidades para melhor atendê-lo.',
-        opt1: '🧑‍⚕️ Uso pessoal',
-        opt2: '👥 Equipe / Estúdio',
-        opt3: '📦 Atacado / Distribuidor',
+        overlaySub: 'Informe-nos seu prazo para melhor atendê-lo.',
+        opt1: '🔥 Comprar agora',
+        opt2: '📅 Comprar em 1 semana',
+        opt3: '📆 Comprar em 1 mês',
         benefit1: 'Preço de fábrica',
         benefit2: 'Catálogo gratuito',
         benefit3: 'Resposta 30min',
@@ -1309,8 +1332,7 @@
         inquiryBtnLabel: 'Consulta',
         managerLabel: '📞 Linha do gerente · 24/7',
         managerHint: 'Se o link falhar, copie o número manualmente',
-        unit: 'frascos',
-        unitShort: 'frasco'
+        unit: 'frascos'
       },
       'de': {
         navTagline: 'Professioneller Hersteller',
@@ -1342,10 +1364,10 @@
         footerPrivacy: 'Datenschutzerklärung',
         footerContact: 'Kontakt',
         overlayTitle: 'Bestätigen Sie Ihre Anfrage',
-        overlaySub: 'Teilen Sie uns Ihre Bedürfnisse mit, damit wir Sie besser bedienen können.',
-        opt1: '🧑‍⚕️ Persönliche Nutzung',
-        opt2: '👥 Team / Studio',
-        opt3: '📦 Großhandel / Distributor',
+        overlaySub: 'Teilen Sie uns Ihren Zeitrahmen mit, damit wir Sie besser bedienen können.',
+        opt1: '🔥 Jetzt kaufen',
+        opt2: '📅 In 1 Woche kaufen',
+        opt3: '📆 In 1 Monat kaufen',
         benefit1: 'Fabrikpreis',
         benefit2: 'Kostenloser Katalog',
         benefit3: 'Antwort 30min',
@@ -1354,8 +1376,7 @@
         inquiryBtnLabel: 'Anfrage',
         managerLabel: '📞 Manager-Hotline · 24/7',
         managerHint: 'Bei Link-Problemen bitte Nummer manuell kopieren',
-        unit: 'Durchstechflaschen',
-        unitShort: 'Durchstechflasche'
+        unit: 'Durchstechflaschen'
       },
       'fr': {
         navTagline: 'Fabricant Professionnel',
@@ -1387,10 +1408,10 @@
         footerPrivacy: 'Politique de confidentialité',
         footerContact: 'Contact',
         overlayTitle: 'Confirmez votre demande',
-        overlaySub: 'Faites-nous part de vos besoins pour mieux vous servir.',
-        opt1: '🧑‍⚕️ Usage personnel',
-        opt2: '👥 Équipe / Studio',
-        opt3: '📦 Grossiste / Distributeur',
+        overlaySub: 'Dites-nous votre calendrier pour mieux vous servir.',
+        opt1: '🔥 Acheter maintenant',
+        opt2: '📅 Acheter dans 1 semaine',
+        opt3: '📆 Acheter dans 1 mois',
         benefit1: 'Prix usine',
         benefit2: 'Catalogue gratuit',
         benefit3: 'Réponse 30min',
@@ -1399,8 +1420,7 @@
         inquiryBtnLabel: 'Demande',
         managerLabel: '📞 Ligne manager · 24/7',
         managerHint: 'Si le lien ne fonctionne pas, copiez le numéro manuellement',
-        unit: 'flacons',
-        unitShort: 'flacon'
+        unit: 'flacons'
       },
       'es': {
         navTagline: 'Fabricante Profesional',
@@ -1432,10 +1452,10 @@
         footerPrivacy: 'Política de privacidad',
         footerContact: 'Contacto',
         overlayTitle: 'Confirma tu consulta',
-        overlaySub: 'Cuéntanos tus necesidades para poder servirte mejor.',
-        opt1: '🧑‍⚕️ Uso personal',
-        opt2: '👥 Equipo / Estudio',
-        opt3: '📦 Mayorista / Distribuidor',
+        overlaySub: 'Cuéntanos tu plazo para poder servirte mejor.',
+        opt1: '🔥 Comprar ahora',
+        opt2: '📅 Comprar en 1 semana',
+        opt3: '📆 Comprar en 1 mes',
         benefit1: 'Precio de fábrica',
         benefit2: 'Catálogo gratuito',
         benefit3: 'Respuesta 30min',
@@ -1444,8 +1464,7 @@
         inquiryBtnLabel: 'Consulta',
         managerLabel: '📞 Línea gerente · 24/7',
         managerHint: 'Si el enlace falla, copia el número manualmente',
-        unit: 'viales',
-        unitShort: 'vial'
+        unit: 'viales'
       },
       'hu': {
         navTagline: 'Professzionális Gyártó',
@@ -1477,10 +1496,10 @@
         footerPrivacy: 'Adatvédelmi irányelvek',
         footerContact: 'Kapcsolat',
         overlayTitle: 'Erősítse meg érdeklődését',
-        overlaySub: 'Tudassa velünk igényeit, hogy jobban segíthessünk.',
-        opt1: '🧑‍⚕️ Személyes használatra',
-        opt2: '👥 Csapat / Stúdió',
-        opt3: '📦 Nagykereskedelem / Forgalmazó',
+        overlaySub: 'Tudassa velünk az időzítést, hogy jobban segíthessünk.',
+        opt1: '🔥 Most veszek',
+        opt2: '📅 1 héten belül veszek',
+        opt3: '📆 1 hónapon belül veszek',
         benefit1: 'Gyári ár',
         benefit2: 'Ingyenes katalógus',
         benefit3: 'Válasz 30perc',
@@ -1489,13 +1508,12 @@
         inquiryBtnLabel: 'Érdeklődés',
         managerLabel: '📞 Vezetői vonal · 24/7',
         managerHint: 'Ha a link nem működik, másolja át a számot manuálisan',
-        unit: 'ampulla',
-        unitShort: 'ampulla'
+        unit: 'ampulla'
       }
     };
 
     // ============================================================
-    // 产品数据
+    // 产品数据（归类展开式）
     // ============================================================
     const productGroups = [
       {
@@ -1503,17 +1521,17 @@
         sku: 'TR',
         hot: true,
         variants: [
-          { dose: '5mg', qty: '10' },
-          { dose: '10mg', qty: '10' },
-          { dose: '15mg', qty: '10' },
-          { dose: '20mg', qty: '10' },
-          { dose: '30mg', qty: '10' },
-          { dose: '40mg', qty: '10' },
-          { dose: '50mg', qty: '10' },
-          { dose: '60mg', qty: '10' },
-          { dose: '80mg', qty: '10' },
-          { dose: '100mg', qty: '10' },
-          { dose: '120mg', qty: '10' }
+          { dose: '5mg', qty: '10', price: '22' },
+          { dose: '10mg', qty: '10', price: '34' },
+          { dose: '15mg', qty: '10', price: '47' },
+          { dose: '20mg', qty: '10', price: '57' },
+          { dose: '30mg', qty: '10', price: '77' },
+          { dose: '40mg', qty: '10', price: '95' },
+          { dose: '50mg', qty: '10', price: '119' },
+          { dose: '60mg', qty: '10', price: '149' },
+          { dose: '80mg', qty: '10', price: '172' },
+          { dose: '100mg', qty: '10', price: '219' },
+          { dose: '120mg', qty: '10', price: '244' }
         ]
       },
       {
@@ -1521,16 +1539,16 @@
         sku: 'RT',
         hot: true,
         variants: [
-          { dose: '5mg', qty: '10' },
-          { dose: '10mg', qty: '10' },
-          { dose: '15mg', qty: '10' },
-          { dose: '20mg', qty: '10' },
-          { dose: '30mg', qty: '10' },
-          { dose: '40mg', qty: '10' },
-          { dose: '50mg', qty: '10' },
-          { dose: '60mg', qty: '10' },
-          { dose: '100mg', qty: '10' },
-          { dose: '120mg', qty: '10' }
+          { dose: '5mg', qty: '10', price: '24' },
+          { dose: '10mg', qty: '10', price: '47' },
+          { dose: '15mg', qty: '10', price: '67' },
+          { dose: '20mg', qty: '10', price: '88' },
+          { dose: '30mg', qty: '10', price: '113' },
+          { dose: '40mg', qty: '10', price: '160' },
+          { dose: '50mg', qty: '10', price: '185' },
+          { dose: '60mg', qty: '10', price: '206' },
+          { dose: '100mg', qty: '10', price: '262' },
+          { dose: '120mg', qty: '10', price: '311' }
         ]
       },
       {
@@ -1538,13 +1556,13 @@
         sku: 'SM',
         hot: true,
         variants: [
-          { dose: '5mg', qty: '10' },
-          { dose: '10mg', qty: '10' },
-          { dose: '15mg', qty: '10' },
-          { dose: '20mg', qty: '10' },
-          { dose: '30mg', qty: '10' },
-          { dose: '40mg', qty: '10' },
-          { dose: '50mg', qty: '10' }
+          { dose: '5mg', qty: '10', price: '21' },
+          { dose: '10mg', qty: '10', price: '31' },
+          { dose: '15mg', qty: '10', price: '43' },
+          { dose: '20mg', qty: '10', price: '49' },
+          { dose: '30mg', qty: '10', price: '77' },
+          { dose: '40mg', qty: '10', price: '93' },
+          { dose: '50mg', qty: '10', price: '108' }
         ]
       },
       {
@@ -1552,10 +1570,10 @@
         sku: 'BB',
         hot: false,
         variants: [
-          { dose: '5mg+5mg', qty: '10' },
-          { dose: '10mg+10mg', qty: '10' },
-          { dose: '15mg+15mg', qty: '10' },
-          { dose: '20mg+20mg', qty: '10' }
+          { dose: '5mg+5mg', qty: '10', price: '79' },
+          { dose: '10mg+10mg', qty: '10', price: '134' },
+          { dose: '15mg+15mg', qty: '10', price: '154' },
+          { dose: '20mg+20mg', qty: '10', price: '193' }
         ]
       },
       {
@@ -1563,8 +1581,8 @@
         sku: 'CGL',
         hot: false,
         variants: [
-          { dose: '5mg', qty: '10' },
-          { dose: '10mg', qty: '10' }
+          { dose: '5mg', qty: '10', price: '85' },
+          { dose: '10mg', qty: '10', price: '157' }
         ]
       },
       {
@@ -1572,8 +1590,8 @@
         sku: 'CND',
         hot: false,
         variants: [
-          { dose: '5mg', qty: '10' },
-          { dose: '10mg', qty: '10' }
+          { dose: '5mg', qty: '10', price: '68' },
+          { dose: '10mg', qty: '10', price: '116' }
         ]
       },
       {
@@ -1581,8 +1599,8 @@
         sku: 'CD',
         hot: false,
         variants: [
-          { dose: '5mg', qty: '10' },
-          { dose: '10mg', qty: '10' }
+          { dose: '5mg', qty: '10', price: '149' },
+          { dose: '10mg', qty: '10', price: '270' }
         ]
       },
       {
@@ -1590,8 +1608,8 @@
         sku: 'CP',
         hot: false,
         variants: [
-          { dose: '10mg', qty: '10' },
-          { dose: '20mg', qty: '10' }
+          { dose: '10mg', qty: '10', price: '98' },
+          { dose: '20mg', qty: '10', price: '181' }
         ]
       },
       {
@@ -1599,8 +1617,8 @@
         sku: 'DS',
         hot: false,
         variants: [
-          { dose: '5mg', qty: '10' },
-          { dose: '10mg', qty: '10' }
+          { dose: '5mg', qty: '10', price: '40' },
+          { dose: '10mg', qty: '10', price: '74' }
         ]
       },
       {
@@ -1608,8 +1626,8 @@
         sku: 'CU',
         hot: false,
         variants: [
-          { dose: '50mg', qty: '10' },
-          { dose: '100mg', qty: '10' }
+          { dose: '50mg', qty: '10', price: '16' },
+          { dose: '100mg', qty: '10', price: '26' }
         ]
       },
       {
@@ -1617,8 +1635,8 @@
         sku: 'AU',
         hot: false,
         variants: [
-          { dose: '50mg', qty: '10' },
-          { dose: '100mg', qty: '10' }
+          { dose: '50mg', qty: '10', price: '26' },
+          { dose: '100mg', qty: '10', price: '44' }
         ]
       },
       {
@@ -1626,7 +1644,7 @@
         sku: 'AR50',
         hot: false,
         variants: [
-          { dose: '50mg', qty: '10' }
+          { dose: '50mg', qty: '10', price: '49' }
         ]
       },
       {
@@ -1634,8 +1652,8 @@
         sku: 'AD',
         hot: false,
         variants: [
-          { dose: '5mg', qty: '10' },
-          { dose: '10mg', qty: '10' }
+          { dose: '5mg', qty: '10', price: '101' },
+          { dose: '10mg', qty: '10', price: '179' }
         ]
       },
       {
@@ -1643,8 +1661,8 @@
         sku: 'RA',
         hot: false,
         variants: [
-          { dose: '10mg', qty: '10' },
-          { dose: '16mg', qty: '10' }
+          { dose: '10mg', qty: '10', price: '72' },
+          { dose: '16mg', qty: '10', price: '98' }
         ]
       },
       {
@@ -1652,9 +1670,9 @@
         sku: 'BC',
         hot: true,
         variants: [
-          { dose: '5mg', qty: '10' },
-          { dose: '10mg', qty: '10' },
-          { dose: '20mg', qty: '10' }
+          { dose: '5mg', qty: '10', price: '42' },
+          { dose: '10mg', qty: '10', price: '58' },
+          { dose: '20mg', qty: '10', price: '93' }
         ]
       },
       {
@@ -1662,9 +1680,9 @@
         sku: 'CS',
         hot: false,
         variants: [
-          { dose: '5mg', qty: '10' },
-          { dose: '10mg', qty: '10' },
-          { dose: '20mg', qty: '10' }
+          { dose: '5mg', qty: '10', price: '77' },
+          { dose: '10mg', qty: '10', price: '110' },
+          { dose: '20mg', qty: '10', price: '178' }
         ]
       },
       {
@@ -1672,8 +1690,8 @@
         sku: 'TRC',
         hot: false,
         variants: [
-          { dose: '10mg', qty: '10' },
-          { dose: '20mg', qty: '10' }
+          { dose: '10mg', qty: '10', price: '111' },
+          { dose: '20mg', qty: '10', price: '181' }
         ]
       },
       {
@@ -1681,9 +1699,9 @@
         sku: 'CBL',
         hot: false,
         variants: [
-          { dose: '5mg', qty: '10' },
-          { dose: '10mg', qty: '10' },
-          { dose: '20mg', qty: '10' }
+          { dose: '5mg', qty: '10', price: '108' },
+          { dose: '10mg', qty: '10', price: '206' },
+          { dose: '20mg', qty: '10', price: '288' }
         ]
       },
       {
@@ -1691,8 +1709,8 @@
         sku: 'ET',
         hot: false,
         variants: [
-          { dose: '10mg', qty: '10' },
-          { dose: '50mg', qty: '10' }
+          { dose: '10mg', qty: '10', price: '44' },
+          { dose: '50mg', qty: '10', price: '165' }
         ]
       },
       {
@@ -1700,9 +1718,9 @@
         sku: 'G2',
         hot: false,
         variants: [
-          { dose: '5mg', qty: '10' },
-          { dose: '10mg', qty: '10' },
-          { dose: '15mg', qty: '10' }
+          { dose: '5mg', qty: '10', price: '44' },
+          { dose: '10mg', qty: '10', price: '67' },
+          { dose: '15mg', qty: '10', price: '89' }
         ]
       },
       {
@@ -1710,9 +1728,9 @@
         sku: 'G6',
         hot: false,
         variants: [
-          { dose: '5mg', qty: '10' },
-          { dose: '10mg', qty: '10' },
-          { dose: '15mg', qty: '10' }
+          { dose: '5mg', qty: '10', price: '44' },
+          { dose: '10mg', qty: '10', price: '66' },
+          { dose: '15mg', qty: '10', price: '89' }
         ]
       },
       {
@@ -1720,7 +1738,7 @@
         sku: 'Glow70',
         hot: false,
         variants: [
-          { dose: '70mg', qty: '10' }
+          { dose: '70mg', qty: '10', price: '154' }
         ]
       },
       {
@@ -1728,7 +1746,7 @@
         sku: 'Klow80',
         hot: false,
         variants: [
-          { dose: '80mg', qty: '10' }
+          { dose: '80mg', qty: '10', price: '175' }
         ]
       },
       {
@@ -1736,7 +1754,7 @@
         sku: 'GND',
         hot: false,
         variants: [
-          { dose: '5mg', qty: '10' }
+          { dose: '5mg', qty: '10', price: '54' }
         ]
       },
       {
@@ -1744,8 +1762,8 @@
         sku: 'HX',
         hot: false,
         variants: [
-          { dose: '2mg', qty: '10' },
-          { dose: '5mg', qty: '10' }
+          { dose: '2mg', qty: '10', price: '48' },
+          { dose: '5mg', qty: '10', price: '89' }
         ]
       },
       {
@@ -1753,8 +1771,8 @@
         sku: 'IP',
         hot: false,
         variants: [
-          { dose: '5mg', qty: '10' },
-          { dose: '10mg', qty: '10' }
+          { dose: '5mg', qty: '10', price: '44' },
+          { dose: '10mg', qty: '10', price: '62' }
         ]
       },
       {
@@ -1762,8 +1780,8 @@
         sku: 'KS',
         hot: false,
         variants: [
-          { dose: '5mg', qty: '10' },
-          { dose: '10mg', qty: '10' }
+          { dose: '5mg', qty: '10', price: '47' },
+          { dose: '10mg', qty: '10', price: '72' }
         ]
       },
       {
@@ -1771,8 +1789,8 @@
         sku: 'KP',
         hot: false,
         variants: [
-          { dose: '5mg', qty: '10' },
-          { dose: '10mg', qty: '10' }
+          { dose: '5mg', qty: '10', price: '31' },
+          { dose: '10mg', qty: '10', price: '47' }
         ]
       },
       {
@@ -1780,9 +1798,9 @@
         sku: 'LC',
         hot: false,
         variants: [
-          { dose: '400mg', qty: '10' },
-          { dose: '600mg', qty: '10' },
-          { dose: '1200mg', qty: '10' }
+          { dose: '400mg', qty: '10', price: '31' },
+          { dose: '600mg', qty: '10', price: '57' },
+          { dose: '1200mg', qty: '10', price: '62' }
         ]
       },
       {
@@ -1790,8 +1808,8 @@
         sku: 'LIR',
         hot: false,
         variants: [
-          { dose: '5mg', qty: '10' },
-          { dose: '10mg', qty: '10' }
+          { dose: '5mg', qty: '10', price: '39' },
+          { dose: '10mg', qty: '10', price: '58' }
         ]
       },
       {
@@ -1799,7 +1817,7 @@
         sku: 'MT-1',
         hot: false,
         variants: [
-          { dose: '10mg', qty: '10' }
+          { dose: '10mg', qty: '10', price: '72' }
         ]
       },
       {
@@ -1807,7 +1825,7 @@
         sku: 'MT-2',
         hot: false,
         variants: [
-          { dose: '10mg', qty: '10' }
+          { dose: '10mg', qty: '10', price: '72' }
         ]
       },
       {
@@ -1815,10 +1833,10 @@
         sku: 'MS',
         hot: false,
         variants: [
-          { dose: '10mg', qty: '10' },
-          { dose: '15mg', qty: '10' },
-          { dose: '20mg', qty: '10' },
-          { dose: '40mg', qty: '10' }
+          { dose: '10mg', qty: '10', price: '65' },
+          { dose: '15mg', qty: '10', price: '88' },
+          { dose: '20mg', qty: '10', price: '108' },
+          { dose: '40mg', qty: '10', price: '193' }
         ]
       },
       {
@@ -1826,9 +1844,9 @@
         sku: 'NJ',
         hot: false,
         variants: [
-          { dose: '100mg', qty: '10' },
-          { dose: '500mg', qty: '10' },
-          { dose: '1000mg', qty: '10' }
+          { dose: '100mg', qty: '10', price: '18' },
+          { dose: '500mg', qty: '10', price: '36' },
+          { dose: '1000mg', qty: '10', price: '57' }
         ]
       },
       {
@@ -1836,8 +1854,8 @@
         sku: 'OT',
         hot: false,
         variants: [
-          { dose: '5mg', qty: '10' },
-          { dose: '10mg', qty: '10' }
+          { dose: '5mg', qty: '10', price: '31' },
+          { dose: '10mg', qty: '10', price: '40' }
         ]
       },
       {
@@ -1845,7 +1863,7 @@
         sku: 'p41',
         hot: false,
         variants: [
-          { dose: '10mg', qty: '10' }
+          { dose: '10mg', qty: '10', price: '83' }
         ]
       },
       {
@@ -1853,8 +1871,8 @@
         sku: 'SK',
         hot: false,
         variants: [
-          { dose: '5mg', qty: '10' },
-          { dose: '10mg', qty: '10' }
+          { dose: '5mg', qty: '10', price: '25' },
+          { dose: '10mg', qty: '10', price: '45' }
         ]
       },
       {
@@ -1862,8 +1880,8 @@
         sku: 'SX',
         hot: false,
         variants: [
-          { dose: '5mg', qty: '10' },
-          { dose: '10mg', qty: '10' }
+          { dose: '5mg', qty: '10', price: '25' },
+          { dose: '10mg', qty: '10', price: '45' }
         ]
       },
       {
@@ -1871,9 +1889,9 @@
         sku: 'SMO',
         hot: false,
         variants: [
-          { dose: '5mg', qty: '10' },
-          { dose: '10mg', qty: '10' },
-          { dose: '20mg', qty: '10' }
+          { dose: '5mg', qty: '10', price: '68' },
+          { dose: '10mg', qty: '10', price: '111' },
+          { dose: '20mg', qty: '10', price: '199' }
         ]
       },
       {
@@ -1881,9 +1899,9 @@
         sku: '2S',
         hot: false,
         variants: [
-          { dose: '5mg', qty: '10' },
-          { dose: '10mg', qty: '10' },
-          { dose: '50mg', qty: '10' }
+          { dose: '5mg', qty: '10', price: '47' },
+          { dose: '10mg', qty: '10', price: '75' },
+          { dose: '50mg', qty: '10', price: '244' }
         ]
       },
       {
@@ -1891,9 +1909,9 @@
         sku: 'TB',
         hot: false,
         variants: [
-          { dose: '5mg', qty: '10' },
-          { dose: '10mg', qty: '10' },
-          { dose: '20mg', qty: '10' }
+          { dose: '5mg', qty: '10', price: '79' },
+          { dose: '10mg', qty: '10', price: '136' },
+          { dose: '20mg', qty: '10', price: '244' }
         ]
       },
       {
@@ -1901,9 +1919,9 @@
         sku: 'TSM',
         hot: false,
         variants: [
-          { dose: '5mg', qty: '10' },
-          { dose: '10mg', qty: '10' },
-          { dose: '20mg', qty: '10' }
+          { dose: '5mg', qty: '10', price: '85' },
+          { dose: '10mg', qty: '10', price: '154' },
+          { dose: '20mg', qty: '10', price: '270' }
         ]
       },
       {
@@ -1911,8 +1929,8 @@
         sku: 'TA',
         hot: false,
         variants: [
-          { dose: '5mg', qty: '10' },
-          { dose: '10mg', qty: '10' }
+          { dose: '5mg', qty: '10', price: '88' },
+          { dose: '10mg', qty: '10', price: '154' }
         ]
       },
       {
@@ -1920,9 +1938,9 @@
         sku: '5AM',
         hot: false,
         variants: [
-          { dose: '5mg', qty: '10' },
-          { dose: '10mg', qty: '10' },
-          { dose: '50mg', qty: '10' }
+          { dose: '5mg', qty: '10', price: '26' },
+          { dose: '10mg', qty: '10', price: '43' },
+          { dose: '50mg', qty: '10', price: '83' }
         ]
       },
       {
@@ -1930,7 +1948,7 @@
         sku: 'BAC',
         hot: false,
         variants: [
-          { dose: '3ml', qty: '10' }
+          { dose: '3ml', qty: '10', price: '3' }
         ]
       },
       {
@@ -1938,7 +1956,7 @@
         sku: 'B12',
         hot: false,
         variants: [
-          { dose: '10ml', qty: '10' }
+          { dose: '10ml', qty: '10', price: '31' }
         ]
       },
       {
@@ -1946,7 +1964,7 @@
         sku: 'HCG',
         hot: false,
         variants: [
-          { dose: '1000iu', qty: '10' }
+          { dose: '1000iu', qty: '10', price: '16' }
         ]
       },
       {
@@ -1954,7 +1972,7 @@
         sku: 'G75',
         hot: false,
         variants: [
-          { dose: '75iu', qty: '10' }
+          { dose: '75iu', qty: '10', price: '40' }
         ]
       },
       {
@@ -1962,7 +1980,7 @@
         sku: 'LB',
         hot: false,
         variants: [
-          { dose: '10ml', qty: '10' }
+          { dose: '10ml', qty: '10', price: '44' }
         ]
       },
       {
@@ -1970,7 +1988,7 @@
         sku: 'LC216',
         hot: false,
         variants: [
-          { dose: '10ml', qty: '10' }
+          { dose: '10ml', qty: '10', price: '67' }
         ]
       },
       {
@@ -1978,7 +1996,7 @@
         sku: 'LC120',
         hot: false,
         variants: [
-          { dose: '10ml', qty: '10' }
+          { dose: '10ml', qty: '10', price: '31' }
         ]
       },
       {
@@ -1986,7 +2004,7 @@
         sku: 'LC526',
         hot: false,
         variants: [
-          { dose: '10ml', qty: '10' }
+          { dose: '10ml', qty: '10', price: '62' }
         ]
       },
       {
@@ -1994,8 +2012,8 @@
         sku: 'GTT',
         hot: false,
         variants: [
-          { dose: '600mg', qty: '10' },
-          { dose: '1500mg', qty: '10' }
+          { dose: '600mg', qty: '10', price: '34' },
+          { dose: '1500mg', qty: '10', price: '57' }
         ]
       },
       {
@@ -2003,7 +2021,7 @@
         sku: '375',
         hot: false,
         variants: [
-          { dose: '5mg', qty: '10' }
+          { dose: '5mg', qty: '10', price: '95' }
         ]
       },
       {
@@ -2011,7 +2029,7 @@
         sku: 'VIP10',
         hot: false,
         variants: [
-          { dose: '10mg', qty: '10' }
+          { dose: '10mg', qty: '10', price: '129' }
         ]
       },
       {
@@ -2019,7 +2037,7 @@
         sku: 'F410',
         hot: false,
         variants: [
-          { dose: '10mg', qty: '10' }
+          { dose: '10mg', qty: '10', price: '29' }
         ]
       },
       {
@@ -2027,7 +2045,7 @@
         sku: 'FM2',
         hot: false,
         variants: [
-          { dose: '2mg', qty: '10' }
+          { dose: '2mg', qty: '10', price: '27' }
         ]
       },
       {
@@ -2035,7 +2053,7 @@
         sku: 'FMP2',
         hot: false,
         variants: [
-          { dose: '2mg', qty: '10' }
+          { dose: '2mg', qty: '10', price: '65' }
         ]
       },
       {
@@ -2043,80 +2061,10 @@
         sku: 'MK75',
         hot: false,
         variants: [
-          { dose: '5mg', qty: '10' }
+          { dose: '5mg', qty: '10', price: '5' }
         ]
       }
     ];
-
-    // 为每个变体补充价格
-    const priceMap = {
-      'Tirzepatide': { '5mg': '22', '10mg': '34', '15mg': '47', '20mg': '57', '30mg': '77', '40mg': '95', '50mg': '119', '60mg': '149', '80mg': '172', '100mg': '219', '120mg': '244' },
-      'Retatrutide': { '5mg': '24', '10mg': '47', '15mg': '67', '20mg': '88', '30mg': '113', '40mg': '160', '50mg': '185', '60mg': '206', '100mg': '262', '120mg': '311' },
-      'Semaglutide': { '5mg': '21', '10mg': '31', '15mg': '43', '20mg': '49', '30mg': '77', '40mg': '93', '50mg': '108' },
-      'BPC+TB': { '5mg+5mg': '79', '10mg+10mg': '134', '15mg+15mg': '154', '20mg+20mg': '193' },
-      'Cagrilintide': { '5mg': '85', '10mg': '157' },
-      'CJC1295 no DAC': { '5mg': '68', '10mg': '116' },
-      'CJC1295 with DAC': { '5mg': '149', '10mg': '270' },
-      'CJC1295+Ipamorelin': { '10mg': '98', '20mg': '181' },
-      'DSIP': { '5mg': '40', '10mg': '74' },
-      'GHK-CU': { '50mg': '16', '100mg': '26' },
-      'AHK-CU': { '50mg': '26', '100mg': '44' },
-      'AICAR': { '50mg': '49' },
-      'AOD9604': { '5mg': '101', '10mg': '179' },
-      'ARA290': { '10mg': '72', '16mg': '98' },
-      'BPC-157': { '5mg': '42', '10mg': '58', '20mg': '93' },
-      'Cagri+Semaglutide': { '5mg': '77', '10mg': '110', '20mg': '178' },
-      'Cagri+Tirzepatide': { '10mg': '111', '20mg': '181' },
-      'CBL-514': { '5mg': '108', '10mg': '206', '20mg': '288' },
-      'Epithalon': { '10mg': '44', '50mg': '165' },
-      'GHRP-2': { '5mg': '44', '10mg': '67', '15mg': '89' },
-      'GHRP-6': { '5mg': '44', '10mg': '66', '15mg': '89' },
-      'GLOW': { '70mg': '154' },
-      'KLOW': { '80mg': '175' },
-      'Gonadorelin': { '5mg': '54' },
-      'Hexarelin': { '2mg': '48', '5mg': '89' },
-      'Ipamorelin': { '5mg': '44', '10mg': '62' },
-      'Kisspeptin-10': { '5mg': '47', '10mg': '72' },
-      'KPV': { '5mg': '31', '10mg': '47' },
-      'L-Carnitine': { '400mg': '31', '600mg': '57', '1200mg': '62' },
-      'Liraglutide': { '5mg': '39', '10mg': '58' },
-      'Melanotan I': { '10mg': '72' },
-      'Melanotan II': { '10mg': '72' },
-      'MOTS-c': { '10mg': '65', '15mg': '88', '20mg': '108', '40mg': '193' },
-      'NAD+': { '100mg': '18', '500mg': '36', '1000mg': '57' },
-      'Oxytocin': { '5mg': '31', '10mg': '40' },
-      'PT-141': { '10mg': '83' },
-      'Selank': { '5mg': '25', '10mg': '45' },
-      'Semax': { '5mg': '25', '10mg': '45' },
-      'Sermorelin': { '5mg': '68', '10mg': '111', '20mg': '199' },
-      'SS-31': { '5mg': '47', '10mg': '75', '50mg': '244' },
-      'TB500': { '5mg': '79', '10mg': '136', '20mg': '244' },
-      'Tesamorelin': { '5mg': '85', '10mg': '154', '20mg': '270' },
-      'Thymosin alpha 1': { '5mg': '88', '10mg': '154' },
-      '5-Amino-1MQ': { '5mg': '26', '10mg': '43', '50mg': '83' },
-      'BAC Water': { '3ml': '3' },
-      'B-12': { '10ml': '31' },
-      'HCG': { '1000iu': '16' },
-      'HMG': { '75iu': '40' },
-      'Lemon Bottle': { '10ml': '44' },
-      'Lipo-B': { '10ml': '67' },
-      'Lipo-C': { '10ml': '31' },
-      'Lipo-C(FatBLaster)': { '10ml': '62' },
-      'Glutathione': { '600mg': '34', '1500mg': '57' },
-      'LL37': { '5mg': '95' },
-      'VIP': { '10mg': '129' },
-      'FOXO4-DRI': { '10mg': '29' },
-      'MGF': { '2mg': '27' },
-      'PEG-MGF': { '2mg': '65' },
-      'MK677': { '5mg': '5' }
-    };
-
-    // 填充价格到变体
-    productGroups.forEach(group => {
-      group.variants.forEach(v => {
-        v.price = priceMap[group.name]?.[v.dose] || '0';
-      });
-    });
 
     // ============================================================
     // 核心函数
@@ -2128,8 +2076,12 @@
       const overlay = document.getElementById('inquiryOverlay');
       overlay.classList.add('show');
       document.body.style.overflow = 'hidden';
-      document.querySelector('input[name="purpose"][value="personal"]').checked = true;
-      document.getElementById('confirmBtn').disabled = false;
+      
+      // 取消所有默认选中
+      document.querySelectorAll('input[name="timing"]').forEach(el => el.checked = false);
+      
+      // 按钮默认禁用
+      document.getElementById('confirmBtn').disabled = true;
     }
 
     function closeOverlay() {
@@ -2139,29 +2091,40 @@
       pendingSource = '';
     }
 
+    // 监听选择变化
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('input[name="timing"]').forEach(el => {
+        el.addEventListener('change', function() {
+          const timingSelected = document.querySelector('input[name="timing"]:checked');
+          document.getElementById('confirmBtn').disabled = !timingSelected;
+        });
+      });
+    });
+
     function confirmAndRedirect() {
       const overlay = document.getElementById('inquiryOverlay');
       overlay.classList.remove('show');
       document.body.style.overflow = '';
 
-      const selected = document.querySelector('input[name="purpose"]:checked');
-      const purpose = selected ? selected.value : 'personal';
-      const purposeMap = {
-        'personal': 'Personal Use',
-        'team': 'Team / Studio',
-        'wholesale': 'Wholesale / Distributor'
+      const selectedTiming = document.querySelector('input[name="timing"]:checked');
+      const timing = selectedTiming ? selectedTiming.value : 'now';
+
+      const finalUrl = getFinalWhatsAppLink(timing);
+
+      const timingMap = {
+        'now': 'Buy Now',
+        'week': 'Buy within 1 week',
+        'month': 'Buy within 1 month'
       };
 
-      const finalUrl = getCountrySpecificLink();
-
       fbq('track', 'Lead', {
-        content_name: purposeMap[purpose] || 'Inquiry',
+        content_name: timingMap[timing] || 'Inquiry',
         content_id: pendingSource || 'website',
         currency: 'EUR'
       });
       if (typeof ttq !== 'undefined') {
         ttq.track('Lead', {
-          content_name: purposeMap[purpose] || 'Inquiry',
+          content_name: timingMap[timing] || 'Inquiry',
           content_id: pendingSource || 'website',
           currency: 'EUR'
         });
