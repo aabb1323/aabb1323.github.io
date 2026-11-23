@@ -8,13 +8,24 @@
   <script>
   (function() {
     const lang = navigator.language || navigator.userLanguage;
+    const lowerLang = lang.toLowerCase(); // 统一转小写方便匹配
+    
     const langMap = {
       'it': 'it', 'pt': 'pt', 'de': 'de', 'fr': 'fr',
       'nl': 'nl', 'pl': 'pl', 'es': 'es', 'hu': 'hu',
-      'ro': 'ro', 'fi': 'fi'
+      'ro': 'ro', 'fi': 'fi', 'pt-br': 'pt-br' // 新增巴西葡语识别
     };
-    const baseLang = lang.split('-')[0];
-    window.CURRENT_LANG = langMap[baseLang] || 'en';
+    
+    // 优先检查是否包含巴西标识
+    let baseLang = 'en';
+    if (lowerLang.includes('pt-br') || lowerLang === 'pt-br') {
+      baseLang = 'pt-br';
+    } else {
+      const shortLang = lowerLang.split('-')[0];
+      baseLang = langMap[shortLang] || 'en';
+    }
+    
+    window.CURRENT_LANG = baseLang;
     document.documentElement.setAttribute('data-lang', window.CURRENT_LANG);
   })();
   </script>
@@ -28,7 +39,7 @@
       'PL': 'Poland', 'DE': 'Germany', 'FR': 'France', 'IT': 'Italy',
       'ES': 'Spain', 'PT': 'Portugal', 'NL': 'Netherlands', 'FI': 'Finland',
       'HU': 'Hungary', 'RO': 'Romania', 'US': 'United States', 'GB': 'United Kingdom',
-      'CA': 'Canada', 'AU': 'Australia', 'default': 'your region'
+      'CA': 'Canada', 'AU': 'Australia', 'BR': 'Brazil', 'default': 'your region'
     };
     const country = countryNames[countryCode] || countryNames['default'];
     
@@ -47,6 +58,7 @@
       'it': `Salve, sono interessato ai vostri prodotti. Per favore, inviatemi il listino prezzi.`,
       'es': `Hola, estoy interesado en sus productos. Por favor, envíenme la lista de precios.`,
       'pt': `Olá, estou interessado nos seus produtos. Por favor, envie-me a lista de preços.`,
+      'pt-br': `Olá, estou interessado nos seus produtos. Por favor, envie-me a lista de preços.`, // 巴西葡语问候
       'nl': `Hallo, ik ben geïnteresseerd in uw producten. Stuur me alsjeblieft de prijslijst.`,
       'hu': `Üdvözlöm, érdekelnek a termékei. Kérem, küldje el az árlistát.`,
       'ro': `Bună, sunt interesat de produsele dumneavoastră. Vă rog să-mi trimiteți lista de prețuri.`,
@@ -61,13 +73,29 @@
   function getFinalWhatsAppLink(timing) {
     const { phone, baseMessage } = getCountrySpecificLink();
     
+    // 为不同语言适配 WhatsApp 快捷回复话术
     const timingMap = {
-      'now': 'I want to buy NOW',
-      'week': 'I plan to buy within 1 week',
-      'month': 'I plan to buy within 1 month'
+      'en': {
+        'now': 'I want to buy NOW',
+        'week': 'I plan to buy within 1 week',
+        'month': 'I plan to buy within 1 month'
+      },
+      'pt-br': {
+        'now': 'Quero comprar AGORA',
+        'week': 'Pretendo comprar em até 1 semana',
+        'month': 'Pretendo comprar em até 1 mês'
+      },
+      // 默认使用英语兜底
+      'default': {
+        'now': 'I want to buy NOW',
+        'week': 'I plan to buy within 1 week',
+        'month': 'I plan to buy within 1 month'
+      }
     };
     
-    const timingLabel = timingMap[timing] || 'I\'m interested';
+    const currentLang = window.CURRENT_LANG || 'en';
+    const langMap = timingMap[currentLang] || timingMap['default'];
+    const timingLabel = langMap[timing] || 'I\'m interested';
     
     const fullMessage = `${baseMessage} (${timingLabel})`;
     
@@ -994,7 +1022,8 @@
       <p class="sub" id="overlaySub">Please let us know your timing so we can serve you better.</p>
 
       <div class="options">
-        <span class="section-label">📌 您计划什么时候购买？</span>
+        <!-- 修复点：把硬编码的中文改成了带 id 的 span -->
+        <span class="section-label" id="sectionLabel">📌 您计划什么时候购买？</span>
         <label>
           <input type="radio" name="timing" value="now" />
           <span id="opt1">🔥 马上购买</span>
@@ -1058,6 +1087,7 @@
         footerContact: 'Contact',
         overlayTitle: 'Confirm Your Inquiry',
         overlaySub: 'Please let us know your timing so we can serve you better.',
+        sectionLabel: '📌 When do you plan to buy?', // 新增
         opt1: '🔥 Buy Now',
         opt2: '📅 Buy within 1 week',
         opt3: '📆 Buy within 1 month',
@@ -1070,6 +1100,51 @@
         managerLabel: '📞 Manager Line · 24/7 Online',
         managerHint: 'If the link fails, manually copy the number to add',
         unit: 'vials'
+      },
+      'pt-br': {
+        navTagline: 'Fabricante Profissional',
+        navCta: 'Consulta WhatsApp',
+        urgencyText: '🔥 Novos clientes ganham 5% de desconto no primeiro pedido · Vagas limitadas',
+        ratingText: '4.9/5 · 500+ Avaliações · Confiável em todo o mundo',
+        badge1: 'HPLC ≥ 99%',
+        badge2: 'Padrão GMP',
+        badge3: 'Direto da fábrica',
+        badge4: 'Envio global',
+        hook1: 'Preço direto de fábrica',
+        hook2: 'Orçamento rápido',
+        hook3: 'Entrega em 7-12 dias',
+        waLabel: '📱 Consulta WhatsApp',
+        responseLabel: 'Resposta em 30 min',
+        payLabel: 'Pagamento Seguro',
+        pageTitle: '📋 <span>Catálogo Completo</span>',
+        pageDesc: 'Peptídeos de pesquisa de alta pureza · Testados por HPLC ≥ 99%',
+        moreBadge: 'Mais de 200 produtos disponíveis',
+        moreTitle: 'Direto da nossa fábrica GMP',
+        moreDesc: 'Não encontrou na lista? Oferecemos mais de 200 peptídeos, especificações personalizadas e pedidos em atacado. Obtenha o catálogo completo no WhatsApp.',
+        moreBtnLabel: '📩 Obter Catálogo Completo no WhatsApp',
+        ctaTitle: '💬 Obtenha seu orçamento agora',
+        ctaSub: 'Resposta em 30 minutos',
+        ctaBtnLabel: '📱 Consulta WhatsApp',
+        shippingLabel: '7-12 dias em todo o mundo',
+        footerText: '© 2026 · Fabricante Profissional de Peptídeos · Todos os direitos reservados',
+        footerHome: 'Início',
+        footerPrivacy: 'Política de Privacidade',
+        footerContact: 'Contato',
+        overlayTitle: 'Confirme sua consulta',
+        overlaySub: 'Informe-nos quando planeja comprar para melhor atendê-lo.',
+        sectionLabel: '📌 Quando você planeja comprar?', // 新增巴西葡语翻译
+        opt1: '🔥 Comprar agora',
+        opt2: '📅 Comprar em 1 semana',
+        opt3: '📆 Comprar em 1 mês',
+        benefit1: 'Preço de fábrica',
+        benefit2: 'Catálogo grátis',
+        benefit3: 'Resposta 30min',
+        confirmBtnText: '📱 Ir para o WhatsApp',
+        cancelBtn: 'Cancelar',
+        inquiryBtnLabel: 'Consulta',
+        managerLabel: '📞 Linha do gerente · 24/7',
+        managerHint: 'Se o link falhar, copie o número manualmente',
+        unit: 'frascos'
       },
       'pl': {
         navTagline: 'Profesjonalny Producent',
@@ -1102,6 +1177,7 @@
         footerContact: 'Kontakt',
         overlayTitle: 'Potwierdź swoje zapytanie',
         overlaySub: 'Poinformuj nas o swoim terminie, abyśmy mogli lepiej Ci służyć.',
+        sectionLabel: '📌 Kiedy planujesz kupić?', // 新增
         opt1: '🔥 Kup teraz',
         opt2: '📅 Kup w ciągu tygodnia',
         opt3: '📆 Kup w ciągu miesiąca',
@@ -1146,6 +1222,7 @@
         footerContact: 'Contact',
         overlayTitle: 'Confirmați cererea dvs.',
         overlaySub: 'Spuneți-ne termenul dvs. pentru a vă putea servi mai bine.',
+        sectionLabel: '📌 Când intenționați să cumpărați?', // 新增
         opt1: '🔥 Cumpăr acum',
         opt2: '📅 Cumpăr în 1 săptămână',
         opt3: '📆 Cumpăr în 1 lună',
@@ -1190,6 +1267,7 @@
         footerContact: 'Yhteystiedot',
         overlayTitle: 'Vahvista kyselysi',
         overlaySub: 'Kerro meille aikataulusi, jotta voimme palvella sinua paremmin.',
+        sectionLabel: '📌 Milloin aiot ostaa?', // 新增
         opt1: '🔥 Osta nyt',
         opt2: '📅 Osta viikon sisällä',
         opt3: '📆 Osta kuukauden sisällä',
@@ -1234,6 +1312,7 @@
         footerContact: 'Contact',
         overlayTitle: 'Bevestig uw aanvraag',
         overlaySub: 'Laat ons uw timing weten, zodat we u beter van dienst kunnen zijn.',
+        sectionLabel: '📌 Wanneer ben je van plan om te kopen?', // 新增
         opt1: '🔥 Nu kopen',
         opt2: '📅 Binnen 1 week kopen',
         opt3: '📆 Binnen 1 maand kopen',
@@ -1278,6 +1357,7 @@
         footerContact: 'Contatti',
         overlayTitle: 'Conferma la tua richiesta',
         overlaySub: 'Facci sapere i tuoi tempi per poterti servire meglio.',
+        sectionLabel: '📌 Quando pensi di acquistare?', // 新增
         opt1: '🔥 Acquista ora',
         opt2: '📅 Acquista entro 1 settimana',
         opt3: '📆 Acquista entro 1 mese',
@@ -1322,6 +1402,7 @@
         footerContact: 'Contato',
         overlayTitle: 'Confirme sua consulta',
         overlaySub: 'Informe-nos seu prazo para melhor atendê-lo.',
+        sectionLabel: '📌 Quando planeia comprar?', // 新增
         opt1: '🔥 Comprar agora',
         opt2: '📅 Comprar em 1 semana',
         opt3: '📆 Comprar em 1 mês',
@@ -1366,6 +1447,7 @@
         footerContact: 'Kontakt',
         overlayTitle: 'Bestätigen Sie Ihre Anfrage',
         overlaySub: 'Teilen Sie uns Ihren Zeitrahmen mit, damit wir Sie besser bedienen können.',
+        sectionLabel: '📌 Wann planen Sie zu kaufen?', // 新增
         opt1: '🔥 Jetzt kaufen',
         opt2: '📅 In 1 Woche kaufen',
         opt3: '📆 In 1 Monat kaufen',
@@ -1410,6 +1492,7 @@
         footerContact: 'Contact',
         overlayTitle: 'Confirmez votre demande',
         overlaySub: 'Dites-nous votre calendrier pour mieux vous servir.',
+        sectionLabel: '📌 Quand prévoyez-vous d\'acheter ?', // 新增
         opt1: '🔥 Acheter maintenant',
         opt2: '📅 Acheter dans 1 semaine',
         opt3: '📆 Acheter dans 1 mois',
@@ -1454,6 +1537,7 @@
         footerContact: 'Contacto',
         overlayTitle: 'Confirma tu consulta',
         overlaySub: 'Cuéntanos tu plazo para poder servirte mejor.',
+        sectionLabel: '📌 ¿Cuándo planeas comprar?', // 新增
         opt1: '🔥 Comprar ahora',
         opt2: '📅 Comprar en 1 semana',
         opt3: '📆 Comprar en 1 mes',
@@ -1498,6 +1582,7 @@
         footerContact: 'Kapcsolat',
         overlayTitle: 'Erősítse meg érdeklődését',
         overlaySub: 'Tudassa velünk az időzítést, hogy jobban segíthessünk.',
+        sectionLabel: '📌 Mikor tervezi a vásárlást?', // 新增
         opt1: '🔥 Most veszek',
         opt2: '📅 1 héten belül veszek',
         opt3: '📆 1 hónapon belül veszek',
@@ -2118,12 +2203,11 @@
         'month': 'Buy within 1 month'
       };
 
-      // 修复点 1：Meta Pixel Lead 事件（新增了 value 参数，解决黄色警告）
       if (typeof fbq === 'function') {
         fbq('track', 'Lead', {
           content_name: timingMap[timing] || 'Inquiry',
           content_id: pendingSource || 'website',
-          value: 1.00,        // 新增 value 参数
+          value: 1.00,
           currency: 'EUR'
         });
       }
@@ -2131,7 +2215,7 @@
         ttq.track('Lead', {
           content_name: timingMap[timing] || 'Inquiry',
           content_id: pendingSource || 'website',
-          value: 1.00,        // TikTok 也加上 value
+          value: 1.00,
           currency: 'EUR'
         });
       }
@@ -2143,7 +2227,7 @@
         setTimeout(() => statusEl.classList.remove('show'), 1500);
       }
 
-      // 修复点 2：同步打开窗口，避免被浏览器拦截
+      // 同步打开
       window.open(finalUrl, '_blank');
     }
 
@@ -2243,6 +2327,10 @@
       document.getElementById('footerContact').textContent = t.footerContact;
       document.getElementById('overlayTitle').textContent = t.overlayTitle;
       document.getElementById('overlaySub').textContent = t.overlaySub;
+      
+      // 修复点：现在这句中文会跟随语言动态改变
+      document.getElementById('sectionLabel').textContent = t.sectionLabel; 
+      
       document.getElementById('opt1').textContent = t.opt1;
       document.getElementById('opt2').textContent = t.opt2;
       document.getElementById('opt3').textContent = t.opt3;
@@ -2254,7 +2342,6 @@
       document.getElementById('managerLabel').textContent = t.managerLabel;
       document.getElementById('managerHint').textContent = t.managerHint;
 
-      // 修复点 3：多语言切换刷新询价按钮文案
       document.querySelectorAll('.btn-inquiry').forEach(el => {
         el.innerHTML = `<i class="fab fa-whatsapp"></i> ${t.inquiryBtnLabel}`;
       });
