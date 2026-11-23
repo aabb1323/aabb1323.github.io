@@ -77,7 +77,7 @@
   window.WHATSAPP_LINK = getCountrySpecificLink();
   </script>
 
-  <!-- ===== Meta Pixel (UPDATED ID) ===== -->
+  <!-- ===== Meta Pixel ===== -->
   <script>
   !function(f,b,e,v,n,t,s)
   {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -2118,11 +2118,12 @@
         'month': 'Buy within 1 month'
       };
 
-      // Meta Pixel Lead 事件（已加保护）
+      // 修复点 1：Meta Pixel Lead 事件（新增了 value 参数，解决黄色警告）
       if (typeof fbq === 'function') {
         fbq('track', 'Lead', {
           content_name: timingMap[timing] || 'Inquiry',
           content_id: pendingSource || 'website',
+          value: 1.00,        // 新增 value 参数
           currency: 'EUR'
         });
       }
@@ -2130,6 +2131,7 @@
         ttq.track('Lead', {
           content_name: timingMap[timing] || 'Inquiry',
           content_id: pendingSource || 'website',
+          value: 1.00,        // TikTok 也加上 value
           currency: 'EUR'
         });
       }
@@ -2141,7 +2143,7 @@
         setTimeout(() => statusEl.classList.remove('show'), 1500);
       }
 
-      // 先同步打开，避免被拦截
+      // 修复点 2：同步打开窗口，避免被浏览器拦截
       window.open(finalUrl, '_blank');
     }
 
@@ -2252,7 +2254,7 @@
       document.getElementById('managerLabel').textContent = t.managerLabel;
       document.getElementById('managerHint').textContent = t.managerHint;
 
-      // 修复：刷新已渲染的询价按钮文案
+      // 修复点 3：多语言切换刷新询价按钮文案
       document.querySelectorAll('.btn-inquiry').forEach(el => {
         el.innerHTML = `<i class="fab fa-whatsapp"></i> ${t.inquiryBtnLabel}`;
       });
