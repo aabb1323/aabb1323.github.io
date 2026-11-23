@@ -8,15 +8,14 @@
   <script>
   (function() {
     const lang = navigator.language || navigator.userLanguage;
-    const lowerLang = lang.toLowerCase(); // 统一转小写方便匹配
+    const lowerLang = lang.toLowerCase(); 
     
     const langMap = {
       'it': 'it', 'pt': 'pt', 'de': 'de', 'fr': 'fr',
       'nl': 'nl', 'pl': 'pl', 'es': 'es', 'hu': 'hu',
-      'ro': 'ro', 'fi': 'fi', 'pt-br': 'pt-br' // 新增巴西葡语识别
+      'ro': 'ro', 'fi': 'fi', 'pt-br': 'pt-br'
     };
     
-    // 优先检查是否包含巴西标识
     let baseLang = 'en';
     if (lowerLang.includes('pt-br') || lowerLang === 'pt-br') {
       baseLang = 'pt-br';
@@ -44,8 +43,8 @@
     const country = countryNames[countryCode] || countryNames['default'];
     
     const phones = [
-      '447476571767', 
-      '85244022340' 
+      '447754979685', 
+      '447754979958' 
     ];
     
     const phone = phones[Math.floor(Math.random() * phones.length)];
@@ -58,7 +57,7 @@
       'it': `Salve, sono interessato ai vostri prodotti. Per favore, inviatemi il listino prezzi.`,
       'es': `Hola, estoy interesado en sus productos. Por favor, envíenme la lista de precios.`,
       'pt': `Olá, estou interessado nos seus produtos. Por favor, envie-me a lista de preços.`,
-      'pt-br': `Olá, estou interessado nos seus produtos. Por favor, envie-me a lista de preços.`, // 巴西葡语问候
+      'pt-br': `Olá, estou interessado nos seus produtos. Por favor, envie-me a lista de preços.`,
       'nl': `Hallo, ik ben geïnteresseerd in uw producten. Stuur me alsjeblieft de prijslijst.`,
       'hu': `Üdvözlöm, érdekelnek a termékei. Kérem, küldje el az árlistát.`,
       'ro': `Bună, sunt interesat de produsele dumneavoastră. Vă rog să-mi trimiteți lista de prețuri.`,
@@ -73,7 +72,6 @@
   function getFinalWhatsAppLink(timing) {
     const { phone, baseMessage } = getCountrySpecificLink();
     
-    // 为不同语言适配 WhatsApp 快捷回复话术
     const timingMap = {
       'en': {
         'now': 'I want to buy NOW',
@@ -85,7 +83,6 @@
         'week': 'Pretendo comprar em até 1 semana',
         'month': 'Pretendo comprar em até 1 mês'
       },
-      // 默认使用英语兜底
       'default': {
         'now': 'I want to buy NOW',
         'week': 'I plan to buy within 1 week',
@@ -1022,7 +1019,6 @@
       <p class="sub" id="overlaySub">Please let us know your timing so we can serve you better.</p>
 
       <div class="options">
-        <!-- 修复点：把硬编码的中文改成了带 id 的 span -->
         <span class="section-label" id="sectionLabel">📌 您计划什么时候购买？</span>
         <label>
           <input type="radio" name="timing" value="now" />
@@ -1087,7 +1083,7 @@
         footerContact: 'Contact',
         overlayTitle: 'Confirm Your Inquiry',
         overlaySub: 'Please let us know your timing so we can serve you better.',
-        sectionLabel: '📌 When do you plan to buy?', // 新增
+        sectionLabel: '📌 When do you plan to buy?',
         opt1: '🔥 Buy Now',
         opt2: '📅 Buy within 1 week',
         opt3: '📆 Buy within 1 month',
@@ -1132,7 +1128,7 @@
         footerContact: 'Contato',
         overlayTitle: 'Confirme sua consulta',
         overlaySub: 'Informe-nos quando planeja comprar para melhor atendê-lo.',
-        sectionLabel: '📌 Quando você planeja comprar?', // 新增巴西葡语翻译
+        sectionLabel: '📌 Quando você planeja comprar?', 
         opt1: '🔥 Comprar agora',
         opt2: '📅 Comprar em 1 semana',
         opt3: '📆 Comprar em 1 mês',
@@ -1177,7 +1173,7 @@
         footerContact: 'Kontakt',
         overlayTitle: 'Potwierdź swoje zapytanie',
         overlaySub: 'Poinformuj nas o swoim terminie, abyśmy mogli lepiej Ci służyć.',
-        sectionLabel: '📌 Kiedy planujesz kupić?', // 新增
+        sectionLabel: '📌 Kiedy planujesz kupić?',
         opt1: '🔥 Kup teraz',
         opt2: '📅 Kup w ciągu tygodnia',
         opt3: '📆 Kup w ciągu miesiąca',
@@ -1222,7 +1218,7 @@
         footerContact: 'Contact',
         overlayTitle: 'Confirmați cererea dvs.',
         overlaySub: 'Spuneți-ne termenul dvs. pentru a vă putea servi mai bine.',
-        sectionLabel: '📌 Când intenționați să cumpărați?', // 新增
+        sectionLabel: '📌 Când intenționați să cumpărați?',
         opt1: '🔥 Cumpăr acum',
         opt2: '📅 Cumpăr în 1 săptămână',
         opt3: '📆 Cumpăr în 1 lună',
@@ -1267,7 +1263,7 @@
         footerContact: 'Yhteystiedot',
         overlayTitle: 'Vahvista kyselysi',
         overlaySub: 'Kerro meille aikataulusi, jotta voimme palvella sinua paremmin.',
-        sectionLabel: '📌 Milloin aiot ostaa?', // 新增
+        sectionLabel: '📌 Milloin aiot ostaa?',
         opt1: '🔥 Osta nyt',
         opt2: '📅 Osta viikon sisällä',
         opt3: '📆 Osta kuukauden sisällä',
@@ -1312,7 +1308,7 @@
         footerContact: 'Contact',
         overlayTitle: 'Bevestig uw aanvraag',
         overlaySub: 'Laat ons uw timing weten, zodat we u beter van dienst kunnen zijn.',
-        sectionLabel: '📌 Wanneer ben je van plan om te kopen?', // 新增
+        sectionLabel: '📌 Wanneer ben je van plan om te kopen?',
         opt1: '🔥 Nu kopen',
         opt2: '📅 Binnen 1 week kopen',
         opt3: '📆 Binnen 1 maand kopen',
@@ -1357,7 +1353,7 @@
         footerContact: 'Contatti',
         overlayTitle: 'Conferma la tua richiesta',
         overlaySub: 'Facci sapere i tuoi tempi per poterti servire meglio.',
-        sectionLabel: '📌 Quando pensi di acquistare?', // 新增
+        sectionLabel: '📌 Quando pensi di acquistare?',
         opt1: '🔥 Acquista ora',
         opt2: '📅 Acquista entro 1 settimana',
         opt3: '📆 Acquista entro 1 mese',
@@ -1402,7 +1398,7 @@
         footerContact: 'Contato',
         overlayTitle: 'Confirme sua consulta',
         overlaySub: 'Informe-nos seu prazo para melhor atendê-lo.',
-        sectionLabel: '📌 Quando planeia comprar?', // 新增
+        sectionLabel: '📌 Quando planeia comprar?',
         opt1: '🔥 Comprar agora',
         opt2: '📅 Comprar em 1 semana',
         opt3: '📆 Comprar em 1 mês',
@@ -1447,7 +1443,7 @@
         footerContact: 'Kontakt',
         overlayTitle: 'Bestätigen Sie Ihre Anfrage',
         overlaySub: 'Teilen Sie uns Ihren Zeitrahmen mit, damit wir Sie besser bedienen können.',
-        sectionLabel: '📌 Wann planen Sie zu kaufen?', // 新增
+        sectionLabel: '📌 Wann planen Sie zu kaufen?',
         opt1: '🔥 Jetzt kaufen',
         opt2: '📅 In 1 Woche kaufen',
         opt3: '📆 In 1 Monat kaufen',
@@ -1492,7 +1488,7 @@
         footerContact: 'Contact',
         overlayTitle: 'Confirmez votre demande',
         overlaySub: 'Dites-nous votre calendrier pour mieux vous servir.',
-        sectionLabel: '📌 Quand prévoyez-vous d\'acheter ?', // 新增
+        sectionLabel: '📌 Quand prévoyez-vous d\'acheter ?',
         opt1: '🔥 Acheter maintenant',
         opt2: '📅 Acheter dans 1 semaine',
         opt3: '📆 Acheter dans 1 mois',
@@ -1537,7 +1533,7 @@
         footerContact: 'Contacto',
         overlayTitle: 'Confirma tu consulta',
         overlaySub: 'Cuéntanos tu plazo para poder servirte mejor.',
-        sectionLabel: '📌 ¿Cuándo planeas comprar?', // 新增
+        sectionLabel: '📌 ¿Cuándo planeas comprar?',
         opt1: '🔥 Comprar ahora',
         opt2: '📅 Comprar en 1 semana',
         opt3: '📆 Comprar en 1 mes',
@@ -1582,7 +1578,7 @@
         footerContact: 'Kapcsolat',
         overlayTitle: 'Erősítse meg érdeklődését',
         overlaySub: 'Tudassa velünk az időzítést, hogy jobban segíthessünk.',
-        sectionLabel: '📌 Mikor tervezi a vásárlást?', // 新增
+        sectionLabel: '📌 Mikor tervezi a vásárlást?',
         opt1: '🔥 Most veszek',
         opt2: '📅 1 héten belül veszek',
         opt3: '📆 1 hónapon belül veszek',
@@ -2163,10 +2159,7 @@
       overlay.classList.add('show');
       document.body.style.overflow = 'hidden';
       
-      // 取消所有默认选中
       document.querySelectorAll('input[name="timing"]').forEach(el => el.checked = false);
-      
-      // 按钮默认禁用
       document.getElementById('confirmBtn').disabled = true;
     }
 
@@ -2177,7 +2170,6 @@
       pendingSource = '';
     }
 
-    // 监听选择变化
     document.addEventListener('DOMContentLoaded', function() {
       document.querySelectorAll('input[name="timing"]').forEach(el => {
         el.addEventListener('change', function() {
@@ -2227,7 +2219,6 @@
         setTimeout(() => statusEl.classList.remove('show'), 1500);
       }
 
-      // 同步打开
       window.open(finalUrl, '_blank');
     }
 
@@ -2256,11 +2247,20 @@
       const t = translations[lang] || translations['en'];
       const inquiryLabel = t.inquiryBtnLabel || 'Inquiry';
       const unit = t.unit || 'vials';
+      
+      // 汇率换算逻辑：如果是巴西葡语，乘以 5.85
+      const isBrazil = (lang === 'pt-br');
+      const exchangeRate = 5.85; 
 
       productGroups.forEach((group, index) => {
         const prices = group.variants.map(v => parseFloat(v.price));
         const minPrice = Math.min(...prices);
-        const priceRange = `from €${minPrice}`;
+        
+        // 动态生成价格区间展示
+        let priceRange = `from €${minPrice}`;
+        if (isBrazil) {
+          priceRange = `A partir de R$ ${(minPrice * exchangeRate).toFixed(0)}`;
+        }
 
         const div = document.createElement('div');
         div.className = 'product-group';
@@ -2280,15 +2280,21 @@
             <span class="toggle-icon" id="icon-${index}">▼</span>
           </div>
           <div class="product-group-body" id="body-${index}">
-            ${group.variants.map(v => `
+            ${group.variants.map(v => {
+              // 动态生成单个产品的价格
+              let singlePrice = `€${v.price}`;
+              if (isBrazil) {
+                singlePrice = `R$ ${(parseFloat(v.price) * exchangeRate).toFixed(0)}`;
+              }
+              return `
               <div class="product-item-detail">
                 <span class="spec">${v.dose} × ${v.qty} ${unit}</span>
-                <span class="price">€${v.price}</span>
+                <span class="price">${singlePrice}</span>
                 <button class="btn-inquiry" onclick="openOverlay('${group.sku} ${v.dose}')">
                   <i class="fab fa-whatsapp"></i> ${inquiryLabel}
                 </button>
               </div>
-            `).join('')}
+            `}).join('')}
           </div>
         `;
         container.appendChild(div);
@@ -2328,7 +2334,6 @@
       document.getElementById('overlayTitle').textContent = t.overlayTitle;
       document.getElementById('overlaySub').textContent = t.overlaySub;
       
-      // 修复点：现在这句中文会跟随语言动态改变
       document.getElementById('sectionLabel').textContent = t.sectionLabel; 
       
       document.getElementById('opt1').textContent = t.opt1;
