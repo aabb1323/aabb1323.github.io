@@ -35,10 +35,6 @@
     const phones = [
       '447754979685', 
       '447754979958' 
-      
-   
-    
-     
     ];
     
     const phone = phones[Math.floor(Math.random() * phones.length)];
@@ -81,7 +77,7 @@
   window.WHATSAPP_LINK = getCountrySpecificLink();
   </script>
 
-  <!-- ===== Meta Pixel ===== -->
+  <!-- ===== Meta Pixel (UPDATED ID) ===== -->
   <script>
   !function(f,b,e,v,n,t,s)
   {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -91,12 +87,13 @@
   t.src=v;s=b.getElementsByTagName(e)[0];
   s.parentNode.insertBefore(t,s)}(window, document,'script',
   'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '1724762025032119');
+  fbq('init', '1158518127044354');
   fbq('track', 'PageView');
   </script>
   <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=1724762025032119&ev=PageView&noscript=1"
+  src="https://www.facebook.com/tr?id=1158518127044354&ev=PageView&noscript=1"
   /></noscript>
+  <!-- ===== End Meta Pixel ===== -->
 
   <!-- ===== TikTok Pixel ===== -->
   <script>
@@ -2121,11 +2118,14 @@
         'month': 'Buy within 1 month'
       };
 
-      fbq('track', 'Lead', {
-        content_name: timingMap[timing] || 'Inquiry',
-        content_id: pendingSource || 'website',
-        currency: 'EUR'
-      });
+      // Meta Pixel Lead 事件（已加保护）
+      if (typeof fbq === 'function') {
+        fbq('track', 'Lead', {
+          content_name: timingMap[timing] || 'Inquiry',
+          content_id: pendingSource || 'website',
+          currency: 'EUR'
+        });
+      }
       if (typeof ttq !== 'undefined') {
         ttq.track('Lead', {
           content_name: timingMap[timing] || 'Inquiry',
@@ -2141,7 +2141,8 @@
         setTimeout(() => statusEl.classList.remove('show'), 1500);
       }
 
-      setTimeout(() => window.open(finalUrl, '_blank'), 300);
+      // 先同步打开，避免被拦截
+      window.open(finalUrl, '_blank');
     }
 
     document.getElementById('inquiryOverlay').addEventListener('click', function(e) {
@@ -2250,8 +2251,10 @@
       document.getElementById('cancelBtn').textContent = t.cancelBtn;
       document.getElementById('managerLabel').textContent = t.managerLabel;
       document.getElementById('managerHint').textContent = t.managerHint;
-      document.querySelectorAll('#inquiryBtnLabel').forEach(el => {
-        el.textContent = t.inquiryBtnLabel;
+
+      // 修复：刷新已渲染的询价按钮文案
+      document.querySelectorAll('.btn-inquiry').forEach(el => {
+        el.innerHTML = `<i class="fab fa-whatsapp"></i> ${t.inquiryBtnLabel}`;
       });
     }
 
